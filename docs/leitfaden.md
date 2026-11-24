@@ -54,7 +54,7 @@ Seit Version 0.3 sind weiche Verläufe erlaubt, aber nur für Flächen: `--ok-ve
 
 ## Bewegung
 
-Interaktion wird durch kurze, gleichmäßige Bewegung sichtbar. Werte als CSS-Variablen in `bundle.css`: `--ok-dur` 180 ms für Farbe und kleine Wege, `--ok-dur-slow` 320 ms für Anheben und wachsende Linien, Kurve `--ok-ease` (schnell an, weich aus).
+Interaktion wird durch kurze, gleichmäßige Bewegung sichtbar. Werte als CSS-Variablen in `dist/oknrw.css`: `--ok-dur-base` 180 ms für Farbe und kleine Wege, `--ok-dur-slow` 320 ms für Anheben und wachsende Linien, Kurve `--ok-ease` (schnell an, weich aus).
 
 - Buttons heben sich beim Hover um 2 px, Karten um 4 px; dazu `--ok-shadow-hover`.
 - Pfeile gleiten 3 px in Leserichtung; Linien unter Links und Kartentiteln wachsen von links.
