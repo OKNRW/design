@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Button – OKNRW Designsystem</title>
+<link rel="stylesheet" href="../dist/oknrw.css">
+<style>body{background:var(--ok-bg-base)}</style>
+</head>
+<body>
+<div class="ok-stage ok-stage--col" style="gap:20px">
+ <div><span class="ok-cap">Primär · normal, Hover, Fokus, deaktiviert</span><div class="ok-row">
+  <button class="ok-btn ok-btn--primary" type="button">Jetzt anmelden</button>
+  <button class="ok-btn ok-btn--primary is-hover" type="button">Jetzt anmelden</button>
+  <button class="ok-btn ok-btn--primary is-focus" type="button">Jetzt anmelden</button>
+  <button class="ok-btn ok-btn--primary" type="button" disabled>Jetzt anmelden</button></div></div>
+ <div><span class="ok-cap">Sekundär</span><div class="ok-row">
+  <button class="ok-btn ok-btn--secondary" type="button">Mehr erfahren</button>
+  <button class="ok-btn ok-btn--secondary is-hover" type="button">Mehr erfahren</button>
+  <button class="ok-btn ok-btn--secondary is-focus" type="button">Mehr erfahren</button>
+  <button class="ok-btn ok-btn--secondary" type="button" disabled>Mehr erfahren</button></div></div>
+ <div><span class="ok-cap">Textlink-Button und Icon-Button</span><div class="ok-row">
+  <button class="ok-btn ok-btn--text" type="button">Alle Beiträge</button>
+  <button class="ok-btn ok-btn--text is-hover" type="button">Alle Beiträge</button>
+  <button class="ok-btn ok-btn--icon" type="button" aria-label="Suche öffnen"><svg aria-hidden="true" focusable="false" class="ok-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /> </svg></button>
+  <button class="ok-btn ok-btn--icon is-hover" type="button" aria-label="Menü öffnen"><svg aria-hidden="true" focusable="false" class="ok-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /> <line x1="4" x2="20" y1="18" y2="18" /> </svg></button>
+  <button class="ok-btn ok-btn--primary" type="button">Sessionplan <svg aria-hidden="true" focusable="false" class="ok-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></button></div></div>
+</div>
+<script src="../js/oknrw.js"></script>
+</body>
+</html>

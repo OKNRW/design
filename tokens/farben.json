@@ -1,0 +1,172 @@
+{
+  "gruen": {
+    "400": {
+      "$type": "color",
+      "$value": "#5bbc56",
+      "$description": "Hover-Ton der CTA-Fläche. Heller statt dunkler, damit text-on-action lesbar bleibt (7,3:1)."
+    },
+    "500": {
+      "$type": "color",
+      "$value": "#3aaa35",
+      "$description": "Starkes Grün, Logo-Grün (Satz A). CTA-Fläche. Nicht für Text auf Weiß oder Mint (3,0:1 bzw. 2,5:1)."
+    },
+    "700": {
+      "$type": "color",
+      "$value": "#287a25",
+      "$description": "Textgrün für Links und Erfolgsmeldungen: 5,4:1 auf Weiß, 4,5:1 auf Mint."
+    }
+  },
+  "grau": {
+    "400": {
+      "$type": "color",
+      "$value": "#8ea6b2",
+      "$description": "Markengrau (Satz A). Nur Logo und Grafik, nie für Text (2,6:1 auf Weiß)."
+    },
+    "700": {
+      "$type": "color",
+      "$value": "#4f6672",
+      "$description": "Sekundärtext und Formularrahmen: 6,0:1 auf Weiß, 5,1:1 auf Mint."
+    }
+  },
+  "rot": {
+    "500": {
+      "$type": "color",
+      "$value": "#e30613",
+      "$description": "Logo-Rot (Satz A). Nur im Logo."
+    },
+    "700": {
+      "$type": "color",
+      "$value": "#c20e1a",
+      "$description": "Seltene Hervorhebung und Fehler: 6,2:1 auf Weiß, 5,3:1 auf Mint. Immer mit Symbol oder Text, nie Farbe allein."
+    }
+  },
+  "mint": {
+    "100": {
+      "$type": "color",
+      "$value": "#dff1d9",
+      "$description": "Mint, Grundton für Flächen neben Weiß."
+    },
+    "300": {
+      "$type": "color",
+      "$value": "#bfe0b5",
+      "$description": "Dunkelmint für Trennlinien, Hover- und Trennflächen. Darauf nur text-primary (12,1:1)."
+    }
+  },
+  "neutral": {
+    "0": {
+      "$type": "color",
+      "$value": "#ffffff",
+      "$description": "Weiß."
+    },
+    "900": {
+      "$type": "color",
+      "$value": "#1a1a1a",
+      "$description": "Fast-Schwarz für Text: 17,4:1 auf Weiß, 14,7:1 auf Mint."
+    }
+  },
+  "bg": {
+    "base": {
+      "$type": "color",
+      "$value": "{neutral.0}",
+      "$description": "Seitenhintergrund Weiß."
+    },
+    "mint": {
+      "$type": "color",
+      "$value": "{mint.100}",
+      "$description": "Seitenhintergrund Mint; dominant neben Weiß, im Wechsel für Sektionen."
+    },
+    "subtle": {
+      "$type": "color",
+      "$value": "{mint.300}",
+      "$description": "Hover- und Trennflächen. Nur text-primary darauf."
+    }
+  },
+  "text": {
+    "primary": {
+      "$type": "color",
+      "$value": "{neutral.900}",
+      "$description": "Haupttext auf bg-base, bg-mint, bg-subtle."
+    },
+    "secondary": {
+      "$type": "color",
+      "$value": "{grau.700}",
+      "$description": "Sekundärtext, Metadaten auf bg-base und bg-mint (nicht auf bg-subtle)."
+    },
+    "link": {
+      "$type": "color",
+      "$value": "{gruen.700}",
+      "$description": "Links auf bg-base und bg-mint, immer unterstrichen."
+    },
+    "highlight": {
+      "$type": "color",
+      "$value": "{rot.700}",
+      "$description": "Seltene Hervorhebung auf bg-base und bg-mint."
+    },
+    "error": {
+      "$type": "color",
+      "$value": "{rot.700}",
+      "$description": "Fehlermeldungen, immer mit Symbol und Text."
+    },
+    "success": {
+      "$type": "color",
+      "$value": "{gruen.700}",
+      "$description": "Erfolgsmeldungen, immer mit Symbol und Text."
+    },
+    "on-action": {
+      "$type": "color",
+      "$value": "{neutral.900}",
+      "$description": "Schrift auf action-primary (5,8:1) und action-primary-hover (7,3:1)."
+    },
+    "on-dark": {
+      "$type": "color",
+      "$value": "{neutral.0}",
+      "$description": "Schrift auf neutral-900 oder rot-700 (Badges)."
+    }
+  },
+  "action": {
+    "primary": {
+      "$type": "color",
+      "$value": "{gruen.500}",
+      "$description": "CTA-Fläche. Höchstens eine Primäraktion je Bereich."
+    },
+    "primary-hover": {
+      "$type": "color",
+      "$value": "{gruen.400}",
+      "$description": "CTA-Fläche bei Hover."
+    }
+  },
+  "border": {
+    "subtle": {
+      "$type": "color",
+      "$value": "{mint.300}",
+      "$description": "Dekorative Linien und Kartenränder."
+    },
+    "control": {
+      "$type": "color",
+      "$value": "{grau.700}",
+      "$description": "Rahmen von Formularfeldern (3:1 erforderlich, 5,1:1 auf Mint)."
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "{neutral.900}",
+      "$description": "Fokusrahmen: 2 px, 2 px Abstand."
+    }
+  },
+  "brand": {
+    "gruen": {
+      "$type": "color",
+      "$value": "{gruen.500}",
+      "$description": "Nur Logo und Grafik."
+    },
+    "grau": {
+      "$type": "color",
+      "$value": "{grau.400}",
+      "$description": "Nur Logo und Grafik."
+    },
+    "rot": {
+      "$type": "color",
+      "$value": "{rot.500}",
+      "$description": "Nur Logo."
+    }
+  }
+}

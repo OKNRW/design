@@ -1,0 +1,89 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --ok-gruen-400: #5bbc56; /** Hover-Ton der CTA-Fläche. Heller statt dunkler, damit text-on-action lesbar bleibt (7,3:1). */
+  --ok-gruen-500: #3aaa35; /** Starkes Grün, Logo-Grün (Satz A). CTA-Fläche. Nicht für Text auf Weiß oder Mint (3,0:1 bzw. 2,5:1). */
+  --ok-gruen-700: #287a25; /** Textgrün für Links und Erfolgsmeldungen: 5,4:1 auf Weiß, 4,5:1 auf Mint. */
+  --ok-grau-400: #8ea6b2; /** Markengrau (Satz A). Nur Logo und Grafik, nie für Text (2,6:1 auf Weiß). */
+  --ok-grau-700: #4f6672; /** Sekundärtext und Formularrahmen: 6,0:1 auf Weiß, 5,1:1 auf Mint. */
+  --ok-rot-500: #e30613; /** Logo-Rot (Satz A). Nur im Logo. */
+  --ok-rot-700: #c20e1a; /** Seltene Hervorhebung und Fehler: 6,2:1 auf Weiß, 5,3:1 auf Mint. Immer mit Symbol oder Text, nie Farbe allein. */
+  --ok-mint-100: #dff1d9; /** Mint, Grundton für Flächen neben Weiß. */
+  --ok-mint-300: #bfe0b5; /** Dunkelmint für Trennlinien, Hover- und Trennflächen. Darauf nur text-primary (12,1:1). */
+  --ok-neutral-0: #ffffff; /** Weiß. */
+  --ok-neutral-900: #1a1a1a; /** Fast-Schwarz für Text: 17,4:1 auf Weiß, 14,7:1 auf Mint. */
+  --ok-space-1: 4px; /** Abstand Icon zu Text in engen Elementen. */
+  --ok-space-2: 8px; /** Abstand Icon zu Text, Badge-Innenabstand. */
+  --ok-space-3: 12px; /** Abstand Label zu Feld. */
+  --ok-space-4: 16px; /** Innenabstand kleiner Elemente, Lücken in Reihen. */
+  --ok-space-6: 24px; /** Karteninnenabstand, Rasterlücke. */
+  --ok-space-8: 32px; /** Abstand zwischen Gruppen. */
+  --ok-space-12: 48px; /** Abstand zwischen Abschnitten (mobil). */
+  --ok-space-16: 64px; /** Fußbereich oben. */
+  --ok-space-24: 96px; /** Abstand zwischen Abschnitten (Desktop). */
+  --ok-radius-none: 0px; /** Sektionen über die volle Breite. */
+  --ok-radius-base: 6px; /** Buttons, Felder, Checkboxen, Datumsblock. */
+  --ok-radius-lg: 12px; /** Karten, Meldungen, Teaser, Infokasten, Bildflächen in Sektionen. */
+  --ok-radius-full: 999px; /** Badges (Pillen), Icon-Buttons, Menüpunkte beim Hover. */
+  --ok-breite-inhalt: 1200px; /** Maximale Inhaltsbreite. */
+  --ok-breite-text: 720px; /** Maximale Zeilenlänge für Fließtext. */
+  --ok-ziel-min: 48px; /** Mindestgröße für Klickflächen. */
+  --ok-shadow-hover: 0 14px 32px -14px rgba(40, 122, 37, 0.38), 0 2px 8px rgba(26, 26, 26, 0.06); /** Buttons und Karten beim Hover; grün getönt, weich. (CSS-Schreibweise) */
+  --ok-shadow-menu: 0 18px 40px -18px rgba(26, 26, 26, 0.28); /** Geöffnete Untermenüs und Ausklappflächen. (CSS-Schreibweise) */
+  --ok-shadow-focus: 0 0 0 4px rgba(58, 170, 53, 0.28); /** Weicher Schein zusätzlich zum Fokusrahmen bei Feldern und Auswahl. (CSS-Schreibweise) */
+  --ok-verlauf-hero: linear-gradient(160deg, #dff1d9 0%, #eaf6e5 45%, #ffffff 100%); /** Hintergrund des Hero. (CSS-Schreibweise) */
+  --ok-verlauf-kachel: linear-gradient(145deg, #dff1d9 0%, #f2f9ef 100%); /** Projektkacheln im Ruhezustand. (CSS-Schreibweise) */
+  --ok-verlauf-kachel-hover: linear-gradient(145deg, #bfe0b5 0%, #dff1d9 100%); /** Projektkacheln beim Hover. Nur text-primary darauf. (CSS-Schreibweise) */
+  --ok-dur-base: 180ms; /** Farbwechsel, kleine Wege, Pfeile. */
+  --ok-dur-slow: 320ms; /** Anheben, wachsende Linien, Spotlight. */
+  --ok-ease: cubic-bezier(0.2, 0.7, 0.2, 1); /** Standardkurve: schnell an, weich aus (CSS-Schreibweise). */
+  --ok-font-headline: Poppins, Arial, sans-serif; /** Überschriften, Poppins 600. */
+  --ok-font-body: 'Open Sans', Arial, sans-serif; /** Fließtext, Open Sans 400/700. */
+  --ok-font-size-display: 56px; /** Nur im Hero der Startseite und von Kampagnenseiten; mobil 36 px. */
+  --ok-font-size-h1: 44px; /** Eine je Seite. */
+  --ok-font-size-h2: 35px; /** Überschriften */
+  --ok-font-size-h3: 28px; /** Überschriften */
+  --ok-font-size-h4: 22px; /** Titel in Karten. */
+  --ok-font-size-lead: 22px; /** Text */
+  --ok-font-size-fliesstext: 18px; /** Grundgröße. */
+  --ok-font-size-label: 16px; /** Formularbeschriftungen. */
+  --ok-font-size-klein: 14px; /** Metadaten, Hinweise. Kleinste Größe. */
+  --ok-line-height-display: 1.08;
+  --ok-line-height-h1: 1.12;
+  --ok-line-height-h2: 1.18;
+  --ok-line-height-h3: 1.25;
+  --ok-line-height-h4: 1.3;
+  --ok-line-height-lead: 1.5;
+  --ok-line-height-fliesstext: 1.6;
+  --ok-line-height-label: 1.4;
+  --ok-line-height-klein: 1.5;
+  --ok-tracking-display: -0.025em;
+  --ok-tracking-h1: -0.02em;
+  --ok-tracking-h2: -0.015em;
+  --ok-tracking-h3: -0.01em;
+  --ok-font-weight-regular: 400;
+  --ok-font-weight-medium: 500;
+  --ok-font-weight-semibold: 600;
+  --ok-font-weight-bold: 700;
+  --ok-bg-base: var(--ok-neutral-0); /** Seitenhintergrund Weiß. */
+  --ok-bg-mint: var(--ok-mint-100); /** Seitenhintergrund Mint; dominant neben Weiß, im Wechsel für Sektionen. */
+  --ok-bg-subtle: var(--ok-mint-300); /** Hover- und Trennflächen. Nur text-primary darauf. */
+  --ok-text-primary: var(--ok-neutral-900); /** Haupttext auf bg-base, bg-mint, bg-subtle. */
+  --ok-text-secondary: var(--ok-grau-700); /** Sekundärtext, Metadaten auf bg-base und bg-mint (nicht auf bg-subtle). */
+  --ok-text-link: var(--ok-gruen-700); /** Links auf bg-base und bg-mint, immer unterstrichen. */
+  --ok-text-highlight: var(--ok-rot-700); /** Seltene Hervorhebung auf bg-base und bg-mint. */
+  --ok-text-error: var(--ok-rot-700); /** Fehlermeldungen, immer mit Symbol und Text. */
+  --ok-text-success: var(--ok-gruen-700); /** Erfolgsmeldungen, immer mit Symbol und Text. */
+  --ok-text-on-action: var(--ok-neutral-900); /** Schrift auf action-primary (5,8:1) und action-primary-hover (7,3:1). */
+  --ok-text-on-dark: var(--ok-neutral-0); /** Schrift auf neutral-900 oder rot-700 (Badges). */
+  --ok-action-primary: var(--ok-gruen-500); /** CTA-Fläche. Höchstens eine Primäraktion je Bereich. */
+  --ok-action-primary-hover: var(--ok-gruen-400); /** CTA-Fläche bei Hover. */
+  --ok-border-subtle: var(--ok-mint-300); /** Dekorative Linien und Kartenränder. */
+  --ok-border-control: var(--ok-grau-700); /** Rahmen von Formularfeldern (3:1 erforderlich, 5,1:1 auf Mint). */
+  --ok-border-focus: var(--ok-neutral-900); /** Fokusrahmen: 2 px, 2 px Abstand. */
+  --ok-brand-gruen: var(--ok-gruen-500); /** Nur Logo und Grafik. */
+  --ok-brand-grau: var(--ok-grau-400); /** Nur Logo und Grafik. */
+  --ok-brand-rot: var(--ok-rot-500); /** Nur Logo. */
+}

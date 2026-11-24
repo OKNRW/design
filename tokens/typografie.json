@@ -1,0 +1,143 @@
+{
+  "font": {
+    "headline": {
+      "$type": "fontFamily",
+      "$value": [
+        "Poppins",
+        "Arial",
+        "sans-serif"
+      ],
+      "$description": "Überschriften, Poppins 600."
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": [
+        "Open Sans",
+        "Arial",
+        "sans-serif"
+      ],
+      "$description": "Fließtext, Open Sans 400/700."
+    }
+  },
+  "font-size": {
+    "display": {
+      "$type": "dimension",
+      "$value": "56px",
+      "$description": "Nur im Hero der Startseite und von Kampagnenseiten; mobil 36 px."
+    },
+    "h1": {
+      "$type": "dimension",
+      "$value": "44px",
+      "$description": "Eine je Seite."
+    },
+    "h2": {
+      "$type": "dimension",
+      "$value": "35px",
+      "$description": "Überschriften"
+    },
+    "h3": {
+      "$type": "dimension",
+      "$value": "28px",
+      "$description": "Überschriften"
+    },
+    "h4": {
+      "$type": "dimension",
+      "$value": "22px",
+      "$description": "Titel in Karten."
+    },
+    "lead": {
+      "$type": "dimension",
+      "$value": "22px",
+      "$description": "Text"
+    },
+    "fliesstext": {
+      "$type": "dimension",
+      "$value": "18px",
+      "$description": "Grundgröße."
+    },
+    "label": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Formularbeschriftungen."
+    },
+    "klein": {
+      "$type": "dimension",
+      "$value": "14px",
+      "$description": "Metadaten, Hinweise. Kleinste Größe."
+    }
+  },
+  "line-height": {
+    "display": {
+      "$type": "number",
+      "$value": 1.08
+    },
+    "h1": {
+      "$type": "number",
+      "$value": 1.12
+    },
+    "h2": {
+      "$type": "number",
+      "$value": 1.18
+    },
+    "h3": {
+      "$type": "number",
+      "$value": 1.25
+    },
+    "h4": {
+      "$type": "number",
+      "$value": 1.3
+    },
+    "lead": {
+      "$type": "number",
+      "$value": 1.5
+    },
+    "fliesstext": {
+      "$type": "number",
+      "$value": 1.6
+    },
+    "label": {
+      "$type": "number",
+      "$value": 1.4
+    },
+    "klein": {
+      "$type": "number",
+      "$value": 1.5
+    }
+  },
+  "tracking": {
+    "display": {
+      "$type": "dimension",
+      "$value": "-0.025em"
+    },
+    "h1": {
+      "$type": "dimension",
+      "$value": "-0.02em"
+    },
+    "h2": {
+      "$type": "dimension",
+      "$value": "-0.015em"
+    },
+    "h3": {
+      "$type": "dimension",
+      "$value": "-0.01em"
+    }
+  },
+  "font-weight": {
+    "regular": {
+      "$type": "fontWeight",
+      "$value": 400
+    },
+    "medium": {
+      "$type": "fontWeight",
+      "$value": 500
+    },
+    "semibold": {
+      "$type": "fontWeight",
+      "$value": 600
+    },
+    "bold": {
+      "$type": "fontWeight",
+      "$value": 700
+    }
+  }
+}
