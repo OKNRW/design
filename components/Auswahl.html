@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auswahl – OKNRW Designsystem</title>
+<link rel="stylesheet" href="../dist/oknrw.css">
+<style>body{background:var(--ok-bg-base)}</style>
+</head>
+<body>
+<div class="ok-stage ok-stage--grid">
+ <fieldset class="ok-fieldset"><legend>Themen, die mich interessieren</legend>
+  <label class="ok-choice"><input type="checkbox" checked><span>Open Data</span></label>
+  <label class="ok-choice"><input type="checkbox"><span>Bürgerbeteiligung</span></label>
+  <label class="ok-choice"><input type="checkbox" class="is-focus"><span>Open Source (Fokus)</span></label>
+  <label class="ok-choice"><input type="checkbox" disabled><span>Archiv (deaktiviert)</span></label></fieldset>
+ <fieldset class="ok-fieldset"><legend>Teilnahme</legend>
+  <label class="ok-choice"><input type="radio" name="t" checked><span>Vor Ort in Wuppertal</span></label>
+  <label class="ok-choice"><input type="radio" name="t"><span>Online</span></label>
+  <label class="ok-choice"><input type="radio" name="t" class="is-focus"><span>Noch unklar (Fokus)</span></label></fieldset>
+ <div class="ok-field"><label class="ok-choice"><input type="checkbox" class="is-error" aria-invalid="true" aria-describedby="ds-e"><span>Ich habe die Datenschutzhinweise gelesen.</span></label><span class="ok-msg ok-msg--error" id="ds-e"><svg aria-hidden="true" focusable="false" class="ok-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /> </svg>Bitte bestätigen, um fortzufahren.</span></div>
+</div>
+<script src="../js/oknrw.js"></script>
+</body>
+</html>

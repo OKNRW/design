@@ -1,0 +1,18 @@
+{
+  "name": "oknrw-designsystem",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "Designsystem von Offene Kommunen.NRW Institut e.V.: Tokens, CSS-Komponenten, Richtlinien",
+  "license": "MIT",
+  "scripts": {
+    "build:tokens": "style-dictionary build --config style-dictionary.config.mjs",
+    "build:css": "node scripts/build-css.mjs",
+    "build": "npm run build:tokens && npm run build:css",
+    "check": "node scripts/check-contrast.mjs",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "style-dictionary": "4.4.0"
+  }
+}

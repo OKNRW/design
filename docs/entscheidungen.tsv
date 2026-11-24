@@ -1,0 +1,40 @@
+Nr	Bereich	Frage	Entscheidung	Datum
+V1	Vorgabe	Hintergründe	Mint und Weiß dominant	2026-11-24
+V2	Vorgabe	Call to Action	Starkes Grün	2026-11-24
+V3	Vorgabe	Rot	Selten, als besondere Hervorhebung	2026-11-24
+1	Logo	Leitlogo	Redesign (schwere Wortmarke)	2026-11-24
+2	Logo	Quadratmarke	An Redesign angleichen	2026-11-24
+3	Logo	Claim	Behalten, zusätzlich Variante ohne Claim	2026-11-24
+4	Logo	Logo auf Mint	Zulässig, mit Mint-Variante (dunkleres R)	2026-11-24
+5	Logo	Vektorformate	SVG und PNG	2026-11-24
+6	Farbe	Farbsatz	Satz A: #3AAA35 / #8EA6B2 / #E30613	2026-11-24
+7	Farbe	CTA-Button	Starkes Grün mit dunkler Schrift	2026-11-24
+8	Farbe	Rot-Ton	#C20E1A für Text und Hervorhebung, #E30613 nur im Logo	2026-11-24
+9	Farbe	Rot als Fehlerfarbe	Ja, immer mit Symbol und Text	2026-11-24
+10	Farbe	Sekundärtext	Dunkelgrau #4F6672	2026-11-24
+11	Farbe	Mint-Stufen	Mint plus Dunkelmint	2026-11-24
+12	Farbe	Textfarbe	Fast-Schwarz #1A1A1A	2026-11-24
+13	Farbe	Website-Blau und Links	Blau entfernen, Links Dunkelgrün unterstrichen	2026-11-24
+14	Farbe	Dunkelmodus	Vorerst nicht	2026-11-24
+15	Typografie	Schriftpaar	Poppins (Überschriften) und Open Sans (Fließtext)	2026-11-24
+16	Typografie	Einbindung	Selbst hosten	2026-11-24
+17	Typografie	Grundgröße und Skala	18 px, Verhältnis 1,25	2026-11-24
+18	Form	Ecken	Gestaffelt: 6 px Buttons/Felder, 12 px Karten/Flächen, Pillen für Badges (v0.2, vorher 4 px)	2026-11-24
+19	Form	Icons	Lucide oder Tabler (MIT)	2026-11-24
+20	Form	Bildsprache	Kontrastreiche Illustration, Fotos dokumentarisch	2026-11-24
+21	Form	Unterprojekte	Dachmarke mit gekennzeichneten Unterprojekten, Jahresmotive als eigene Ebene	2026-11-24
+22	Technik	Designwerkzeug	Penpot	2026-11-24
+23	Technik	Token-Format	DTCG-JSON, CSS per Style Dictionary	2026-11-24
+24	Technik	WordPress	Child-Theme jetzt, Block-Theme später	2026-11-24
+25	Technik	Ablage	Öffentliches Git-Repository	2026-11-24
+26	Technik	Lizenz	CC BY 4.0 (Leitfaden), MIT (Code), Logo und Name ausgenommen	2026-11-24
+27	Technik	Dokumentation	Styleguide-Webseite	2026-11-24
+28	Umfang	Barrierefreiheit	WCAG 2.2 AA	2026-11-24
+29	Umfang	Erste Anwendung	Website oknrw.de	2026-11-24
+18a	Form	Schatten	Nur bei Hover und geöffneten Menüs	2026-11-24
+18b	Form	Mikro-Interaktionen	Anheben, wachsende Linien, gleitende Pfeile, Bildzoom; reduziert bei prefers-reduced-motion	2026-11-24
+18c	Form	Kopfbereich	Fixiert, leicht durchscheinend	2026-11-24
+17a	Typografie	Display-Stil und Laufweite	56 px im Hero; Überschriften −0,01 bis −0,025 em	2026-11-24
+18d	Form	Verläufe	Weiche Verläufe für Hero und Projektkacheln; Text darauf nur text-primary (v0.3)	2026-11-24
+18e	Form	Bewegung v0.3	Scroll-Einblendung (CSS), Spotlight, Magnet-Button, Laufband mit Stopp-Button, Hero-Muster	2026-11-24
+30	Technik	Übergabe	GitHub-Repository mit CLAUDE.md für die Weiterarbeit mit Claude Code	2026-11-24

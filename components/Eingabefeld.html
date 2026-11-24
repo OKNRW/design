@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eingabefeld – OKNRW Designsystem</title>
+<link rel="stylesheet" href="../dist/oknrw.css">
+<style>body{background:var(--ok-bg-base)}</style>
+</head>
+<body>
+<div class="ok-stage ok-stage--grid">
+ <div class="ok-field"><label class="ok-label" for="a">E-Mail-Adresse</label><input class="ok-input" id="a" type="email" placeholder="name@beispiel.de"><span class="ok-hint">Normal</span></div>
+ <div class="ok-field"><label class="ok-label" for="b">E-Mail-Adresse</label><input class="ok-input is-focus" id="b" type="email" value="dami"><span class="ok-hint">Fokus</span></div>
+ <div class="ok-field"><label class="ok-label" for="c">E-Mail-Adresse</label><input class="ok-input" id="c" type="email" value="name@beispiel" aria-invalid="true" aria-describedby="c-e"><span class="ok-msg ok-msg--error" id="c-e"><svg aria-hidden="true" focusable="false" class="ok-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /> <path d="M12 9v4" /> <path d="M12 17h.01" /> </svg>Bitte eine vollständige E-Mail-Adresse eingeben.</span></div>
+ <div class="ok-field"><label class="ok-label" for="d">E-Mail-Adresse</label><input class="ok-input" id="d" type="email" value="name@beispiel.de"><span class="ok-msg ok-msg--success"><svg aria-hidden="true" focusable="false" class="ok-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="m9 12 2 2 4-4" /> </svg>Adresse gespeichert.</span></div>
+ <div class="ok-field"><label class="ok-label" for="e">Organisation <span style="font-weight:400">(optional)</span></label><input class="ok-input" id="e" type="text"><span class="ok-hint">Erscheint auf dem Namensschild.</span></div>
+ <div class="ok-field"><label class="ok-label" for="f">Mitgliedsnummer</label><input class="ok-input" id="f" type="text" value="wird vergeben" disabled><span class="ok-hint">Deaktiviert</span></div>
+</div>
+<script src="../js/oknrw.js"></script>
+</body>
+</html>

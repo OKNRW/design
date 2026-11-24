@@ -1,0 +1,132 @@
+{
+  "space": {
+    "1": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$description": "Abstand Icon zu Text in engen Elementen."
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Abstand Icon zu Text, Badge-Innenabstand."
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "12px",
+      "$description": "Abstand Label zu Feld."
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Innenabstand kleiner Elemente, Lücken in Reihen."
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$description": "Karteninnenabstand, Rasterlücke."
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "32px",
+      "$description": "Abstand zwischen Gruppen."
+    },
+    "12": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$description": "Abstand zwischen Abschnitten (mobil)."
+    },
+    "16": {
+      "$type": "dimension",
+      "$value": "64px",
+      "$description": "Fußbereich oben."
+    },
+    "24": {
+      "$type": "dimension",
+      "$value": "96px",
+      "$description": "Abstand zwischen Abschnitten (Desktop)."
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "0px",
+      "$description": "Sektionen über die volle Breite."
+    },
+    "base": {
+      "$type": "dimension",
+      "$value": "6px",
+      "$description": "Buttons, Felder, Checkboxen, Datumsblock."
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "12px",
+      "$description": "Karten, Meldungen, Teaser, Infokasten, Bildflächen in Sektionen."
+    },
+    "full": {
+      "$type": "dimension",
+      "$value": "999px",
+      "$description": "Badges (Pillen), Icon-Buttons, Menüpunkte beim Hover."
+    }
+  },
+  "breite": {
+    "inhalt": {
+      "$type": "dimension",
+      "$value": "1200px",
+      "$description": "Maximale Inhaltsbreite."
+    },
+    "text": {
+      "$type": "dimension",
+      "$value": "720px",
+      "$description": "Maximale Zeilenlänge für Fließtext."
+    }
+  },
+  "ziel": {
+    "min": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$description": "Mindestgröße für Klickflächen."
+    }
+  },
+  "shadow": {
+    "hover": {
+      "$value": "0 14px 32px -14px rgba(40, 122, 37, 0.38), 0 2px 8px rgba(26, 26, 26, 0.06)",
+      "$description": "Buttons und Karten beim Hover; grün getönt, weich. (CSS-Schreibweise)"
+    },
+    "menu": {
+      "$value": "0 18px 40px -18px rgba(26, 26, 26, 0.28)",
+      "$description": "Geöffnete Untermenüs und Ausklappflächen. (CSS-Schreibweise)"
+    },
+    "focus": {
+      "$value": "0 0 0 4px rgba(58, 170, 53, 0.28)",
+      "$description": "Weicher Schein zusätzlich zum Fokusrahmen bei Feldern und Auswahl. (CSS-Schreibweise)"
+    }
+  },
+  "verlauf": {
+    "hero": {
+      "$value": "linear-gradient(160deg, #dff1d9 0%, #eaf6e5 45%, #ffffff 100%)",
+      "$description": "Hintergrund des Hero. (CSS-Schreibweise)"
+    },
+    "kachel": {
+      "$value": "linear-gradient(145deg, #dff1d9 0%, #f2f9ef 100%)",
+      "$description": "Projektkacheln im Ruhezustand. (CSS-Schreibweise)"
+    },
+    "kachel-hover": {
+      "$value": "linear-gradient(145deg, #bfe0b5 0%, #dff1d9 100%)",
+      "$description": "Projektkacheln beim Hover. Nur text-primary darauf. (CSS-Schreibweise)"
+    }
+  },
+  "dur-base": {
+    "$type": "duration",
+    "$value": "180ms",
+    "$description": "Farbwechsel, kleine Wege, Pfeile."
+  },
+  "dur-slow": {
+    "$type": "duration",
+    "$value": "320ms",
+    "$description": "Anheben, wachsende Linien, Spotlight."
+  },
+  "ease": {
+    "$value": "cubic-bezier(0.2, 0.7, 0.2, 1)",
+    "$description": "Standardkurve: schnell an, weich aus (CSS-Schreibweise)."
+  }
+}
