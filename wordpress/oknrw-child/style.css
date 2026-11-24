@@ -1,0 +1,16 @@
+/*
+Theme Name: OKNRW (Betheme Child)
+Template: betheme
+Description: Child-Theme für Betheme. Lädt das OKNRW Designsystem und ersetzt die Betheme-Farben durch die Tokens.
+Author: Offene Kommunen.NRW Institut e.V.
+Version: 0.0.0
+Requires at least: 6.3
+Text Domain: oknrw-child
+License: MIT
+*/
+
+/*
+ * Diese Datei enthält nur den Theme-Kopf, den WordPress braucht.
+ * Die Versionsnummer setzt scripts/build-theme.mjs aus package.json.
+ * Gestaltung: assets/css/oknrw.css (erzeugt) und css/oknrw-betheme.css (Brücke zu Betheme).
+ */

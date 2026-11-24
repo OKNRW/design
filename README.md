@@ -10,6 +10,7 @@ Enthalten sind Design-Tokens im W3C-Format (DTCG), daraus erzeugte CSS-Variablen
 npm install        # installiert Style Dictionary und baut dist/
 npm run build      # Tokens -> dist/oknrw-tokens.css, dann dist/oknrw.css
 npm run check      # Kontrastprüfung -> docs/kontrastprotokoll.tsv
+npm run theme      # WordPress-Child-Theme -> build/oknrw-child-<version>.zip
 ```
 
 Danach `examples/startseite.html` oder eine Datei unter `components/` im Browser öffnen. Die erzeugten Dateien in `dist/` liegen im Repository, damit die Vorschauen auch ohne Build funktionieren.
@@ -36,7 +37,8 @@ examples/               startseite.html (vollständige Beispielseite)
 docs/                   leitfaden.md, entscheidungen.tsv, kontrastprotokoll.tsv, offene-punkte.md
 assets/                 logos/, icons/ (Lucide)
 fonts/                  Poppins, Open Sans (woff2, Latin)
-scripts/                build-css.mjs, check-contrast.mjs
+scripts/                build-css.mjs, check-contrast.mjs, build-theme.mjs
+wordpress/oknrw-child/  Child-Theme für Betheme (siehe dortige README.md)
 CLAUDE.md               Arbeitsregeln für Claude Code
 ```
 

@@ -1,0 +1,37 @@
+/*
+ * Brücke zwischen Betheme und dem OKNRW Designsystem.
+ * Nur var(--ok-…), keine festen Farbwerte. Geladen nach assets/css/oknrw.css.
+ *
+ * Teil 1 setzt allgemeine Grundwerte über Element-Selektoren.
+ * Teil 2 ist für Betheme-eigene Selektoren vorgesehen. Er bleibt leer, bis die
+ * Ausgabe von oknrw.de geprüft ist; Selektoren werden nicht geraten.
+ */
+
+/* ---- Teil 1: Grundwerte ---- */
+
+body {
+  font-family: var(--ok-font-body);
+  color: var(--ok-text-primary);
+  background-color: var(--ok-bg-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ok-font-headline);
+  color: var(--ok-text-primary);
+}
+
+/* Links Dunkelgrün und unterstrichen statt Betheme-Blau (Entscheidung 13). */
+a {
+  color: var(--ok-text-link);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Fokus immer sichtbar: 2 px mit 2 px Abstand. */
+:focus-visible {
+  outline: 2px solid var(--ok-border-focus);
+  outline-offset: 2px;
+}
+
+/* ---- Teil 2: Betheme-Selektoren ---- */
+/* [Selektoren nach Prüfung der Seitenausgabe eintragen: Hauptmenü, Buttons, Akzentflächen, Fußbereich] */

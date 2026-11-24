@@ -38,3 +38,5 @@ V3	Vorgabe	Rot	Selten, als besondere Hervorhebung	2026-11-24
 18d	Form	Verläufe	Weiche Verläufe für Hero und Projektkacheln; Text darauf nur text-primary (v0.3)	2026-11-24
 18e	Form	Bewegung v0.3	Scroll-Einblendung (CSS), Spotlight, Magnet-Button, Laufband mit Stopp-Button, Hero-Muster	2026-11-24
 30	Technik	Übergabe	GitHub-Repository mit CLAUDE.md für die Weiterarbeit mit Claude Code	2026-11-24
+31	Technik	Ablage des Child-Themes	Im Designsystem-Repository unter wordpress/oknrw-child/; Build kopiert dist/, js/, fonts/ hinein	2026-11-24
+32	Technik	Betheme-Farben ersetzen	Theme-Optionen auf Token-Werte setzen und Brücken-Datei oknrw-betheme.css mit var(--ok-…)	2026-11-24
