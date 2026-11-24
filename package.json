@@ -10,7 +10,8 @@
     "build:css": "node scripts/build-css.mjs",
     "build": "npm run build:tokens && npm run build:css",
     "check": "node scripts/check-contrast.mjs",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "theme": "node scripts/build-theme.mjs"
   },
   "devDependencies": {
     "style-dictionary": "5.8.0"
