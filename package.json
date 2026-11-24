@@ -13,6 +13,6 @@
     "prepare": "npm run build"
   },
   "devDependencies": {
-    "style-dictionary": "4.4.0"
+    "style-dictionary": "5.8.0"
   }
 }
