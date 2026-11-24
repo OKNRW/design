@@ -37,8 +37,8 @@
   --ok-verlauf-hero: linear-gradient(160deg, #dff1d9 0%, #eaf6e5 45%, #ffffff 100%); /** Hintergrund des Hero. (CSS-Schreibweise) */
   --ok-verlauf-kachel: linear-gradient(145deg, #dff1d9 0%, #f2f9ef 100%); /** Projektkacheln im Ruhezustand. (CSS-Schreibweise) */
   --ok-verlauf-kachel-hover: linear-gradient(145deg, #bfe0b5 0%, #dff1d9 100%); /** Projektkacheln beim Hover. Nur text-primary darauf. (CSS-Schreibweise) */
-  --ok-dur-base: 180ms; /** Farbwechsel, kleine Wege, Pfeile. */
-  --ok-dur-slow: 320ms; /** Anheben, wachsende Linien, Spotlight. */
+  --ok-dur-base: 0.18s; /** Farbwechsel, kleine Wege, Pfeile. */
+  --ok-dur-slow: 0.32s; /** Anheben, wachsende Linien, Spotlight. */
   --ok-ease: cubic-bezier(0.2, 0.7, 0.2, 1); /** Standardkurve: schnell an, weich aus (CSS-Schreibweise). */
   --ok-font-headline: Poppins, Arial, sans-serif; /** Überschriften, Poppins 600. */
   --ok-font-body: 'Open Sans', Arial, sans-serif; /** Fließtext, Open Sans 400/700. */
