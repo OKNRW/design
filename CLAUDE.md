@@ -64,7 +64,7 @@ Dieses Repository ist das Designsystem von Offene Kommunen.NRW Institut e.V. (OK
 
 ## Nächste Aufgaben
 
-Siehe `docs/offene-punkte.md`. Naheliegend: WordPress-Child-Theme für Betheme, das `dist/oknrw.css` und `js/oknrw.js` einbindet und die Theme-Farben (u. a. das Blau #0089F7) überschreibt.
+Siehe `docs/offene-punkte.md`. Naheliegend: WordPress-Child-Theme in `wordpress/oknrw-child/` auf oknrw.de einsetzen. Es lädt `dist/oknrw.css` und `js/oknrw.js` und überschreibt die Theme-Farben von Betheme, vor allem die Theme-Farbe Grün #00ad2c; das Betheme-Blau #0089F7 kommt dort nur noch vereinzelt vor. Ablauf der Umstellung: `wordpress/oknrw-child/README.md`.
 
 ## Bezug zum Designsystem-Artefakt
 
