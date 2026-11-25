@@ -13,6 +13,8 @@ npm run check      # Kontrastprüfung -> docs/kontrastprotokoll.tsv
 npm run theme      # WordPress-Child-Theme -> build/oknrw-child-<version>.zip
 ```
 
+Ohne Konsole: Unter [Releases](https://github.com/OKNRW/design/releases) liegt zu jeder Version das WordPress-Child-Theme als ZIP-Datei. Ein Release entsteht automatisch, wenn auf `main` die Version in `package.json` erhöht wird, oder von Hand unter Actions → Release → Run workflow (`.github/workflows/release.yml`).
+
 Danach `examples/startseite.html` oder eine Datei unter `components/` im Browser öffnen. Die erzeugten Dateien in `dist/` liegen im Repository, damit die Vorschauen auch ohne Build funktionieren.
 
 ## Einbinden

@@ -4,6 +4,10 @@ Child-Theme für Betheme, das das OKNRW Designsystem lädt und die Betheme-Farbe
 
 ## Bauen und installieren
 
+Ohne Konsole: Die fertige ZIP-Datei liegt bei jedem Release unter https://github.com/OKNRW/design/releases (Datei `oknrw-child-<version>.zip`).
+
+Mit Konsole:
+
 ```bash
 npm run build      # Tokens und CSS
 npm run theme      # build/oknrw-child/ und build/oknrw-child-<version>.zip
@@ -18,8 +22,21 @@ style.css               Theme-Kopf; Version wird beim Build gesetzt
 functions.php           lädt nach Betheme: assets/css/oknrw.css, css/oknrw-betheme.css,
                         assets/js/oknrw.js (Footer, defer); entfernt Betheme-Schriften und Google Fonts
 css/oknrw-betheme.css   Brücke: Betheme-Ausgabe auf var(--ok-…) umstellen
+inc/update.php          Aktualisierung aus GitHub-Releases
 assets/                 beim Build erzeugt aus dist/, js/, fonts/ – nicht im Repository
 ```
+
+## Aktualisierungen
+
+Bei jeder Aktualisierungsprüfung von WordPress (von sich aus etwa alle zwölf Stunden) liest das Theme das neueste Release unter https://github.com/OKNRW/design/releases (Entscheidung 38); die Antwort von GitHub wird bis zu sechs Stunden zwischengespeichert. Ist die Version des Releases höher als die installierte, erscheint die Aktualisierung unter Dashboard → Aktualisierungen und unter Design → Themes. Dort lässt sie sich mit einem Klick installieren oder als automatische Aktualisierung einschalten. „Erneut prüfen“ unter Dashboard → Aktualisierungen fragt GitHub sofort neu ab.
+
+Eine neue Version entsteht so:
+
+1. Version in `package.json` erhöhen, etwa von 0.3.0 auf 0.3.1, und auf `main` zusammenführen.
+2. GitHub Actions baut das Theme und legt das Release `v0.3.1` mit `oknrw-child-0.3.1.zip` an.
+3. WordPress zeigt die Aktualisierung bei der nächsten Prüfung an, sofort nach „Erneut prüfen“.
+
+Voraussetzung: Das Theme ist aktiv und liegt im Ordner `oknrw-child` (so wie in der ZIP-Datei). Theme-Optionen und Inhalte bleiben bei der Aktualisierung erhalten; ersetzt werden nur die Dateien des Child-Themes.
 
 ## Umstellung auf oknrw.de
 

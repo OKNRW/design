@@ -11,6 +11,9 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
+// Aktualisierung aus GitHub-Releases.
+require_once __DIR__ . '/inc/update.php';
+
 /**
  * Designsystem nach Betheme laden, damit die Brücken-Datei bei gleicher Spezifität gewinnt.
  * Betheme-Handles (be.min.css, static.css) werden nur als Abhängigkeit gesetzt, wenn sie
