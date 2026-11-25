@@ -4,6 +4,10 @@ Child-Theme für Betheme, das das OKNRW Designsystem lädt und die Betheme-Farbe
 
 ## Bauen und installieren
 
+Ohne Konsole: Die fertige ZIP-Datei liegt bei jedem Release unter https://github.com/OKNRW/design/releases (Datei `oknrw-child-<version>.zip`).
+
+Mit Konsole:
+
 ```bash
 npm run build      # Tokens und CSS
 npm run theme      # build/oknrw-child/ und build/oknrw-child-<version>.zip

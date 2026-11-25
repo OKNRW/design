@@ -1,0 +1,64 @@
+# Erstellt ein GitHub-Release mit dem WordPress-Child-Theme als ZIP-Datei.
+# Auslöser: neue Version in package.json auf main, oder von Hand unter Actions → Release → Run workflow.
+# Gibt es das Release zur Version schon, wird nichts überschrieben.
+name: Release
+
+on:
+  push:
+    branches: [main]
+    paths: [package.json]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Version lesen
+        id: version
+        run: echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Prüfen, ob das Release schon existiert
+        id: exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "v${{ steps.version.outputs.version }}" > /dev/null 2>&1; then
+            echo "Release v${{ steps.version.outputs.version }} existiert bereits; nichts zu tun."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Bauen und prüfen
+        if: steps.exists.outputs.skip == 'false'
+        run: |
+          npm ci
+          npm run build
+          npm run check
+          npm run theme
+
+      - name: Erzeugte Dateien mit dem Repository vergleichen
+        if: steps.exists.outputs.skip == 'false'
+        run: git diff --exit-code -- dist docs/kontrastprotokoll.tsv
+
+      - name: Release erstellen
+        if: steps.exists.outputs.skip == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          gh release create "v$VERSION" "build/oknrw-child-$VERSION.zip" \
+            --target "$GITHUB_SHA" \
+            --title "OKNRW Designsystem $VERSION" \
+            --notes "WordPress-Child-Theme für Betheme: \`oknrw-child-$VERSION.zip\` herunterladen und unter Design → Themes → Theme hinzufügen → Theme hochladen installieren. Ablauf der Umstellung: wordpress/oknrw-child/README.md." \
+            --generate-notes
