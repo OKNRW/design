@@ -45,3 +45,4 @@ V3	Vorgabe	Rot	Selten, als besondere Hervorhebung	2026-11-24
 35	Typografie	Schriften in Betheme	Betheme-Schriften abschalten; Schriften nur aus dem Designsystem	2026-11-25
 36	Farbe	Theme-Farbe in Betheme	#00ad2c durch action-primary #3aaa35 ersetzen; Buttons mit dunkler Schrift	2026-11-25
 37	Technik	Releases	GitHub Actions baut das Child-Theme und erstellt ein Release je Version aus package.json (automatisch bei neuer Version auf main oder von Hand)	2026-11-25
+38	Technik	Aktualisierung des Child-Themes	Eigener Update-Prüfer im Theme (inc/update.php) liest das neueste GitHub-Release; kein zusätzliches Plugin	2026-11-25
