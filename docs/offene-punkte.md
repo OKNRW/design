@@ -6,6 +6,6 @@
 - [ ] Abstandsstufen (`--ok-space-*`) bestätigen; bisher Vorschlag.
 - [ ] Lizenzhinweis im Fußbereich und Datenschutztext beim Newsletter durch den Vorstand bestätigen lassen.
 - [ ] Platzhalter ersetzen: Illustrationen, Beitragsdaten, nächster Termin, Partnerlogos (nur mit Zustimmung der Partner).
-- [ ] WordPress-Child-Theme für Betheme fertigstellen (Entscheidungen 24, 31, 32). Gerüst liegt in `wordpress/oknrw-child/`; offen sind die Betheme-Selektoren in `css/oknrw-betheme.css` und die Namen der Theme-Optionen.
+- [ ] WordPress-Child-Theme auf oknrw.de einsetzen (Entscheidungen 24, 31–36): Umstellung nach `wordpress/oknrw-child/README.md`, Namen der Theme-Optionen eintragen, Buttons, Formulare und Untermenüs auf der Live-Seite prüfen.
 - [ ] Freies Symbol für Mastodon festlegen (Lucide enthält keines).
 - [ ] Tokens in Penpot übernehmen (Entscheidung 22).

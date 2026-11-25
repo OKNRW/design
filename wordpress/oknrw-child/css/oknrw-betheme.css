@@ -1,10 +1,12 @@
 /*
  * Brücke zwischen Betheme und dem OKNRW Designsystem.
- * Nur var(--ok-…), keine festen Farbwerte. Geladen nach assets/css/oknrw.css.
+ * Nur var(--ok-…), keine festen Farbwerte. Geladen nach Betheme und assets/css/oknrw.css.
  *
  * Teil 1 setzt allgemeine Grundwerte über Element-Selektoren.
- * Teil 2 ist für Betheme-eigene Selektoren vorgesehen. Er bleibt leer, bis die
- * Ausgabe von oknrw.de geprüft ist; Selektoren werden nicht geraten.
+ * Teil 2 stellt Betheme 29.0.6.1 auf die Tokens um. Selektoren geprüft an der Ausgabe
+ * von oknrw.de (static.css und be.min.css, Stand 2026-11-25). Abschnitt 2.8 übernimmt
+ * die Farbangaben aus dem bisherigen „custom CSS“ der Theme-Optionen (Entscheidung 33);
+ * die Layout-Regeln bleiben dort, siehe wordpress/migration/.
  */
 
 /* ---- Teil 1: Grundwerte ---- */
@@ -15,16 +17,20 @@ body {
   background-color: var(--ok-bg-base);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-family: var(--ok-font-headline);
   color: var(--ok-text-primary);
 }
 
-/* Links Dunkelgrün und unterstrichen statt Betheme-Blau (Entscheidung 13). */
+/* Links Dunkelgrün und unterstrichen statt Betheme-Grün (Entscheidung 13). */
 a {
   color: var(--ok-text-link);
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+a:hover {
+  color: var(--ok-text-primary);
 }
 
 /* Fokus immer sichtbar: 2 px mit 2 px Abstand. */
@@ -33,5 +39,319 @@ a {
   outline-offset: 2px;
 }
 
-/* ---- Teil 2: Betheme-Selektoren ---- */
-/* [Selektoren nach Prüfung der Seitenausgabe eintragen: Hauptmenü, Buttons, Akzentflächen, Fußbereich] */
+/* ---- Teil 2: Betheme ---- */
+
+/* 2.1 Betheme-Variablen. Buttons: starkes Grün mit dunkler Schrift (Entscheidung 7), Ruhezustand flach. */
+body {
+  --mfn-button-bg: var(--ok-action-primary);
+  --mfn-button-bg-hover: var(--ok-action-primary-hover);
+  --mfn-button-color: var(--ok-text-on-action);
+  --mfn-button-color-hover: var(--ok-text-on-action);
+  --mfn-button-icon-color: var(--ok-text-on-action);
+  --mfn-button-icon-color-hover: var(--ok-text-on-action);
+  --mfn-button-theme-bg: var(--ok-action-primary);
+  --mfn-button-theme-bg-hover: var(--ok-action-primary-hover);
+  --mfn-button-theme-color: var(--ok-text-on-action);
+  --mfn-button-theme-color-hover: var(--ok-text-on-action);
+  --mfn-button-theme-icon-color: var(--ok-text-on-action);
+  --mfn-button-theme-icon-color-hover: var(--ok-text-on-action);
+  --mfn-button-box-shadow: none;
+  --mfn-icon-box-icon: var(--ok-text-primary);
+  --mfn-section-tabber-nav-active-color: var(--ok-text-primary);
+}
+
+/* Betheme-Cookie-Hinweis: letztes Vorkommen des Betheme-Blaus #0089F7. */
+.mfn-cookies,
+.mfn-cookies-reopen {
+  --mfn-gdpr2-tabs-text-color-active: var(--ok-text-link);
+}
+
+/* 2.2 Flächen: Weiß als Grundfläche, Mint für Sektionen und Fußbereich (Entscheidung 34).
+   #Subheader liegt in #Header_wrapper unter der Kopf-Karte und bleibt deshalb weiß. */
+html,
+#Wrapper,
+#Content,
+#Header_wrapper,
+#Subheader {
+  background-color: var(--ok-bg-base);
+}
+
+/* Kopf-Karte auf Weiß: feiner Rahmen wie in der Komponente Kopfbereich.
+   Die abgerundete Karte ist am Desktop .top_bar_left, mobil #Top_bar. */
+#Header .top_bar_left {
+  border: 1px solid var(--ok-border-subtle);
+}
+@media only screen and (max-width: 768px) {
+  #Header .top_bar_left {
+    border: 0;
+  }
+  #Top_bar {
+    border: 1px solid var(--ok-border-subtle);
+  }
+}
+#Subheader .title {
+  color: var(--ok-text-primary);
+}
+#Subheader ul.breadcrumbs li,
+#Subheader ul.breadcrumbs li a {
+  color: var(--ok-text-secondary);
+}
+
+/* 2.3 Hauptmenü. Aktiver Punkt dunkel, Linie in Markengrün (Grün ist keine Textfarbe). */
+#Top_bar .menu > li > a,
+#Top_bar #menu ul li.submenu .menu-toggle {
+  color: var(--ok-text-primary);
+}
+#Top_bar .menu > li.current-menu-item > a,
+#Top_bar .menu > li.current_page_item > a,
+#Top_bar .menu > li.current-menu-parent > a,
+#Top_bar .menu > li.current-page-parent > a,
+#Top_bar .menu > li.current-menu-ancestor > a,
+#Top_bar .menu > li.current_page_ancestor > a,
+#Top_bar .menu > li.hover > a {
+  color: var(--ok-text-primary);
+}
+#Top_bar .menu > li a:not(.menu-toggle):after {
+  background: var(--ok-brand-gruen);
+}
+
+/* Menüpunkte und Buttons ohne Unterstreichung (wie .ok-nav und .ok-btn). */
+#Top_bar .menu a,
+#Side_slide a,
+a.button,
+a.button_theme,
+.responsive-menu-toggle {
+  text-decoration: none;
+}
+
+/* Untermenü: weiße Fläche mit Menüschatten, Hover in Dunkelmint. */
+#Top_bar .menu > li ul {
+  background-color: var(--ok-bg-base);
+  box-shadow: var(--ok-shadow-menu);
+}
+#Top_bar .menu > li ul li a {
+  color: var(--ok-text-primary);
+}
+#Top_bar .menu > li ul li a:hover,
+#Top_bar .menu > li ul li.hover > a {
+  color: var(--ok-text-primary);
+  background: var(--ok-bg-subtle);
+}
+
+.sticky-white #Top_bar.is-sticky,
+.sticky-white #Top_bar.is-sticky #menu {
+  background: var(--ok-bg-base);
+}
+
+/* Mobiles Menü */
+#Top_bar .responsive-menu-toggle {
+  background: var(--ok-action-primary);
+  color: var(--ok-text-on-action);
+}
+#Side_slide,
+#Side_slide a:not(.button),
+#Side_slide #menu ul li.submenu .menu-toggle {
+  color: var(--ok-text-primary);
+}
+
+@media only screen and (max-width: 768px) {
+  body:not(.template-slider) #Header_wrapper {
+    background: var(--ok-bg-base) !important;
+  }
+  #Top_bar #menu {
+    background: var(--ok-bg-base) !important;
+  }
+  #Top_bar #menu > ul > li {
+    border-bottom: 1px solid var(--ok-border-subtle);
+  }
+  #Top_bar #menu ul li ul {
+    background: var(--ok-bg-mint) !important;
+  }
+}
+
+/* 2.4 Fußbereich: Mint mit dunklen Links (bisher #d1d1d1 auf Weiß, 1,5:1). */
+#Footer {
+  color: var(--ok-text-primary);
+  background-color: var(--ok-bg-mint);
+  border-top: 1px solid var(--ok-border-subtle);
+}
+.mfn-footer h1, .mfn-footer h2, .mfn-footer h3,
+.mfn-footer h4, .mfn-footer h5, .mfn-footer h6,
+.mfn-footer h1 a, .mfn-footer h2 a, .mfn-footer h3 a,
+.mfn-footer h4 a, .mfn-footer h5 a, .mfn-footer h6 a {
+  color: var(--ok-text-primary);
+}
+.mfn-footer a:not(.button, .icon_bar, .mfn-btn, .mfn-option-btn) {
+  color: var(--ok-text-primary);
+  text-decoration-color: var(--ok-border-control);
+}
+.mfn-footer a:not(.button, .icon_bar, .mfn-btn, .mfn-option-btn):hover {
+  color: var(--ok-text-link);
+}
+.mfn-footer .footer_copy {
+  border-top-color: var(--ok-border-subtle);
+}
+.mfn-footer .footer_copy .social li a,
+.mfn-footer .footer_copy .social-menu a {
+  color: var(--ok-text-primary);
+}
+.mfn-footer .footer_copy .social li a:hover,
+.mfn-footer .footer_copy .social-menu a:hover {
+  color: var(--ok-text-link);
+}
+#Footer .widget_mfn_menu ul li a {
+  background: transparent;
+  color: var(--ok-text-primary);
+}
+
+/* 2.5 Formularfelder */
+input[type="date"], input[type="email"], input[type="number"], input[type="password"],
+input[type="search"], input[type="tel"], input[type="text"], input[type="url"],
+select, textarea {
+  background-color: var(--ok-bg-base);
+  border-color: var(--ok-border-control);
+  color: var(--ok-text-primary);
+}
+input[type="date"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus,
+input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus,
+select:focus, textarea:focus {
+  border-color: var(--ok-border-focus);
+  box-shadow: var(--ok-shadow-focus);
+}
+
+/* 2.6 Betheme-Hilfsklassen und Inhaltselemente */
+.themecolor {
+  color: var(--ok-text-link);
+}
+.themebg {
+  background-color: var(--ok-action-primary);
+  color: var(--ok-text-on-action);
+}
+.image_frame .image_wrapper .image_links a:hover {
+  color: var(--ok-text-link);
+}
+.image_frame .image_wrapper .image_links a:hover .path {
+  stroke: var(--ok-text-link);
+}
+
+/* 2.7 Buttons außerhalb der Betheme-Variablen */
+a.button_theme,
+a.tp-button.button_theme,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  background-color: var(--ok-action-primary);
+  color: var(--ok-text-on-action);
+}
+a.button_theme:hover,
+a.tp-button.button_theme:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  background-color: var(--ok-action-primary-hover);
+}
+
+/* 2.8 Übernommen aus dem bisherigen „custom CSS“ (Entscheidung 33) */
+
+blockquote {
+  background: var(--ok-bg-mint);
+}
+.helper,
+.author-box .desc-wrapper {
+  background: var(--ok-bg-base);
+}
+
+/* Menü-Widgets (Seitenleiste); bisher #858585 auf Weiß, 3,7:1. */
+.widget_mfn_menu ul li a {
+  background: var(--ok-bg-base);
+  color: var(--ok-text-secondary);
+}
+.widget_mfn_menu ul li a:hover,
+.widget_mfn_menu ul li.current-menu-item:not(.current-menu-ancestor) > a,
+.widget_mfn_menu ul li.current_page_item:not(.current_page_ancestor) > a {
+  color: var(--ok-text-primary) !important;
+}
+
+/* Akkordeon / FAQ: Titel dunkel statt Grün. */
+.accordion .question {
+  border-color: var(--ok-border-subtle);
+}
+.accordion .question .title,
+.faq .question .title,
+.accordion .question .title > .acc-icon-plus,
+.accordion .question .title > .acc-icon-minus,
+.faq .question .title > .acc-icon-plus,
+.faq .question .title > .acc-icon-minus {
+  color: var(--ok-text-primary);
+}
+
+/* Datums-Etiketten wie Badge: Dunkelmint mit dunkler Schrift. */
+.date_label,
+.timeline_items > li h3 span,
+.post-item .date_label {
+  background-color: var(--ok-bg-subtle);
+  color: var(--ok-text-primary);
+}
+.timeline_items li h3::before,
+.timeline_items::after,
+.timeline .post-item::before {
+  border-color: var(--ok-brand-gruen);
+}
+
+/* Gravity Forms */
+.gform_confirmation_wrapper .gform_confirmation_message {
+  background: var(--ok-bg-mint);
+  color: var(--ok-text-primary);
+}
+body .gform_wrapper .gfield_label {
+  color: var(--ok-text-primary);
+}
+body .gform_wrapper .gfield_consent_description {
+  color: var(--ok-text-secondary);
+}
+body .gform_wrapper .gfield_radio label,
+body .gform_wrapper .gfield_checkbox label,
+body .gform_wrapper .gfield_consent label {
+  border: 2px solid var(--ok-border-control);
+  background-color: var(--ok-bg-base);
+  color: var(--ok-text-primary);
+}
+body .gform_wrapper .gfield_radio label:hover,
+body .gform_wrapper .gfield_checkbox label:hover,
+body .gform_wrapper .gfield_consent label:hover {
+  box-shadow: var(--ok-shadow-hover);
+}
+body .gform_wrapper .gfield_radio input[type="radio"]:checked + label,
+body .gform_wrapper .gfield_checkbox input[type="checkbox"]:checked + label,
+body .gform_wrapper .gfield_consent input[type="checkbox"]:checked + label {
+  /* Rahmen bleibt border-control (6,04:1); Grün auf Weiß läge mit 3,01:1 knapp an der Grenze. */
+  background-color: var(--ok-action-primary);
+  color: var(--ok-text-on-action);
+}
+body .gform_wrapper .gfield_radio input[type="radio"]:focus-visible + label,
+body .gform_wrapper .gfield_checkbox input[type="checkbox"]:focus-visible + label,
+body .gform_wrapper .gfield_consent input[type="checkbox"]:focus-visible + label {
+  outline: 2px solid var(--ok-border-focus);
+  outline-offset: 2px;
+}
+body .gform_wrapper .gfield.gfield_error .gfield_radio label,
+body .gform_wrapper .gfield.gfield_error .gfield_checkbox label,
+body .gform_wrapper .gfield.gfield_error .gfield_consent label {
+  border-color: var(--ok-text-error);
+}
+
+/* GravityView */
+.gv-list-view {
+  border: 1px solid transparent;
+}
+.gv-container {
+  background: var(--ok-bg-base);
+}
+.gv-list-view-title {
+  border-bottom: 2px solid var(--ok-border-subtle);
+}
+.gv-themed.gv-container a:not(.button) {
+  color: var(--ok-text-link) !important;
+}
