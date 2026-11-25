@@ -1,0 +1,1505 @@
+<div class="oksp" id="oksp" data-view="auto">
+<style>
+.oksp{--ok-green:#3AAA35;--ok-green-hover:#5BBC56;--ok-link:#287A25;--ok-text:#1A1A1A;--ok-text-2:#4F6672;--ok-grey:#8EA6B2;--ok-mint:#DFF1D9;--ok-mint-dark:#BFE0B5;--ok-red:#C20E1A;--ok-white:#fff;--ok-radius:4px;
+  --oksp-head:"Poppins",system-ui,sans-serif;--oksp-body:"Open Sans",system-ui,sans-serif;
+  font-family:var(--oksp-body);color:var(--ok-text);font-size:16px;line-height:1.5;text-align:left}
+.oksp *,.oksp *::before,.oksp *::after{box-sizing:border-box}
+.oksp button,.oksp input{appearance:none;-webkit-appearance:none;margin:0;font:inherit;color:inherit;letter-spacing:normal;text-transform:none;box-shadow:none;text-shadow:none;line-height:1.3;width:auto;height:auto;min-height:0;float:none}
+.oksp button{background:none;border:0;padding:0;cursor:pointer;border-radius:var(--ok-radius)}
+.oksp h2,.oksp h3,.oksp h4,.oksp p{margin:0;padding:0;font-weight:inherit;letter-spacing:normal;text-transform:none;color:inherit;background:none}
+.oksp a{color:var(--ok-link);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.oksp a:hover{text-decoration-thickness:2px}
+.oksp :focus-visible{outline:3px solid var(--ok-link);outline-offset:2px}
+.oksp-ic{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.125em}
+.oksp-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Kopf */
+.oksp-intro{margin-bottom:24px;max-width:46rem}
+.oksp-kicker{font-family:var(--oksp-head);font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--ok-link);margin-bottom:6px}
+.oksp .oksp-h{font-family:var(--oksp-head);font-weight:700;font-size:clamp(28px,3.2vw,36px);line-height:1.15;margin-bottom:10px}
+.oksp-lead{font-size:18px;color:var(--ok-text-2)}
+
+/* Werkzeuge */
+.oksp-tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+.oksp-searchwrap{position:relative;flex:1 1 260px;max-width:420px}
+.oksp-searchwrap>.oksp-ic{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ok-text-2);font-size:18px}
+.oksp .oksp-search{width:100%;background:var(--ok-white);border:2px solid var(--ok-mint-dark);border-radius:var(--ok-radius);padding:10px 12px 10px 40px;font-size:16px}
+.oksp .oksp-search:focus{border-color:var(--ok-link);outline:none}
+.oksp-views{display:inline-flex;border:2px solid var(--ok-mint-dark);border-radius:var(--ok-radius);overflow:hidden}
+.oksp .oksp-view{display:inline-flex;gap:6px;align-items:center;padding:8px 14px;border-radius:0;font-weight:600;font-size:15px;background:var(--ok-white)}
+.oksp .oksp-view[aria-pressed="true"]{background:var(--ok-mint-dark)}
+.oksp .oksp-btn{display:inline-flex;gap:8px;align-items:center;padding:10px 16px;background:var(--ok-green);color:var(--ok-text);font-weight:600;font-size:15px;transition:background .15s}
+.oksp .oksp-btn:hover{background:var(--ok-green-hover)}
+
+.oksp-filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+.oksp-tagcloud{display:contents}
+.oksp-more{display:contents}
+.oksp.is-js:not(.tags-open) .oksp-more{display:none}
+.oksp .oksp-moretoggle{font-size:14px;font-weight:600;color:var(--ok-link);padding:3px 6px;text-decoration:underline;text-underline-offset:2px}
+.oksp:not(.is-js) .oksp-moretoggle{display:none}
+.oksp .oksp-tag{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;font-size:13.5px;font-weight:600;background:var(--ok-mint);color:var(--ok-text);border:1px solid transparent;transition:background .15s,border-color .15s}
+.oksp .oksp-tag:hover{border-color:var(--ok-link)}
+.oksp .oksp-tag[aria-pressed="true"],.oksp .oksp-tag.is-on{background:var(--ok-green);border-color:var(--ok-green)}
+.oksp-count{font-weight:400;font-size:12px;color:var(--ok-text-2)}
+.oksp .oksp-tag[aria-pressed="true"] .oksp-count{color:var(--ok-text)}
+.oksp .oksp-onlynotes{background:var(--ok-white);border-color:var(--ok-mint-dark)}
+.oksp .oksp-reset{font-size:14px;color:var(--ok-link);text-decoration:underline;padding:3px 4px}
+.oksp-status{font-size:14px;color:var(--ok-text-2);min-height:1.5em;margin:6px 0 14px}
+
+/* Raster */
+.oksp-grid{display:grid;grid-template-columns:64px repeat(6,minmax(0,1fr));gap:10px;background:var(--ok-mint);padding:14px;border-radius:var(--ok-radius)}
+.oksp-slot{display:contents}
+.oksp-head{font-family:var(--oksp-head);padding:4px 2px 2px;display:flex;flex-direction:column}
+.oksp-head-t{font-weight:700;font-size:15px}
+.oksp-head-r{font-size:13px;color:var(--ok-text-2)}
+.oksp .oksp-slot-h{font-family:var(--oksp-head);font-weight:700;font-size:20px;line-height:1.1;padding-top:10px;display:flex;flex-direction:column}
+.oksp-slot-h small{font-size:12px;font-weight:500;color:var(--ok-text-2)}
+.oksp-gap{border:1.5px dashed var(--ok-mint-dark);border-radius:var(--ok-radius);min-height:60px}
+
+/* Karte */
+.oksp-card{position:relative;background:var(--ok-white);border-radius:var(--ok-radius);padding:12px 12px 10px;display:flex;flex-direction:column;gap:6px;border-top:4px solid var(--ok-green);transition:transform .15s,box-shadow .15s,opacity .2s;min-width:0}
+.oksp-card[data-lane="0"]{border-top-color:var(--ok-text)}
+.oksp-card--empty{border-top-color:var(--ok-grey)}
+.oksp-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(26,26,26,.12)}
+.oksp-card.is-dim{opacity:.28}
+.oksp-card.is-dim:hover{opacity:.6}
+.oksp-card--plenum{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 18px;background:var(--ok-mint-dark)}
+.oksp-meta{display:flex;flex-wrap:wrap;gap:2px 10px;font-size:12.5px;color:var(--ok-text-2);align-items:center}
+.oksp-num{font-family:var(--oksp-head);font-weight:600;color:var(--ok-text);font-size:13px}
+.oksp-room,.oksp-time{display:none;gap:4px;align-items:center}
+.oksp .oksp-open{position:absolute;inset:0;z-index:1;font-size:0;color:transparent;border-radius:var(--ok-radius)}
+.oksp .oksp-open:focus-visible{outline:3px solid var(--ok-link);outline-offset:2px}
+.oksp .oksp-title{font-family:var(--oksp-head);font-weight:600;font-size:15.5px;line-height:1.3;overflow-wrap:anywhere;hyphens:auto}
+.oksp-sub{font-size:13.5px;color:var(--ok-text-2);line-height:1.4}
+.oksp-host{display:flex;gap:5px;align-items:baseline;font-size:13.5px;margin-top:3px}
+.oksp-host .oksp-ic{color:var(--ok-text-2);transform:translateY(2px)}
+.oksp-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px;position:relative;z-index:2;pointer-events:none}
+.oksp-tags .oksp-tag{pointer-events:auto}
+.oksp-tags .oksp-tag{font-size:12px;padding:1px 6px;font-weight:500}
+.oksp-and{font-family:var(--oksp-head);font-weight:700;color:var(--ok-grey);font-size:14px;line-height:1}
+.oksp-foot{margin-top:auto;padding-top:4px}
+.oksp-flag{display:inline-flex;gap:5px;align-items:center;font-size:12.5px;font-weight:600}
+.oksp-flag--yes{color:var(--ok-link)}
+.oksp-flag--no{color:var(--ok-text-2);font-weight:400}
+.oksp-notes summary{cursor:pointer;color:var(--ok-link);font-weight:600;font-size:14px;position:relative;z-index:2}
+.oksp-notes-body,.oksp-d-notes{white-space:pre-wrap;overflow-wrap:anywhere}
+.oksp.is-js .oksp-notes{display:none}
+.oksp:not(.is-js) .oksp-open{display:none}
+
+/* Liste */
+.oksp[data-view="list"] .oksp-grid{display:block;padding:0;background:none}
+.oksp[data-view="list"] .oksp-head,.oksp[data-view="list"] .oksp-gap{display:none}
+.oksp[data-view="list"] .oksp-slot{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:28px}
+.oksp[data-view="list"] .oksp-slot-h{grid-column:1/-1!important;grid-row:auto!important;flex-direction:row;align-items:baseline;gap:6px;position:static;padding:0 0 2px;border-bottom:2px solid var(--ok-mint-dark);font-size:22px}
+.oksp[data-view="list"] .oksp-card{grid-row:auto!important;grid-column:auto!important;border:1px solid var(--ok-mint-dark);border-top:4px solid var(--ok-green)}
+.oksp[data-view="list"] .oksp-card[data-lane="0"]{border-top-color:var(--ok-text)}
+.oksp[data-view="list"] .oksp-card--empty{border-top-color:var(--ok-grey)}
+.oksp[data-view="list"] .oksp-room{display:inline-flex}
+.oksp[data-view="list"] .oksp-card--plenum{grid-column:1/-1!important}
+
+@media (max-width:999px){
+  .oksp[data-view="auto"] .oksp-grid{display:block;padding:0;background:none}
+  .oksp[data-view="auto"] .oksp-head,.oksp[data-view="auto"] .oksp-gap{display:none}
+  .oksp[data-view="auto"] .oksp-slot{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:28px}
+  .oksp[data-view="auto"] .oksp-slot-h{grid-column:1/-1!important;grid-row:auto!important;flex-direction:row;align-items:baseline;gap:6px;position:static;padding:0 0 2px;border-bottom:2px solid var(--ok-mint-dark);font-size:22px}
+  .oksp[data-view="auto"] .oksp-card{grid-row:auto!important;grid-column:auto!important;border:1px solid var(--ok-mint-dark);border-top:4px solid var(--ok-green)}
+  .oksp[data-view="auto"] .oksp-card[data-lane="0"]{border-top-color:var(--ok-text)}
+  .oksp[data-view="auto"] .oksp-card--empty{border-top-color:var(--ok-grey)}
+  .oksp[data-view="auto"] .oksp-room{display:inline-flex}
+  .oksp[data-view="auto"] .oksp-card--plenum{grid-column:1/-1!important}
+  .oksp-views{display:none}
+}
+
+/* Dialog */
+.oksp-dialog{border:0;padding:0;border-radius:var(--ok-radius);width:min(760px,calc(100vw - 24px));max-height:calc(100dvh - 32px);color:var(--ok-text);background:var(--ok-white);box-shadow:0 20px 60px rgba(26,26,26,.3);font-family:var(--oksp-body)}
+.oksp-dialog::backdrop{background:rgba(26,26,26,.55)}
+.oksp-dialog[open]{animation:oksp-in .18s ease-out}
+@keyframes oksp-in{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+.oksp-d-inner{display:flex;flex-direction:column;max-height:calc(100dvh - 32px)}
+.oksp-d-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:16px 20px 12px;background:var(--ok-mint);border-top:6px solid var(--ok-green)}
+.oksp-d-head.is-forum{border-top-color:var(--ok-text)}
+.oksp-d-meta{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:14px;color:var(--ok-text-2);align-items:center}
+.oksp-d-meta span{display:inline-flex;gap:5px;align-items:center}
+.oksp-d-meta .oksp-num{font-size:15px}
+.oksp .oksp-d-close{font-size:22px;padding:6px;display:inline-flex;margin:-6px -6px 0 0}
+.oksp .oksp-d-close:hover{background:var(--ok-mint-dark)}
+.oksp-d-body{overflow:auto;padding:18px 20px 8px;overscroll-behavior:contain}
+.oksp-d-body .oksp-part+.oksp-part{border-top:1px solid var(--ok-mint-dark);padding-top:14px;margin-top:14px}
+.oksp-d-body .oksp-title{font-size:clamp(20px,2.4vw,24px);line-height:1.25;margin-bottom:4px}
+.oksp-d-body .oksp-sub{font-size:16px}
+.oksp-d-body .oksp-host{font-size:16px}
+.oksp-d-body .oksp-tags .oksp-tag{font-size:13px;padding:2px 8px}
+.oksp-d-sec{margin-top:22px}
+.oksp .oksp-d-sec h4{font-family:var(--oksp-head);font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--ok-text-2);margin-bottom:8px;display:flex;gap:6px;align-items:center}
+.oksp-d-notes{font-size:16px;line-height:1.6;background:#F6FBF4;border-left:4px solid var(--ok-mint-dark);padding:12px 14px;border-radius:var(--ok-radius)}
+.oksp-d-empty{color:var(--ok-text-2);font-style:italic}
+.oksp-d-pad{display:inline-flex;gap:6px;align-items:center;margin-top:12px;font-weight:600}
+.oksp-d-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 14px;border-top:1px solid var(--ok-mint-dark)}
+.oksp .oksp-d-nav{display:inline-flex;gap:4px;align-items:center;padding:8px 12px;font-weight:600;font-size:15px}
+.oksp .oksp-d-nav:hover{background:var(--ok-mint)}
+.oksp .oksp-d-nav:disabled{opacity:.35;cursor:default;background:none}
+.oksp-d-pos{font-size:13px;color:var(--ok-text-2)}
+@media (prefers-reduced-motion:reduce){.oksp *{transition:none!important;animation:none!important}}
+</style>
+<div class="oksp-intro">
+  Ein Klick auf eine Session öffnet alle Angaben und die Mitschrift.
+</div>
+<div class="oksp-tools">
+  <div class="oksp-searchwrap"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><label class="oksp-sr" for="oksp-q">Sessions durchsuchen</label>
+    <input id="oksp-q" class="oksp-search" type="search" placeholder="Titel, Name oder Stichwort" autocomplete="off"></div>
+  <div class="oksp-views" role="group" aria-label="Ansicht">
+    <button type="button" class="oksp-view" data-view="grid" aria-pressed="false"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>Raster</button>
+    <button type="button" class="oksp-view" data-view="list" aria-pressed="false"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12h.01"/><path d="M3 18h.01"/><path d="M3 6h.01"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M8 6h13"/></svg>Liste</button>
+  </div>
+  <button type="button" class="oksp-btn oksp-random"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"/><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14 4 4-4 4"/></svg>Zufällige Session</button>
+</div>
+<div class="oksp-filters">
+  <button type="button" class="oksp-tag oksp-onlynotes" aria-pressed="false"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>nur mit Notizen</button>
+  <div class="oksp-tagcloud" role="group" aria-label="Nach Hashtag filtern"><button type="button" class="oksp-tag oksp-filter" data-tag="#OpenData" aria-pressed="false">#OpenData<span class="oksp-count">3</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#OpenSource" aria-pressed="false">#OpenSource<span class="oksp-count">3</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#DigitaleSouveränität" aria-pressed="false">#DigitaleSouveränität<span class="oksp-count">2</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#VibeCoding" aria-pressed="false">#VibeCoding<span class="oksp-count">2</span></button><span class="oksp-more" id="oksp-more"><button type="button" class="oksp-tag oksp-filter" data-tag="#Aktiv" aria-pressed="false">#Aktiv<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Alternativen" aria-pressed="false">#Alternativen<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Austausch" aria-pressed="false">#Austausch<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#AutosRausAusDerStadt" aria-pressed="false">#AutosRausAusDerStadt<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Bestattung" aria-pressed="false">#Bestattung<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Community" aria-pressed="false">#Community<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#CreativeCommons" aria-pressed="false">#CreativeCommons<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Datenschutz" aria-pressed="false">#Datenschutz<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Datensicherheit" aria-pressed="false">#Datensicherheit<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#digitalePartizipation" aria-pressed="false">#digitalePartizipation<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Eigentumsformen" aria-pressed="false">#Eigentumsformen<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Fediverse" aria-pressed="false">#Fediverse<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Gemeinwohlorientiert" aria-pressed="false">#Gemeinwohlorientiert<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Informationsfreiheit" aria-pressed="false">#Informationsfreiheit<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#LebenUndTod" aria-pressed="false">#LebenUndTod<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#LivingLabs" aria-pressed="false">#LivingLabs<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Mitbestimmung" aria-pressed="false">#Mitbestimmung<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Mitmachen" aria-pressed="false">#Mitmachen<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Mobilfunk" aria-pressed="false">#Mobilfunk<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#NoInfrastruktur" aria-pressed="false">#NoInfrastruktur<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#OParl" aria-pressed="false">#OParl<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#ParlWu" aria-pressed="false">#ParlWu<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Partizipation" aria-pressed="false">#Partizipation<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Ratsinformationssysteme" aria-pressed="false">#Ratsinformationssysteme<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#RIS" aria-pressed="false">#RIS<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Selbstverwaltung" aria-pressed="false">#Selbstverwaltung<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Smartphone" aria-pressed="false">#Smartphone<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Solarpunk" aria-pressed="false">#Solarpunk<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Stadtgrün" aria-pressed="false">#Stadtgrün<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Suchmaschine" aria-pressed="false">#Suchmaschine<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Teilhabe" aria-pressed="false">#Teilhabe<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#Transparenz" aria-pressed="false">#Transparenz<span class="oksp-count">1</span></button><button type="button" class="oksp-tag oksp-filter" data-tag="#ÖPNV" aria-pressed="false">#ÖPNV<span class="oksp-count">1</span></button></span><button type="button" class="oksp-moretoggle" aria-expanded="false" aria-controls="oksp-more" data-n="33">+ 33 weitere Hashtags</button></div>
+  <button type="button" class="oksp-reset" hidden>Filter zurücksetzen</button>
+</div>
+<p class="oksp-status" role="status" aria-live="polite"></p>
+<div class="oksp-grid">
+<div class="oksp-head oksp-corner" style="grid-row:1;grid-column:1" aria-hidden="true"></div><div class="oksp-head" style="grid-row:1;grid-column:2" aria-hidden="true"><span class="oksp-head-t">Forum</span><span class="oksp-head-r">Plenum</span></div><div class="oksp-head" style="grid-row:1;grid-column:3" aria-hidden="true"><span class="oksp-head-t">Track 1</span><span class="oksp-head-r">Raum 203</span></div><div class="oksp-head" style="grid-row:1;grid-column:4" aria-hidden="true"><span class="oksp-head-t">Track 2</span><span class="oksp-head-r">Raum 204</span></div><div class="oksp-head" style="grid-row:1;grid-column:5" aria-hidden="true"><span class="oksp-head-t">Track 3</span><span class="oksp-head-r">Raum 206</span></div><div class="oksp-head" style="grid-row:1;grid-column:6" aria-hidden="true"><span class="oksp-head-t">Track 4</span><span class="oksp-head-r">Raum 207</span></div><div class="oksp-head" style="grid-row:1;grid-column:7" aria-hidden="true"><span class="oksp-head-t">Track 5</span><span class="oksp-head-r">Raum A108</span></div><section class="oksp-slot" aria-labelledby="oksp-slot-1100"><h3 class="oksp-slot-h" id="oksp-slot-1100" style="grid-row:2;grid-column:1"><span>11:00</span><small>Uhr</small></h3><article class="oksp-card oksp-card--empty" id="oksp-s17" data-id="s17" data-lane="0" data-tags="#Informationsfreiheit|#OpenData" data-notes="0" data-search="session 17 ifg, bng, wtf?  markus #informationsfreiheit #opendata " data-pad="https://unserpad.de/p/OKNRW-2026-Session-17" style="grid-row:2;grid-column:2"><div class="oksp-meta"><span class="oksp-num">Session 17</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Forum</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>11:00–11:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 17: IFG, BNG, WTF? öffnen</button><div class="oksp-part"><h4 class="oksp-title">IFG, BNG, WTF?</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Markus</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#Informationsfreiheit">#Informationsfreiheit</button><button type="button" class="oksp-tag" data-tag="#OpenData">#OpenData</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article><article class="oksp-card" id="oksp-s1" data-id="s1" data-lane="1" data-tags="#Bestattung|#LebenUndTod" data-notes="1" data-search="session 1 anonyme bestattungen  sam zeini #bestattung #lebenundtod *anonyme bestattungen
+*#bestattung #lebenundtod
+*sam zeini
+
+- christian gebel
+- michael lück
+- marc &quot;grumpy&quot; olejak
+
+- vorstellungsrunde im kleinen zirkel
+- &quot;sterben&quot;  unterliegt der landesgesetzgebung
+- es gilt ja bestattungspflicht
+- das &quot;leisten&quot; weil es bspw. keine angehörigen gibt, übernehmen die kommunen dies gesetzlich. kosten sind hier natürlich ein thema. aber pietät sollte trotzdem gewahrt/ermöglicht werden.
+- &quot;reisen&quot; angehöriger sind natürlich auch aspekte – wenn es aber keine verantwortlichen/angehörigen gibt, muss die kommune aktiv werden.
+- beratung in bezug auf testament mit bestattungswünschen sind auch ein thema.
+- &quot;kostengünstigere&quot; version sind bspw. &quot;steelen&quot; wo nicht ganz &quot;anonym&quot; bestattet wird – es trotzdem auf einer großen wiese ist.
+- definition &quot;anonym&quot;? – es gibt ein grabfeld und &quot;irgendwo&quot; (also ohne grabnummer) wurden überreste bestattet.
+- definition &quot;soziale bestattung&quot;? – oft auch in abhängigkeit einer religionsform, rückfragen in eine gemeinde möglich, um eventuellen riten seitens einer kommune pietätvoll zu bestatten.
+- rlp hat kürzlich erst &quot;aktualisiert&quot;. das bestattungsrecht gilt als eines der &quot;konservativsten&quot; gesetze mit geringstem änderungsbedarf.
+- beispiele aus rlp – dort ist jetzt auch die mitnahme einer urne möglich.
+- beispiele aus nrw – &quot;seebestattung&quot; ist jetzt möglich – tatsächlich sogar in &quot;seen&quot; (sofern die kommune es per satzung ermöglicht).
+- hinweis aus frankreich – es gibt eine plattform, bei der entsprechend auch gedenken staatsweit platziert werden kann (link leider gerade nicht bekannt/auffindbar).
+- gedenken im allgemeinen – für wen? &quot;wem geht es im gedenken besser?&quot;. sofern es keine verwandten gibt – freunde, bekannte.
+- gedenken auch jenseits der großen tage, auch im kleinen mehr ermöglichen. bspw. im sozialen raum, gedenken obdachloser bis hin zu opfern von drogensucht.
+- öffentliche todesanzeigen als bekanntmachungen sind nirgends in deutschland vorgesehen? konsens – nein. als gegenbeispiel wird italien angeführt.
+- wäre das ein bestandteil eines menschenrechts? 
+- in deutschland ist es seit &quot;jeher&quot; teil der kommerzialisierung bspw. in zeitungsverlagen (todesanzeigen). hier werden die daten verstorbener öffentlich kundgetan.
+- es gibt ja auch grundsätzliche &quot;ablauffristen&quot; für gräber. irgendwann &quot;verschwindet&quot; das gedenken aufgrund von zeit.
+- als beispiel wird auch hospiz genannt, wo quasi das thema bestattung &quot;täglich&quot; gedacht wird.
+- sam – strukturierung der bisheringen hinweise?
+- woher wissen wir, dass jemand anonym bestattet werden möchte?
+- kommunen legen dies bei fehlenden angehörigen meistens als &quot;anonym&quot; fest (aus kostengründen).
+- im schnitt sind es ca. 1% der bevölkerung die im jahr versterben.
+- eine zunahme anonymer ist zu verzeichnen.
+
+- gibt es aktuell noch sterberegister? kirchen haben das ja noch. aber heute?
+- es gibt eine kommune, die ein öffentliches grabkataster in nrw führt (muss rausgesucht werden)
+- es gibt ein projekt aus köln/bonn, welches diesen ansatz verfolgt. 
+- es gibt einen standard nach xöv zum bereich &quot;tod&quot; – aber aus anderen gründen: &quot;nachlass&quot;. dies ist im personenstandsgesetz geregelt.
+- wie sieht es mit der datenschutzdebatte aus? wer hat wann das recht, diese informationen sehen zu dürfen?
+- ist das nicht sogar ein teil eines &quot;digitalen zwillings&quot;? auch für friedhöfe – in anbetracht eines gedenkens?
+- es gibt ja auch kommerzialisierte ansätze von online-gedenken.
+- was ist mit der digitalisierung des nachlasses? bis hin zur form der &quot;ki&quot; aus schriftstücken, bildern/veröffentlichungen.
+
+- aber wie ist es mit menschen oder verwandten – hier ist der freundes-/bekanntenkreis.
+- soziales engagement im viertel – aber meistens eher nach tod &quot;bekannterer&quot; obdachloser menschen.
+
+## lösungsansätze
+- ein öffentliches sterberegister kann ein erster schritt sein.
+
+## quellen und ergänzungen
+- destatis zu dem thema: https://www.verwaltungsdaten-informationsplattform.de/register/285#rechtsgrundlagen
+- rechtsgrundlagen: https://www.gesetze-im-internet.de/pstg/index.html
+- https://www.deutschlandfunk.de/verstorbene-ohne-angehoerige-wenn-der-staat-das-letzte-100.html
+- https://www.katholisch.de/gesellschaft-und-politik/letztes-geleit-fuer-menschen-die-ohne-angehoerige-gestorben-sind" data-pad="https://unserpad.de/p/OKNRW-2026-Session-1" style="grid-row:2;grid-column:3"><div class="oksp-meta"><span class="oksp-num">Session 1</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 1 · Raum 203</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>11:00–11:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 1: Anonyme Bestattungen öffnen</button><div class="oksp-part"><h4 class="oksp-title">Anonyme Bestattungen</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Sam Zeini</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#Bestattung">#Bestattung</button><button type="button" class="oksp-tag" data-tag="#LebenUndTod">#LebenUndTod</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">*Anonyme Bestattungen
+*#Bestattung #LebenUndTod
+*Sam Zeini
+
+- Christian Gebel
+- Michael Lück
+- Marc &quot;Grumpy&quot; Olejak
+
+- Vorstellungsrunde im kleinen Zirkel
+- &quot;Sterben&quot;  unterliegt der Landesgesetzgebung
+- Es gilt ja Bestattungspflicht
+- Das &quot;Leisten&quot; weil es bspw. keine Angehörigen gibt, übernehmen die Kommunen dies gesetzlich. Kosten sind hier natürlich ein Thema. Aber Pietät sollte trotzdem gewahrt/ermöglicht werden.
+- &quot;Reisen&quot; Angehöriger sind natürlich auch Aspekte – wenn es aber keine Verantwortlichen/Angehörigen gibt, muss die Kommune aktiv werden.
+- Beratung in Bezug auf Testament mit Bestattungswünschen sind auch ein Thema.
+- &quot;Kostengünstigere&quot; Version sind bspw. &quot;Steelen&quot; wo nicht ganz &quot;anonym&quot; bestattet wird – es trotzdem auf einer großen Wiese ist.
+- Definition &quot;anonym&quot;? – Es gibt ein Grabfeld und &quot;irgendwo&quot; (also ohne Grabnummer) wurden Überreste bestattet.
+- Definition &quot;Soziale Bestattung&quot;? – oft auch in Abhängigkeit einer Religionsform, Rückfragen in eine Gemeinde möglich, um eventuellen Riten seitens einer Kommune pietätvoll zu bestatten.
+- RLP hat kürzlich erst &quot;aktualisiert&quot;. Das Bestattungsrecht gilt als eines der &quot;konservativsten&quot; Gesetze mit geringstem Änderungsbedarf.
+- Beispiele aus RLP – dort ist jetzt auch die Mitnahme einer Urne möglich.
+- Beispiele aus NRW – &quot;Seebestattung&quot; ist jetzt möglich – tatsächlich sogar in &quot;Seen&quot; (sofern die Kommune es per Satzung ermöglicht).
+- Hinweis aus Frankreich – es gibt eine Plattform, bei der entsprechend auch Gedenken staatsweit platziert werden kann (Link leider gerade nicht bekannt/auffindbar).
+- Gedenken im Allgemeinen – für wen? &quot;Wem geht es im Gedenken besser?&quot;. Sofern es keine Verwandten gibt – Freunde, Bekannte.
+- Gedenken auch jenseits der großen Tage, auch im kleinen mehr ermöglichen. Bspw. im sozialen Raum, Gedenken Obdachloser bis hin zu Opfern von Drogensucht.
+- Öffentliche Todesanzeigen als Bekanntmachungen sind nirgends in Deutschland vorgesehen? Konsens – Nein. Als Gegenbeispiel wird Italien angeführt.
+- Wäre das ein Bestandteil eines Menschenrechts? 
+- In Deutschland ist es seit &quot;jeher&quot; Teil der Kommerzialisierung bspw. in Zeitungsverlagen (Todesanzeigen). Hier werden die Daten Verstorbener öffentlich kundgetan.
+- Es gibt ja auch grundsätzliche &quot;Ablauffristen&quot; für Gräber. Irgendwann &quot;verschwindet&quot; das Gedenken aufgrund von Zeit.
+- Als Beispiel wird auch Hospiz genannt, wo quasi das Thema Bestattung &quot;täglich&quot; gedacht wird.
+- Sam – Strukturierung der bisheringen Hinweise?
+- Woher wissen wir, dass jemand anonym bestattet werden möchte?
+- Kommunen legen dies bei fehlenden Angehörigen meistens als &quot;anonym&quot; fest (aus Kostengründen).
+- Im Schnitt sind es ca. 1% der Bevölkerung die im Jahr versterben.
+- Eine Zunahme anonymer ist zu verzeichnen.
+
+- Gibt es aktuell noch Sterberegister? Kirchen haben das ja noch. Aber heute?
+- Es gibt eine Kommune, die ein öffentliches Grabkataster in NRW führt (muss rausgesucht werden)
+- Es gibt ein Projekt aus Köln/Bonn, welches diesen Ansatz verfolgt. 
+- Es gibt einen Standard nach XÖV zum Bereich &quot;Tod&quot; – aber aus anderen Gründen: &quot;Nachlass&quot;. Dies ist im Personenstandsgesetz geregelt.
+- Wie sieht es mit der Datenschutzdebatte aus? Wer hat wann das Recht, diese Informationen sehen zu dürfen?
+- Ist das nicht sogar ein Teil eines &quot;Digitalen Zwillings&quot;? Auch für Friedhöfe – in Anbetracht eines Gedenkens?
+- Es gibt ja auch kommerzialisierte Ansätze von Online-Gedenken.
+- Was ist mit der Digitalisierung des Nachlasses? Bis hin zur Form der &quot;KI&quot; aus Schriftstücken, Bildern/Veröffentlichungen.
+
+- Aber wie ist es mit Menschen oder Verwandten – hier ist der Freundes-/Bekanntenkreis.
+- Soziales Engagement im Viertel – aber meistens eher nach Tod &quot;bekannterer&quot; obdachloser Menschen.
+
+## Lösungsansätze
+- ein öffentliches Sterberegister kann ein erster Schritt sein.
+
+## Quellen und Ergänzungen
+- Destatis zu dem Thema: <a href="https://www.verwaltungsdaten-informationsplattform.de/register/285#Rechtsgrundlagen" target="_blank" rel="noopener">https://www.verwaltungsdaten-informationsplattform.de/register/285#Rechtsgrundlagen</a>
+- Rechtsgrundlagen: <a href="https://www.gesetze-im-internet.de/pstg/index.html" target="_blank" rel="noopener">https://www.gesetze-im-internet.de/pstg/index.html</a>
+- <a href="https://www.deutschlandfunk.de/verstorbene-ohne-angehoerige-wenn-der-staat-das-letzte-100.html" target="_blank" rel="noopener">https://www.deutschlandfunk.de/verstorbene-ohne-angehoerige-wenn-der-staat-das-letzte-100.html</a>
+- <a href="https://www.katholisch.de/gesellschaft-und-politik/letztes-geleit-fuer-menschen-die-ohne-angehoerige-gestorben-sind" target="_blank" rel="noopener">https://www.katholisch.de/gesellschaft-und-politik/letztes-geleit-fuer-menschen-die-ohne-angehoerige-gestorben-sind</a></div></details></article><article class="oksp-card" id="oksp-s2" data-id="s2" data-lane="2" data-tags="#OpenSource" data-notes="1" data-search="session 2 opendesk  nico (ex)  opensource jetzt? umstieg planen  damian paderta #opensource *opendesk
+ausgangslage &amp; hintergrund
+die bundesregierung hat mit dem zendis (zentrum für digitale souveränität der öffentlichen verwaltung) eine eigene gmbh gegründet, um die digitale unabhängigkeit der öffentlichen verwaltung zu stärken. ziel ist unter anderem die bereitstellung von zwei zentralen open-source-produkten als souveräne alternativen zu etablierten anbietern (insbesondere microsoft):
+	* opencode: eine plattform für quellcodeverwaltung und software-entwicklung (basierend auf gitlab).
+	* opendesk: eine integrierte office- und kollaborationssuite (u. a. bestehend aus nextcloud, collabora online, open-xchange, element/matrix, jitsi und xwiki).zentrale punkte aus der session
+
+testzugang: interessierte können die plattform über eine community-instanz ausprobieren: https://portal.opendesk.talnerds.de (anmerkung aus der runde: die betreiber wirken durchaus vertrauenswürdig, sodass man sich dort unbesorgt registrieren und umsehen kann).
+
+dateiverwaltung: die dateiablage und -synchronisation innerhalb von opendesk wird technisch über eine eingebundene nextcloud-instanz abgebildet.
+
+technische hürden beim betrieb: für die eigene installation von opendesk wird zwingend ein kubernetes-cluster vorausgesetzt. dies wird in der praxis sehr kritisch gesehen, da der betrieb teuer, komplex und personalintensiv ist. für kleinere strukturen wie vereine oder kleine initiativen ist ein self-hosting daher aktuell kaum geeignet.
+
+marktentwicklung &amp; hosting-angebote: es stehen bereits erste it-dienstleister und unternehmen in den startlöchern, die opendesk „neu verpacken“ (managed hosting / saas-modelle), um es auch für kleinere nutzergruppen ohne eigene kubernetes-expertise zugänglich und bezahlbar zu machen.
+
+komplexes ökosystem: um eine durchgehende anwendbarkeit über verschiedene staatliche ebenen und verwaltungsstrukturen hinweg (bund, länder, kommunen) zu ermöglichen, müssen noch viele verschiedene akteure, it-dienstleister und fachverfahren miteinander vernetzt und abgestimmt werden.
+
+blick über die grenze (frankreich): in frankreich existiert mit la suite numérique (lasuite) ein sehr ähnliches staatliches projekt für digitale souveränität am arbeitsplatz, das zum teil auf denselben open-source-komponenten aufbaut und mit dem es auch einen austausch gibt.
+
+kommunikation &amp; videokonferenzen (opentalk vs. matrix/element): während in opendesk für echtzeit-chat und asynchrone kommunikation auf das dezentrale matrix-protokoll (mit dem client element) gesetzt wird, ergänzt opentalk (als deutsche open-source-videokonferenzlösung) diesen bereich gezielt um strukturierte meetings. im gegensatz zu matrix/element, das seine stärken im dauerhaften messaging, in gruppenräumen und der föderation zwischen behörden hat, punktet opentalk bei klassischen videokonferenzen mit speziellen gremien-funktionen wie abstimmungen und redelisten (anstelle des in opendesk standardmäßig integrierten jitsi).
+	
+zendis erarbeitet anforderungskatalog mit pullrequests für funktionale erweiterungen.
+	
+grundsätzliche anmerkung: featuritis droht. es ist die kleinste schicht zu betrachten und der stack darunter zu stabilisieren.
+	
+editionen (community vs. enterprise): opendesk wird in zwei varianten angeboten: die kostenfreie community edition (ce) ist vollständig open source, auf opencode verfügbar und richtet sich an vereine, kleinere organisationen oder zum testen - allerdings ohne vertraglichen support und mit vollem eigenen wartungsaufwand. für den produktiven einsatz in größeren behörden und verwaltungen gibt es die kostenpflichtige enterprise edition (ee). sie ergänzt den funktionsumfang um spezielle verwaltungs- und skalierungsmodule (z. b. erweiterte admin-tools für element, s3-storage-anbindung bei open-xchange oder pro-add-ons für xwiki und openproject) und beinhaltet vor allem vertraglich zugesicherten support (slas), langzeit-sicherheitspatches sowie auf wunsch den schlüsselfertigen betrieb als saas-lösung (z. b. über souveräne cloud-anbieter). 
+
+es gibt hinweise, dass es bald nicht mehr opensource sein wird. (tagung in bern letzte woche bestätigte das.)
+
+thema: lizenzkosten für m$.  microsoft-lizenzkosten &amp; vertragslaufzeiten in der verwaltung: kommunen und behörden beschaffen microsoft-lizenzen meist über rahmen- bzw. volumenverträge (z. b. enterprise agreement ab 250 nutzern/geräten oder select plus auf basis der bmi-konditionenverträge), die in der regel auf drei jahre festgeschrieben sind (mit jährlicher abrechnung und preisschutz innerhalb der laufzeit, danach oft deutlichen preissteigerungen). je nach paket und ausgehandelten behördenrabatten liegen die kosten für gängige arbeitsplatz-suiten (wie microsoft 365 e3 oder e5) regulär bei rund 40 bis 61 € netto pro nutzer und monat (bzw. ca. 450–700 € pro jahr; mit mengen- und rahmenvertragsrabatten oft etwas darunter, während ki-add-ons wie copilot nochmal mit rund 27 €/monat zu buche schlagen). auf größere verwaltungen hochgerechnet entstehen dadurch enorme laufende kosten - so gibt allein die bundesverwaltung inzwischen rund 481 millionen euro pro jahr für microsoft-lizenzen aus, während das land schleswig-holstein durch seinen open-source-umstieg ab 2026 mit einsparungen von rund 15 millionen euro jährlich rechnet. wuppertal zahlt 2 mio/anno an redmond.
+
+kommunale ebene (piloten &amp; verbünde): einzelne kommunen (darunter z. b. vorreiter wie gelsenkirchen, dortmund oder verschiedene &quot;modellkommunen&quot;) sowie kommunale it-dienstleister (wie akdb, dataport oder regio it) testen opendesk bereits intensiv in pilotprojekten, bereiten mandanten-lösungen vor oder nutzen einzelne (!) module produktiv. ein flächendeckender, vollständiger ersatz von microsoft-arbeitsplätzen über alle ämter hinweg ist aber &quot;noch im aufbau&quot;, da zunächst fachverfahren angebunden und mitarbeitende geschult werden müssen.
+
+eine anwendung oder säulen? opendesk verfolgt einen hybriden ansatz: es ist eine webbasierte, einheitlich integrierte oberfläche (browser-portal), unter deren haube weiterhin eigenständige einzelprogramme arbeiten, die aber über ein gemeinsames navigationsmenü und single sign-on (sso) wie aus einem guss wirken.
+vergleich mit googlesuite oder notion. für den endnutzer stellt sich die bedienung konkret so dar: einheitliches portal statt einzel-logins: der nutzer meldet sich einmalig über ein zentrales portal an (single sign-on via keycloak) und landet auf einer gemeinsamen startseite (ähnlich wie bei microsoft 365 im browser oder nextcloud hub). zentraler app-switcher („waffel-menü“): oben in der navigationsleiste gibt es ein einheitliches menü (app-launcher) sowie ein durchgängiges design-theme (header/farben), über das der nutzer mit einem klick zwischen e-mail/kalender (open-xchange), dateien (nextcloud), textverarbeitung (collabora), chat (element) und wiki (xwiki) wechselt – ohne zu merken, dass im hintergrund unterschiedliche software-server angesprochen werden. keine klassische desktop-installation nötig: anders als beim traditionellen microsoft office (mit lokal installierten .exe-programmen für word, outlook, teams) läuft opendesk primär komplett im webbrowser als einheitlicher digitaler arbeitsplatz.
+
+schlusswort (damian p.): durch vibecoding bzw. vibedoing (ki-gestütztes entwickeln) werden künftig deutlich schneller neue open-source-produkte entstehen. das eröffnet gerade kleinen und mittleren unternehmen die große chance, eigene bausteine und ergänzende funktionen rund um opendesk für die öffentliche hand zu entwickeln und anzubieten.
+
+es folgten weitere schlussworte, die verschiedene ansätze betonen und analysieren, warum wir nicht vorwärts kommen. experten wollen opensource, user im öd wollen nicht umstellen. " data-pad="https://unserpad.de/p/OKNRW-2026-Session-2" style="grid-row:2;grid-column:4"><div class="oksp-meta"><span class="oksp-num">Session 2</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 2 · Raum 204</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>11:00–11:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 2: openDesk öffnen</button><div class="oksp-part"><h4 class="oksp-title">openDesk</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Nico (ex)</span></p></div><p class="oksp-and" aria-hidden="true">&amp;</p><div class="oksp-part"><h4 class="oksp-title">OpenSource jetzt? Umstieg planen</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Damian Paderta</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#OpenSource">#OpenSource</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">*OpenDesk
+Ausgangslage &amp; Hintergrund
+Die Bundesregierung hat mit dem ZenDiS (Zentrum für Digitale Souveränität der Öffentlichen Verwaltung) eine eigene GmbH gegründet, um die digitale Unabhängigkeit der öffentlichen Verwaltung zu stärken. Ziel ist unter anderem die Bereitstellung von zwei zentralen Open-Source-Produkten als souveräne Alternativen zu etablierten Anbietern (insbesondere Microsoft):
+	* openCode: Eine Plattform für Quellcodeverwaltung und Software-Entwicklung (basierend auf GitLab).
+	* openDesk: Eine integrierte Office- und Kollaborationssuite (u. a. bestehend aus Nextcloud, Collabora Online, Open-Xchange, Element/Matrix, Jitsi und XWiki).Zentrale Punkte aus der Session
+
+Testzugang: Interessierte können die Plattform über eine Community-Instanz ausprobieren: <a href="https://portal.opendesk.talnerds.de" target="_blank" rel="noopener">https://portal.opendesk.talnerds.de</a> (Anmerkung aus der Runde: Die Betreiber wirken durchaus vertrauenswürdig, sodass man sich dort unbesorgt registrieren und umsehen kann).
+
+Dateiverwaltung: Die Dateiablage und -synchronisation innerhalb von openDesk wird technisch über eine eingebundene Nextcloud-Instanz abgebildet.
+
+Technische Hürden beim Betrieb: Für die eigene Installation von openDesk wird zwingend ein Kubernetes-Cluster vorausgesetzt. Dies wird in der Praxis sehr kritisch gesehen, da der Betrieb teuer, komplex und personalintensiv ist. Für kleinere Strukturen wie Vereine oder kleine Initiativen ist ein Self-Hosting daher aktuell kaum geeignet.
+
+Marktentwicklung &amp; Hosting-Angebote: Es stehen bereits erste IT-Dienstleister und Unternehmen in den Startlöchern, die openDesk „neu verpacken“ (Managed Hosting / SaaS-Modelle), um es auch für kleinere Nutzergruppen ohne eigene Kubernetes-Expertise zugänglich und bezahlbar zu machen.
+
+Komplexes Ökosystem: Um eine durchgehende Anwendbarkeit über verschiedene staatliche Ebenen und Verwaltungsstrukturen hinweg (Bund, Länder, Kommunen) zu ermöglichen, müssen noch viele verschiedene Akteure, IT-Dienstleister und Fachverfahren miteinander vernetzt und abgestimmt werden.
+
+Blick über die Grenze (Frankreich): In Frankreich existiert mit La Suite numérique (LaSuite) ein sehr ähnliches staatliches Projekt für digitale Souveränität am Arbeitsplatz, das zum Teil auf denselben Open-Source-Komponenten aufbaut und mit dem es auch einen Austausch gibt.
+
+Kommunikation &amp; Videokonferenzen (OpenTalk vs. Matrix/Element): Während in openDesk für Echtzeit-Chat und asynchrone Kommunikation auf das dezentrale Matrix-Protokoll (mit dem Client Element) gesetzt wird, ergänzt OpenTalk (als deutsche Open-Source-Videokonferenzlösung) diesen Bereich gezielt um strukturierte Meetings. Im Gegensatz zu Matrix/Element, das seine Stärken im dauerhaften Messaging, in Gruppenräumen und der Föderation zwischen Behörden hat, punktet OpenTalk bei klassischen Videokonferenzen mit speziellen Gremien-Funktionen wie Abstimmungen und Redelisten (anstelle des in openDesk standardmäßig integrierten Jitsi).
+	
+ZenDIS erarbeitet Anforderungskatalog mit Pullrequests für funktionale Erweiterungen.
+	
+Grundsätzliche Anmerkung: Featuritis droht. Es ist die kleinste Schicht zu betrachten und der Stack darunter zu stabilisieren.
+	
+Editionen (Community vs. Enterprise): openDesk wird in zwei Varianten angeboten: Die kostenfreie Community Edition (CE) ist vollständig Open Source, auf openCode verfügbar und richtet sich an Vereine, kleinere Organisationen oder zum Testen - allerdings ohne vertraglichen Support und mit vollem eigenen Wartungsaufwand. Für den produktiven Einsatz in größeren Behörden und Verwaltungen gibt es die kostenpflichtige Enterprise Edition (EE). Sie ergänzt den Funktionsumfang um spezielle Verwaltungs- und Skalierungsmodule (z. B. erweiterte Admin-Tools für Element, S3-Storage-Anbindung bei Open-Xchange oder Pro-Add-ons für XWiki und OpenProject) und beinhaltet vor allem vertraglich zugesicherten Support (SLAs), Langzeit-Sicherheitspatches sowie auf Wunsch den schlüsselfertigen Betrieb als SaaS-Lösung (z. B. über souveräne Cloud-Anbieter). 
+
+Es gibt Hinweise, dass es bald nicht mehr opensource sein wird. (Tagung in Bern letzte Woche bestätigte das.)
+
+Thema: Lizenzkosten für M$.  Microsoft-Lizenzkosten &amp; Vertragslaufzeiten in der Verwaltung: Kommunen und Behörden beschaffen Microsoft-Lizenzen meist über Rahmen- bzw. Volumenverträge (z. B. Enterprise Agreement ab 250 Nutzern/Geräten oder Select Plus auf Basis der BMI-Konditionenverträge), die in der Regel auf drei Jahre festgeschrieben sind (mit jährlicher Abrechnung und Preisschutz innerhalb der Laufzeit, danach oft deutlichen Preissteigerungen). Je nach Paket und ausgehandelten Behördenrabatten liegen die Kosten für gängige Arbeitsplatz-Suiten (wie Microsoft 365 E3 oder E5) regulär bei rund 40 bis 61 € netto pro Nutzer und Monat (bzw. ca. 450–700 € pro Jahr; mit Mengen- und Rahmenvertragsrabatten oft etwas darunter, während KI-Add-ons wie Copilot nochmal mit rund 27 €/Monat zu Buche schlagen). Auf größere Verwaltungen hochgerechnet entstehen dadurch enorme laufende Kosten - so gibt allein die Bundesverwaltung inzwischen rund 481 Millionen Euro pro Jahr für Microsoft-Lizenzen aus, während das Land Schleswig-Holstein durch seinen Open-Source-Umstieg ab 2026 mit Einsparungen von rund 15 Millionen Euro jährlich rechnet. Wuppertal zahlt 2 Mio/anno an Redmond.
+
+Kommunale Ebene (Piloten &amp; Verbünde): Einzelne Kommunen (darunter z. B. Vorreiter wie Gelsenkirchen, Dortmund oder verschiedene &quot;Modellkommunen&quot;) sowie kommunale IT-Dienstleister (wie AKDB, Dataport oder regio iT) testen openDesk bereits intensiv in Pilotprojekten, bereiten Mandanten-Lösungen vor oder nutzen einzelne (!) Module produktiv. Ein flächendeckender, vollständiger Ersatz von Microsoft-Arbeitsplätzen über alle Ämter hinweg ist aber &quot;noch im Aufbau&quot;, da zunächst Fachverfahren angebunden und Mitarbeitende geschult werden müssen.
+
+Eine Anwendung oder Säulen? OpenDesk verfolgt einen hybriden Ansatz: Es ist eine webbasierte, einheitlich integrierte Oberfläche (Browser-Portal), unter deren Haube weiterhin eigenständige Einzelprogramme arbeiten, die aber über ein gemeinsames Navigationsmenü und Single Sign-On (SSO) wie aus einem Guss wirken.
+Vergleich mit GoogleSuite oder Notion. Für den Endnutzer stellt sich die Bedienung konkret so dar: Einheitliches Portal statt Einzel-Logins: Der Nutzer meldet sich einmalig über ein zentrales Portal an (Single Sign-On via Keycloak) und landet auf einer gemeinsamen Startseite (ähnlich wie bei Microsoft 365 im Browser oder Nextcloud Hub). Zentraler App-Switcher („Waffel-Menü“): Oben in der Navigationsleiste gibt es ein einheitliches Menü (App-Launcher) sowie ein durchgängiges Design-Theme (Header/Farben), über das der Nutzer mit einem Klick zwischen E-Mail/Kalender (Open-Xchange), Dateien (Nextcloud), Textverarbeitung (Collabora), Chat (Element) und Wiki (XWiki) wechselt – ohne zu merken, dass im Hintergrund unterschiedliche Software-Server angesprochen werden. Keine klassische Desktop-Installation nötig: Anders als beim traditionellen Microsoft Office (mit lokal installierten .exe-Programmen für Word, Outlook, Teams) läuft openDesk primär komplett im Webbrowser als einheitlicher digitaler Arbeitsplatz.
+
+Schlusswort (Damian P.): Durch Vibecoding bzw. Vibedoing (KI-gestütztes Entwickeln) werden künftig deutlich schneller neue Open-Source-Produkte entstehen. Das eröffnet gerade kleinen und mittleren Unternehmen die große Chance, eigene Bausteine und ergänzende Funktionen rund um openDesk für die öffentliche Hand zu entwickeln und anzubieten.
+
+Es folgten weitere Schlussworte, die verschiedene Ansätze betonen und analysieren, warum wir nicht vorwärts kommen. Experten wollen OpenSource, User im öD wollen nicht umstellen. </div></details></article><article class="oksp-card" id="oksp-s3" data-id="s3" data-lane="3" data-tags="#digitalePartizipation" data-notes="1" data-search="session 3 talbeteiligung.de städtische beteiligungs- und engagementplattform jonathan und jonas #digitalepartizipation talbeteiligung der stadt wuppertal
+
+talbeteiligung.de seit 2019
+plattform von wer denkt was gmbh, darmstadt
+stabsstelle talbeteiligung der stadt wuppertal
+nicht mengelmelder
+projektebezogene beteiligungsseiten" data-pad="https://unserpad.de/p/OKNRW-2026-Session-3" style="grid-row:2;grid-column:5"><div class="oksp-meta"><span class="oksp-num">Session 3</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 3 · Raum 206</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>11:00–11:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 3: Talbeteiligung.de öffnen</button><div class="oksp-part"><h4 class="oksp-title">Talbeteiligung.de</h4><p class="oksp-sub">Städtische Beteiligungs- und Engagementplattform</p><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Jonathan und Jonas</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#digitalePartizipation">#digitalePartizipation</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">Talbeteiligung der Stadt Wuppertal
+
+<a href="https://talbeteiligung.de" target="_blank" rel="noopener">talbeteiligung.de</a> seit 2019
+Plattform von wer denkt was GmbH, Darmstadt
+Stabsstelle talbeteiligung der Stadt Wuppertal
+nicht Mengelmelder
+Projektebezogene Beteiligungsseiten</div></details></article><article class="oksp-card" id="oksp-s4" data-id="s4" data-lane="4" data-tags="#Alternativen|#Gemeinwohlorientiert|#Mobilfunk|#Smartphone|#Suchmaschine" data-notes="1" data-search="session 4 googlest du nochj oder suchst du schon?  beate petersen #alternativen #gemeinwohlorientiert #suchmaschine #mobilfunk #smartphone *•„google“st du noch oder suchst du schon? •es gibt bereits alternativen, nutzen wir sie, z.b.
+*
+*•   ecosia, berlin
+*
+bäume pflanzende suchmaschine, sozialunternehmen
+•        website: https://www.ecosia.org
+•        browser: https://www.ecosia.org/browser
+*•        https://de.wikipedia.org/wiki/ecosia
+*
+*
+*•  wetell, freiburg, baden-württemberg
+*
+*mobilfunk als hebel für ein massenprodukt, integriert gedacht und auf dem weg zu verantwortungseigentum  
+•        https://www.wetell.de/warum-wetell/wirtschaft-aufmischen/gwoe-bilanz/
+•        gemeinwohl-bericht zum download: gwö-bericht 2025.
+•        alle aussagen darin wurden in einem externen audit durch die vita bona prüf &amp; audit gmbh bestätigt.
+
+*
+*•   shift-phone, falkenberg, hessen 
+*
+*•langlebige und reparierbare produkte 
+*
+*alle 3 unternehmen schützen ressourcen und schaffen regionale wertschöpfung und arbeitsplätze. 
+*damit tragen sie mit zu digitaler unabhängigkeit, resilienz und ganz praktisch auch zu klimaschutz und nachhaltigkeit bei, was wiederrum frieden und freiheit sichert. alle sind gemeinwohl-bilanziert.
+*
+*dies schafft lebensqualität, senkt kosten und macht unabhängig-selbstbestimmt
+*digital unabhängig und ressourcen schonend für lebenswerte städte
+*" data-pad="https://unserpad.de/p/OKNRW-2026-Session-4" style="grid-row:2;grid-column:6"><div class="oksp-meta"><span class="oksp-num">Session 4</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 4 · Raum 207</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>11:00–11:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 4: Googlest Du nochj oder suchst Du schon? öffnen</button><div class="oksp-part"><h4 class="oksp-title">Googlest Du nochj oder suchst Du schon?</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Beate Petersen</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#Alternativen">#Alternativen</button><button type="button" class="oksp-tag" data-tag="#Gemeinwohlorientiert">#Gemeinwohlorientiert</button><button type="button" class="oksp-tag" data-tag="#Suchmaschine">#Suchmaschine</button><button type="button" class="oksp-tag" data-tag="#Mobilfunk">#Mobilfunk</button><button type="button" class="oksp-tag" data-tag="#Smartphone">#Smartphone</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">*•„Google“st Du noch oder suchst Du schon? •Es gibt bereits Alternativen, Nutzen wir sie, z.B.
+*
+*•   Ecosia, Berlin
+*
+Bäume pflanzende Suchmaschine, Sozialunternehmen
+•        Website: <a href="https://www.ecosia.org" target="_blank" rel="noopener">https://www.ecosia.org</a>
+•        Browser: <a href="https://www.ecosia.org/browser" target="_blank" rel="noopener">https://www.ecosia.org/browser</a>
+*•        <a href="https://de.wikipedia.org/wiki/Ecosia" target="_blank" rel="noopener">https://de.wikipedia.org/wiki/Ecosia</a>
+*
+*
+*•  WETELL, Freiburg, Baden-Württemberg
+*
+*Mobilfunk als Hebel für ein Massenprodukt, integriert gedacht und auf dem Weg zu Verantwortungseigentum  
+•        <a href="https://www.wetell.de/warum-wetell/wirtschaft-aufmischen/gwoe-bilanz/" target="_blank" rel="noopener">https://www.wetell.de/warum-wetell/wirtschaft-aufmischen/gwoe-bilanz/</a>
+•        Gemeinwohl-Bericht zum Download: GWÖ-Bericht 2025.
+•        Alle Aussagen darin wurden in einem externen Audit durch die vita bona Prüf &amp; Audit GmbH bestätigt.
+
+*
+*•   SHIFT-Phone, Falkenberg, Hessen 
+*
+*•langlebige und reparierbare Produkte 
+*
+*Alle 3 Unternehmen schützen Ressourcen und schaffen regionale Wertschöpfung und Arbeitsplätze. 
+*Damit tragen sie mit zu digitaler Unabhängigkeit, Resilienz und ganz praktisch auch zu Klimaschutz und Nachhaltigkeit bei, was wiederrum Frieden und Freiheit sichert. Alle sind Gemeinwohl-bilanziert.
+*
+*Dies schafft Lebensqualität, senkt Kosten und macht unabhängig-selbstbestimmt
+*digital unabhängig und Ressourcen schonend für lebenswerte Städte
+*</div></details></article>
+
+
+<article class="oksp-card" id="oksp-s18" data-id="s18" data-lane="5" data-tags="#Solarpunk" data-notes="1" data-search="session 18 solarpunk  christopher #solarpunk # netzwerk und infrastruktur für solarpunk
+
+* phneutral.net
+
+* dritte runde solarpunk bei oknrw barcamp
+
+* christopher hat slides
+
+* aktuelle probleme:
+
+* bullshit jobs (david graeber)
+
+* optimierungskult
+
+* einsamkeitsökonomie
+
+* beschleunigungszwang
+
+* empty innovation (tante ccc)
+
+* enshitification (cory doctorow)
+
+* slop
+
+* solarpunk: gemeinsam (un)abhängig
+
+* literatur zu solarpunk
+
+* arborealität - rebecca campbell
+
+* enshitification - cory doctorow
+
+* the serviceberry - robin wall kimmerer. geschenkökonomie
+
+* the ministry for the future - kim stanley robinson.
+
+* monk&amp;robot series - becky chambers
+
+* magazin neue narrative (https://www.neuenarrative.de/)
+
+# was ist solarpunk:
+    - gegentrend zu cyberpunk.
+    - eine utopische zukunft statt einer dystopischen.
+    - resilient, nachhaltig, ökologisch, human.
+    - &quot;eine welt in der man gerne leben will&quot;
+    - nicht nur eine schöne welt sondern wirklich auch eine realistische idee mit handlungsvision. (z.b. https://realutopien.info/visuals/wuppertal-oberbarmen-2045/)
+    - das solarpunk-manifest: https://solar-punk.org/2024/08/13/ein-solarpunk-manifest/
+# diverse bausteine - mit lösungen, die es schon gibt
+
+* genossenschaften. digitaläquivalent: plattform-kooperativismus.
+
+* kreislaufwirtschaft.
+
+* postwachstum/de-growth
+
+* geschenkökonomie
+
+* bibliothek-sozialismus
+
+* öko sozialismus
+
+* vergesellschaftung und verantwortungseigentum. commoning
+
+* wartung und pflege
+
+## autarkie
+
+* solarpunk versteht sich bottom-up.
+
+* autarkie beschreibt eher eine unabhängigkeit, die real nicht zu realisieren ist, weil wir interdependent sind.
+
+* begriff autonomie etwas weniger starr. &quot;selbstwirksamkeit&quot; als alternatives wording.
+
+## netzwerk und infrastruktur.
+
+* solarpunk ist eine überordnung verschiedener bewegungen,
+
+* kern der fragestellung ist, wie man an der stelle jetzt weitermacht und die alle zusammenzubringt
+
+..leider noch keine lösung gefunden." data-pad="https://unserpad.de/p/OKNRW-2026-Session-18" style="grid-row:2;grid-column:7"><div class="oksp-meta"><span class="oksp-num">Session 18</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 5 · Raum A108</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>11:00–11:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 18: Solarpunk öffnen</button><div class="oksp-part"><h4 class="oksp-title">Solarpunk</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Christopher</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#Solarpunk">#Solarpunk</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body"># Netzwerk und Infrastruktur für Solarpunk
+
+* <a href="https://phneutral.net" target="_blank" rel="noopener">phneutral.net</a>
+
+* Dritte Runde Solarpunk bei OKNRW Barcamp
+
+* Christopher hat Slides
+
+* Aktuelle Probleme:
+
+* Bullshit Jobs (David Graeber)
+
+* Optimierungskult
+
+* Einsamkeitsökonomie
+
+* Beschleunigungszwang
+
+* Empty Innovation (Tante CCC)
+
+* Enshitification (Cory Doctorow)
+
+* Slop
+
+* Solarpunk: gemeinsam (un)abhängig
+
+* Literatur zu Solarpunk
+
+* Arborealität - Rebecca Campbell
+
+* Enshitification - Cory Doctorow
+
+* The Serviceberry - Robin Wall Kimmerer. Geschenkökonomie
+
+* The Ministry for the future - Kim Stanley Robinson.
+
+* Monk&amp;Robot Series - Becky Chambers
+
+* Magazin Neue Narrative (<a href="https://www.neuenarrative.de/" target="_blank" rel="noopener">https://www.neuenarrative.de/</a>)
+
+# Was ist Solarpunk:
+    - Gegentrend zu Cyberpunk.
+    - Eine Utopische Zukunft statt einer dystopischen.
+    - Resilient, nachhaltig, ökologisch, human.
+    - &quot;Eine Welt in der man gerne Leben will&quot;
+    - Nicht nur eine schöne Welt sondern wirklich auch eine realistische Idee mit Handlungsvision. (z.B. <a href="https://realutopien.info/visuals/wuppertal-oberbarmen-2045/" target="_blank" rel="noopener">https://realutopien.info/visuals/wuppertal-oberbarmen-2045/</a>)
+    - Das Solarpunk-Manifest: <a href="https://solar-punk.org/2024/08/13/ein-solarpunk-manifest/" target="_blank" rel="noopener">https://solar-punk.org/2024/08/13/ein-solarpunk-manifest/</a>
+# Diverse Bausteine - mit Lösungen, die es schon gibt
+
+* Genossenschaften. Digitaläquivalent: Plattform-Kooperativismus.
+
+* Kreislaufwirtschaft.
+
+* Postwachstum/De-Growth
+
+* Geschenkökonomie
+
+* Bibliothek-Sozialismus
+
+* Öko Sozialismus
+
+* Vergesellschaftung und Verantwortungseigentum. Commoning
+
+* Wartung und Pflege
+
+## Autarkie
+
+* Solarpunk versteht sich Bottom-Up.
+
+* Autarkie beschreibt eher eine Unabhängigkeit, die real nicht zu realisieren ist, weil wir interdependent sind.
+
+* Begriff Autonomie etwas weniger starr. &quot;Selbstwirksamkeit&quot; als alternatives Wording.
+
+## Netzwerk und Infrastruktur.
+
+* Solarpunk ist eine Überordnung verschiedener Bewegungen,
+
+* Kern der Fragestellung ist, wie man an der Stelle jetzt weitermacht und die alle zusammenzubringt
+
+..leider noch keine Lösung gefunden.</div></details></article>
+
+
+
+</section><section class="oksp-slot" aria-labelledby="oksp-slot-1200"><h3 class="oksp-slot-h" id="oksp-slot-1200" style="grid-row:3;grid-column:1"><span>12:00</span><small>Uhr</small></h3><article class="oksp-card" id="oksp-s5" data-id="s5" data-lane="1" data-tags="#AutosRausAusDerStadt|#OpenData|#Teilhabe|#VibeCoding|#ÖPNV" data-notes="1" data-search="session 5 talfahrt.app öpnv-mobilitätsdaten in wuppertal mal anders benedikt #öpnv #opendata #vibecoding #autosrausausderstadt #teilhabe *talfahrt.app
+*öpnv-mobilitätsdaten in wuppertal mal anders
+*#öpnv #opendata #vibecoding #autosrausausderstadt #teilhabe
+*benedikt
+
+- kurze &quot;örtchenbedingte&quot; verzögerung.
+- kurzvorstellung.
+
+- direkt die kritikpunkte - nicht &quot;mobil&quot;-kompatibel: https://www.wsw-busradar.de/
+- mittels f12 im browser lässt sich gut prüfen woher die daten kommen.
+- es gibt eine vdv-schnittstelle 4.53 und 4.54
+- https://www.vdv.de/ist-daten-schnittstellen.aspx
+- die schnittstelle ist nicht offen
+- ein start-up hat die plattform für die wsw geschrieben
+
+- bene stellt ein einfaches dashboard aus den rohdaten vor.
+- hinweis - &quot;transportr&quot; als weitere quelle nutzbar – entwickler seit über 10 jahren ist torsten grote
+- qr-codes an allen haltestellen in wuppertal wurden vor jahren überall montiert und dann jetzt wieder entfernt, weil 404 (nicht erreichbar) anstatt url-umleitungen einzurichten.
+- was ist der mehrwert?
+- es geht ja auch um eine live-anzeige und den willen zu zeigen, wenn es verspätungen gibt.
+- es gibt eine differenz zwischen efa-schnittstelle und anderen öffentlichen quellen (bspw. gps-daten der fahrzeuge).
+- weitere mögliche quelle &quot;transitious&quot; – https://transitous.org/
+
+- die öffentlichen statistiken der verkehrsbetriebe sind über die zeit halt &quot;bereinigt&quot;.
+- nützt &quot;live&quot; an der haltestelle aber wenig.
+- zu &quot;frühe&quot; busse und -abfahrten sind im echten leben ein großes problem.
+- die daten der plattformen sind nicht &quot;live&quot; sondern ebenfalls bereinigt.
+- die gps-daten sind wohl schon in transitious enthalten – aber sehr &quot;glatt&quot;/&quot;zeitverzögert&quot;.
+- die daten kommen von einer delphi-schnittstelle &quot;4453&quot; (leitstelle zu leitstelle) – via vrr via wsw
+- die anwendung &quot;motis&quot; berechnet die gps-daten (global) – transitious ist &quot;nur&quot; eine plattform
+- eine motis-instanz wird vom land.nrw (und der eu) selber gefördert.
+- das unternehmen &quot;mobidrom&quot; aus düsseldorf bietet laut eigenwerbung auch eine offene schnittstelle.
+- idee – kombination mit baustellen und sperrungen auf der live-karte?
+- mögliche datenquelle als idee – https://verkehr.nrw des verkehrsministeriums nrw.
+- (zufall? da steht &quot;mobidrom&quot;)
+- eine prognose hängt von so vielen faktoren ab, da investieren konzerne sehr große summen.
+
+- überlegungen – upstream-möglichkeiten? über die verbünde hinweg?
+- commnuity-aufbau
+- noch ist das git ebenfalls nö, weil es einfach &quot;mal eben&quot; gemacht worden war (in go geschrieben).
+
+- bene plant, seine seite öffentlich zur verfügung zu stellen. die rechtlichen hüden selber provider zu werden, sind ein bisschen hoch.
+- vorgeschlagene alternativen:
+    :: ein widget
+    :: eine app in der hoheit der nutzenden – keine login-verwaltung notwendig.
+
+## abschluss
+- die runde ist der meinung, dass bene seine seite (das projekt) nicht nur &quot;erhält&quot; sondern gerne ergänzt und öffnet.
+
+## quellen:
+    - der offizielle bus-radar: https://www.wsw-busradar.de/
+    - das dashboard aus den rohdaten: https://talfahrt.app - (öffentlich)
+    - das git: &lt;link von bene hier noch einsetzen&gt; - (noch nicht öffentlich)
+    - zweites dashboard mit ergänzenden informationen und qr-generator
+    - ähnliches projekt europaweit &quot;transportr&quot; – https://github.com/grote/transportr
+    - https://www.vdv.de/ist-daten-schnittstellen.aspx
+    - https://www.efa.de/hilfe/impressum/
+    - https://transitous.org/api/
+    - https://www.mobidrom.nrw/produkte/mobidrom-routing-services/unsere-routing-services-und-motis
+    - https://verkehr.nrw" data-pad="https://unserpad.de/p/OKNRW-2026-Session-5" style="grid-row:3;grid-column:3"><div class="oksp-meta"><span class="oksp-num">Session 5</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 1 · Raum 203</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12:00–12:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 5: talfahrt.app öffnen</button><div class="oksp-part"><h4 class="oksp-title">talfahrt.app</h4><p class="oksp-sub">ÖPNV-Mobilitätsdaten in Wuppertal mal anders</p><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Benedikt</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#ÖPNV">#ÖPNV</button><button type="button" class="oksp-tag" data-tag="#OpenData">#OpenData</button><button type="button" class="oksp-tag" data-tag="#VibeCoding">#VibeCoding</button><button type="button" class="oksp-tag" data-tag="#AutosRausAusDerStadt">#AutosRausAusDerStadt</button><button type="button" class="oksp-tag" data-tag="#Teilhabe">#Teilhabe</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">*<a href="https://talfahrt.app" target="_blank" rel="noopener">talfahrt.app</a>
+*ÖPNV-Mobilitätsdaten in Wuppertal mal anders
+*#ÖPNV #OpenData #VibeCoding #AutosRausAusDerStadt #Teilhabe
+*Benedikt
+
+- kurze &quot;örtchenbedingte&quot; Verzögerung.
+- Kurzvorstellung.
+
+- Direkt die Kritikpunkte - nicht &quot;mobil&quot;-kompatibel: <a href="https://www.wsw-busradar.de/" target="_blank" rel="noopener">https://www.wsw-busradar.de/</a>
+- mittels F12 im Browser lässt sich gut prüfen woher die Daten kommen.
+- Es gibt eine VDV-Schnittstelle 4.53 und 4.54
+- <a href="https://www.vdv.de/ist-daten-schnittstellen.aspx" target="_blank" rel="noopener">https://www.vdv.de/ist-daten-schnittstellen.aspx</a>
+- die Schnittstelle ist nicht offen
+- ein Start-Up hat die Plattform für die WSW geschrieben
+
+- Bene stellt ein einfaches Dashboard aus den Rohdaten vor.
+- Hinweis - &quot;Transportr&quot; als weitere Quelle nutzbar – Entwickler seit über 10 Jahren ist Torsten Grote
+- QR-Codes an allen Haltestellen in Wuppertal wurden vor Jahren überall montiert und dann jetzt wieder entfernt, weil 404 (nicht erreichbar) anstatt URL-Umleitungen einzurichten.
+- Was ist der Mehrwert?
+- Es geht ja auch um eine Live-Anzeige und den Willen zu zeigen, wenn es Verspätungen gibt.
+- Es gibt eine Differenz zwischen efa-Schnittstelle und anderen öffentlichen Quellen (bspw. GPS-Daten der Fahrzeuge).
+- Weitere mögliche Quelle &quot;transitious&quot; – <a href="https://transitous.org/" target="_blank" rel="noopener">https://transitous.org/</a>
+
+- Die öffentlichen Statistiken der Verkehrsbetriebe sind über die Zeit halt &quot;bereinigt&quot;.
+- Nützt &quot;live&quot; an der Haltestelle aber wenig.
+- Zu &quot;frühe&quot; Busse und -Abfahrten sind im echten Leben ein großes Problem.
+- Die Daten der Plattformen sind nicht &quot;live&quot; sondern ebenfalls bereinigt.
+- Die GPS-Daten sind wohl schon in transitious enthalten – aber sehr &quot;glatt&quot;/&quot;zeitverzögert&quot;.
+- die Daten kommen von einer Delphi-Schnittstelle &quot;4453&quot; (Leitstelle zu Leitstelle) – via VRR via WSW
+- Die Anwendung &quot;MOTIS&quot; berechnet die GPS-Daten (global) – Transitious ist &quot;nur&quot; eine Plattform
+- Eine MOTIS-Instanz wird vom Land.NRW (und der EU) selber gefördert.
+- Das Unternehmen &quot;mobidrom&quot; aus Düsseldorf bietet laut Eigenwerbung auch eine offene Schnittstelle.
+- Idee – Kombination mit Baustellen und Sperrungen auf der Live-Karte?
+- Mögliche Datenquelle als Idee – <a href="https://verkehr.nrw" target="_blank" rel="noopener">https://verkehr.nrw</a> des Verkehrsministeriums NRW.
+- (Zufall? Da steht &quot;mobidrom&quot;)
+- Eine Prognose hängt von so vielen Faktoren ab, da investieren Konzerne sehr große Summen.
+
+- Überlegungen – Upstream-Möglichkeiten? Über die Verbünde hinweg?
+- Commnuity-Aufbau
+- Noch ist das Git ebenfalls NÖ, weil es einfach &quot;mal eben&quot; gemacht worden war (in GO geschrieben).
+
+- Bene plant, seine Seite öffentlich zur Verfügung zu stellen. Die rechtlichen Hüden selber Provider zu werden, sind ein bisschen hoch.
+- Vorgeschlagene Alternativen:
+    :: ein Widget
+    :: eine App in der Hoheit der Nutzenden – keine Login-Verwaltung notwendig.
+
+## Abschluss
+- Die Runde ist der Meinung, dass Bene seine Seite (das Projekt) nicht nur &quot;erhält&quot; sondern gerne ergänzt und öffnet.
+
+## Quellen:
+    - Der offizielle Bus-Radar: <a href="https://www.wsw-busradar.de/" target="_blank" rel="noopener">https://www.wsw-busradar.de/</a>
+    - Das Dashboard aus den Rohdaten: <a href="https://talfahrt.app" target="_blank" rel="noopener">https://talfahrt.app</a> - (öffentlich)
+    - Das Git: &lt;Link von Bene hier noch einsetzen&gt; - (noch nicht öffentlich)
+    - Zweites Dashboard mit ergänzenden Informationen und QR-Generator
+    - Ähnliches Projekt europaweit &quot;transportr&quot; – <a href="https://github.com/grote/transportr" target="_blank" rel="noopener">https://github.com/grote/transportr</a>
+    - <a href="https://www.vdv.de/ist-daten-schnittstellen.aspx" target="_blank" rel="noopener">https://www.vdv.de/ist-daten-schnittstellen.aspx</a>
+    - <a href="https://www.efa.de/hilfe/impressum/" target="_blank" rel="noopener">https://www.efa.de/hilfe/impressum/</a>
+    - <a href="https://transitous.org/api/" target="_blank" rel="noopener">https://transitous.org/api/</a>
+    - <a href="https://www.mobidrom.nrw/produkte/mobidrom-routing-services/unsere-routing-services-und-motis" target="_blank" rel="noopener">https://www.mobidrom.nrw/produkte/mobidrom-routing-services/unsere-routing-services-und-motis</a>
+    - <a href="https://verkehr.nrw" target="_blank" rel="noopener">https://verkehr.nrw</a></div></details></article><article class="oksp-card" id="oksp-s6" data-id="s6" data-lane="2" data-tags="" data-notes="1" data-search="session 6 mythos neutralitätsgebot  jan  jan: was ist neutralität? 
+a.: gleichgewichtiges informieren. 
+a.: gleichgewichtiges durchleiten von daten. 
+a.: eigene meinung nicht auflegen. 
+a.: mit menschen und institutionen wertfrei interagieren. 
+a.: nichts punktuelles, spektrum. spielraum. 
+ 
+jan. input: 
+neutralität kann sein: diplomatischer zustand, religionsfreiheit, ideologiefreiheit, fairness, wertefreiheit, freiheit der lebensentwürfe, freiheit von einflussnahme. 
+art. 21 gg 
+art. 80 landesverf. nrw 
+beutelsbacher konsens als schwert (durch demokratiefeinde) und schild (lehrende)
+siegburger konsens 
+art. 20 gg 
+--&gt; kein neutralitätsgebot, sondern vielmehr verfassungstreue: wehrhafte demokratie, rechtsstaatlichkeit 
+weitere grundlagen: internationale verträge z.b. un-behindertenrechtskonvention
+zitat prof. dr. friedhelm hufen (mainz) 
+&quot;neutralität&quot; bedeutet überparteilichkeit - nicht wertefreiheit.  
+
+einwurf: viele schulämter scheinen das anders zu interpretieren.
+jan: oft verwaltungsproblem. gesetze werden eher defensiv ausgelegt.
+
+anregung: muss öfter verdeutlicht werden, dass es kein neutralitätsgebot gibt.
+jan: ist vielen menschen den &quot;ärger&quot; nicht wert. beispiel lehrer mit gerichtlichem prozess.  
+
+beispiel: beamtenfamilie, keine äußerungen zu parteipolitik
+
+afd-vorgehen führt zu verunsicherungen durch meldeaufforderungen, beispiel schulunterricht.  
+
+jan: beispiel ausstellung rathaus, mit polizeikritischen inhalten. kontroverse/protest, aber gute antwort von ob scherff: ist nicht ihre meinung, muss aber im öffentlichem raum sag- und aushaltbar sein. 
+
+ein begriff wie &quot;patriotismus&quot; kann auch von anderer seite beansprucht und &quot;gefeiert&quot; werden. beispielsweise im sinne einer guten verfassung.  
+
+prinzipien im grundgesetz sind nicht immer absolut zu verstehen, sondern müssen miteinander austariert werden. beispiel der meinungsfreiheit. 
+
+ki und andere technologien führen stellenweise zu enormer menge an äußerungen/bewerbungen/anträgen + phänomen wie &quot;flooding the zone with shit&quot;. enorme anstrengungen vonnöten, um diese diskurse zu durchforsten und auf eine faktenbasierte ebene zurückzuführen 
+
+thema wirkungsmessung
+jan: im bereich der politischen bildung enorm schwierig
+
+jan weist auf infoseite politik-in-wuppertal.de hin " data-pad="https://unserpad.de/p/OKNRW-2026-Session-6" style="grid-row:3;grid-column:4"><div class="oksp-meta"><span class="oksp-num">Session 6</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 2 · Raum 204</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12:00–12:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 6: Mythos Neutralitätsgebot öffnen</button><div class="oksp-part"><h4 class="oksp-title">Mythos Neutralitätsgebot</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Jan</span></p></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">Jan: Was ist Neutralität? 
+A.: gleichgewichtiges informieren. 
+A.: gleichgewichtiges durchleiten von Daten. 
+A.: eigene Meinung nicht auflegen. 
+A.: mit Menschen und Institutionen wertfrei interagieren. 
+A.: nichts punktuelles, Spektrum. Spielraum. 
+ 
+Jan. Input: 
+Neutralität kann sein: Diplomatischer Zustand, Religionsfreiheit, Ideologiefreiheit, Fairness, Wertefreiheit, Freiheit der Lebensentwürfe, Freiheit von Einflussnahme. 
+Art. 21 GG 
+Art. 80 Landesverf. NRW 
+Beutelsbacher Konsens als Schwert (durch Demokratiefeinde) und Schild (Lehrende)
+Siegburger Konsens 
+Art. 20 GG 
+--&gt; kein Neutralitätsgebot, sondern vielmehr Verfassungstreue: wehrhafte Demokratie, Rechtsstaatlichkeit 
+Weitere Grundlagen: Internationale Verträge z.B. UN-Behindertenrechtskonvention
+Zitat Prof. Dr. Friedhelm Hufen (Mainz) 
+&quot;Neutralität&quot; bedeutet Überparteilichkeit - nicht Wertefreiheit.  
+
+Einwurf: Viele Schulämter scheinen das anders zu interpretieren.
+Jan: oft Verwaltungsproblem. Gesetze werden eher defensiv ausgelegt.
+
+Anregung: muss öfter verdeutlicht werden, dass es kein Neutralitätsgebot gibt.
+Jan: ist vielen Menschen den &quot;Ärger&quot; nicht wert. Beispiel Lehrer mit gerichtlichem Prozess.  
+
+Beispiel: Beamtenfamilie, keine Äußerungen zu Parteipolitik
+
+AfD-Vorgehen führt zu Verunsicherungen durch Meldeaufforderungen, Beispiel Schulunterricht.  
+
+Jan: Beispiel Ausstellung Rathaus, mit polizeikritischen Inhalten. Kontroverse/Protest, aber gute Antwort von OB Scherff: ist nicht ihre Meinung, muss aber im öffentlichem Raum sag- und aushaltbar sein. 
+
+Ein Begriff wie &quot;Patriotismus&quot; kann auch von anderer Seite beansprucht und &quot;gefeiert&quot; werden. Beispielsweise im Sinne einer guten Verfassung.  
+
+Prinzipien im Grundgesetz sind nicht immer absolut zu verstehen, sondern müssen miteinander austariert werden. Beispiel der Meinungsfreiheit. 
+
+KI und andere Technologien führen stellenweise zu enormer Menge an Äußerungen/Bewerbungen/Anträgen + Phänomen wie &quot;flooding the zone with shit&quot;. Enorme Anstrengungen vonnöten, um diese Diskurse zu durchforsten und auf eine faktenbasierte Ebene zurückzuführen 
+
+Thema Wirkungsmessung
+Jan: im Bereich der politischen Bildung enorm schwierig
+
+Jan weist auf Infoseite <a href="https://politik-in-wuppertal.de" target="_blank" rel="noopener">politik-in-wuppertal.de</a> hin </div></details></article>
+
+<article class="oksp-card" id="oksp-s7" data-id="s7" data-lane="3" data-tags="#Mitmachen|#Partizipation" data-notes="1" data-search="session 7 co-design ki-lösungen demokratisch gestalten  ulrike genenz #partizipation #mitmachen co-design von ki-lösungen
+als beispiel hatten wir uns die beteiligungsplattform der stadt wuppertal (session 3) angeschaut, und die plattform um einen ki assistenten erweitert. doch wie soll dieser sein, welche anforderungen bestehen und welche folgewirkungen könnten bestehen?
+anhand eines kartensets mit gedankenanregungen wurden verschiedene anforderungen besprochen. es zeigte sich, dass hinter jedem wunsch auch folgekosten stehen - organisatorisch, technologisch, sozial, ökologisch, rechtlich, politisch.
+es gab dabei eine spannende diskussion in die mach- und umsetzbarkeit von vorhaben und wie eine verantwortungsvolle gestaltung aussehen kann." data-pad="https://unserpad.de/p/OKNRW-2026-Session-7" style="grid-row:3;grid-column:5"><div class="oksp-meta"><span class="oksp-num">Session 7</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 3 · Raum 206</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12:00–12:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 7: Co-Design KI-Lösungen demokratisch gestalten öffnen</button><div class="oksp-part"><h4 class="oksp-title">Co-Design KI-Lösungen demokratisch gestalten</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Ulrike Genenz</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#Partizipation">#Partizipation</button><button type="button" class="oksp-tag" data-tag="#Mitmachen">#Mitmachen</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">Co-Design von KI-Lösungen
+Als Beispiel hatten wir uns die Beteiligungsplattform der Stadt Wuppertal (Session 3) angeschaut, und die Plattform um einen KI Assistenten erweitert. Doch wie soll dieser sein, welche Anforderungen bestehen und welche Folgewirkungen könnten bestehen?
+Anhand eines Kartensets mit Gedankenanregungen wurden verschiedene Anforderungen besprochen. Es zeigte sich, dass hinter jedem Wunsch auch Folgekosten stehen - organisatorisch, technologisch, sozial, ökologisch, rechtlich, politisch.
+Es gab dabei eine spannende Diskussion in die Mach- und Umsetzbarkeit von Vorhaben und wie eine verantwortungsvolle Gestaltung aussehen kann.</div></details></article>
+
+
+
+<article class="oksp-card" id="oksp-s8" data-id="s8" data-lane="4" data-tags="#Transparenz|#VibeCoding" data-notes="1" data-search="session 8 transparente politik gemeinsam vibecoden :)  sten / sven #transparenz #vibecoding *oknrw 21.11.2026 - session 8 | 12.00-12.45
+
+transparente politik gemeinsam vibecoden :)
+#transparenz #vibecoding
+sten / sven , münster 
+
+- mandari : plattform, offen
+
+beispiel: vorlagen aus der bezirksvertretung  - basis für heute 
+
+es ein praktisches beispiel durchgespielt: 
+    
+    qr-code:  https://oknrw.mandari.de/gludtimvyiixy95oyf2tnpzdf4exukyo/
+    
+hierzu gibt es eine vorlage für 3 gruppen: 
+    
+    
+    welche gruppe seid ihr?    
+    
+gruppe 1: meine gegend
+„was passiert in meiner gegend?“als anwohnerin will ich sehen, was in meinem viertel geplant ist, damit ich nichts verpasse.
+
+gruppe 2: ein thema
+„ich interessiere mich für den spielplatz.“als vater will ich alles zu einem bestimmten thema finden, damit ich auf dem laufenden bleibe.
+
+gruppe 3: mitreden
+„ich möchte mitdiskutieren.“als bürgerin will ich wissen, wann und wo ich mich zu einem thema einbringen kann, damit meine stimme zählt.
+
+
+die gesamtgruppe wurde in 3 teilgruppen unterteilt. 
+
+jede gruppe formulierte an den einzelnen unter-prompts. 
+ergebnis ist: ein großer, umfangreicher gesamt-prompt
+
+dieser gesamt-prompt wird nun als beispiel in #claude eingegeben. 
+
+(vorgabe: claude hat 5 minuten zeit) 
+
+kleine diskussionsrunde
+
+- wer bringt sich wie in die diskussion ein. 
+- wie strukturiert sind die vorgaben. " data-pad="https://unserpad.de/p/OKNRW-2026-Session-8" style="grid-row:3;grid-column:6"><div class="oksp-meta"><span class="oksp-num">Session 8</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 4 · Raum 207</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12:00–12:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 8: Transparente Politik gemeinsam vibecoden :) öffnen</button><div class="oksp-part"><h4 class="oksp-title">Transparente Politik gemeinsam vibecoden :)</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Sten / Sven</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#Transparenz">#Transparenz</button><button type="button" class="oksp-tag" data-tag="#VibeCoding">#VibeCoding</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">*OKNRW 21.11.2026 - Session 8 | 12.00-12.45
+
+Transparente Politik gemeinsam vibecoden :)
+#Transparenz #VibeCoding
+Sten / Sven , Münster 
+
+- mandari : Plattform, offen
+
+Beispiel: Vorlagen aus der Bezirksvertretung  - Basis für heute 
+
+Es ein praktisches Beispiel durchgespielt: 
+    
+    QR-Code:  <a href="https://oknrw.mandari.de/GLUdTImvYiiXy95oYf2TNpzdf4ExUKyO/" target="_blank" rel="noopener">https://oknrw.mandari.de/GLUdTImvYiiXy95oYf2TNpzdf4ExUKyO/</a>
+    
+Hierzu gibt es eine Vorlage für 3 Gruppen: 
+    
+    
+    Welche Gruppe seid ihr?    
+    
+Gruppe 1: Meine Gegend
+„Was passiert in meiner Gegend?“Als Anwohnerin will ich sehen, was in meinem Viertel geplant ist, damit ich nichts verpasse.
+
+Gruppe 2: Ein Thema
+„Ich interessiere mich für den Spielplatz.“Als Vater will ich alles zu einem bestimmten Thema finden, damit ich auf dem Laufenden bleibe.
+
+Gruppe 3: Mitreden
+„Ich möchte mitdiskutieren.“Als Bürgerin will ich wissen, wann und wo ich mich zu einem Thema einbringen kann, damit meine Stimme zählt.
+
+
+Die Gesamtgruppe wurde in 3 Teilgruppen unterteilt. 
+
+Jede Gruppe formulierte an den einzelnen Unter-Prompts. 
+Ergebnis ist: ein großer, umfangreicher Gesamt-Prompt
+
+Dieser Gesamt-Prompt wird nun als Beispiel in #CLAUDE eingegeben. 
+
+(Vorgabe: Claude hat 5 Minuten Zeit) 
+
+Kleine Diskussionsrunde
+
+- Wer bringt sich wie in die Diskussion ein. 
+- Wie strukturiert sind die Vorgaben. </div></details></article><article class="oksp-card oksp-card--empty" id="oksp-s19" data-id="s19" data-lane="5" data-tags="#CreativeCommons" data-notes="0" data-search="session 19 zusammenarbeit von kommunen - digital und analog  michael mittag #creativecommons " data-pad="https://unserpad.de/p/OKNRW-2026-Session-19" style="grid-row:3;grid-column:7"><div class="oksp-meta"><span class="oksp-num">Session 19</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 5 · Raum A108</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12:00–12:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 19: Zusammenarbeit von Kommunen - Digital und analog öffnen</button><div class="oksp-part"><h4 class="oksp-title">Zusammenarbeit von Kommunen - Digital und analog</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Michael Mittag</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#CreativeCommons">#CreativeCommons</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article><div class="oksp-gap" style="grid-row:3;grid-column:2" aria-hidden="true"></div></section><section class="oksp-slot" aria-labelledby="oksp-slot-1400"><h3 class="oksp-slot-h" id="oksp-slot-1400" style="grid-row:4;grid-column:1"><span>14:00</span><small>Uhr</small></h3><article class="oksp-card" id="oksp-s9" data-id="s9" data-lane="1" data-tags="#OParl|#OpenData|#OpenSource|#ParlWu|#Ratsinformationssysteme|#RIS" data-notes="1" data-search="session 9 deep dive in oparls &amp; ratsinformationssysteme  sven / sten #oparl #opensource #ratsinformationssysteme parlamentsdaten  mastoon.social/@_m #opendata dokumente und vorgänge aus politik und verwaltung zugänglich machen  gallenkamp #parlwu #ris #oparl *opal deep-dive
+*sven konopka
+*guido gallenkamp
+*regnerd
+
+#opendata #opal #opalneu
+
+- gemischte session inklusive überlagerungen und gegenseitige ergänzungen. es wird versucht, es kurz zu halten, um diskussion zu starten
+
+*regnerd
+- überblick über alle ebenen der parlamente für mehr transparenz.
+- einzelne beispiele
+- parlies (sh) als quasi neuer standard (entwurf) auch schon in 6 bundesländern, die nachträglich in pdfs verwandelt und nicht mehr zugänglich im anschluss sind. diese daten sind aber nicht mehr maschinenlesbar.
+- opal wurde aus diesem grund vor &quot;langer&quot; zeit entwickelt.
+
+*sven - mandari.de
+- opal setzt sich nach gut 10 jahren so langsam durch. es gibt gut 300 komunnen in deutschland, die es unterstützen.
+- strukturierte json-daten inkl. verknüpfungen zu weiterführenden quellen (bspw. pdfs)
+- ris-oberflächen (ratsinformationssysteme) kaum nutzbar. suchaufwände sind enorm.
+- &quot;sessionnet&quot; war aber einer der ersten kommerziellen anbieter, die opal integriert hatten.
+- eigentlich gibt es nur noch 3 anbieter bundesweit für ris.
+
+*guido - parlwu.de
+- opal ist als git verwaist. 
+- parlnu als poc per vibe-coding (mit ki-unterstützung) aus opal neu gebaut.
+- als ausgangsbasis dienten die daten aus verschiedenen ris, um einen anfang zu haben.
+- viele dokumente haben gar keine textebene in den pdfs, sondern nur bilder.
+- ocr (texterkennung) nachträglich über mistral (frnzösisches ki-modell) per pipeline über die dokumente gegangen. und die textebenen ergänzt.
+- extraktion der einzelnen relevanten inhalte wie titel, tagesordnung, etc. per mistral.
+- es wurde eine volltextsuche integriert (embeddings - ebenfalls matrix-embeddings). somit ist eine &quot;semantische suche&quot; (vektorisierte suche) möglich – &quot;lurchpest&quot; vs. &quot;krötenpest&quot;.
+- datenbestand rückwärts bis 1999 indiziert und nachträglich durchsuchbar gemacht.
+- es funktioniert auch multilungual.
+
+- rechtshinweis - eigentlich müssen seit ca. 10 jahren dokumente barrierefrei und somit automatisch maschinenlesbar sein.
+
+- technischer aufabu - postgres mit vectordb.
+- kosten: 20€ pro monat mit claude für das coding
+- kosten: 150€ für embeddings (ca. 4 stunden)
+- projektstart 8.11.2026
+- spracheingabe integriert / sprachausgabe integriert
+- mcp-server für externe dienste an ki angebunden.
+- weitere möglichkeiten – ausbau in richtung kartenmaterial
+- https://parlwu.de
+
+*sven
+- recherchierte viele vergleiche zwischen den einzelnen opal-angeboten über darstellung, usability.
+- mandari unter lgpl frei verfügbar.
+- mandari wurde aus &quot;ratssicht&quot; gebaut, effektiver dokumente innerhalb des opal-systems zu recherchieren.
+- ki-generierte zusammenfassungen
+- in münster im produktiven einsatz.
+- ner (named entity recognition) zur erkennung relevanter inhalte wie bspw. straßennamen zur direkten kartenvisualisierung.
+- opal wurde seit 2018 nicht aktualisiert.
+
+*regnerd
+- liefert noch ein paar hintergründe
+- postalische adressauflösung über dienste des bundes sind leider kostenpflichtig für kommunen
+- zwischenstände zu vorlagen sind nicht in opal abbildbar.
+- mandari harvested/scraped/zieht alle dokumente/daten inkl. personenbezogener daten. 
+- wichtigster hinweis – somit ist mandari informationspflichtig nach dsg-vo ggü. beispielsweise allen mandatsträgern auch historisch.
+
+- aus dem forum: es gibt viele positive rückmeldungen zu den ansätzen.
+- insgesamt (gefühlt) mehr verständnis für technische lösungen – auch in der verwaltung durch jüngere menschen.
+- gibt es internationalen austausch auch zu neuen anforderungen? in bern wurde zuletzt opendatapral ch  (schweiz) vorgestellt.
+- nl (niederlande) hat auch eine eigene api, die gut 2/3 aller kommunen nutzt.
+- es gibt viel bewegung in der sache auch in bund und ländern. (beispiel opal-light) oftmals schlafen diese dinge aber wieder ein.
+
+- wer hat mögliche weiterentwicklungen/neuen anforderungen eventuell auf dem schirm?
+- vitako?
+- kosit (weil stadtstaat bremen)?
+- parlamentsspiegel?
+
+- kurze ergänzungen zu den dsg-vo-rechtsumständen.
+- wenn kommunen ihren pflichten nicht nachkommen, gefährdet das natürlich kleinere projekte, die sich damit beschäftigen.
+
+- nochmal kurz zu gründen - was sind die auslöser für eine nutzung. abgeordnete/ratspersonen/verwaltung zum einen. aber bürgerinnen und bürger: oft ein konkretes thema auf regionaler/kommunaler ebene. nur, dass leute keine ahnung von kommunalpolitik haben. das ist die zielgruppe an der &quot;vorbei&quot; porgrammiert wird.
+
+- bonner ratsseite als mögliches weiteres positives beispiel – ratsatlas bonn.
+
+### quellen:
+    - https://parlwu.de
+    - https://mandari.de
+    - https://github.com/tgstudiode/mandari
+    - https://bonn.ratsatlas.de/" data-pad="https://unserpad.de/p/OKNRW-2026-Session-9" style="grid-row:4;grid-column:3"><div class="oksp-meta"><span class="oksp-num">Session 9</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 1 · Raum 203</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14:00–14:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 9: Deep Dive in OParls &amp; Ratsinformationssysteme öffnen</button><div class="oksp-part"><h4 class="oksp-title">Deep Dive in OParls &amp; Ratsinformationssysteme</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Sven / Sten</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#OParl">#OParl</button><button type="button" class="oksp-tag" data-tag="#OpenSource">#OpenSource</button><button type="button" class="oksp-tag" data-tag="#Ratsinformationssysteme">#Ratsinformationssysteme</button></div></div><p class="oksp-and" aria-hidden="true">&amp;</p><div class="oksp-part"><h4 class="oksp-title">Parlamentsdaten</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>mastoon.social/@_M</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#OpenData">#OpenData</button></div></div><p class="oksp-and" aria-hidden="true">&amp;</p><div class="oksp-part"><h4 class="oksp-title">Dokumente und Vorgänge aus Politik und Verwaltung zugänglich machen</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Gallenkamp</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#ParlWu">#ParlWu</button><button type="button" class="oksp-tag" data-tag="#RIS">#RIS</button><button type="button" class="oksp-tag" data-tag="#OParl">#OParl</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">*OPAL Deep-Dive
+*Sven Konopka
+*Guido Gallenkamp
+*RegNERD
+
+#opendata #opal #opalneu
+
+- Gemischte session inklusive Überlagerungen und gegenseitige Ergänzungen. Es wird versucht, es kurz zu halten, um Diskussion zu starten
+
+*RegNERD
+- Überblick über alle Ebenen der Parlamente für mehr Transparenz.
+- Einzelne Beispiele
+- Parlies (SH) als quasi neuer Standard (Entwurf) auch schon in 6 Bundesländern, die nachträglich in PDFs verwandelt und nicht mehr zugänglich im Anschluss sind. Diese Daten sind aber nicht mehr maschinenlesbar.
+- Opal wurde aus diesem Grund vor &quot;langer&quot; Zeit entwickelt.
+
+*Sven - <a href="https://mandari.de" target="_blank" rel="noopener">mandari.de</a>
+- Opal setzt sich nach gut 10 Jahren so langsam durch. Es gibt gut 300 Komunnen in Deutschland, die es unterstützen.
+- Strukturierte JSON-Daten inkl. Verknüpfungen zu weiterführenden Quellen (bspw. PDFs)
+- RIS-Oberflächen (Ratsinformationssysteme) kaum nutzbar. Suchaufwände sind enorm.
+- &quot;SessionNet&quot; war aber einer der ersten kommerziellen Anbieter, die OPAL integriert hatten.
+- Eigentlich gibt es nur noch 3 Anbieter bundesweit für RIS.
+
+*Guido - <a href="https://parlwu.de" target="_blank" rel="noopener">parlwu.de</a>
+- OPAL ist als Git verwaist. 
+- ParlNu als PoC per Vibe-Coding (mit KI-Unterstützung) aus OPAL neu gebaut.
+- Als Ausgangsbasis dienten die Daten aus verschiedenen RIS, um einen Anfang zu haben.
+- Viele Dokumente haben gar keine Textebene in den PDFs, sondern nur Bilder.
+- OCR (Texterkennung) nachträglich über Mistral (frnzösisches KI-Modell) per Pipeline über die Dokumente gegangen. Und die Textebenen ergänzt.
+- Extraktion der einzelnen relevanten Inhalte wie Titel, Tagesordnung, etc. per Mistral.
+- Es wurde eine Volltextsuche integriert (Embeddings - ebenfalls Matrix-Embeddings). Somit ist eine &quot;semantische Suche&quot; (vektorisierte Suche) möglich – &quot;Lurchpest&quot; vs. &quot;Krötenpest&quot;.
+- Datenbestand rückwärts bis 1999 indiziert und nachträglich durchsuchbar gemacht.
+- Es funktioniert auch multilungual.
+
+- Rechtshinweis - EIGENTLICH müssen seit ca. 10 Jahren Dokumente barrierefrei und somit automatisch maschinenlesbar sein.
+
+- Technischer Aufabu - Postgres mit VectorDB.
+- Kosten: 20€ pro Monat mit Claude für das Coding
+- Kosten: 150€ für Embeddings (ca. 4 Stunden)
+- Projektstart 8.11.2026
+- Spracheingabe integriert / Sprachausgabe integriert
+- MCP-Server für externe Dienste an KI angebunden.
+- Weitere Möglichkeiten – Ausbau in Richtung Kartenmaterial
+- <a href="https://parlwu.de" target="_blank" rel="noopener">https://parlwu.de</a>
+
+*Sven
+- Recherchierte viele Vergleiche zwischen den einzelnen OPAL-Angeboten über Darstellung, Usability.
+- mandari unter LGPL frei verfügbar.
+- mandari wurde aus &quot;Ratssicht&quot; gebaut, effektiver Dokumente innerhalb des OPAL-Systems zu recherchieren.
+- KI-generierte Zusammenfassungen
+- in Münster im produktiven Einsatz.
+- NER (Named Entity Recognition) zur Erkennung relevanter Inhalte wie bspw. Straßennamen zur direkten Kartenvisualisierung.
+- OPAL wurde seit 2018 nicht aktualisiert.
+
+*RegNERD
+- liefert noch ein paar Hintergründe
+- Postalische Adressauflösung über Dienste des Bundes sind leider kostenpflichtig für Kommunen
+- Zwischenstände zu Vorlagen sind nicht in OPAL abbildbar.
+- mandari harvested/scraped/zieht alle Dokumente/Daten inkl. personenbezogener Daten. 
+- Wichtigster Hinweis – Somit ist mandari informationspflichtig nach DSG-VO ggü. beispielsweise allen Mandatsträgern auch historisch.
+
+- aus dem forum: es gibt viele positive Rückmeldungen zu den Ansätzen.
+- insgesamt (gefühlt) mehr Verständnis für technische Lösungen – auch in der Verwaltung durch jüngere Menschen.
+- Gibt es internationalen Austausch auch zu neuen Anforderungen? In Bern wurde zuletzt OpenDataPRal CH  (Schweiz) vorgestellt.
+- NL (Niederlande) hat auch eine eigene API, die gut 2/3 aller Kommunen nutzt.
+- Es gibt viel Bewegung in der Sache auch in Bund und Ländern. (Beispiel Opal-Light) Oftmals schlafen diese Dinge aber wieder ein.
+
+- Wer hat mögliche Weiterentwicklungen/neuen Anforderungen eventuell auf dem Schirm?
+- Vitako?
+- KoSit (weil Stadtstaat Bremen)?
+- Parlamentsspiegel?
+
+- Kurze Ergänzungen zu den DSG-VO-Rechtsumständen.
+- Wenn Kommunen ihren Pflichten nicht nachkommen, gefährdet das natürlich kleinere Projekte, die sich damit beschäftigen.
+
+- Nochmal kurz zu Gründen - Was sind die auslöser für eine Nutzung. Abgeordnete/Ratspersonen/Verwaltung zum einen. Aber Bürgerinnen und Bürger: Oft ein konkretes Thema auf regionaler/kommunaler Ebene. Nur, dass Leute keine Ahnung von Kommunalpolitik haben. Das ist die Zielgruppe an der &quot;vorbei&quot; porgrammiert wird.
+
+- Bonner Ratsseite als mögliches weiteres positives Beispiel – Ratsatlas Bonn.
+
+### Quellen:
+    - <a href="https://parlwu.de" target="_blank" rel="noopener">https://parlwu.de</a>
+    - <a href="https://mandari.de" target="_blank" rel="noopener">https://mandari.de</a>
+    - <a href="https://github.com/TGStudioDE/mandari" target="_blank" rel="noopener">https://github.com/TGStudioDE/mandari</a>
+    - <a href="https://bonn.ratsatlas.de/" target="_blank" rel="noopener">https://bonn.ratsatlas.de/</a></div></details></article><article class="oksp-card oksp-card--empty" id="oksp-s10" data-id="s10" data-lane="2" data-tags="#LivingLabs" data-notes="0" data-search="session 10 open innovation / helix innovation  peter flesch #livinglabs " data-pad="https://unserpad.de/p/OKNRW-2026-Session-10" style="grid-row:4;grid-column:4"><div class="oksp-meta"><span class="oksp-num">Session 10</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 2 · Raum 204</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14:00–14:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 10: Open Innovation / Helix Innovation öffnen</button><div class="oksp-part"><h4 class="oksp-title">Open Innovation / Helix Innovation</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Peter Flesch</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#LivingLabs">#LivingLabs</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article><article class="oksp-card" id="oksp-s11" data-id="s11" data-lane="3" data-tags="" data-notes="1" data-search="session 11 openki offene ki zur verhinderung, das wenige große konzerne die entwicklung der kis bestimmen horst meyer  ok nrw barcamp vom 21.11.2026
+open ki
+open notebook, notebookllm
+trend zu kleinen modell. trend zum verteilte abfragen
+wer sollte offene ki-infrastruktur betreiben – und wer entscheidet über ihre regeln?
+raus aus der bubble rein in die kneipe - erfahrungsaustausch in präsenz
+z.b. stammtische" data-pad="https://unserpad.de/p/OKNRW-2026-Session-11" style="grid-row:4;grid-column:5"><div class="oksp-meta"><span class="oksp-num">Session 11</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 3 · Raum 206</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14:00–14:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 11: OpenKI öffnen</button><div class="oksp-part"><h4 class="oksp-title">OpenKI</h4><p class="oksp-sub">Offene KI zur Verhinderung, das wenige große Konzerne die Entwicklung der KIs bestimmen</p><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Horst Meyer</span></p></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">OK NRW Barcamp vom 21.11.2026
+Open KI
+Open Notebook, NotebookLLM
+Trend zu kleinen Modell. Trend zum verteilte Abfragen
+Wer sollte offene KI-Infrastruktur betreiben – und wer entscheidet über ihre Regeln?
+Raus aus der Bubble rein in die Kneipe - Erfahrungsaustausch in Präsenz
+z.B. Stammtische</div></details></article><article class="oksp-card oksp-card--empty" id="oksp-s12" data-id="s12" data-lane="4" data-tags="#Aktiv|#Austausch" data-notes="0" data-search="session 12 demokratie-fitness -&gt; mobilisierung  jannik / mehr demokratie #aktiv #austausch " data-pad="https://unserpad.de/p/OKNRW-2026-Session-12" style="grid-row:4;grid-column:6"><div class="oksp-meta"><span class="oksp-num">Session 12</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 4 · Raum 207</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14:00–14:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 12: Demokratie-Fitness -&gt; Mobilisierung öffnen</button><div class="oksp-part"><h4 class="oksp-title">Demokratie-Fitness -&gt; Mobilisierung</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Jannik / Mehr Demokratie</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#Aktiv">#Aktiv</button><button type="button" class="oksp-tag" data-tag="#Austausch">#Austausch</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no"> https://demokratiefitness.de </span></div></article><article class="oksp-card" id="oksp-s20" data-id="s20" data-lane="5" data-tags="#DigitaleSouveränität|#Eigentumsformen|#Mitbestimmung|#Selbstverwaltung" data-notes="1" data-search="session 20 selbstverwaltete digitale infrastrukturen - wie geht das?  jan-ulrich hasecke #digitalesouveränität #selbstverwaltung #mitbestimmung #eigentumsformen *selbstverwaltete digitale infrastrukturen - wie geht das?
+einstieg: was bedeutet digitale souveränität?
+zentrale fragen: wer entscheidet eigentlich über unsere digitale infrastruktur? wer betreibt und pflegt sie – deutsche bzw. europäische akteure oder große us-konzerne?
+
+zielsetzung &amp; politische leitfragen: das übergeordnete ziel ist der abbau einseitiger abhängigkeiten. in der politischen debatte wird dabei oft vor allem auf den unternehmenssitz geschaut (europäisch vs. us-amerikanisch) und geprüft, inwiefern trotz europäischer serverstandorte weiterhin us-amerikanisches recht greift (z. b. über den cloud act bei us-mutterkonzernen)
+.
+vorsicht vor dem „europäischen“ vendor-lock-in: ein rein europäischer anbieter ist noch kein garant für echte unabhängigkeit – auch deutsche oder europäische cloud- und software-anbieter können ihre kunden durch proprietäre schnittstellen und geschlossene systeme einsperren (vendor-lock-in).grundlagen der selbstverwaltung: elinor ostrom &amp; die 8 designprinzipien
+
+hintergrund: als theoretische grundlage für gemeinschaftlich betriebene infrastrukturen dienen die arbeiten von elinor ostrom (wirtschaftsnobelpreisträgerin und begründerin der modernen commons- bzw. gemeingüterforschung). sie hat weltweit untersucht, wie communities geteilte ressourcen (allmenden) dauerhaft, fair und erfolgreich selbst verwalten können – ohne staatlichen zwang und ohne privatisierung.
+
+übertragbarkeit auf it-infrastruktur (z. b. genossenschaften wie hostsharing eg): aus ihrer forschung leitete ostrom acht designprinzipien für stabile, selbstverwaltete gemeinschaften ab (u. a. klar definierte grenzen und mitgliedschaften, gemeinschaftliche entscheidungsregeln, gegenseitige kontrolle, abgestufte sanktionen sowie konfliktlösungsmechanismen), die sich direkt auf den gemeinschaftlichen betrieb digitaler infrastrukturen übertragen lassen.
+
+fünf organisationsformen digitaler infrastruktur
+	* privatwirtschaftlich: gewinnorientierte kommerzielle anbieter (von lokalen hostern bis hin zu großen us-hyperscalern).
+	* staatlich: direkt durch bund, länder, kommunen oder deren öffentliche it-dienstleister betriebene systeme.
+	* öffentlich-rechtlich: staatsferne, gemeinwohlorientierte strukturen mit öffentlichem auftrag und gesellschaftlicher kontrolle (analog zum rundfunk, z. b. dataport).
+	* genossenschaftlich: demokratisch selbstverwaltete plattformen (wie hostsharing eg), bei denen die nutzer zugleich mitglieder und eigentümer sind.
+	* freie software (commons): dezentral von offenen communities entwickelte und gemeinschaftlich als digitales gemeingut gepflegte ökosysteme. lizenz erlaubt jedem die nutzung. herausforderung sind die maintainer (eigentliche ressource)
+
+prinzip kongruenz: verteilung der kosten proportional zum nutzen. wird von freier software verfehlt.
+
+prinzip: gemeinschaftliches entscheiden: wird von genossenschaften erfüllt. freie software teilweise auch. (eher maintainer als user).
+
+prinzip: monitoring. regelverstöße sollen erkannt und korrigiert werden können. ist bei genossenschaft erfüllt, bei freier sw teilweise. (code kann sich jeder anschauen; nutzung wird nicht kontrolliert.)
+
+prinzip: abgestufte sanktionen. erfüllen genossenschaften (gemeinschaftsfeindliches verhalten wird sanktioniert), freie faktisch kaum.
+
+prinzip: konfliktlösung. klappt bei genossenschaften über kurze wege meist gut, freie sw diskutiert auf mailinglisten.
+
+prinzip anerkennung, festlegung eigener regeln. ist bei genossenschaft erfüllt, bei freier sw teilweise (lizenzen).
+
+prinzip einbettung: viele zentren?  ist bei genossenschaft teilweise erfüllt (ggf. zentralgenossenschaft gründen), bei freier sw über strukturen (vereine, foundations).
+---
+
+genossenschaften funktionieren praktisch (z. b. beim hosting)." data-pad="https://unserpad.de/p/OKNRW-2026-Session-20" style="grid-row:4;grid-column:7"><div class="oksp-meta"><span class="oksp-num">Session 20</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 5 · Raum A108</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14:00–14:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 20: Selbstverwaltete digitale Infrastrukturen - Wie geht das? öffnen</button><div class="oksp-part"><h4 class="oksp-title">Selbstverwaltete digitale Infrastrukturen - Wie geht das?</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Jan-Ulrich Hasecke</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#DigitaleSouveränität">#DigitaleSouveränität</button><button type="button" class="oksp-tag" data-tag="#Selbstverwaltung">#Selbstverwaltung</button><button type="button" class="oksp-tag" data-tag="#Mitbestimmung">#Mitbestimmung</button><button type="button" class="oksp-tag" data-tag="#Eigentumsformen">#Eigentumsformen</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">*Selbstverwaltete digitale Infrastrukturen - Wie geht das?
+Einstieg: Was bedeutet Digitale Souveränität?
+Zentrale Fragen: Wer entscheidet eigentlich über unsere digitale Infrastruktur? Wer betreibt und pflegt sie – deutsche bzw. europäische Akteure oder große US-Konzerne?
+
+Zielsetzung &amp; politische Leitfragen: Das übergeordnete Ziel ist der Abbau einseitiger Abhängigkeiten. In der politischen Debatte wird dabei oft vor allem auf den Unternehmenssitz geschaut (europäisch vs. US-amerikanisch) und geprüft, inwiefern trotz europäischer Serverstandorte weiterhin US-amerikanisches Recht greift (z. B. über den CLOUD Act bei US-Mutterkonzernen)
+.
+Vorsicht vor dem „europäischen“ Vendor-Lock-in: Ein rein europäischer Anbieter ist noch kein Garant für echte Unabhängigkeit – auch deutsche oder europäische Cloud- und Software-Anbieter können ihre Kunden durch proprietäre Schnittstellen und geschlossene Systeme einsperren (Vendor-Lock-in).Grundlagen der Selbstverwaltung: Elinor Ostrom &amp; die 8 Designprinzipien
+
+Hintergrund: Als theoretische Grundlage für gemeinschaftlich betriebene Infrastrukturen dienen die Arbeiten von Elinor Ostrom (Wirtschaftsnobelpreisträgerin und Begründerin der modernen Commons- bzw. Gemeingüterforschung). Sie hat weltweit untersucht, wie Communities geteilte Ressourcen (Allmenden) dauerhaft, fair und erfolgreich selbst verwalten können – ohne staatlichen Zwang und ohne Privatisierung.
+
+Übertragbarkeit auf IT-Infrastruktur (z. B. Genossenschaften wie Hostsharing eG): Aus ihrer Forschung leitete Ostrom acht Designprinzipien für stabile, selbstverwaltete Gemeinschaften ab (u. a. klar definierte Grenzen und Mitgliedschaften, gemeinschaftliche Entscheidungsregeln, gegenseitige Kontrolle, abgestufte Sanktionen sowie Konfliktlösungsmechanismen), die sich direkt auf den gemeinschaftlichen Betrieb digitaler Infrastrukturen übertragen lassen.
+
+Fünf Organisationsformen digitaler Infrastruktur
+	* Privatwirtschaftlich: Gewinnorientierte kommerzielle Anbieter (von lokalen Hostern bis hin zu großen US-Hyperscalern).
+	* Staatlich: Direkt durch Bund, Länder, Kommunen oder deren öffentliche IT-Dienstleister betriebene Systeme.
+	* Öffentlich-rechtlich: Staatsferne, gemeinwohlorientierte Strukturen mit öffentlichem Auftrag und gesellschaftlicher Kontrolle (analog zum Rundfunk, z. B. Dataport).
+	* Genossenschaftlich: Demokratisch selbstverwaltete Plattformen (wie Hostsharing eG), bei denen die Nutzer zugleich Mitglieder und Eigentümer sind.
+	* Freie Software (Commons): Dezentral von offenen Communities entwickelte und gemeinschaftlich als digitales Gemeingut gepflegte Ökosysteme. Lizenz erlaubt jedem die Nutzung. Herausforderung sind die Maintainer (eigentliche Ressource)
+
+Prinzip Kongruenz: Verteilung der Kosten proportional zum Nutzen. Wird von freier Software verfehlt.
+
+Prinzip: gemeinschaftliches Entscheiden: Wird von Genossenschaften erfüllt. Freie Software teilweise auch. (eher Maintainer als User).
+
+Prinzip: Monitoring. Regelverstöße sollen erkannt und korrigiert werden können. Ist bei Genossenschaft erfüllt, bei freier SW teilweise. (Code kann sich jeder anschauen; Nutzung wird nicht kontrolliert.)
+
+Prinzip: abgestufte Sanktionen. Erfüllen Genossenschaften (gemeinschaftsfeindliches Verhalten wird sanktioniert), freie faktisch kaum.
+
+Prinzip: Konfliktlösung. Klappt bei Genossenschaften über kurze Wege meist gut, freie SW diskutiert auf Mailinglisten.
+
+Prinzip Anerkennung, Festlegung eigener Regeln. Ist bei Genossenschaft erfüllt, bei freier SW teilweise (Lizenzen).
+
+Prinzip Einbettung: Viele Zentren?  Ist bei Genossenschaft teilweise erfüllt (ggf. Zentralgenossenschaft gründen), bei freier SW über Strukturen (Vereine, Foundations).
+---
+
+Genossenschaften funktionieren praktisch (z. B. beim Hosting).</div></details></article><div class="oksp-gap" style="grid-row:4;grid-column:2" aria-hidden="true"></div></section><section class="oksp-slot" aria-labelledby="oksp-slot-1500"><h3 class="oksp-slot-h" id="oksp-slot-1500" style="grid-row:5;grid-column:1"><span>15:00</span><small>Uhr</small></h3><article class="oksp-card" id="oksp-lightning" data-id="lightning" data-lane="0" data-tags="" data-notes="1" data-search="lightning ⚡lightning sessions ⚡ Open Traffic Map  
+Open Data Wizard
+https://opentrafficmap.org/
+https://wiki.opentrafficmap.org/
+https://media.ccc.de/v/glt26-688-c-its-mit-einem-esp32-ampeln-straenbahnen-und-autos-tracken
+https://media.ccc.de/v/2026-661-wie-lange-ist-noch-grun-ampelphasen-per-wlan-empfangen
+
+open data wizard -  Damian Paderta
+https://nozilla.de/tools/open-data-wizard/
+https://github.com/daimpad/opendatawizard/" data-pad="https://unserpad.de/p/OKNRW-2026-Lightning-Session" style="grid-row:5;grid-column:2"><div class="oksp-meta"><span class="oksp-num">Lightning</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Forum</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>15:00–15:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Lightning: ⚡Lightning Sessions ⚡ öffnen</button><div class="oksp-part"><h4 class="oksp-title">⚡Lightning Sessions⚡</h4><p class="oksp-sub">Open Traffic Map | Open Data Wizard</p></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">- OpenTrafficMap
+<a href="https://opentrafficmap.org/" target="_blank" rel="noopener">https://opentrafficmap.org/</a>
+<a href="https://wiki.opentrafficmap.org/" target="_blank" rel="noopener">https://wiki.opentrafficmap.org/</a>
+<a href="https://media.ccc.de/v/glt26-688-c-its-mit-einem-esp32-ampeln-straenbahnen-und-autos-tracken" target="_blank" rel="noopener">https://media.ccc.de/v/glt26-688-c-its-mit-einem-esp32-ampeln-straenbahnen-und-autos-tracken</a>
+<a href="https://media.ccc.de/v/2026-661-wie-lange-ist-noch-grun-ampelphasen-per-wlan-empfangen" target="_blank" rel="noopener">https://media.ccc.de/v/2026-661-wie-lange-ist-noch-grun-ampelphasen-per-wlan-empfangen</a>
+
+Open Data Wizard
+Viele Organisationen betreiben ihre Website mit einem Redaktionssystem wie WordPress. Darin verwalten sie ihre Inhalte und stellen sie dar, etwa Beiträge, Termine oder Publikationen. Ein solches System kann grundsätzlich auch Daten anbieten. Von Haus aus ist das aber nicht vorgesehen. Es fehlt eine Struktur, die Daten so beschreibt, dass andere sie finden und einordnen können. Mit der Erweiterung (Plugin) namens Open Data Wizard lässt sich WordPress um einen schlanken Datenkatalog erweitern.
+<a href="https://nozilla.de/tools/open-data-wizard/" target="_blank" rel="noopener">https://nozilla.de/tools/open-data-wizard/</a>
+<a href="https://github.com/daimpad/opendatawizard/" target="_blank" rel="noopener">https://github.com/daimpad/opendatawizard/</a></div></details></article><article class="oksp-card" id="oksp-s13" data-id="s13" data-lane="1" data-tags="#Datenschutz|#Datensicherheit|#DigitaleSouveränität" data-notes="1" data-search="session 13 bürgerdaten in kommerziellen unternehmen  gallenkamp #datenschutz #datensicherheit #digitalesouveränität *bürgerdaten in kommerziellen unternehmen
+#datenschutz #datensicherheit #digitalesouveränität
+
+*guido gallenkamp
+
+vorweg-stzhlkreis – jenseits der kommerzialisierung. beispiele bürgerlichen engagements in katastrophenfällen.
+
+grund des themas ist, dass man zu gut 50% aller persönlichen suchen landen bei privatwirtschaftlichen unternehmen im auftrag einer kommune. als beispiel eine vertragspflicht für parkscheinautomaten mit apps.
+
+es gibt verschiedene kontexte aus sicht der kommunen. die auftragsverarbeitung erfolgt &quot;nach den regeln der stadt&quot;. ein anderer ansatz ist eine beauftragung als &quot;dienstleistung&quot; bspw. ein bahnunternehmen. das dritte beispiel sind bspw. die genannten parkapps.
+
+scanstraßen für anträge werden als beispiel genannt. es geht primär um vertragsverhältnisse.
+
+tieferer gang. es sind organisatorische gründe, die technische implikationen haben. &quot;outsourcing&quot; (externe vergabe) ist gesetzlich reglementiert.
+
+weiterentwicklung sind bspw. register as a service zur standardisierung, um die datenhoheit grundsätzlich bei den kommunen zu halten (oder anderen zuständigen behörden).
+
+im bereich des hostings wird es noch komplizierter im rahmen der datenverarbeitungsaufträge – beispiel saas (software as a service), wenn bspw. eine genossenschaft einen dienst undesweit als efa (einer für alle) anbietet und bspw. für das hosting und verarbeitung eine &quot;azure&quot;-cloud bucht.
+
+für kommunen ist es personell und rechtlich kaum noch zu bewältigen, hier den überblick zu wahren.
+
+&quot;datagovernance&quot;-regeln (bspw. bonn) als kommunale rechtsgrundlage (seit 2013?) kann hier für die verwaltung einen besseren rahmen bieten – bereits bei der orientierung.
+leider ist dieses dokument nicht öffentlich: &quot;die datengovernance ist ein stadtverwaltungsinternes dokument.&quot; – aber es ist im ris (ratsinformationssystem) möglicherweise zu finden.
+ - https://www.bonn.de/themen-entdecken/planen-bauen/datenstrategie-urbaner-daten.php
+
+als beispiel kann auch das &quot;egovg nrw&quot; (das e-governmentgesetz nrw) genannt werden
+ – https://www.mhkbd.nrw/themenportal/e-government-gesetz
+ - https://recht.nrw.de/lrgv/gesetz/17072025-gesetz-zur-foerderung-der-elektronischen-verwaltung-nordrhein-westfalen-e/
+darin findet sich auch der e-government-check des landes nrw – https://recht.nrw.de/system/files/ba/29024-42561-smbl_20020_20141219_a_anlage10.pdf
+
+als weitere beispiele werden genannt (aus der ersten session, umgang mit daten verstorbener und verwandter von behörden über dienstleister wie stadtwerke und dienstleister wie bestattungsunternehmen) oder vertragsverhältnisse für &quot;babyklappen&quot; von ngos mit kommunen.
+
+könnte eine ifg-anfrage hier hilfreich sein? 
+es müsste besser erstmal ganz konkret ein beispiel als problem benannt und hintergründe gesammelt werden. und es ist in jeder kommune natürlich ein anderes problem. 
+
+gäbe es ein beispiel, das mehrere kommunen gleichermaßen betrifft?
+- kita-anmeldeportale (einkommen, arbeitszeiten) 
+
+fazit:
+    – das risiko ist real.
+    - es gibt zu wenig &quot;awareness&quot; zu dem thema.
+    - datengovernance ist noch viel zu unbekannt.
+    - es gibt leuchttürme (vgl. bonn)
+    - es gibt verbände, die das problem auch erkannt haben (kgst)
+	:: https://www.kgst.de/gute-ki-braucht-gute-daten
+	::  https://www.kgst.de/dokumentdetails?path=/documents/20181/15713918/6.11.pdf/c4a98b18-8993-3d4d-3ff3-25da8ee641d3?t=1790605283058
+
+nachtrag nach der session:
+    - fabio kadner von der dksr (daten-kompetenzzentrum städte und regionen gmbh) ist in diesem bereich auf nachfragen zum thema ansprechbar. https://www.dksr.city/
+
+## für tiefeninteressierte:
+ein paar rechtsgrundlagen – gesamtübersicht aller vergabevorschriften in nrw:
+    - https://www.vergabe.nrw.de/wirtschaft/vergaberechtsvorschriften
+ergänze beispiele, wenn man sich einen überblick über ausschreibungen verschaffen will - alles nur seiten der öffentlichen hand:
+    - https://www.service.bund.de/content/de/ausschreibungen/suche/formular.html
+    - https://www.evergabe-online.de/search.html?1
+    - https://oeffentlichevergabe.de/ui/de/" data-pad="https://unserpad.de/p/OKNRW-2026-Session-13" style="grid-row:5;grid-column:3"><div class="oksp-meta"><span class="oksp-num">Session 13</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 1 · Raum 203</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>15:00–15:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 13: Bürgerdaten in kommerziellen Unternehmen öffnen</button><div class="oksp-part"><h4 class="oksp-title">Bürgerdaten in kommerziellen Unternehmen</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Gallenkamp</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#Datenschutz">#Datenschutz</button><button type="button" class="oksp-tag" data-tag="#Datensicherheit">#Datensicherheit</button><button type="button" class="oksp-tag" data-tag="#DigitaleSouveränität">#DigitaleSouveränität</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">*Bürgerdaten in kommerziellen Unternehmen
+#Datenschutz #Datensicherheit #DigitaleSouveränität
+
+*Guido Gallenkamp
+
+Vorweg-Stzhlkreis – Jenseits der Kommerzialisierung. Beispiele bürgerlichen Engagements in Katastrophenfällen.
+
+Grund des Themas ist, dass man zu gut 50% aller persönlichen Suchen landen bei privatwirtschaftlichen Unternehmen im Auftrag einer Kommune. Als Beispiel eine Vertragspflicht für Parkscheinautomaten mit Apps.
+
+Es gibt verschiedene Kontexte aus Sicht der Kommunen. Die Auftragsverarbeitung erfolgt &quot;nach den Regeln der Stadt&quot;. Ein anderer Ansatz ist eine Beauftragung als &quot;Dienstleistung&quot; bspw. ein Bahnunternehmen. Das dritte Beispiel sind bspw. die genannten ParkApps.
+
+Scanstraßen für Anträge werden als Beispiel genannt. Es geht primär um Vertragsverhältnisse.
+
+Tieferer Gang. Es sind organisatorische Gründe, die technische Implikationen haben. &quot;Outsourcing&quot; (externe Vergabe) ist gesetzlich reglementiert.
+
+Weiterentwicklung sind bspw. Register as a Service zur Standardisierung, um die Datenhoheit grundsätzlich bei den Kommunen zu halten (oder anderen zuständigen Behörden).
+
+Im Bereich des Hostings wird es noch komplizierter im Rahmen der Datenverarbeitungsaufträge – Beispiel SaaS (Software as a Service), wenn bspw. eine Genossenschaft einen Dienst undesweit als EfA (Einer für alle) anbietet und bspw. für das Hosting und Verarbeitung eine &quot;Azure&quot;-Cloud bucht.
+
+Für Kommunen ist es personell und rechtlich kaum noch zu bewältigen, hier den Überblick zu wahren.
+
+&quot;DataGovernance&quot;-Regeln (bspw. Bonn) als kommunale Rechtsgrundlage (seit 2013?) kann hier für die Verwaltung einen besseren Rahmen bieten – bereits bei der Orientierung.
+Leider ist dieses Dokument nicht öffentlich: &quot;Die Datengovernance ist ein stadtverwaltungsinternes Dokument.&quot; – aber es ist im RIS (Ratsinformationssystem) möglicherweise zu finden.
+ - <a href="https://www.bonn.de/themen-entdecken/planen-bauen/datenstrategie-urbaner-daten.php" target="_blank" rel="noopener">https://www.bonn.de/themen-entdecken/planen-bauen/datenstrategie-urbaner-daten.php</a>
+
+Als Beispiel kann auch das &quot;EGovG NRW&quot; (das E-Governmentgesetz NRW) genannt werden
+ – <a href="https://www.mhkbd.nrw/themenportal/e-government-gesetz" target="_blank" rel="noopener">https://www.mhkbd.nrw/themenportal/e-government-gesetz</a>
+ - <a href="https://recht.nrw.de/lrgv/gesetz/17072025-gesetz-zur-foerderung-der-elektronischen-verwaltung-nordrhein-westfalen-e/" target="_blank" rel="noopener">https://recht.nrw.de/lrgv/gesetz/17072025-gesetz-zur-foerderung-der-elektronischen-verwaltung-nordrhein-westfalen-e/</a>
+Darin findet sich auch der e-government-Check des Landes NRW – <a href="https://recht.nrw.de/system/files/BA/29024-42561-smbl_20020_20141219_a_anlage10.pdf" target="_blank" rel="noopener">https://recht.nrw.de/system/files/BA/29024-42561-smbl_20020_20141219_a_anlage10.pdf</a>
+
+Als weitere Beispiele werden genannt (aus der ersten Session, Umgang mit Daten Verstorbener und Verwandter von Behörden über Dienstleister wie Stadtwerke und Dienstleister wie Bestattungsunternehmen) oder Vertragsverhältnisse für &quot;Babyklappen&quot; von NGOs mit Kommunen.
+
+Könnte eine IFG-Anfrage hier hilfreich sein? 
+Es müsste besser erstmal ganz konkret ein Beispiel als Problem benannt und Hintergründe gesammelt werden. Und es ist in jeder Kommune natürlich ein anderes Problem. 
+
+Gäbe es ein Beispiel, das mehrere Kommunen gleichermaßen betrifft?
+- KITA-Anmeldeportale (Einkommen, Arbeitszeiten) 
+
+Fazit:
+    – das Risiko ist real.
+    - Es gibt zu wenig &quot;Awareness&quot; zu dem Thema.
+    - Datengovernance ist noch viel zu unbekannt.
+    - Es gibt Leuchttürme (vgl. Bonn)
+    - Es gibt Verbände, die das Problem auch erkannt haben (KGSt)
+	:: <a href="https://www.kgst.de/gute-ki-braucht-gute-daten" target="_blank" rel="noopener">https://www.kgst.de/gute-ki-braucht-gute-daten</a>
+	::  <a href="https://www.kgst.de/dokumentdetails?path=/documents/20181/15713918/6.11.pdf/c4a98b18-8993-3d4d-3ff3-25da8ee641d3?t=1790605283058" target="_blank" rel="noopener">https://www.kgst.de/dokumentdetails?path=/documents/20181/15713918/6.11.pdf/c4a98b18-8993-3d4d-3ff3-25da8ee641d3?t=1790605283058</a>
+
+Nachtrag nach der Session:
+    - Fabio Kadner von der DKSR (Daten-Kompetenzzentrum Städte und Regionen GmbH) ist in diesem Bereich auf Nachfragen zum Thema ansprechbar. <a href="https://www.dksr.city/" target="_blank" rel="noopener">https://www.dksr.city/</a>
+
+## Für Tiefeninteressierte:
+Ein paar Rechtsgrundlagen – Gesamtübersicht aller Vergabevorschriften in NRW:
+    - <a href="https://www.vergabe.nrw.de/wirtschaft/vergaberechtsvorschriften" target="_blank" rel="noopener">https://www.vergabe.nrw.de/wirtschaft/vergaberechtsvorschriften</a>
+Ergänze Beispiele, wenn man sich einen Überblick über Ausschreibungen verschaffen will - alles nur Seiten der Öffentlichen Hand:
+    - <a href="https://www.service.bund.de/Content/DE/Ausschreibungen/Suche/Formular.html" target="_blank" rel="noopener">https://www.service.bund.de/Content/DE/Ausschreibungen/Suche/Formular.html</a>
+    - <a href="https://www.evergabe-online.de/search.html?1" target="_blank" rel="noopener">https://www.evergabe-online.de/search.html?1</a>
+    - <a href="https://oeffentlichevergabe.de/ui/de/" target="_blank" rel="noopener">https://oeffentlichevergabe.de/ui/de/</a></div></details></article><article class="oksp-card oksp-card--empty" id="oksp-s14" data-id="s14" data-lane="2" data-tags="#OpenSource" data-notes="0" data-search="session 14 open source board dortmund  christian &amp; christopher #opensource " data-pad="https://unserpad.de/p/OKNRW-2026-Session-14" style="grid-row:5;grid-column:4"><div class="oksp-meta"><span class="oksp-num">Session 14</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 2 · Raum 204</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>15:00–15:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 14: Open Source Board Dortmund öffnen</button><div class="oksp-part"><h4 class="oksp-title">Open Source Board Dortmund</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Christian &amp; Christopher</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#OpenSource">#OpenSource</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article><article class="oksp-card" id="oksp-s15" data-id="s15" data-lane="3" data-tags="#Fediverse" data-notes="1" data-search="session 15 menschen ins fediverse bewegen - wie? wen? warum?  joma #fediverse oknrw 21.11.2026
+fediverse session
+das ist ein kofferwort für föderation und universium.
+ein sammselelbegriff für alle alternativen netzwerke wie friendica, pixelfed, mastodon
+wie kann man leute dazu bringen das fediverse zu benutzen
+viele leute sind wegen elon musk der twitter gekauft hat auf mastodon gewechselt.
+ein fediverse workshop organisieren
+bei neuen leuten bei mastodon #neuhier verwenden. dann bekommt man schnell hilfe.
+fediwings reichweitenermittlung
+man kann es auch über andere wege teilen: mail, signal usw.
+facebook usw lassen es nicht zu
+urheberrechte tritt man bei facebook und co. ab, beim fediverse behält man die urheberrecht.
+bei kommerzielen anbieter bestimmen wer gesperrt wird.
+tagesschau berichtet über twitter und facebook aber nicht im fediverse
+junge menschen reduzieren ihr nutzerverhalten gehen aber nicht aufs fediverse
+in layment terms übersetzen
+argumente für das fediverse. hobbies folgen. datenschutz, alte soziale netzwerk, selbstbestimmt, 
+echte reichweiter. dezentral, personalisierter austausch über hashtags
+man kann tröts so einstellen das man nicht anworten kann uvm.
+die platformen können sich austauschen" data-pad="https://unserpad.de/p/OKNRW-2026-Session-15" style="grid-row:5;grid-column:5"><div class="oksp-meta"><span class="oksp-num">Session 15</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 3 · Raum 206</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>15:00–15:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 15: Menschen ins Fediverse bewegen - Wie? Wen? Warum? öffnen</button><div class="oksp-part"><h4 class="oksp-title">Menschen ins Fediverse bewegen - Wie? Wen? Warum?</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Joma</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#Fediverse">#Fediverse</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">OKNRW 21.11.2026
+Fediverse Session
+Das ist ein Kofferwort für Föderation und Universium.
+Ein Sammselelbegriff für alle alternativen Netzwerke wie Friendica, Pixelfed, Mastodon
+Wie kann man Leute dazu bringen das Fediverse zu benutzen
+Viele Leute sind wegen Elon Musk der Twitter gekauft hat auf Mastodon gewechselt.
+Ein Fediverse Workshop organisieren
+Bei neuen Leuten bei Mastodon #neuhier verwenden. Dann bekommt man schnell Hilfe.
+Fediwings Reichweitenermittlung
+Man kann es auch über andere Wege teilen: Mail, Signal usw.
+Facebook usw lassen es nicht zu
+Urheberrechte tritt man bei Facebook und co. ab, beim Fediverse behält man die Urheberrecht.
+Bei kommerzielen Anbieter bestimmen wer gesperrt wird.
+Tagesschau berichtet über Twitter und Facebook aber nicht im Fediverse
+junge Menschen reduzieren ihr Nutzerverhalten gehen aber nicht aufs Fediverse
+In Layment Terms übersetzen
+Argumente für das Fediverse. Hobbies folgen. Datenschutz, alte soziale Netzwerk, selbstbestimmt, 
+echte Reichweiter. Dezentral, personalisierter Austausch über Hashtags
+Man kann Tröts so einstellen das man nicht anworten kann uvm.
+Die Platformen können sich austauschen</div></details></article><article class="oksp-card" id="oksp-s16" data-id="s16" data-lane="4" data-tags="#Community|#Stadtgrün" data-notes="1" data-search="session 16 stadtgrün-engagement vernetzen - brauchen wir das?  wolfram eberius, ok lab köln #stadtgrün #community *stadtgrün-engagement vernetzen - brauchen wir das?
+urban-green solle eine mobile-first vernetzungs- und orientierungsplattform sein für menschen, gruppen und initiativen, die sich für stadtgrün engagieren. zum start liegt der geografische fokus auf köln.
+
+die plattform soll sichtbar machen, wer sich engagiert, welche gruppen und initiativen bestehen und wo menschen mitmachen oder miteinander in kontakt kommen können. sie schafft übersicht und erleichtert den einstieg, ohne bestehende organisationen, kommunikationswege oder digitale angebote zu ersetzen.
+
+urban-green versteht sich ausdrücklich als ergänzende infrastruktur: bestehende gruppen und angebote bleiben eigenständig. die plattform verweist auf sie, macht sie auffindbar und unterstützt vernetzung dort, wo dies von den beteiligten gewünscht ist.
+
+das produkt wird schrittweise und bedarfsorientiert entwickelt. zunächst wird das konzept mit akteur:innen und expert:innen geprüft. daraus entsteht ein bewusst kleiner mvp, der anschließend erneut getestet und iterativ weiterentwickelt wird.
+
+*transkript
+	* 1) vorstellung thema
+		* baumkataster ist nicht das gleiche wie „gieß den kiez“
+		* 3 applikationen in köln
+		* baumscheibe: fläche um den baum rightarrow aber: baumscheibe [sollte so] groß sein, wie die krone groß ist
+		* ca. 1500 patenschaften
+	* für wen? (vorstellung personas)
+		* findet ihr euch darin [wieder]?
+		* ! impuls: kindergarten gute [idee / zielgruppe]
+		* akteure
+		* rückmeldungen: rentner*innen als zielgruppe?
+	* wuppertal-debatte:
+		* bäume werden den klimawandel nicht überleben
+	* kleiner start: heartsuit
+	* recherche:
+		* wen gibt es in köln?
+		* warum brauchen wir eine app?
+				0.0.0.1. vertrauen
+				0.0.0.2. neutralität, um interessenkonflikte [zu] vermeiden. rightarrow ist die app eine plattform, [um] interessen auszuhandeln?
+		* braucht [es] so eine anwendung?
+			* ja!
+			* pocketpark geplant, bürgerbeteiligung geplant, klärung verantwortung
+		* mensch kümmert sich um 3 bäume im luisen-viertel in wuppertal rightarrow [er] braucht keine app, das was hilft ist empathie
+		* ! - belohnung inspiriert menschen oft
+			* app als plattform, [um] multiplikatoren [zu] finden, etwas zu tun!
+		* fragmentierung: was neues oder [auf] grundlage des bestehenden?
+	* was ist der eigentliche impact? rightarrow wie nachhaltig ist das? rightarrow die app soll das beantworten
+	* zu viele apps?
+		* verknüpfung der apps (bestehende)
+	* stockholm:
+		* belohnung [für] menschen, die sich kümmern
+		* auch interessant für tourismus rightarrow gaming-aspekt wäre cool
+	* bildungsauftrag ergänzen
+	* unternehmen als sponsoren anfragen
+	* wie kommt es in die physische welt? rightarrow qr-code-sticker am baum für baum-info
+
+*zusammenfassung
+die handschriftlichen notizen dokumentieren ein brainstorming und feedback-ergebnisse zur konzeption einer digitalen anwendung (app) für stadtgrün- und baumpatenschaften (mit bezug auf köln und wuppertal).
+	* status quo &amp; zielgruppen: es wird zwischen reinen baumkatastern und aktiven gieß-apps (wie „gieß den kiez“) unterschieden. in köln existieren bereits rund 1.500 patenschaften sowie drei verschiedene anwendungen. als potenzielle nutzergruppen (personas) wurden vor allem kindergärten und rentner*innen diskutiert. zudem wurde auf die herausforderung des klimawandels für stadtbäume (beispiel wuppertal) und die bedeutung ausreichend großer baumscheiben hingewiesen.
+	* notwendigkeit &amp; mehrwert einer app: es stellt sich die kritische frage, ob eine weitere app überhaupt nötig ist, da engagierte einzelpersonen oft aus reiner empathie handeln und eine neue app zur fragmentierung führen könnte. befürwortet wird die anwendung jedoch als neutrale plattform, um vertrauen zu schaffen, interessenkonflikte auszuhandeln, verantwortlichkeiten (z. b. bei bürgerbeteiligungen und pocketparks) zu klären und multiplikatoren zu gewinnen. zudem soll sie den tatsächlichen ökologischen impact messbar machen.
+	* lösungsansätze &amp; ideen: statt einer kompletten neuentwicklung wird eine verknüpfung bestehender appsvorgeschlagen. zur motivationssteigerung sollen – nach dem vorbild stockholms – belohnungs- und gamification-elemente integriert werden, die auch für den tourismus attraktiv sein könnten. weitere ideen umfassen die integration eines bildungsauftrags, die gewinnung von unternehmen als sponsoren sowie die verknüpfung mit der physischen welt durch qr-code-sticker direkt an den bäumen, über die informationen abgerufen werden können.
+
+*resources
+	* link zur signal community: https://signal.group/#cjqkibxwyu9hfeit9fvr2b49ds2msnlxd6eiruv_vnzngxvhehbnw7uxj7i7xdiomarskbuc" data-pad="https://unserpad.de/p/OKNRW-2026-Session-16" style="grid-row:5;grid-column:6"><div class="oksp-meta"><span class="oksp-num">Session 16</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 4 · Raum 207</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>15:00–15:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 16: Stadtgrün-Engagement vernetzen - Brauchen wir das? öffnen</button><div class="oksp-part"><h4 class="oksp-title">Stadtgrün-Engagement vernetzen - Brauchen wir das?</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Wolfram Eberius, OK Lab Köln</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#Stadtgrün">#Stadtgrün</button><button type="button" class="oksp-tag" data-tag="#Community">#Community</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen aus dem Pad</summary><div class="oksp-notes-body">*Stadtgrün-Engagement vernetzen - Brauchen wir das?
+urban-green solle eine mobile-first Vernetzungs- und Orientierungsplattform sein für Menschen, Gruppen und Initiativen, die sich für Stadtgrün engagieren. Zum Start liegt der geografische Fokus auf Köln.
+
+Die Plattform soll sichtbar machen, wer sich engagiert, welche Gruppen und Initiativen bestehen und wo Menschen mitmachen oder miteinander in Kontakt kommen können. Sie schafft Übersicht und erleichtert den Einstieg, ohne bestehende Organisationen, Kommunikationswege oder digitale Angebote zu ersetzen.
+
+urban-green versteht sich ausdrücklich als ergänzende Infrastruktur: Bestehende Gruppen und Angebote bleiben eigenständig. Die Plattform verweist auf sie, macht sie auffindbar und unterstützt Vernetzung dort, wo dies von den Beteiligten gewünscht ist.
+
+Das Produkt wird schrittweise und bedarfsorientiert entwickelt. Zunächst wird das Konzept mit Akteur:innen und Expert:innen geprüft. Daraus entsteht ein bewusst kleiner MVP, der anschließend erneut getestet und iterativ weiterentwickelt wird.
+
+*Transkript
+	* 1) Vorstellung Thema
+		* Baumkataster ist nicht das Gleiche wie „Gieß den Kiez“
+		* 3 Applikationen in Köln
+		* Baumscheibe: Fläche um den Baum rightarrow ABER: Baumscheibe [sollte so] groß sein, wie die Krone groß ist
+		* Ca. 1500 Patenschaften
+	* Für wen? (Vorstellung Personas)
+		* Findet ihr euch darin [wieder]?
+		* ! Impuls: Kindergarten gute [Idee / Zielgruppe]
+		* Akteure
+		* Rückmeldungen: Rentner*innen als Zielgruppe?
+	* Wuppertal-Debatte:
+		* Bäume werden den Klimawandel nicht überleben
+	* kleiner Start: heartsuit
+	* Recherche:
+		* Wen gibt es in Köln?
+		* Warum brauchen wir eine App?
+				0.0.0.1. Vertrauen
+				0.0.0.2. Neutralität, um Interessenkonflikte [zu] vermeiden. rightarrow Ist die App eine Plattform, [um] Interessen auszuhandeln?
+		* Braucht [es] so eine Anwendung?
+			* Ja!
+			* Pocketpark geplant, Bürgerbeteiligung geplant, Klärung Verantwortung
+		* Mensch kümmert sich um 3 Bäume im Luisen-Viertel in Wuppertal rightarrow [er] braucht keine App, das was hilft ist Empathie
+		* ! - Belohnung inspiriert Menschen oft
+			* App als Plattform, [um] Multiplikatoren [zu] finden, etwas zu tun!
+		* Fragmentierung: Was Neues oder [auf] Grundlage des Bestehenden?
+	* Was ist der eigentliche Impact? rightarrow Wie nachhaltig ist das? rightarrow Die App soll das beantworten
+	* Zu viele Apps?
+		* Verknüpfung der Apps (bestehende)
+	* Stockholm:
+		* Belohnung [für] Menschen, die sich kümmern
+		* Auch interessant für Tourismus rightarrow Gaming-Aspekt wäre cool
+	* Bildungsauftrag ergänzen
+	* Unternehmen als Sponsoren anfragen
+	* Wie kommt es in die physische Welt? rightarrow QR-Code-Sticker am Baum für Baum-Info
+
+*Zusammenfassung
+Die handschriftlichen Notizen dokumentieren ein Brainstorming und Feedback-Ergebnisse zur Konzeption einer digitalen Anwendung (App) für Stadtgrün- und Baumpatenschaften (mit Bezug auf Köln und Wuppertal).
+	* Status Quo &amp; Zielgruppen: Es wird zwischen reinen Baumkatastern und aktiven Gieß-Apps (wie „Gieß den Kiez“) unterschieden. In Köln existieren bereits rund 1.500 Patenschaften sowie drei verschiedene Anwendungen. Als potenzielle Nutzergruppen (Personas) wurden vor allem Kindergärten und Rentner*innen diskutiert. Zudem wurde auf die Herausforderung des Klimawandels für Stadtbäume (Beispiel Wuppertal) und die Bedeutung ausreichend großer Baumscheiben hingewiesen.
+	* Notwendigkeit &amp; Mehrwert einer App: Es stellt sich die kritische Frage, ob eine weitere App überhaupt nötig ist, da engagierte Einzelpersonen oft aus reiner Empathie handeln und eine neue App zur Fragmentierung führen könnte. Befürwortet wird die Anwendung jedoch als neutrale Plattform, um Vertrauen zu schaffen, Interessenkonflikte auszuhandeln, Verantwortlichkeiten (z. B. bei Bürgerbeteiligungen und Pocketparks) zu klären und Multiplikatoren zu gewinnen. Zudem soll sie den tatsächlichen ökologischen Impact messbar machen.
+	* Lösungsansätze &amp; Ideen: Statt einer kompletten Neuentwicklung wird eine Verknüpfung bestehender Appsvorgeschlagen. Zur Motivationssteigerung sollen – nach dem Vorbild Stockholms – Belohnungs- und Gamification-Elemente integriert werden, die auch für den Tourismus attraktiv sein könnten. Weitere Ideen umfassen die Integration eines Bildungsauftrags, die Gewinnung von Unternehmen als Sponsoren sowie die Verknüpfung mit der physischen Welt durch QR-Code-Sticker direkt an den Bäumen, über die Informationen abgerufen werden können.
+
+*Resources
+	* Link zur Signal Community: <a href="https://signal.group/#CjQKIBXwyU9HfEIT9fVr2B49DS2msNlxd6EiRUv_VNznGxVHEhBnw7uxJ7I7xdIomARsKBUC" target="_blank" rel="noopener">https://signal.group/#CjQKIBXwyU9HfEIT9fVr2B49DS2msNlxd6EiRUv_VNznGxVHEhBnw7uxJ7I7xdIomARsKBUC</a></div></details></article><article class="oksp-card oksp-card--empty" id="oksp-s21" data-id="s21" data-lane="5" data-tags="#NoInfrastruktur" data-notes="0" data-search="session 21 delta chat ausprobieren  jan-ulrich hasecke #noinfrastruktur " data-pad="https://unserpad.de/p/OKNRW-2026-Session-21" style="grid-row:5;grid-column:7"><div class="oksp-meta"><span class="oksp-num">Session 21</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Track 5 · Raum A108</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>15:00–15:45</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 21: Delta Chat ausprobieren öffnen</button><div class="oksp-part"><h4 class="oksp-title">Delta Chat ausprobieren</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Jan-Ulrich Hasecke</span></p><div class="oksp-tags"><button type="button" class="oksp-tag" data-tag="#NoInfrastruktur">#NoInfrastruktur</button></div></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article></section><section class="oksp-slot" aria-labelledby="oksp-slot-1600"><h3 class="oksp-slot-h" id="oksp-slot-1600" style="grid-row:6;grid-column:1"><span>16:00</span><small>Uhr</small></h3><article class="oksp-card oksp-card--plenum oksp-card--empty" id="oksp-s22" data-id="s22" data-lane="0" data-tags="" data-notes="0" data-search="session 22 abschlussrunde    " data-pad="" style="grid-row:6;grid-column:2 / -1"><div class="oksp-meta"><span class="oksp-num">Session 22</span><span class="oksp-room"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Forum</span><span class="oksp-time"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>16:00–16:30</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Session 22: Abschlussrunde öffnen</button><div class="oksp-part"><h4 class="oksp-title">Abschlussrunde</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article></section>
+</div>
+<dialog class="oksp-dialog" aria-labelledby="oksp-d-title">
+  <div class="oksp-d-inner">
+    <header class="oksp-d-head">
+      <div class="oksp-d-meta"></div>
+      <button type="button" class="oksp-d-close" aria-label="Schließen"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </header>
+    <div class="oksp-d-body"></div>
+    <footer class="oksp-d-foot">
+      <button type="button" class="oksp-d-nav" data-dir="-1"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg><span>vorherige</span></button>
+      <span class="oksp-d-pos"></span>
+      <button type="button" class="oksp-d-nav" data-dir="1"><span>nächste</span><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+    </footer>
+  </div>
+</dialog>
+<script data-no-optimize="1" data-no-defer="1">
+(function(){
+  function init(){
+    var root=document.getElementById('oksp');
+    if(!root||root.classList.contains('is-js'))return;
+    root.classList.add('is-js');
+    var cards=[].slice.call(root.querySelectorAll('.oksp-card'));
+    var dlg=root.querySelector('.oksp-dialog');
+    var dMeta=dlg.querySelector('.oksp-d-meta'),dBody=dlg.querySelector('.oksp-d-body'),dHead=dlg.querySelector('.oksp-d-head');
+    var dPos=dlg.querySelector('.oksp-d-pos'),navs=dlg.querySelectorAll('.oksp-d-nav');
+    var q=root.querySelector('.oksp-search'),status=root.querySelector('.oksp-status'),reset=root.querySelector('.oksp-reset');
+    var onlyNotes=root.querySelector('.oksp-onlynotes'),filters=[].slice.call(root.querySelectorAll('.oksp-filter'));
+    var state={tags:[],notes:false,q:''},current=null,lastFocus=null;
+    var canDialog=typeof dlg.showModal==='function';
+
+    /* Ansicht */
+    var views=[].slice.call(root.querySelectorAll('.oksp-view'));
+    function setView(v){root.setAttribute('data-view',v);views.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-view')===v));});
+      try{localStorage.setItem('oksp-view',v);}catch(e){}}
+    var saved=null;try{saved=localStorage.getItem('oksp-view');}catch(e){}
+    if(window.matchMedia('(min-width:1000px)').matches){setView(saved==='list'?'list':'grid');}
+    views.forEach(function(b){b.addEventListener('click',function(){setView(b.getAttribute('data-view'));});});
+
+    /* Filter */
+    function matches(c){
+      if(state.notes&&c.getAttribute('data-notes')!=='1')return false;
+      if(state.tags.length){var t=c.getAttribute('data-tags').split('|');
+        for(var i=0;i<state.tags.length;i++){if(t.indexOf(state.tags[i])<0)return false;}}
+      if(state.q){var s=c.getAttribute('data-search');var w=state.q.split(' ').filter(function(x){return x;});
+        for(var j=0;j<w.length;j++){if(w[j]&&s.indexOf(w[j])<0)return false;}}
+      return true;
+    }
+    function apply(){
+      var n=0,active=state.notes||state.tags.length||state.q;
+      cards.forEach(function(c){var m=matches(c);c.classList.toggle('is-dim',!!active&&!m);if(m)n++;});
+      filters.forEach(function(b){b.setAttribute('aria-pressed',String(state.tags.indexOf(b.getAttribute('data-tag'))>-1));});
+      root.querySelectorAll('.oksp-tags .oksp-tag').forEach(function(b){b.classList.toggle('is-on',state.tags.indexOf(b.getAttribute('data-tag'))>-1);});
+      onlyNotes.setAttribute('aria-pressed',String(state.notes));
+      reset.hidden=!active;
+      status.textContent=active?(n===1?'1 Session passt.':n+' Sessions passen.')+(n?'':' Versuche einen anderen Begriff.'):'';
+    }
+    function toggleTag(t){var fb=root.querySelector('.oksp-more .oksp-filter[data-tag="'+t.replace(/"/g,'')+'"]');if(fb&&!root.classList.contains('tags-open'))root.querySelector('.oksp-moretoggle').click();var i=state.tags.indexOf(t);if(i>-1)state.tags.splice(i,1);else state.tags.push(t);apply();}
+    root.addEventListener('click',function(ev){
+      var b=ev.target.closest('.oksp-tag[data-tag]');
+      if(b&&root.contains(b)){ev.preventDefault();ev.stopPropagation();
+        if(dlg.open&&dlg.contains(b))closeDlg();
+        toggleTag(b.getAttribute('data-tag'));return;}
+      var o=ev.target.closest('.oksp-open');
+      if(o){openCard(o.closest('.oksp-card'));}
+    });
+    var mt=root.querySelector('.oksp-moretoggle');
+    mt.addEventListener('click',function(){var o=root.classList.toggle('tags-open');mt.setAttribute('aria-expanded',String(o));
+      mt.textContent=o?'weniger Hashtags':'+ '+mt.getAttribute('data-n')+' weitere Hashtags';});
+    onlyNotes.addEventListener('click',function(){state.notes=!state.notes;apply();});
+    reset.addEventListener('click',function(){state={tags:[],notes:false,q:''};q.value='';apply();});
+    var tmr;q.addEventListener('input',function(){clearTimeout(tmr);tmr=setTimeout(function(){state.q=q.value.trim().toLowerCase();apply();},120);});
+
+    /* Dialog */
+    function visible(){var v=cards.filter(function(c){return !c.classList.contains('is-dim');});return v.length?v:cards;}
+    function openCard(c){
+      if(!c)return;
+      if(!canDialog){var d=c.querySelector('details');if(d){d.open=!d.open;}return;}
+      current=c;
+      var meta=c.querySelector('.oksp-meta').cloneNode(true);
+      [].slice.call(meta.querySelectorAll('.oksp-room,.oksp-time')).forEach(function(s){s.style.display='inline-flex';});
+      dMeta.innerHTML='';[].slice.call(meta.childNodes).forEach(function(n){dMeta.appendChild(n);});
+      dHead.classList.toggle('is-forum',c.getAttribute('data-lane')==='0');
+      var html='',parts=c.querySelectorAll('.oksp-part');
+      parts.forEach(function(p){html+='<div class="oksp-part">'+p.innerHTML+'</div>';});
+      html=html.replace('<h4 class="oksp-title">','<h4 class="oksp-title" id="oksp-d-title">');
+      var notes=c.querySelector('.oksp-notes-body'),pad=c.getAttribute('data-pad');
+      html+='<section class="oksp-d-sec"><h4>Notizen aus dem Pad</h4>';
+      html+=notes?'<div class="oksp-d-notes">'+notes.innerHTML+'</div>':'<p class="oksp-d-empty">Zu dieser Session gibt es keine Notizen.</p>';
+      if(pad)html+='<a class="oksp-d-pad" href="'+pad+'" target="_blank" rel="noopener">Pad öffnen<svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3"/></svg></a>';
+      html+='</section>';
+      dBody.innerHTML=html;dBody.scrollTop=0;
+      var list=visible(),i=list.indexOf(c);
+      dPos.textContent=(i>-1?(i+1)+' von '+list.length:'');
+      navs[0].disabled=i<=0;navs[1].disabled=i<0||i>=list.length-1;
+      if(!dlg.open){lastFocus=document.activeElement;dlg.showModal();document.documentElement.style.overflow='hidden';}
+      try{history.replaceState(null,'','#'+c.id);}catch(e){}
+    }
+    function step(d){var list=visible(),i=list.indexOf(current);if(i>-1&&list[i+d])openCard(list[i+d]);}
+    function closeDlg(){if(dlg.open)dlg.close();}
+    dlg.addEventListener('close',function(){document.documentElement.style.overflow='';
+      try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}
+      if(current){var o=current.querySelector('.oksp-open');if(o)o.focus();}});
+    dlg.querySelector('.oksp-d-close').addEventListener('click',closeDlg);
+    navs.forEach(function(b){b.addEventListener('click',function(){step(+b.getAttribute('data-dir'));});});
+    dlg.addEventListener('click',function(ev){if(ev.target===dlg)closeDlg();});
+    dlg.addEventListener('keydown',function(ev){
+      if(ev.target.tagName==='INPUT')return;
+      if(ev.key==='ArrowRight'){step(1);ev.preventDefault();}
+      if(ev.key==='ArrowLeft'){step(-1);ev.preventDefault();}
+    });
+    root.querySelector('.oksp-random').addEventListener('click',function(){
+      var pool=visible().filter(function(c){return c.getAttribute('data-notes')==='1'&&c!==current;});
+      if(!pool.length)pool=visible();
+      openCard(pool[Math.floor(Math.random()*pool.length)]);
+    });
+    /* Direktlink #oksp-s5 */
+    if(/^#oksp-/.test(location.hash)){var t=document.getElementById(location.hash.slice(1));if(t&&t.classList.contains('oksp-card'))openCard(t);}
+    apply();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+</div>

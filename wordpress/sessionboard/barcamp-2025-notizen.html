@@ -1,0 +1,1910 @@
+<div class="oksp" id="oksp25" data-view="auto">
+<style>
+.oksp{--ok-green:#3AAA35;--ok-green-hover:#5BBC56;--ok-link:#287A25;--ok-text:#1A1A1A;--ok-text-2:#4F6672;--ok-grey:#8EA6B2;--ok-mint:#DFF1D9;--ok-mint-dark:#BFE0B5;--ok-red:#C20E1A;--ok-white:#fff;--ok-radius:4px;
+  --oksp-head:"Poppins",system-ui,sans-serif;--oksp-body:"Open Sans",system-ui,sans-serif;
+  font-family:var(--oksp-body);color:var(--ok-text);font-size:16px;line-height:1.5;text-align:left}
+.oksp *,.oksp *::before,.oksp *::after{box-sizing:border-box}
+.oksp button,.oksp input{appearance:none;-webkit-appearance:none;margin:0;font:inherit;color:inherit;letter-spacing:normal;text-transform:none;box-shadow:none;text-shadow:none;line-height:1.3;width:auto;height:auto;min-height:0;float:none}
+.oksp button{background:none;border:0;padding:0;cursor:pointer;border-radius:var(--ok-radius)}
+.oksp h2,.oksp h3,.oksp h4,.oksp p{margin:0;padding:0;font-weight:inherit;letter-spacing:normal;text-transform:none;color:inherit;background:none}
+.oksp a{color:var(--ok-link);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+.oksp a:hover{text-decoration-thickness:2px}
+.oksp :focus-visible{outline:3px solid var(--ok-link);outline-offset:2px}
+.oksp-ic{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.125em}
+.oksp-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Kopf */
+.oksp-intro{margin-bottom:24px;max-width:46rem}
+
+/* Werkzeuge */
+.oksp-tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+.oksp-searchwrap{position:relative;flex:1 1 260px;max-width:420px}
+.oksp-searchwrap>.oksp-ic{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ok-text-2);font-size:18px}
+.oksp .oksp-search{width:100%;background:var(--ok-white);border:2px solid var(--ok-mint-dark);border-radius:var(--ok-radius);padding:10px 12px 10px 40px;font-size:16px}
+.oksp .oksp-search:focus{border-color:var(--ok-link);outline:none}
+.oksp-views{display:inline-flex;border:2px solid var(--ok-mint-dark);border-radius:var(--ok-radius);overflow:hidden}
+.oksp .oksp-view{display:inline-flex;gap:6px;align-items:center;padding:8px 14px;border-radius:0;font-weight:600;font-size:15px;background:var(--ok-white)}
+.oksp .oksp-view[aria-pressed="true"]{background:var(--ok-mint-dark)}
+.oksp .oksp-btn{display:inline-flex;gap:8px;align-items:center;padding:10px 16px;background:var(--ok-green);color:var(--ok-text);font-weight:600;font-size:15px;transition:background .15s}
+.oksp .oksp-btn:hover{background:var(--ok-green-hover)}
+
+.oksp-filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+.oksp .oksp-tag{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;font-size:13.5px;font-weight:600;background:var(--ok-mint);color:var(--ok-text);border:1px solid transparent;transition:background .15s,border-color .15s}
+.oksp .oksp-tag:hover{border-color:var(--ok-link)}
+.oksp .oksp-tag[aria-pressed="true"]{background:var(--ok-green);border-color:var(--ok-green)}
+.oksp .oksp-onlynotes{background:var(--ok-white);border-color:var(--ok-mint-dark)}
+.oksp .oksp-reset{font-size:14px;color:var(--ok-link);text-decoration:underline;padding:3px 4px}
+.oksp-status{font-size:14px;color:var(--ok-text-2);min-height:1.5em;margin:6px 0 14px}
+
+/* Raster */
+.oksp-grid{display:grid;grid-template-columns:64px repeat(6,minmax(0,1fr));gap:10px;background:var(--ok-mint);padding:14px;border-radius:var(--ok-radius)}
+.oksp-slot{display:contents}
+.oksp-head{font-family:var(--oksp-head);padding:4px 2px 2px;display:flex;flex-direction:column}
+.oksp-head-t{font-weight:700;font-size:15px}
+.oksp .oksp-slot-h{font-family:var(--oksp-head);font-weight:700;font-size:20px;line-height:1.1;padding-top:10px;display:flex;flex-direction:column}
+.oksp-slot-h small{font-size:12px;font-weight:500;color:var(--ok-text-2)}
+
+/* Karte */
+.oksp-card{position:relative;background:var(--ok-white);border-radius:var(--ok-radius);padding:12px 12px 10px;display:flex;flex-direction:column;gap:6px;border-top:4px solid var(--ok-green);transition:transform .15s,box-shadow .15s,opacity .2s;min-width:0}
+.oksp-card--empty{border-top-color:var(--ok-grey)}
+.oksp-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(26,26,26,.12)}
+.oksp-card.is-dim{opacity:.28}
+.oksp-card.is-dim:hover{opacity:.6}
+.oksp-meta{display:flex;flex-wrap:wrap;gap:2px 10px;font-size:12.5px;color:var(--ok-text-2);align-items:center}
+.oksp-num{font-family:var(--oksp-head);font-weight:600;color:var(--ok-text);font-size:13px}
+.oksp .oksp-open{position:absolute;inset:0;z-index:1;font-size:0;color:transparent;border-radius:var(--ok-radius)}
+.oksp .oksp-open:focus-visible{outline:3px solid var(--ok-link);outline-offset:2px}
+.oksp .oksp-title{font-family:var(--oksp-head);font-weight:600;font-size:15.5px;line-height:1.3;overflow-wrap:anywhere;hyphens:auto}
+.oksp-host{display:flex;gap:5px;align-items:baseline;font-size:13.5px;margin-top:3px}
+.oksp-host .oksp-ic{color:var(--ok-text-2);transform:translateY(2px)}
+.oksp-foot{margin-top:auto;padding-top:4px}
+.oksp-flag{display:inline-flex;gap:5px;align-items:center;font-size:12.5px;font-weight:600}
+.oksp-flag--yes{color:var(--ok-link)}
+.oksp-flag--no{color:var(--ok-text-2);font-weight:400}
+.oksp-notes summary{cursor:pointer;color:var(--ok-link);font-weight:600;font-size:14px;position:relative;z-index:2}
+.oksp-notes-body,.oksp-d-notes{white-space:pre-wrap;overflow-wrap:anywhere}
+.oksp.is-js .oksp-notes{display:none}
+.oksp:not(.is-js) .oksp-open{display:none}
+
+/* Liste */
+.oksp[data-view="list"] .oksp-grid{display:block;padding:0;background:none}
+.oksp[data-view="list"] .oksp-head{display:none}
+.oksp[data-view="list"] .oksp-slot{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:28px}
+.oksp[data-view="list"] .oksp-slot-h{grid-column:1/-1!important;grid-row:auto!important;flex-direction:row;align-items:baseline;gap:6px;padding:0 0 2px;border-bottom:2px solid var(--ok-mint-dark);font-size:22px}
+.oksp[data-view="list"] .oksp-slot-h small{font-size:22px;font-weight:700;color:inherit}
+.oksp[data-view="list"] .oksp-card{grid-row:auto!important;grid-column:auto!important;border:1px solid var(--ok-mint-dark);border-top:4px solid var(--ok-green)}
+.oksp[data-view="list"] .oksp-card--empty{border-top-color:var(--ok-grey)}
+
+@media (max-width:999px){
+  .oksp[data-view="auto"] .oksp-grid{display:block;padding:0;background:none}
+  .oksp[data-view="auto"] .oksp-head{display:none}
+  .oksp[data-view="auto"] .oksp-slot{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:28px}
+  .oksp[data-view="auto"] .oksp-slot-h{grid-column:1/-1!important;grid-row:auto!important;flex-direction:row;align-items:baseline;gap:6px;padding:0 0 2px;border-bottom:2px solid var(--ok-mint-dark);font-size:22px}
+  .oksp[data-view="auto"] .oksp-slot-h small{font-size:22px;font-weight:700;color:inherit}
+  .oksp[data-view="auto"] .oksp-card{grid-row:auto!important;grid-column:auto!important;border:1px solid var(--ok-mint-dark);border-top:4px solid var(--ok-green)}
+  .oksp[data-view="auto"] .oksp-card--empty{border-top-color:var(--ok-grey)}
+  .oksp-views{display:none}
+}
+
+/* Dialog */
+.oksp-dialog{border:0;padding:0;border-radius:var(--ok-radius);width:min(760px,calc(100vw - 24px));max-height:calc(100dvh - 32px);color:var(--ok-text);background:var(--ok-white);box-shadow:0 20px 60px rgba(26,26,26,.3);font-family:var(--oksp-body)}
+.oksp-dialog::backdrop{background:rgba(26,26,26,.55)}
+.oksp-dialog[open]{animation:oksp-in .18s ease-out}
+@keyframes oksp-in{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+.oksp-d-inner{display:flex;flex-direction:column;max-height:calc(100dvh - 32px)}
+.oksp-d-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:16px 20px 12px;background:var(--ok-mint);border-top:6px solid var(--ok-green)}
+.oksp-d-meta{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:14px;color:var(--ok-text-2);align-items:center}
+.oksp-d-meta .oksp-num{font-size:15px}
+.oksp .oksp-d-close{font-size:22px;padding:6px;display:inline-flex;margin:-6px -6px 0 0}
+.oksp .oksp-d-close:hover{background:var(--ok-mint-dark)}
+.oksp-d-body{overflow:auto;padding:18px 20px 8px;overscroll-behavior:contain}
+.oksp-d-body .oksp-title{font-size:clamp(20px,2.4vw,24px);line-height:1.25;margin-bottom:4px}
+.oksp-d-body .oksp-host{font-size:16px}
+.oksp-d-sec{margin-top:22px}
+.oksp .oksp-d-sec h4{font-family:var(--oksp-head);font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--ok-text-2);margin-bottom:8px}
+.oksp-d-notes{font-size:16px;line-height:1.6;background:#F6FBF4;border-left:4px solid var(--ok-mint-dark);padding:12px 14px;border-radius:var(--ok-radius)}
+.oksp-d-empty{color:var(--ok-text-2);font-style:italic}
+.oksp-d-pad{display:inline-flex;gap:6px;align-items:center;margin-top:12px;font-weight:600}
+.oksp-d-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 14px;border-top:1px solid var(--ok-mint-dark)}
+.oksp .oksp-d-nav{display:inline-flex;gap:4px;align-items:center;padding:8px 12px;font-weight:600;font-size:15px}
+.oksp .oksp-d-nav:hover{background:var(--ok-mint)}
+.oksp .oksp-d-nav:disabled{opacity:.35;cursor:default;background:none}
+.oksp-d-pos{font-size:13px;color:var(--ok-text-2)}
+@media (prefers-reduced-motion:reduce){.oksp *{transition:none!important;animation:none!important}}
+
+</style>
+<div class="oksp-intro">
+  17 von 24 Sessions haben Notizen. Ein Klick auf eine Session öffnet alle Angaben und die Notizen.
+</div>
+<div class="oksp-tools">
+  <div class="oksp-searchwrap"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><label class="oksp-sr" for="oksp25-q">Sessions durchsuchen</label>
+    <input id="oksp25-q" class="oksp-search" type="search" placeholder="Titel, Name oder Stichwort" autocomplete="off"></div>
+  <div class="oksp-views" role="group" aria-label="Ansicht">
+    <button type="button" class="oksp-view" data-view="grid" aria-pressed="false"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>Raster</button>
+    <button type="button" class="oksp-view" data-view="list" aria-pressed="false"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12h.01"/><path d="M3 18h.01"/><path d="M3 6h.01"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M8 6h13"/></svg>Liste</button>
+  </div>
+  <button type="button" class="oksp-btn oksp-random"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"/><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14 4 4-4 4"/></svg>Zufällige Session</button>
+</div>
+<div class="oksp-filters">
+  <button type="button" class="oksp-tag oksp-onlynotes" aria-pressed="false"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>nur mit Notizen</button>
+  <button type="button" class="oksp-reset" hidden>Filter zurücksetzen</button>
+</div>
+<p class="oksp-status" role="status" aria-live="polite"></p>
+<div class="oksp-grid">
+<div class="oksp-head oksp-corner" style="grid-row:1;grid-column:1" aria-hidden="true"></div>
+<div class="oksp-head" style="grid-row:1;grid-column:2" aria-hidden="true"><span class="oksp-head-t">Track 1</span></div>
+<div class="oksp-head" style="grid-row:1;grid-column:3" aria-hidden="true"><span class="oksp-head-t">Track 2</span></div>
+<div class="oksp-head" style="grid-row:1;grid-column:4" aria-hidden="true"><span class="oksp-head-t">Track 3</span></div>
+<div class="oksp-head" style="grid-row:1;grid-column:5" aria-hidden="true"><span class="oksp-head-t">Track 4</span></div>
+<div class="oksp-head" style="grid-row:1;grid-column:6" aria-hidden="true"><span class="oksp-head-t">Track 5</span></div>
+<div class="oksp-head" style="grid-row:1;grid-column:7" aria-hidden="true"><span class="oksp-head-t">Track 6</span></div>
+<section class="oksp-slot" aria-labelledby="oksp25-slot-1"><h3 class="oksp-slot-h" id="oksp25-slot-1" style="grid-row:2;grid-column:1"><small>Runde</small><span>1</span></h3>
+<article class="oksp-card" id="oksp25-t1r1" data-lane="1" data-notes="1" data-search="track 1 runde 1 zivilgesellschaftliche organisationen + genossenschaften (ökologisch solidarisch)  pro peace, hat it auf vorderfrau gebracht, baut das genossenschaftlich auf, ist international unterwegs (13 länder); motivation: ethische gründe, aber gibt auch probleme, zb bei cloudanbindungen https://www.propeace.de/de
+
+hostsharing ist genossenschaft für webhosting und cloud, gibts seit 6.12.2000; mitglieder sind kmu, vereine, institutionen, einzelunternehmer und co; eg betreibt infrastruktur mit eigenem rechenzentrum, bietet iaas und paas, sowie saas (bbb cluster + mastodon) motivation: um digital souverän zu sein, muss mir die technik gehören genossenschaftsmitglieder tragen das unternehmen
+
+https://www.hostsharing.net/
+
+partnerprojekt von propeace und hostsharing:     problem: viel personalwechsel (onboarding-arbeit)
+
+samba rodc, lief bereits für user-accounts, war noch nicht verknüpft mit messenger/dateisystem     drangestrickt: mailinglisten, nextcloud, matrix, projektmanagementsystem     jetzt möglich: 1-klick-onbaording, identity management via keycloak; alle accounts werden automatisch erstellt und user bekommen zugang zu ressourcen (oidc)     dieses setup löst das problem, dass man versch. oss-lösungen ein gemeinsames nutzerverwaltungssystem brauchen (samba rodc) - von dort in keycloak übernommen, der das zentrale element zu allen oss systemen ist
+
+learning: partnerschaftsprojekt zwischen genossenschaft und mitglied von hohem vertrauen geprägt, arbeit auf augenhöhe, gemeinsam viel know how entwickelt; wissen teilen schadet nicht, sondern hilft auch dem teilenden
+
+fragen: a) lohnt sich das für kleinen verein (aktuell nextcloud auf hetzner)? ja, man zahlt die ressourcen, die man nutzt je nach datenmengen (bei sehr großen mengen eher managed server zu buchen), preisspanne ist sehr groß. für kleinere entsprechend günstiger. muss man im einzelfall überlegen. hostsharing macht aber auch kleine projekte, zb webmaster on demand und as a service (für vereine teilweise sonst problematisch, wenn zuständige person abtaucht) migrationskosten: rund 20.000 euro arbeitsstunden webmaster as a serice gebühr: 12.000 / jahr für pro peace case servicelevel 2 stunden
+
+b) wenn man nicht schon samba im einsatz hat, sondern was kleineres, lohnt sich das? antwort: dann weglassen und direkt in keycloak
+
+c) warum so viele softwares wie matrix und torc, auch wenn nextcloud vieles bietet? pro peace hat bereits was woanders laufen, wollte nicht umziehen zu nextcloud talk. nextcloud kann alles, aber vielleicht nicht alles richtig gut. immer eine abwägung, einzelteile ersetzen zu können.
+
+d) warum genossenschaft statt verein? pro peace wollte auch &quot;in uns selbst investieren&quot;.; antwort von hostsharing: keine limitation bzgl. wirtschaftlicher tätigkeit, steht im wettbewerb. intern demokratisch organistiert. wer zu uns kommt, macht sich selbst mit größer, nicht einen anderen besitzer.
+
+e) wie werden einverständniserklärungen dsgvo-konform eingesammelt? antwort pro peace: es handelt sich um mitarbeiter, die im arbeitsvertrag alles unterschrieben haben.; anderer case, wenn externe nutzer dabei sind. idee: nextcloud-formular. antwort hostsharin: avv und co wird bei aufnahme neuer mitglieder eingeholt, ab da wird nix mit mitgliederdaten gemacht, wäre gegen ethischen grundsatz - daher nicht nötig, zustimmungen upzudaten.
+
+f) hat man freiheiten bzgl datenaustausch zwischen den systemen, in welchen sprachen die skripte sind? antwort pro peace: da gibts freiheitsgerade, gerade vermutlich alles python, pearl ginge zb auch - wir teilen die skripte auch gerne. antwort hostsharing: keycloak unterstützt bestimmte protokolle (nicht), das ist die limitation - dann wird anderes anderweitig angeschlossen
+
+g) in wuppertal gründet sich ggf eine eg für weltladen - ab wann würde es sich lohnen, da mitzumachen? antwort pro peace: traum wäre, dass vorbereitete lösung für datei, mail, nutzerverwaltung per knopfdruck von genossenschaft bereitgestellt wird für preis x, da muss man hin - ohne dass kunden die systeme verstehen müssen.
+
+h) idee, dass sich mehrere kleine vereine mit mittelgroßen anforderungen treffen, um anforderung für ein solches paket zu besprechen: jan ulrich hasecke, ju.hasecke@hostsharing.net; www.hostsharing.net
+
+debatte: sind oss lösungen für vereinsmitglieder attraktiv? oder wollen alle microsoft, weil sie es von der arbeit kennen, wirkt wie software zweiter klasse
+
+achtung: wenn man nextcloud irgendwo einkauft, aupassen, dass man datendump ziehen kann, um potenziell umziehen zu können" data-pad="" style="grid-row:2;grid-column:2"><div class="oksp-meta"><span class="oksp-num">Track 1 · Runde 1</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 1 · Runde 1: Zivilgesellschaftliche Organisationen + Genossenschaften (ökologisch solidarisch) öffnen</button><div class="oksp-part"><h4 class="oksp-title">Zivilgesellschaftliche Organisationen + Genossenschaften (ökologisch solidarisch)</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">Pro Peace, hat IT auf Vorderfrau gebracht, baut das genossenschaftlich auf, ist international unterwegs (13 Länder); Motivation: ethische Gründe, ABER gibt auch Probleme, zB bei Cloudanbindungen <a href="https://www.propeace.de/de" target="_blank" rel="noopener">https://www.propeace.de/de</a>
+
+Hostsharing ist Genossenschaft für Webhosting und Cloud, gibts seit 6.12.2000; Mitglieder sind KMU, Vereine, Institutionen, Einzelunternehmer und Co; eG betreibt Infrastruktur mit eigenem Rechenzentrum, bietet IaaS und PaaS, sowie SaaS (BBB Cluster + Mastodon) Motivation: Um digital souverän zu sein, muss mir die Technik gehören Genossenschaftsmitglieder tragen das Unternehmen
+
+<a href="https://www.hostsharing.net/" target="_blank" rel="noopener">https://www.hostsharing.net/</a>
+
+Partnerprojekt von ProPeace und HostSharing:     Problem: Viel Personalwechsel (Onboarding-Arbeit)
+
+Samba RODC, lief bereits für User-Accounts, war noch nicht verknüpft mit Messenger/Dateisystem     drangestrickt: Mailinglisten, Nextcloud, Matrix, Projektmanagementsystem     jetzt möglich: 1-Klick-Onbaording, Identity Management via Keycloak; alle Accounts werden automatisch erstellt und User bekommen Zugang zu Ressourcen (OIDC)     dieses Setup löst das Problem, dass man versch. OSS-Lösungen ein gemeinsames Nutzerverwaltungssystem brauchen (Samba RODC) - von dort in Keycloak übernommen, der das zentrale Element zu allen OSS Systemen ist
+
+Learning: Partnerschaftsprojekt zwischen Genossenschaft und Mitglied von hohem Vertrauen geprägt, Arbeit auf Augenhöhe, gemeinsam viel Know How entwickelt; Wissen teilen schadet nicht, sondern hilft auch dem Teilenden
+
+Fragen: a) Lohnt sich das für kleinen Verein (aktuell Nextcloud auf Hetzner)? Ja, man zahlt die Ressourcen, die man nutzt je nach Datenmengen (bei sehr großen Mengen eher Managed Server zu buchen), Preisspanne ist sehr groß. Für Kleinere entsprechend günstiger. Muss man im Einzelfall überlegen. HostSharing macht aber auch kleine Projekte, zB Webmaster on Demand und as a Service (für Vereine teilweise sonst problematisch, wenn zuständige Person abtaucht) Migrationskosten: rund 20.000 Euro Arbeitsstunden Webmaster as a Serice Gebühr: 12.000 / Jahr für Pro Peace Case Servicelevel 2 Stunden
+
+b) Wenn man nicht schon Samba im Einsatz hat, sondern was kleineres, lohnt sich das? Antwort: Dann weglassen und direkt in Keycloak
+
+c) Warum so viele Softwares wie Matrix und Torc, auch wenn Nextcloud vieles bietet? Pro Peace hat bereits was woanders laufen, wollte nicht umziehen zu Nextcloud Talk. Nextcloud kann alles, aber vielleicht nicht alles richtig gut. Immer eine Abwägung, Einzelteile ersetzen zu können.
+
+d) Warum Genossenschaft statt Verein? Pro Peace wollte auch &quot;in uns selbst investieren&quot;.; Antwort von Hostsharing: Keine Limitation bzgl. wirtschaftlicher Tätigkeit, steht im Wettbewerb. Intern demokratisch organistiert. Wer zu uns kommt, macht sich selbst mit größer, nicht einen anderen Besitzer.
+
+e) Wie werden Einverständniserklärungen DSGVO-konform eingesammelt? Antwort Pro Peace: Es handelt sich um Mitarbeiter, die im Arbeitsvertrag alles unterschrieben haben.; anderer Case, wenn externe Nutzer dabei sind. Idee: Nextcloud-Formular. Antwort Hostsharin: AVV und Co wird bei Aufnahme neuer Mitglieder eingeholt, ab da wird nix mit Mitgliederdaten gemacht, wäre gegen ethischen Grundsatz - daher nicht nötig, Zustimmungen upzudaten.
+
+f) Hat man Freiheiten bzgl Datenaustausch zwischen den Systemen, in welchen Sprachen die Skripte sind? Antwort Pro Peace: Da gibts Freiheitsgerade, gerade vermutlich alles Python, Pearl ginge zB auch - wir teilen die Skripte auch gerne. Antwort Hostsharing: Keycloak unterstützt bestimmte Protokolle (nicht), das ist die Limitation - dann wird anderes anderweitig angeschlossen
+
+g) In Wuppertal gründet sich ggf eine eG für Weltladen - ab wann würde es sich lohnen, da mitzumachen? Antwort Pro Peace: Traum wäre, dass vorbereitete Lösung für Datei, Mail, Nutzerverwaltung per Knopfdruck von Genossenschaft bereitgestellt wird für Preis X, da muss man hin - ohne dass Kunden die Systeme verstehen müssen.
+
+h) Idee, dass sich mehrere kleine Vereine mit mittelgroßen Anforderungen treffen, um Anforderung für ein solches Paket zu besprechen: Jan Ulrich Hasecke, ju.hasecke@hostsharing.net; www.hostsharing.net
+
+Debatte: Sind OSS Lösungen für Vereinsmitglieder attraktiv? Oder wollen alle Microsoft, weil sie es von der Arbeit kennen, wirkt wie Software zweiter Klasse
+
+Achtung: Wenn man Nextcloud irgendwo einkauft, aupassen, dass man Datendump ziehen kann, um potenziell umziehen zu können</div></details></article>
+<article class="oksp-card oksp-card--empty" id="oksp25-t2r1" data-lane="2" data-notes="0" data-search="track 2 runde 1 pc retten, verstehen, nutzen (end of windows 10)  " data-pad="" style="grid-row:2;grid-column:3"><div class="oksp-meta"><span class="oksp-num">Track 2 · Runde 1</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 2 · Runde 1: PC retten, verstehen, nutzen (End of Windows 10) öffnen</button><div class="oksp-part"><h4 class="oksp-title">PC retten, verstehen, nutzen (End of Windows 10)</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article>
+<article class="oksp-card" id="oksp25-t3r1" data-lane="3" data-notes="1" data-search="track 3 runde 1 reconnect  dis/connect – reconnect
+
+beate petersen und ella bauer klimanetzwerk wuppertal
+
+tag des guten lebens: zukunftsbild/vision wuppertal oberbarmen 2045 mit solargepowerter schwebebahn https://www.transformation-wuppertal.de
+
+es ist gut, ein bild vor augen zu haben, wo man hin will – „wow“ vs. „haben wir schon durchdacht, geht nicht“
+
+reconnect per ugp ugp: urban greening plan, schwammstadt, partizipation... sind notwendig und durch eu-biodiversitätsstrategie 2030 gefordert (starkregen, stadtklima) , laufender diskurs
+
+ziel : verbesserung lebensqualität (biodiversität, luftqualität, gesundheit, resililenz) •konkret: integrierte grünentwicklung anstatt weitere flächenversiegelung •3.  diskurs zur ausgestaltung der ugp,  •indem integrierte grünentwicklung  •stadtklimatisch funktional erfolgt, um regenwasser zu sammeln, stadtklima zu verbessern  •und mit einer nachhaltigen mobilität verknüpft gedacht wird.
+
+•ugp sollten kommunale lösungsprozesse in gang setzen,  •die neben biodiversität⁠  •auch luftqualität,  •gesundheit der einwohner*innen  •und resillienz in den städten erhöhen. •dies schafft lebensqualität, senkt kosten und macht unabhängig-selbstbestimmt   … ökosystembasierte ⁠anpassung an den klimawandel⁠ für lebenswerte städte
+
+bsp. mannheim - im kontext von smart-city „die eu-biodiversitätsstrategie 2030 fordert ambitionierte &quot;stadtnatur-pläne&quot; (urban greeningplans)  für alle europäischen städte mit mehr als 20.000 einwohnenden. die stadtnatur-pläne sollen integrierte freiraumstrategien sein, die zum wohlbefinden der bevölkerung, zum schutz der biodiversität sowie zu klimaanpassung und klimaschutz beitragen. mit stadtnatur-plänen bekennen sich kommunen zum schutz der biologischen vielfalt, zum klimaschutz und zum guten leben in der stadt.  sie übernehmen verantwortung bei der bewältigung von wichtigen menschheitsaufgaben. aufgrund der komplexität, sollten stadtnatur-pläne fachübergreifend und zusammen mit zivilgesellschaft, wissenschaft und unternehmen entwickelt werden. so bieten sie die chance, zur nachhaltigen stadtentwicklung beizutragen und freiraumplanung, klimaschutz- und klimaanpassung, stadtnaturschutz und stadtplanung zusammenzubringen.“ s. hier: https://www.ecologic.eu/de/19777 und hier: https://iclei-europe.org/publications-tools/?c=search&amp;uid=iln4nemy
+
+reconnect: vom plan zum tun: beispiel abpflastern (https://abpflastern.de) •  bsp. abpflastern: gemeinsam ganz konkret wieder mehr grün schaffen  versiegelte böden – etwa durch pflastersteine, asphalt oder beton – sind ein problem,  sei es für das wassermanagement, den hitzeschutz oder den naturschutz.  die damit verbundenen risiken und kosten bleiben oft ebenso unsichtbar wie mögliche alternativen.
+
+„einfach loslegen“, konkret: mit gesundem menschenverstand plfaster im öffentlichen raum wegnehmen und ggf. mit grün bepflanzen/aussähen, (--&gt; liste gefährdete pflanzen)  bsp. schulhofentsiegelungsprojekt in wuppertal oder bisher ökologisch wenig sinnvoll genutzte grünfächen bürgerschaftlich übernehmen und biodiverser machen
+
+einordnung &amp; historie  •abpflastern ist ein deutschlandweiter entsiegelung-wettbewerb,  bei dem städte und gemeinden in einem freundschaftlichen wettstreit flächen entsiegeln.  beim abpflastern nehmen anwohner:innen und kommunen gemeinsam die schippe in die hand  – für den sieg im wettbewerb und für die zukunft ihres wohnortes.   •die frage lautet: wer pflastert am meisten ab? jeder quadratmeter zählt! https://www.abpflastern.de/ …nun auch in wuppertal  https://www.wuppertals-urbane-gaerten.de/2025/05/02/entsiegelungswettbewerb-abpflastern-startet-damit-wuppertal-gruener-wird/yyy    … für lebenswerte städte erstmals auch in w: don&#x27;t mow in may (kommt aus gb), auch wandelbäume... um natur im öffentlichen raum wieder msichtbarer und wahrnehmbarer zu machen.
+
+reconnect: kn-w vernetzung verschiedener player, teilnahme an beteiligungsverfahren, mitarbeit in beiräten
+
+bap. klimaschutz - gerne ambitionierter 2.kn-w offener brief vom 21.1.2021 •an ob uwe schneidewind nach amtsantritt für ambitionierten klimaschutz: https://www.njuuz.de/home/politik/klimanetzwerk-wuppertal-offener-brief-iksk-kein-beitrag-zum-klimaschutz/ •und: https://www.wuppertals-urbane-gaerten.de/2021/01/22/offener-brief-an-verwaltung-undpolitik- zum-klimaschutz-in-wuppertal/
+
+bsp.: buga 2031 in w - gerne mit ,früher partizipation und bedarfsgerechter stadtentwicklung für die menschen,  frühzeitige *informelle* bürgerbeteiligung neben den  formellen verfahren •vorhandene ressourcen klug nutzen, d.h. möglichst sparsam, effizient, lang, mehrfach und müll vermeidend kreativ und innovativ denkend und handelnd,  s. auch unsere kn-w njuuz-artikel  •vom 12.7.2024 zur buga https://www.njuuz.de/home/politik/circular-buga-2031-wir-nehmen-sie-beim-wort/  •und vom 22.11.2024 https://www.njuuz.de/home/politik/klimanetzwerk-wuppertal-circular-buga-diskussion-findet-stadt/ •dokumente, presse und diskussion finden sich auch hier im zusammenhang: https://www.wuppertals-urbane-gaerten.de/2024/06/10/circular-buga/
+
+reconest per zukunftsreise am vbundesweiten vorlesetag 21.11. mit einer kindergeschichte und den blick auf 5 eu-städte, die dinge schon strukturell richtig machen:  kopenhagen, gent, utrecht, paris, tübingen,
+
+kopenhagen, dänemark st die lebenswerteste stadt der welt und seit jahren weltweit vorbild für viele andere städte auf dem weg in die nachhaltigkeit. ca. 650.000 ew kernstadt, 1.2 mio. inklusive randgebiete » fahrradanteil 40 – 50 %. » radfahren ist ein fester bestandteil der alltagskultur. » ziel, 2025 klimaneutral zu werden. » schwammstadt: straßen und plätze sind so gestaltet, dass sie bei starkregen wasser aufnehmen und zurückhalten. parks, gründächer und urbane wasserbecken speichern wasser und kühlen gleichzeitig das stadtklima. » hohe architektonische kreativität: die müllverbrennungsanlage in der stadt, die die wärme für rund 30 % der haushalte liefert, ist skipiste, kletterzentrum und recycling-infozentrum in einem gebäude. das ist nur ein bespiel, wie kopenhagen funktion und nachhaltigkeit bzw. freizeitwert kombiniert. » täglich werden in 1200 küchen 80.000 mahlzeiten frisch, ökologisch, regional und fleischarm gekocht für alle kitas, schulen, altenheime, krankenhäuser. » hohe solidarität und gleichheit in der bevölkerung, sehr gutes sozialsystem
+
+gent, belgien der mut des bürgermeisters brachte die stadt an nur einem wochenende weit in die zukunft. gent ist heute vorzeigestadt und touristenmagnet - mit ca. 270.000 einwohner*innen. aufgrund des hohen pkw-anteils in der innenstadt gab es massive luftprobleme.  . gent wird zur fahrradstadt ohne den vorherigen bau von radwegen. mit nur 5 mio. euro wurde am ersten april-wochenende 2017 mit schildern, farbe und verkehrsbarrikaden die größte autofreie innenstadt europas geschaffen, indem die altstadt inklusive des um das zentrum führenden autorings für den normalen pkw-verkehr gesperrt wurde. 2015: » 85 % der fläche in der innenstadt wurde von pkws in anspruch genommen (parkplätze und straßen). » 40 % der autofahrer fuhren richtung zentrum, wollten aber auf die andere stadtseite. 2025: » für 71 % der bewohner der genter altstadt ist die lebensqualität gestiegen. » 35 % radanteil am verkehr » bestflorierender einzelhandel in ganz flandern » wesentlich mehr touristenzustrom » 35 % weniger unfälle, 20 % weniger stau in gent.
+
+utrecht, niederlande ist die viertgrößte stadt in den niederlanden - mit ca. 378.000 einwohner*innen und verkehrsknotenpunkt.  der wille der bürgerinnen und bürger, der in einer wachsenden bewegung immer deutlicher wurde, führte zum vollständigen rückbau einer autobahn.» utrecht war in den 70er jahren aktiv zur autostadt umgebaut worden. » auf druck der bürgerschaft erfolgte ende der 90er jahre die 180-grad-kehrtwende: die kaum 30 jahre alte stadtautobahn wurde abgerissen und der ursprüngliche wasserkanal catharijnesingel wiederhergestellt. heute umfließt er wieder als ring die altstadt. » aus der sehr aktiven bürgerschaft entwickelte die stadtverwaltung das modell der partizipativen planung, bei der die bürgerinnen und bürger früh in prozesse eingebunden werden. » die fisch-türglocke („visdeurbe“) am weerdsluis unterstützt die fischwanderung. sie ist bekannt als innovative kombination aus naturschutz, bürgerbeteiligung und slowtv. » utrecht gilt mit einem fahrradanteil von über 40 % als die fahrradhauptstadt der niederlande und verfügt mit 12.500 stellplätzen über die größte fahrradgarage der welt.
+
+paris: die mutige vision einer frau nimmt eine großstadt im eiltempo mit in die zukunft. anne hidalgo, die bürgermeisterin von paris, erkannte schon 2014, dass paris zu heiß und damit unbewohnbar werden würde. » verkehrsaufkommen: 53 % der pariser gehen zu fuß, 11 % nutzen das fahrrad, 30 % den öpnv. ca. 2 % roller, taxen etc. » seit 2002 ist der autoverkehr in paris um fast 54 % prozent zurückgegangen. über 1500 km radwege und fahrradstraßen wurden in der stadt in nur 10 jahren geschaffen. » mit über 20.000 menschen/km² ist paris eine der am dichtesten besiedelten städte der welt. die stadt hat wenig grün und parks. » hidalgo überzeugte die pariser mit der lösung: das paris der 15 minuten. in 15 minuten erreichen pariser ohne pkw alles, was sie zum leben brauchen. » dächer, fassaden und straßen werden systematisch begrünt, um die stadt zu kühlen und schatten zu schaffen. » so entstand u.a. in paris auf einem messedach der größte dachgarten europas, nature urbaine. » 2016 startete die stadt das projekt parisculteurs, um bis 2020 100 hektar dachgärten, fassadenbegrünung und urbane landwirtschaft in paris zu schaffen. mittlerweile gibt es über 150 gemeinschaftlich betriebene gärten: paris ist auf dem weg zur „essbaren stadt“. 2.110.000 12.390.000 mehr
+
+tübingen, deutschland -  macht blau unter dem motto „tübingen macht blau“ startete der oberbürgermeister 2008 zusammen mit der bürgerschaft ein ambitioniertes klimaschutzprogramm. 2030 will die stadt klimaneutral sein. das konzept ist so erfolgreich, dass die mit zahlreichen preisen ausgezeichnete stadt als vorzeigemodell für kommunale nachhaltigkeit gilt. » ein umfangreiches paket an maßnahmen, kombiniert mit sachinformationen und rabattanreizen, ermöglicht allen bürger:innen den unkomplizierten umstieg auf umweltfreundlichere alternativen vor allem in den bereichen mobilität und energie. » eine bürgerapp informiert über das bisher erreichte sowie umfrageergebnisse zu bevorstehenden planungen. » anteil erneuerbarer energien am strommix 63 % » rückgang der co2-äquivalente um 43 % » seit 2022 erste stadt in deutschland mit einer rechtskräftig eingeführten verpackungssteuer auf einwegprodukte.  was bedeutet „tübingen macht blau“? » umweltfreundliches handeln macht gute laune – wie ein schöner sommertag mit blauem himmel. » wenn autos und elektrogeräte nicht genutzt werden, können sie „blaumachen“, das heißt, sie sparen energie. » photovoltaikplatten leuchten in der sonne blau. » das 70 km umfassende radwegenetz enthält die beheizbare fahrradbrücke „das blaue band“. seit 2024 ist tübingen die nr. 1 unter deutschlands fahrradstädten (kategorie 50.000 – 100.000 einwohner).
+
+weitere gute beispiele/diskussion  öpnv-ringverkehr mit anschlüssen an kleinere busse ggf. auch bürgerbus, hol-mich-app (taxi), homeoffice,
+
+tn-erfahrung: ambivalente stimmung bei änderungen, ohne quartierparkhaus geht es nicht,
+
+nur mit den nachbar*innen zusammen zukunftsbilder entwickeln , um emotionale bilder zu schaffen, die zu aktion motivieren.
+
+kure feedback-runde inspiration, was tun zu können - z.b. abpflastern und/oder beim nächsten treffen des kn-w teilzunehmen..." data-pad="" style="grid-row:2;grid-column:4"><div class="oksp-meta"><span class="oksp-num">Track 3 · Runde 1</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 3 · Runde 1: Reconnect öffnen</button><div class="oksp-part"><h4 class="oksp-title">Reconnect</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">Dis/Connect – Reconnect
+
+Beate Petersen und Ella Bauer Klimanetzwerk Wuppertal
+
+Tag des guten Lebens: Zukunftsbild/Vision Wuppertal Oberbarmen 2045 mit solargepowerter Schwebebahn <a href="https://www.transformation-wuppertal.de" target="_blank" rel="noopener">https://www.transformation-wuppertal.de</a>
+
+Es ist gut, ein Bild vor Augen zu haben, wo man hin will – „wow“ vs. „haben wir schon durchdacht, geht nicht“
+
+Reconnect per UGP UGP: Urban Greening Plan, Schwammstadt, Partizipation... sind notwendig und durch EU-Biodiversitätsstrategie 2030 gefordert (Starkregen, Stadtklima) , laufender Diskurs
+
+Ziel : Verbesserung Lebensqualität (Biodiversität, Luftqualität, Gesundheit, Resililenz) •konkret: integrierte Grünentwicklung anstatt weitere Flächenversiegelung •3.  Diskurs zur Ausgestaltung der UGP,  •indem integrierte Grünentwicklung  •stadtklimatisch funktional erfolgt, um Regenwasser zu sammeln, Stadtklima zu verbessern  •und mit einer nachhaltigen Mobilität verknüpft gedacht wird.
+
+•UGP sollten kommunale Lösungsprozesse in Gang setzen,  •die neben Biodiversität⁠  •auch Luftqualität,  •Gesundheit der Einwohner*innen  •und Resillienz in den Städten erhöhen. •Dies schafft Lebensqualität, senkt Kosten und macht unabhängig-selbstbestimmt   … ökosystembasierte ⁠Anpassung an den Klimawandel⁠ für lebenswerte Städte
+
+Bsp. Mannheim - im Kontext von Smart-City „Die EU-Biodiversitätsstrategie 2030 fordert ambitionierte &quot;Stadtnatur-Pläne&quot; (Urban GreeningPlans)  für alle europäischen Städte mit mehr als 20.000 Einwohnenden. Die Stadtnatur-Pläne sollen integrierte Freiraumstrategien sein, die zum Wohlbefinden der Bevölkerung, zum Schutz der Biodiversität sowie zu Klimaanpassung und Klimaschutz beitragen. Mit Stadtnatur-Plänen bekennen sich Kommunen zum Schutz der biologischen Vielfalt, zum Klimaschutz und zum guten Leben in der Stadt.  Sie übernehmen Verantwortung bei der Bewältigung von wichtigen Menschheitsaufgaben. Aufgrund der Komplexität, sollten Stadtnatur-Pläne fachübergreifend und zusammen mit Zivilgesellschaft, Wissenschaft und Unternehmen entwickelt werden. So bieten sie die Chance, zur nachhaltigen Stadtentwicklung beizutragen und Freiraumplanung, Klimaschutz- und Klimaanpassung, Stadtnaturschutz und Stadtplanung zusammenzubringen.“ s. hier: <a href="https://www.ecologic.eu/de/19777" target="_blank" rel="noopener">https://www.ecologic.eu/de/19777</a> und hier: <a href="https://iclei-europe.org/publications-tools/?c=search&amp;uid=iLn4nemY" target="_blank" rel="noopener">https://iclei-europe.org/publications-tools/?c=search&amp;uid=iLn4nemY</a>
+
+Reconnect: Vom Plan zum Tun: Beispiel Abpflastern (<a href="https://abpflastern.de" target="_blank" rel="noopener">https://abpflastern.de</a>) •  Bsp. Abpflastern: gemeinsam ganz konkret wieder mehr Grün schaffen  Versiegelte Böden – etwa durch Pflastersteine, Asphalt oder Beton – sind ein Problem,  sei es für das Wassermanagement, den Hitzeschutz oder den Naturschutz.  Die damit verbundenen Risiken und Kosten bleiben oft ebenso unsichtbar wie mögliche Alternativen.
+
+„einfach loslegen“, konkret: mit gesundem Menschenverstand Plfaster im öffentlichen Raum wegnehmen und ggf. mit Grün bepflanzen/aussähen, (--&gt; Liste gefährdete Pflanzen)  Bsp. Schulhofentsiegelungsprojekt in Wuppertal oder bisher ökologisch wenig sinnvoll genutzte Grünfächen bürgerschaftlich übernehmen und biodiverser machen
+
+Einordnung &amp; Historie  •abpflastern ist ein deutschlandweiter Entsiegelung-Wettbewerb,  bei dem Städte und Gemeinden in einem freundschaftlichen Wettstreit Flächen entsiegeln.  Beim abpflastern nehmen Anwohner:innen und Kommunen gemeinsam die Schippe in die Hand  – für den Sieg im Wettbewerb und für die Zukunft ihres Wohnortes.   •Die Frage lautet: Wer pflastert am meisten ab? Jeder Quadratmeter zählt! <a href="https://www.abpflastern.de/" target="_blank" rel="noopener">https://www.abpflastern.de/</a> …nun auch in Wuppertal  <a href="https://www.wuppertals-urbane-gaerten.de/2025/05/02/entsiegelungswettbewerb-abpflastern-startet-damit-wuppertal-gruener-wird/Yyy" target="_blank" rel="noopener">https://www.wuppertals-urbane-gaerten.de/2025/05/02/entsiegelungswettbewerb-abpflastern-startet-damit-wuppertal-gruener-wird/Yyy</a>    … für lebenswerte Städte erstmals auch in W: don&#x27;t mow in May (kommt aus GB), auch Wandelbäume... um Natur im öffentlichen Raum wieder msichtbarer und wahrnehmbarer zu machen.
+
+Reconnect: KN-W Vernetzung verschiedener Player, Teilnahme an Beteiligungsverfahren, Mitarbeit in Beiräten
+
+Bap. Klimaschutz - gerne ambitionierter 2.KN-W Offener Brief vom 21.1.2021 •an OB Uwe Schneidewind nach Amtsantritt für ambitionierten Klimaschutz: <a href="https://www.njuuz.de/home/politik/klimanetzwerk-wuppertal-offener-brief-iksk-kein-beitrag-zum-klimaschutz/" target="_blank" rel="noopener">https://www.njuuz.de/home/politik/klimanetzwerk-wuppertal-offener-brief-iksk-kein-beitrag-zum-klimaschutz/</a> •und: <a href="https://www.wuppertals-urbane-gaerten.de/2021/01/22/offener-brief-an-verwaltung-undpolitik-" target="_blank" rel="noopener">https://www.wuppertals-urbane-gaerten.de/2021/01/22/offener-brief-an-verwaltung-undpolitik-</a> zum-klimaschutz-in-wuppertal/
+
+Bsp.: Buga 2031 in W - gerne mit ,früher Partizipation und bedarfsgerechter Stadtentwicklung für die Menschen,  frühzeitige *informelle* Bürgerbeteiligung neben den  formellen Verfahren •vorhandene Ressourcen klug nutzen, d.h. möglichst sparsam, effizient, lang, mehrfach und Müll vermeidend kreativ und innovativ denkend und handelnd,  s. auch unsere KN-W njuuz-Artikel  •vom 12.7.2024 zur BUGA <a href="https://www.njuuz.de/home/politik/circular-buga-2031-wir-nehmen-sie-beim-wort/" target="_blank" rel="noopener">https://www.njuuz.de/home/politik/circular-buga-2031-wir-nehmen-sie-beim-wort/</a>  •und vom 22.11.2024 <a href="https://www.njuuz.de/home/politik/klimanetzwerk-wuppertal-circular-buga-diskussion-findet-stadt/" target="_blank" rel="noopener">https://www.njuuz.de/home/politik/klimanetzwerk-wuppertal-circular-buga-diskussion-findet-stadt/</a> •Dokumente, Presse und Diskussion finden sich auch hier im Zusammenhang: <a href="https://www.wuppertals-urbane-gaerten.de/2024/06/10/circular-buga/" target="_blank" rel="noopener">https://www.wuppertals-urbane-gaerten.de/2024/06/10/circular-buga/</a>
+
+Reconest per Zukunftsreise am Vbundesweiten Vorlesetag 21.11. mit einer Kindergeschichte und den Blick auf 5 EU-Städte, die Dinge schon strukturell richtig machen:  Kopenhagen, Gent, Utrecht, Paris, Tübingen,
+
+Kopenhagen, Dänemark st die lebenswerteste Stadt der Welt und seit Jahren weltweit Vorbild für viele andere Städte auf dem Weg in die Nachhaltigkeit. Ca. 650.000 EW Kernstadt, 1.2 Mio. inklusive Randgebiete » Fahrradanteil 40 – 50 %. » Radfahren ist ein fester Bestandteil der Alltagskultur. » Ziel, 2025 klimaneutral zu werden. » Schwammstadt: Straßen und Plätze sind so gestaltet, dass sie bei Starkregen Wasser aufnehmen und zurückhalten. Parks, Gründächer und urbane Wasserbecken speichern Wasser und kühlen gleichzeitig das Stadtklima. » Hohe architektonische Kreativität: Die Müllverbrennungsanlage in der Stadt, die die Wärme für rund 30 % der Haushalte liefert, ist Skipiste, Kletterzentrum und Recycling-Infozentrum in einem Gebäude. Das ist nur ein Bespiel, wie Kopenhagen Funktion und Nachhaltigkeit bzw. Freizeitwert kombiniert. » Täglich werden in 1200 Küchen 80.000 Mahlzeiten frisch, ökologisch, regional und fleischarm gekocht für alle Kitas, Schulen, Altenheime, Krankenhäuser. » Hohe Solidarität und Gleichheit in der Bevölkerung, sehr gutes Sozialsystem
+
+Gent, Belgien Der Mut des Bürgermeisters brachte die Stadt an nur einem Wochenende weit in die Zukunft. Gent ist heute Vorzeigestadt und Touristenmagnet - mit ca. 270.000 Einwohner*innen. Aufgrund des hohen PKW-Anteils in der Innenstadt gab es massive Luftprobleme.  . Gent wird zur Fahrradstadt ohne den vorherigen Bau von Radwegen. Mit nur 5 Mio. Euro wurde am ersten April-Wochenende 2017 mit Schildern, Farbe und Verkehrsbarrikaden die größte autofreie Innenstadt Europas geschaffen, indem die Altstadt inklusive des um das Zentrum führenden Autorings für den normalen PKW-Verkehr gesperrt wurde. 2015: » 85 % der Fläche in der Innenstadt wurde von PKWs in Anspruch genommen (Parkplätze und Straßen). » 40 % der Autofahrer fuhren Richtung Zentrum, wollten aber auf die andere Stadtseite. 2025: » Für 71 % der Bewohner der Genter Altstadt ist die Lebensqualität gestiegen. » 35 % Radanteil am Verkehr » Bestflorierender Einzelhandel in ganz Flandern » Wesentlich mehr Touristenzustrom » 35 % weniger Unfälle, 20 % weniger Stau in Gent.
+
+Utrecht, Niederlande ist die viertgrößte Stadt in den Niederlanden - mit ca. 378.000 Einwohner*innen und Verkehrsknotenpunkt.  Der Wille der Bürgerinnen und Bürger, der in einer wachsenden Bewegung immer deutlicher wurde, führte zum vollständigen Rückbau einer Autobahn.» Utrecht war in den 70er Jahren aktiv zur Autostadt umgebaut worden. » Auf Druck der Bürgerschaft erfolgte Ende der 90er Jahre die 180-Grad-Kehrtwende: Die kaum 30 Jahre alte Stadtautobahn wurde abgerissen und der ursprüngliche Wasserkanal Catharijnesingel wiederhergestellt. Heute umfließt er wieder als Ring die Altstadt. » Aus der sehr aktiven Bürgerschaft entwickelte die Stadtverwaltung das Modell der partizipativen Planung, bei der die Bürgerinnen und Bürger früh in Prozesse eingebunden werden. » Die Fisch-Türglocke („Visdeurbe“) am Weerdsluis unterstützt die Fischwanderung. Sie ist bekannt als innovative Kombination aus Naturschutz, Bürgerbeteiligung und SlowTV. » Utrecht gilt mit einem Fahrradanteil von über 40 % als die Fahrradhauptstadt der Niederlande und verfügt mit 12.500 Stellplätzen über die größte Fahrradgarage der Welt.
+
+Paris: Die mutige Vision einer Frau nimmt eine Großstadt im Eiltempo mit in die Zukunft. Anne Hidalgo, die Bürgermeisterin von Paris, erkannte schon 2014, dass Paris zu heiß und damit unbewohnbar werden würde. » Verkehrsaufkommen: 53 % der Pariser gehen zu Fuß, 11 % nutzen das Fahrrad, 30 % den ÖPNV. Ca. 2 % Roller, Taxen etc. » Seit 2002 ist der Autoverkehr in Paris um fast 54 % Prozent zurückgegangen. Über 1500 km Radwege und Fahrradstraßen wurden in der Stadt in nur 10 Jahren geschaffen. » Mit über 20.000 Menschen/km² ist Paris eine der am dichtesten besiedelten Städte der Welt. Die Stadt hat wenig Grün und Parks. » Hidalgo überzeugte die Pariser mit der Lösung: Das Paris der 15 Minuten. In 15 Minuten erreichen Pariser ohne PKW alles, was sie zum Leben brauchen. » Dächer, Fassaden und Straßen werden systematisch begrünt, um die Stadt zu kühlen und Schatten zu schaffen. » So entstand u.a. in Paris auf einem Messedach der größte Dachgarten Europas, Nature Urbaine. » 2016 startete die Stadt das Projekt Parisculteurs, um bis 2020 100 Hektar Dachgärten, Fassadenbegrünung und urbane Landwirtschaft in Paris zu schaffen. Mittlerweile gibt es über 150 gemeinschaftlich betriebene Gärten: Paris ist auf dem Weg zur „essbaren Stadt“. 2.110.000 12.390.000 mehr
+
+Tübingen, Deutschland -  macht Blau Unter dem Motto „Tübingen macht blau“ startete der Oberbürgermeister 2008 zusammen mit der Bürgerschaft ein ambitioniertes Klimaschutzprogramm. 2030 will die Stadt klimaneutral sein. Das Konzept ist so erfolgreich, dass die mit zahlreichen Preisen ausgezeichnete Stadt als Vorzeigemodell für kommunale Nachhaltigkeit gilt. » Ein umfangreiches Paket an Maßnahmen, kombiniert mit Sachinformationen und Rabattanreizen, ermöglicht allen Bürger:innen den unkomplizierten Umstieg auf umweltfreundlichere Alternativen vor allem in den Bereichen Mobilität und Energie. » Eine BürgerApp informiert über das bisher Erreichte sowie Umfrageergebnisse zu bevorstehenden Planungen. » Anteil erneuerbarer Energien am Strommix 63 % » Rückgang der CO2-Äquivalente um 43 % » Seit 2022 erste Stadt in Deutschland mit einer rechtskräftig eingeführten Verpackungssteuer auf Einwegprodukte.  Was bedeutet „Tübingen macht blau“? » Umweltfreundliches Handeln macht gute Laune – wie ein schöner Sommertag mit blauem Himmel. » Wenn Autos und Elektrogeräte nicht genutzt werden, können sie „blaumachen“, das heißt, sie sparen Energie. » Photovoltaikplatten leuchten in der Sonne blau. » Das 70 km umfassende Radwegenetz enthält die beheizbare Fahrradbrücke „Das blaue Band“. Seit 2024 ist Tübingen die Nr. 1 unter Deutschlands Fahrradstädten (Kategorie 50.000 – 100.000 Einwohner).
+
+weitere gute Beispiele/Diskussion  ÖPNV-Ringverkehr mit Anschlüssen an kleinere Busse ggf. auch Bürgerbus, Hol-mich-App (Taxi), Homeoffice,
+
+TN-Erfahrung: Ambivalente Stimmung bei Änderungen, ohne Quartierparkhaus geht es nicht,
+
+nur mit den Nachbar*innen zusammen Zukunftsbilder entwickeln , um emotionale Bilder zu schaffen, die zu Aktion motivieren.
+
+kure feedback-Runde Inspiration, was tun zu können - z.B. abpflastern und/oder beim nächsten Treffen des KN-W teilzunehmen...</div></details></article>
+<article class="oksp-card" id="oksp25-t4r1" data-lane="4" data-notes="1" data-search="track 4 runde 1 open source für / in die / der öffentlichen verwaltung sam zeini oknrw *open source für / in die / der öffentlichen verwaltung https://unserpad.de/p/oknrw-2025-track-4-session-1
+
+- session 1, track 4, raum 206
+- sessiongeber: sam zeini oknrw @samzeini.bsky.social
+- folien können bereitgestellt werden. todo
+- protokoll:
+- christopher reinbothe https://ruhr.social/@phneutral
+- verwaltung möchte mit opensource software arbeiten
+- wie willst du im rahmen einer ausschreibung eine community erreichen?
+- wie kann ich key-stakeholder identifizieren?
+- community-detection und community-engineering
+- nrwdesk und opendesk
+- welche verbindungen gibt es?
+- welcher austausch findet statt?
+- wieviel fluktuation gibt es?
+- ab wann wird es instabil?
+- wie nachhaltig ist es?
+- proprietäre software ist schwer zu analysieren
+- nur schwache und spekulative
+- es benötigt tatsächliche commiter*innen
+- analogie: payed mappers bei osm (https://osmfoundation.org/wiki/organised_editing_guidelines)
+- wie findet eine kommune eine software, die zu ihrem fachverfahren passt?
+- ansatz von unten
+- analyse von opensource repositories
+- publiccode.yaml
+- wie heißt die software, welche kategorie etc.
+- tags, bilder für übersichtsseiten
+- generierte softwareliste https://opencode.de/de/software?search=&amp;categories=categories-document-management
+- der standard müsste erweitert werden (für bspw. grünflächenamt und sozialamt etc.)
+- https://www.opencode.de
+- kommunales open source board
+- fachverfahrensliste auf opencode
+- anschlußfähigkeit von closed source software
+- semantische verknüpfung zwischen kategorien der publiccode.yaml
+- leika-codes
+- leistungskatalog
+- 15.000 einträge
+- ist taxonomisch aufgebaut!
+- https://de.wikipedia.org/wiki/leika
+- nicht zu stark darauf versteifen, weil viele smart-city-apps bereits darüberhinausgehende services
+- es gibt angeblich eine verwaltungsinterne alternative &quot;verena&quot; ..?
+- jan feil bei hugging face
+- opensource-projektliste (kgst)
+- projekt des kommunalen open source board &quot;kosb&quot;
+- fraunhofer institut liste von smart city lösungen (600mio wurde ausgegeben)
+- softwareverzeichnis von opencode https://opencode.de/de/software
+- liste von fachverfahren
+- starpunkt vielleicht hier: https://gitlab.opencode.de/thlv/fachverfahren ?
+- https://www.kgst.de/dokumentdetails?path=/documents/20181/2377291/kgst-prozesskatalog.xlsx/f82c2fc7-a6cf-4d4a-7ced-8255c9e953a0?t=1732269161234
+- fachkreis digitale souveränität im bvmw in dortmund
+- anderer ansatz im umgang mit der verwaltung
+- https://www.bvmw.de/de/ruhrgebiet-ost-und-mitte/fachkreis-digitale-souveraenitaet
+- deutschland stack vs. gov-stack
+- schnittstellen müssen standardisiert sein
+- behörden kennen open data und closed data, dazwischen gibt es nichts
+- die ganze gesetzgebung muss mitgesteuert werden
+- supply chain muss geprüft sein
+- kdvz (kommunale datenverarbeitungszentren) betreiben kleine datenzentren und bieten infrastruktur für mehrere kommunen" data-pad="https://unserpad.de/p/oknrw-2025-track-4-session-1" style="grid-row:2;grid-column:5"><div class="oksp-meta"><span class="oksp-num">Track 4 · Runde 1</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 4 · Runde 1: Open Source für / in die / der öffentlichen Verwaltung öffnen</button><div class="oksp-part"><h4 class="oksp-title">Open Source für / in die / der öffentlichen Verwaltung</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Sam Zeini OKNRW</span></p></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">*Open Source für / in die / der öffentlichen Verwaltung <a href="https://unserpad.de/p/oknrw-2025-track-4-session-1" target="_blank" rel="noopener">https://unserpad.de/p/oknrw-2025-track-4-session-1</a>
+
+- Session 1, Track 4, Raum 206
+- Sessiongeber: Sam Zeini OKNRW @samzeini.bsky.social
+- Folien können bereitgestellt werden. TODO
+- Protokoll:
+- Christopher Reinbothe <a href="https://ruhr.social/@phneutral" target="_blank" rel="noopener">https://ruhr.social/@phneutral</a>
+- Verwaltung möchte mit OpenSource Software arbeiten
+- Wie willst Du im Rahmen einer Ausschreibung eine Community erreichen?
+- Wie kann ich Key-Stakeholder identifizieren?
+- Community-Detection und Community-Engineering
+- NRWDesk und OpenDesk
+- Welche Verbindungen gibt es?
+- Welcher Austausch findet statt?
+- Wieviel Fluktuation gibt es?
+- Ab wann wird es instabil?
+- Wie nachhaltig ist es?
+- Proprietäre Software ist schwer zu analysieren
+- Nur schwache und spekulative
+- Es benötigt tatsächliche Commiter*innen
+- Analogie: Payed Mappers bei OSM (<a href="https://osmfoundation.org/wiki/Organised_Editing_Guidelines" target="_blank" rel="noopener">https://osmfoundation.org/wiki/Organised_Editing_Guidelines</a>)
+- Wie findet eine Kommune eine Software, die zu ihrem Fachverfahren passt?
+- Ansatz von unten
+- Analyse von OpenSource Repositories
+- Publiccode.yaml
+- Wie heißt die Software, welche Kategorie etc.
+- Tags, Bilder für Übersichtsseiten
+- Generierte Softwareliste <a href="https://opencode.de/de/software?search=&amp;categories=categories-document-management" target="_blank" rel="noopener">https://opencode.de/de/software?search=&amp;categories=categories-document-management</a>
+- Der Standard müsste erweitert werden (für bspw. Grünflächenamt und Sozialamt etc.)
+- <a href="https://www.opencode.de" target="_blank" rel="noopener">https://www.opencode.de</a>
+- Kommunales Open Source Board
+- Fachverfahrensliste auf OpenCode
+- Anschlußfähigkeit von Closed Source Software
+- Semantische Verknüpfung zwischen Kategorien der Publiccode.yaml
+- Leika-Codes
+- Leistungskatalog
+- 15.000 Einträge
+- Ist taxonomisch aufgebaut!
+- <a href="https://de.wikipedia.org/wiki/LeiKa" target="_blank" rel="noopener">https://de.wikipedia.org/wiki/LeiKa</a>
+- Nicht zu stark darauf versteifen, weil viele Smart-City-Apps bereits darüberhinausgehende Services
+- Es gibt angeblich eine verwaltungsinterne Alternative &quot;VERENA&quot; ..?
+- Jan Feil bei Hugging Face
+- OpenSource-Projektliste (KGSt)
+- Projekt des Kommunalen Open Source Board &quot;KOSB&quot;
+- Fraunhofer Institut Liste von Smart City Lösungen (600Mio wurde ausgegeben)
+- Softwareverzeichnis von Opencode <a href="https://opencode.de/de/software" target="_blank" rel="noopener">https://opencode.de/de/software</a>
+- Liste von Fachverfahren
+- Starpunkt vielleicht hier: <a href="https://gitlab.opencode.de/thlv/fachverfahren" target="_blank" rel="noopener">https://gitlab.opencode.de/thlv/fachverfahren</a> ?
+- <a href="https://www.kgst.de/dokumentdetails?path=/documents/20181/2377291/KGSt-Prozesskatalog.xlsx/f82c2fc7-a6cf-4d4a-7ced-8255c9e953a0?t=1732269161234" target="_blank" rel="noopener">https://www.kgst.de/dokumentdetails?path=/documents/20181/2377291/KGSt-Prozesskatalog.xlsx/f82c2fc7-a6cf-4d4a-7ced-8255c9e953a0?t=1732269161234</a>
+- Fachkreis Digitale Souveränität im BVMW in Dortmund
+- Anderer Ansatz im Umgang mit der Verwaltung
+- <a href="https://www.bvmw.de/de/ruhrgebiet-ost-und-mitte/fachkreis-digitale-souveraenitaet" target="_blank" rel="noopener">https://www.bvmw.de/de/ruhrgebiet-ost-und-mitte/fachkreis-digitale-souveraenitaet</a>
+- Deutschland Stack vs. GOV-Stack
+- Schnittstellen müssen standardisiert sein
+- Behörden kennen Open Data und Closed Data, dazwischen gibt es nichts
+- Die ganze Gesetzgebung muss mitgesteuert werden
+- Supply Chain muss geprüft sein
+- KDVZ (Kommunale Datenverarbeitungszentren) betreiben kleine Datenzentren und bieten Infrastruktur für mehrere Kommunen</div></details></article>
+<article class="oksp-card oksp-card--empty" id="oksp25-t5r1" data-lane="5" data-notes="0" data-search="track 5 runde 1 dialogformat: sprechen und zuhören  " data-pad="" style="grid-row:2;grid-column:6"><div class="oksp-meta"><span class="oksp-num">Track 5 · Runde 1</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 5 · Runde 1: Dialogformat: Sprechen und Zuhören öffnen</button><div class="oksp-part"><h4 class="oksp-title">Dialogformat: Sprechen und Zuhören</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article>
+<article class="oksp-card oksp-card--empty" id="oksp25-t6r1" data-lane="6" data-notes="0" data-search="track 6 runde 1 erweiterung des wahlrechts für weitere zielgruppen  " data-pad="" style="grid-row:2;grid-column:7"><div class="oksp-meta"><span class="oksp-num">Track 6 · Runde 1</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 6 · Runde 1: Erweiterung des Wahlrechts für weitere Zielgruppen öffnen</button><div class="oksp-part"><h4 class="oksp-title">Erweiterung des Wahlrechts für weitere Zielgruppen</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article>
+</section>
+<section class="oksp-slot" aria-labelledby="oksp25-slot-2"><h3 class="oksp-slot-h" id="oksp25-slot-2" style="grid-row:3;grid-column:1"><small>Runde</small><span>2</span></h3>
+<article class="oksp-card" id="oksp25-t1r2" data-lane="1" data-notes="1" data-search="track 1 runde 2 bildet banden + bedrängte: aller arten vereinigt euch dirk &amp; sapi, datenpunks.de *bildet banden + bedrängte aller arten vereinigt euch sessiongeber*innen: dirk &amp; sapi, datenpunks.de
+
+kurze vorstellungsrunde mit austausch von wünschen und erwartungen an die session
+
+es wird genannt: erfahrungen aus bubbles, wie funktioniert die vernetzung
+
+- herausforderung, sich über blasen/bubbles hinaus sich zu vernetzen
+
+wir bilden kleingruppen
+
+bande: gruppe von wesen die sich zusammengetan hat, um etwas zu erreichen.
+
+- was funktioniert gut, was ist wichtig bei der bandenbildung
+
+lernt community management mit offenen dokumenten in lerngruppen kennen
+
+https://cogneon.github.io/lernos-cmgmt/de/1-00-bevor_ihr_loslegt/
+
+was ist wichtig
+
+&quot;wozu&quot; als zentraler aspekt -&gt; erfolg feiern; ziel und charakter der gruppe, wertschätzung und safe space, kurzfristig konkret werden, ausgesprochene werte und regeln, kommunikation
+
+- digitale (sichere) kommunikationskanäle
+- strukturen
+- juristische person
+- diversity/vielfalt
+- gute ideen
+- begegnung regelmäßig
+- sich besser kennen
+- mindset der wertschätzung
+- gemeinsame mission und ziele
+- offenheit
+- ein kleinster gemeinsamer nenner
+- selbstwirksamkeit
+- sichtbarkeit
+- verbindlichkeit
+- hartnäckigkeit (durchhaltevermögen)
+- psychologische sicherheit
+
+bandenbindung, was funktioniert gut?
+
+- niedigerschwelliger einstieg
+- gegenseitiges vertrauen
+- kultur der transparenz * faqs
+- vielfalt immer mitdenken
+- öffnung nach außen
+- achtsamkeit selbstreflektion soll
+- willkommenskultur
+
+dezentrale banden
+
+- einfacher zugang
+- vertrauenswürdiges medium
+
+was ist wichtig?
+
+- offene wertschätzende kommunkation
+- vielfalt immer mitdenken
+- kultur der transparenz * faqs
+- solidarität innerhalb der gruppe
+- räume sich zu unterstützen
+- gesehen fühlen
+- gegenseitig stärken
+- selbstwirksamkeit
+- spaß
+- einfache sprache
+- verbindlichkeit (es gibt auch andere einstellungen dazu)
+- vertrauen
+- willkommensgefühl
+
+verbindung funktioniert über eine persönliche ebene.
+
+input: &quot;erkläre den leuten nicht vorher die methode sondern mache sie einfach.&quot; erkläre sie gerne im anschluss
+
+nicht jeder braucht alle fähigkeiten
+
+wichtig ist jemand, der organisationsfähigkeiten hat und mit zustimmung der anderen dinge wie meetings organisiert
+
+methoden und tools: https://liberatingstructures.de/
+
+es gibt tools wie nextcloud, wie cryptpad https://cryptpad.fr/  chat matrix  es ist nie so bequem, wie die , die die daten haben wollen, anbieten. für den digitalen chat: matrix, signal ein bisschen und eine nextcloud switching software
+
+wir sollten dokumentieren, welchen tech-stack wir benutzen." data-pad="" style="grid-row:3;grid-column:2"><div class="oksp-meta"><span class="oksp-num">Track 1 · Runde 2</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 1 · Runde 2: Bildet Banden + Bedrängte: aller Arten vereinigt euch öffnen</button><div class="oksp-part"><h4 class="oksp-title">Bildet Banden + Bedrängte: aller Arten vereinigt euch</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Dirk &amp; Sapi, datenpunks.de</span></p></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">*Bildet Banden + Bedrängte aller Arten vereinigt euch Sessiongeber*innen: Dirk &amp; Sapi, datenpunks.de
+
+Kurze Vorstellungsrunde mit Austausch von Wünschen und Erwartungen an die Session
+
+Es wird genannt: Erfahrungen aus Bubbles, wie funktioniert die Vernetzung
+
+- Herausforderung, sich über Blasen/Bubbles hinaus sich zu vernetzen
+
+Wir bilden Kleingruppen
+
+Bande: Gruppe von Wesen die sich zusammengetan hat, um etwas zu erreichen.
+
+- Was funktioniert gut, was ist wichtig bei der Bandenbildung
+
+Lernt community management mit offenen Dokumenten in Lerngruppen kennen
+
+<a href="https://cogneon.github.io/lernos-cmgmt/de/1-00-Bevor_ihr_loslegt/" target="_blank" rel="noopener">https://cogneon.github.io/lernos-cmgmt/de/1-00-Bevor_ihr_loslegt/</a>
+
+Was ist wichtig
+
+&quot;Wozu&quot; als zentraler Aspekt -&gt; Erfolg feiern; Ziel und Charakter der Gruppe, Wertschätzung und safe space, kurzfristig konkret werden, ausgesprochene Werte und Regeln, Kommunikation
+
+- digitale (sichere) Kommunikationskanäle
+- Strukturen
+- juristische Person
+- Diversity/Vielfalt
+- gute Ideen
+- Begegnung regelmäßig
+- sich besser kennen
+- Mindset der Wertschätzung
+- gemeinsame Mission und Ziele
+- Offenheit
+- ein kleinster gemeinsamer Nenner
+- Selbstwirksamkeit
+- Sichtbarkeit
+- Verbindlichkeit
+- Hartnäckigkeit (Durchhaltevermögen)
+- psychologische Sicherheit
+
+Bandenbindung, was funktioniert gut?
+
+- Niedigerschwelliger Einstieg
+- Gegenseitiges Vertrauen
+- Kultur der Transparenz * FAQs
+- Vielfalt immer mitdenken
+- Öffnung nach außen
+- Achtsamkeit Selbstreflektion soll
+- Willkommenskultur
+
+Dezentrale Banden
+
+- Einfacher Zugang
+- Vertrauenswürdiges Medium
+
+Was ist wichtig?
+
+- offene wertschätzende Kommunkation
+- Vielfalt immer mitdenken
+- Kultur der Transparenz * FAQs
+- Solidarität innerhalb der Gruppe
+- Räume sich zu unterstützen
+- gesehen fühlen
+- gegenseitig stärken
+- Selbstwirksamkeit
+- Spaß
+- Einfache Sprache
+- Verbindlichkeit (es gibt auch andere Einstellungen dazu)
+- Vertrauen
+- Willkommensgefühl
+
+Verbindung funktioniert über eine persönliche Ebene.
+
+Input: &quot;Erkläre den Leuten nicht vorher die Methode sondern mache sie einfach.&quot; Erkläre sie gerne im Anschluss
+
+nicht jeder braucht alle Fähigkeiten
+
+wichtig ist jemand, der Organisationsfähigkeiten hat und mit Zustimmung der anderen Dinge wie Meetings organisiert
+
+Methoden und Tools: <a href="https://liberatingstructures.de/" target="_blank" rel="noopener">https://liberatingstructures.de/</a>
+
+Es gibt Tools wie Nextcloud, wie Cryptpad <a href="https://cryptpad.fr/" target="_blank" rel="noopener">https://cryptpad.fr/</a>  Chat Matrix  Es ist nie so bequem, wie die , die die Daten haben wollen, anbieten. Für den digitalen Chat: Matrix, Signal ein bisschen und eine Nextcloud Switching Software
+
+Wir sollten dokumentieren, welchen Tech-Stack wir benutzen.</div></details></article>
+<article class="oksp-card" id="oksp25-t2r2" data-lane="2" data-notes="1" data-search="track 2 runde 2 social media &amp; demokratie: ein pragmatischer lösungsansatz  stefan de greef beschreibt die herausforderungen des digitalen raums. zum beispiel hassrede, desinformation im industriellen massstab," data-pad="" style="grid-row:3;grid-column:3"><div class="oksp-meta"><span class="oksp-num">Track 2 · Runde 2</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 2 · Runde 2: Social Media &amp; Demokratie: Ein pragmatischer Lösungsansatz öffnen</button><div class="oksp-part"><h4 class="oksp-title">Social Media &amp; Demokratie: Ein pragmatischer Lösungsansatz</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">Stefan de Greef beschreibt die Herausforderungen des digitalen Raums. Zum Beispiel Hassrede, Desinformation im industriellen Massstab,</div></details></article>
+<article class="oksp-card" id="oksp25-t3r2" data-lane="3" data-notes="1" data-search="track 3 runde 2 kommunale finanzen: steuergerechtigkeit  kommunale finanzen + steuergerechtigkeit
+
+teilnehmende: okf, code for bielefeld, verwaltung kommunal + bund, some agentur, it privatwirtschaft, kommunalpolitik
+
+kai ist berater für betriebsräte, arbeitet bei attac im arbeitskreis köln umsteuern, fragt sich, woher kommt das geld, ihm gehts darum, wie man ideen zum umsteuern in die praxis umsetzt
+
+fakten:
+
+- 25 mio euro verlust bei kommunen
+- kommunen sind keine eigenständige säule, gibt nur bund + länder
+- 40% der kommunalen ausgaben sind eigenerwirtschaftet (steuern), der rest sind zuwendungen
+- bundesweit gibts ca. 2 milliarden euro steuerlücken (reiche, die nicht zahlen)
+- gini index in d ist von 0,3 auf 0,3 gestiegen beim einkommen; im vermögen von 0,2 auf 0,7 - d ist eins der ungerechtesten länder beim vermögen (vor allem ost-west), 70% des vermögens ist älter als 100 jahre, ist also nicht selbst erwirtschaftet
+
+modell von attac mit mehr demokratie:
+
+- kommunen bekommen nicht mehr 15% vom steueraufkommen, sondern 30%, also ca 700 milliarden euro im jahr - dafür entfallen weitere special zuwendungen (side fact: es werden viele seebrücken gebaut, weils dafür förderungen gibt. aber zb für schulen nicht)
+- umsteuern: 200 milliarden euro von den reichsten 1-4 prozent der bevölkerung holen
+- modell funktioniert in dänemark bereits (kommunen haben dort 38% der mittel)
+
+methode/umsetzung:
+
+- problem: wenige interessieren sich dafür, haben keine ahnung
+- problem: direkter vorteil nicht erkennbar für viele, und viele fühlen sich selbst bedroht, weil nicht klar ist, wer genau mit &quot;reiche&quot; gemeint ist
+- problem: erzählung, dass jeder reich werden kann
+- idee: transparenter machen, was mit dem geld passiert, um diskussion zu ermöglichen, wie das geld ausgegeben wird. 1) zahlen offenlegen 2) visualisieren, um drüber zu diskutieren
+- beispielprojekt, das leider endete: https://offenerhaushalt.de/
+- dänemark: kommunen verwalten die einkommenssteuer - für die reichen machts der zentralstaat - ermöglicht direktere diskussion darüber, wie das geld ausgegeben wird; leute sind eher mit staatl entscheidungen einverstanden
+- schweiz: fester steuersatz für bund, kanton, kommune bestimmt teil sellbst + durch direkte demokratie entscheiden bürger selbst
+- statistik: eigentlich gibts ne mehrheit für stärkere besteuerung, bei union 65%, bei spd 90 (?) - eigentlich gibts also eine demokratische mehrheit; menschen mit informaler macht haben aber mehr einfluss; also muss man menschen aktivieren, auch mal auf die straße zu gehen
+- auch problem: in den medien sind themen präsent, die eigentlich nicht die relevantesten sind für die lebensqualität
+
+verbündete:     städte/gemeindetag     tax me now     allianz mit 30 organisationen     gewerkschaften
+
+maßnahmen:     bürgerräte, bsp: https://www.manager-magazin.de/unternehmen/industrie/basf-erbin-marlene-engelhorn-rueckverteilt-vermoegen-an-77-organisationen-a-8a647ced-8df2-40f8-8137-c2914609c4e8     1.000 bürgermeister programm     narrative/visionen - solidarität     transparenz und verständlichkeit: denn man muss wissen, was mit dem geld passiert - maskendeals und co helfen nicht     bürgermeister müssen sich wehren, ellbogen zeigen, mal klagen, nicht nur text
+
+steuersystem
+
+- soziale staffelung
+- einkommenssteuer bis 50.000 euro kommunal
+- grundsteuer muss gerecheter werden, bodensteuer
+
+https://www.attac.de/kampagnen/wer-zahlt/unser-steuerkonzept https://www.netzwerk-steuergerechtigkeit.de/
+
+termine: umsteuern kommunal 2 große tagungen in köln 10.1. 12.1. 15.5. 16.5." data-pad="" style="grid-row:3;grid-column:4"><div class="oksp-meta"><span class="oksp-num">Track 3 · Runde 2</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 3 · Runde 2: Kommunale Finanzen: Steuergerechtigkeit öffnen</button><div class="oksp-part"><h4 class="oksp-title">Kommunale Finanzen: Steuergerechtigkeit</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">Kommunale Finanzen + Steuergerechtigkeit
+
+Teilnehmende: OKF, Code for Bielefeld, Verwaltung kommunal + Bund, SoME Agentur, IT Privatwirtschaft, Kommunalpolitik
+
+Kai ist Berater für Betriebsräte, arbeitet bei Attac im Arbeitskreis Köln umsteuern, fragt sich, woher kommt das Geld, ihm gehts darum, wie man Ideen zum Umsteuern in die Praxis umsetzt
+
+Fakten:
+
+- 25 Mio Euro Verlust bei Kommunen
+- Kommunen sind keine eigenständige Säule, gibt nur Bund + Länder
+- 40% der kommunalen Ausgaben sind eigenerwirtschaftet (Steuern), der Rest sind Zuwendungen
+- Bundesweit gibts ca. 2 Milliarden Euro Steuerlücken (Reiche, die nicht zahlen)
+- Gini Index in D ist von 0,3 auf 0,3 gestiegen beim Einkommen; im Vermögen von 0,2 auf 0,7 - D ist eins der ungerechtesten Länder beim Vermögen (vor allem Ost-West), 70% des Vermögens ist älter als 100 Jahre, ist also nicht selbst erwirtschaftet
+
+Modell von Attac mit Mehr Demokratie:
+
+- Kommunen bekommen nicht mehr 15% vom Steueraufkommen, sondern 30%, also ca 700 Milliarden Euro im Jahr - dafür entfallen weitere special Zuwendungen (Side Fact: Es werden viele Seebrücken gebaut, weils dafür Förderungen gibt. Aber zB für Schulen nicht)
+- Umsteuern: 200 Milliarden Euro von den reichsten 1-4 Prozent der Bevölkerung holen
+- Modell funktioniert in Dänemark bereits (Kommunen haben dort 38% der Mittel)
+
+Methode/Umsetzung:
+
+- Problem: Wenige interessieren sich dafür, haben keine Ahnung
+- Problem: direkter Vorteil nicht erkennbar für viele, und viele fühlen sich selbst bedroht, weil nicht klar ist, wer genau mit &quot;reiche&quot; gemeint ist
+- Problem: Erzählung, dass jeder reich werden kann
+- Idee: Transparenter machen, was mit dem Geld passiert, um Diskussion zu ermöglichen, wie das Geld ausgegeben wird. 1) Zahlen offenlegen 2) Visualisieren, um drüber zu diskutieren
+- Beispielprojekt, das leider endete: <a href="https://offenerhaushalt.de/" target="_blank" rel="noopener">https://offenerhaushalt.de/</a>
+- Dänemark: Kommunen verwalten die Einkommenssteuer - für die Reichen machts der Zentralstaat - ermöglicht direktere Diskussion darüber, wie das Geld ausgegeben wird; Leute sind eher mit staatl Entscheidungen einverstanden
+- Schweiz: Fester Steuersatz für Bund, Kanton, Kommune bestimmt Teil sellbst + durch direkte Demokratie entscheiden Bürger selbst
+- Statistik: Eigentlich gibts ne Mehrheit für stärkere Besteuerung, bei Union 65%, bei SPD 90 (?) - eigentlich gibts also eine demokratische Mehrheit; Menschen mit informaler Macht haben aber mehr Einfluss; also muss man Menschen aktivieren, auch mal auf die Straße zu gehen
+- Auch Problem: In den Medien sind Themen präsent, die eigentlich nicht die relevantesten sind für die Lebensqualität
+
+Verbündete:     Städte/Gemeindetag     Tax Me Now     Allianz mit 30 Organisationen     Gewerkschaften
+
+Maßnahmen:     Bürgerräte, Bsp: <a href="https://www.manager-magazin.de/unternehmen/industrie/basf-erbin-marlene-engelhorn-rueckverteilt-vermoegen-an-77-organisationen-a-8a647ced-8df2-40f8-8137-c2914609c4e8" target="_blank" rel="noopener">https://www.manager-magazin.de/unternehmen/industrie/basf-erbin-marlene-engelhorn-rueckverteilt-vermoegen-an-77-organisationen-a-8a647ced-8df2-40f8-8137-c2914609c4e8</a>     1.000 Bürgermeister Programm     Narrative/Visionen - Solidarität     Transparenz und Verständlichkeit: Denn man muss wissen, was mit dem Geld passiert - Maskendeals und Co helfen nicht     Bürgermeister müssen sich wehren, Ellbogen zeigen, mal klagen, nicht nur Text
+
+Steuersystem
+
+- soziale Staffelung
+- Einkommenssteuer bis 50.000 Euro kommunal
+- Grundsteuer muss gerecheter werden, Bodensteuer
+
+<a href="https://www.attac.de/kampagnen/wer-zahlt/unser-steuerkonzept" target="_blank" rel="noopener">https://www.attac.de/kampagnen/wer-zahlt/unser-steuerkonzept</a> <a href="https://www.netzwerk-steuergerechtigkeit.de/" target="_blank" rel="noopener">https://www.netzwerk-steuergerechtigkeit.de/</a>
+
+Termine: Umsteuern Kommunal 2 große Tagungen in Köln 10.1. 12.1. 15.5. 16.5.</div></details></article>
+<article class="oksp-card" id="oksp25-t4r2" data-lane="4" data-notes="1" data-search="track 4 runde 2 kern – barrierefreiheit und community jana pahlkötter *kern, barrierefreiheit und community *einblick in den open source design-standard für die deutsche verwaltung
+
+*worum geht es? digitale verwaltungsangebote wirken oft uneinheitlich und schwer zugänglich. der kern design-standard (https://www.kern-ux.de/) möchte das ändern. in dieser session schauen wir uns an, wie ein offener standard und ein gemeinsames designsystem helfen, digitale leistungen verständlicher, barrierefrei und konsistent zu gestalten. wir werfen einen blick in das system, erkunden beispiele und sprechen darüber, für wen kern gedacht ist und wie die community gemeinsam daran arbeitet. die session ist offen für alle, die neugierig auf nutzungsorientierte digitale verwaltung sind.
+
+sessiongeberin: jana pahlkötter
+
+präsentation zum download: https://www.transfernow.net/dl/20251122vp00tjbc
+
+linksammlung von jana:
+
+- kern website: https://www.kern-ux.de/
+- kern figma design-kit: https://www.figma.com/community/file/1473343618578766910
+- kern demo anwendungen: http://kern-demo.mein-service.net/
+- kern gitlab: https://gitlab.opencode.de/kern-ux
+- kern ticketboard: https://gitlab.opencode.de/kern-ux/pattern-library/-/boards/2889
+- kern dialog-editor: https://kern-editor-b1e851.usercontent.opencode.de
+
+*notizen aus der session
+
+protokollergänzungen:   frage: erfahrung mit onlinediensten     antwort: geteiltes stimmungsbild bei erfahrung mit onlinediensten im publikum figma: propietär, penpot ist als alternative im gespräch
+
+pitchdeck -&gt; evtlt. ticket einstellen
+
+- q: gibt es ein pitchdeck, um einzelnen ideen/herausforderungen zu platzieren?
+- a: dafür ließe sich das offene ticketsystem verwenden.
+
+lizenz ist eupl, dachmarke ist jedoch zu in der verbindung zu berücksichtigen, spam und phisching
+
+- q: welche lizenz wird verwendet?
+- a: eupl1.2
+
+community: häufig, dienstleister und verwaltung ist kern in open source projekten auch über verwaltung hinaus nutzbar oder in anderen verwaltungen?
+
+- q: wer verwendet kern? als beispiel - darf man das auch privat verwenden?
+- a: durch die eupl1.2 darf es jede person verwenden.
+- hinweis auf die &quot;dachmarke&quot; des bundes als übergeordnete ebene zu kern. bundesweit im it-planungsrat beschlossen, dass es wirklich nachweislich als &quot;offizieller&quot; auftritt optisch, technisch und rechtlich einstufbar ist.
+- a: die community ist bunt – wenig bürger:innen aber viele fachleute verschiedener ausrichtungen.
+
+hinweis: der gsb (government site builder), der mittlerweile auf typo3 basiert, ist ähnlich strukturiert aufgebaut – und auch frei verwendbar.
+
+wahl der richtigen schriftart ist wichtig, switch von noto zu fira sans.
+
+- q: dank mit blick auf schriftgestaltung – diese ist notwendig und ein wildwuchs an schriftarten zu vermeiden. wunsch wären auch projekte, die sich nicht nur an &quot;endkunden&quot; wenden, sondern &quot;innerhalb&quot; der öffentlichen verwaltung verwendet wird. hierbei gibt es eine optische diskrepanz und diese ist häufig auch nicht barrierefrei.
+
+ein &quot;internes&quot; system sollte versuchen, diese grundsätze in oberflächen und dialogen einfliessen zu lassen.
+
+- a: schriftart (font) war &quot;noto&quot; – müsste jetzt &quot;fira sans&quot; sein. (lokal installierbar/angebot von google) – formulare waren der ausgangspunkt – eine ausweitung auf gesamte site steht jetzt an. in der folge stehen interne vorgänge bereits auf der agend. wurden insgesamt aber erstmal niedriger oriorisiert.
+- q: gibt es eine feedbackback/evaluation mit langzeitplanung bspw. über usability-tests in &quot;echter&quot; umgebung?
+- a: befindet sich aktuell in der ersten startphase." data-pad="" style="grid-row:3;grid-column:5"><div class="oksp-meta"><span class="oksp-num">Track 4 · Runde 2</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 4 · Runde 2: KERN – Barrierefreiheit und Community öffnen</button><div class="oksp-part"><h4 class="oksp-title">KERN – Barrierefreiheit und Community</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Jana Pahlkötter</span></p></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">*KERN, Barrierefreiheit und Community *Einblick in den Open Source Design-Standard für die deutsche Verwaltung
+
+*Worum geht es? Digitale Verwaltungsangebote wirken oft uneinheitlich und schwer zugänglich. Der KERN Design-Standard (<a href="https://www.kern-ux.de/" target="_blank" rel="noopener">https://www.kern-ux.de/</a>) möchte das ändern. In dieser Session schauen wir uns an, wie ein offener Standard und ein gemeinsames Designsystem helfen, digitale Leistungen verständlicher, barrierefrei und konsistent zu gestalten. Wir werfen einen Blick in das System, erkunden Beispiele und sprechen darüber, für wen KERN gedacht ist und wie die Community gemeinsam daran arbeitet. Die Session ist offen für alle, die neugierig auf nutzungsorientierte digitale Verwaltung sind.
+
+Sessiongeberin: Jana Pahlkötter
+
+Präsentation zum Download: <a href="https://www.transfernow.net/dl/20251122Vp00TjBc" target="_blank" rel="noopener">https://www.transfernow.net/dl/20251122Vp00TjBc</a>
+
+Linksammlung von Jana:
+
+- KERN Website: <a href="https://www.kern-ux.de/" target="_blank" rel="noopener">https://www.kern-ux.de/</a>
+- KERN Figma Design-Kit: <a href="https://www.figma.com/community/file/1473343618578766910" target="_blank" rel="noopener">https://www.figma.com/community/file/1473343618578766910</a>
+- KERN Demo Anwendungen: <a href="http://kern-demo.mein-service.net/" target="_blank" rel="noopener">http://kern-demo.mein-service.net/</a>
+- KERN Gitlab: <a href="https://gitlab.opencode.de/kern-ux" target="_blank" rel="noopener">https://gitlab.opencode.de/kern-ux</a>
+- KERN Ticketboard: <a href="https://gitlab.opencode.de/kern-ux/pattern-library/-/boards/2889" target="_blank" rel="noopener">https://gitlab.opencode.de/kern-ux/pattern-library/-/boards/2889</a>
+- KERN Dialog-Editor: <a href="https://kern-editor-b1e851.usercontent.opencode.de" target="_blank" rel="noopener">https://kern-editor-b1e851.usercontent.opencode.de</a>
+
+*Notizen aus der Session
+
+Protokollergänzungen:   Frage: Erfahrung mit Onlinediensten     Antwort: Geteiltes Stimmungsbild bei Erfahrung mit Onlinediensten im publikum Figma: Propietär, Penpot ist als Alternative im Gespräch
+
+Pitchdeck -&gt; Evtlt. Ticket einstellen
+
+- Q: Gibt es ein Pitchdeck, um einzelnen Ideen/Herausforderungen zu platzieren?
+- A: Dafür ließe sich das offene Ticketsystem verwenden.
+
+Lizenz ist EUPL, Dachmarke ist jedoch zu in der Verbindung zu berücksichtigen, Spam und Phisching
+
+- Q: Welche Lizenz wird verwendet?
+- A: EUPL1.2
+
+Community: Häufig, Dienstleister und Verwaltung Ist Kern in Open Source Projekten auch über Verwaltung hinaus nutzbar oder in anderen Verwaltungen?
+
+- Q: Wer verwendet KERN? Als Beispiel - darf man das auch privat verwenden?
+- A: Durch die EUPL1.2 darf es jede PErson verwenden.
+- Hinweis auf die &quot;Dachmarke&quot; des Bundes als übergeordnete Ebene zu KERN. Bundesweit im IT-Planungsrat beschlossen, dass es wirklich nachweislich als &quot;offizieller&quot; Auftritt optisch, technisch und rechtlich einstufbar ist.
+- A: Die Community ist bunt – wenig Bürger:innen aber viele Fachleute verschiedener Ausrichtungen.
+
+Hinweis: Der GSB (Government Site Builder), der mittlerweile auf Typo3 basiert, ist ähnlich strukturiert aufgebaut – und auch frei verwendbar.
+
+Wahl der richtigen Schriftart ist wichtig, Switch von Noto zu Fira Sans.
+
+- Q: Dank mit Blick auf Schriftgestaltung – diese ist notwendig und ein Wildwuchs an Schriftarten zu vermeiden. Wunsch wären auch Projekte, die sich nicht nur an &quot;Endkunden&quot; wenden, sondern &quot;innerhalb&quot; der öffentlichen Verwaltung verwendet wird. Hierbei gibt es eine optische Diskrepanz und diese ist häufig auch nicht barrierefrei.
+
+Ein &quot;internes&quot; System sollte versuchen, diese Grundsätze in Oberflächen und Dialogen einfliessen zu lassen.
+
+- A: Schriftart (Font) war &quot;Noto&quot; – müsste jetzt &quot;Fira Sans&quot; sein. (lokal installierbar/Angebot von Google) – Formulare waren der Ausgangspunkt – eine Ausweitung auf gesamte Site steht jetzt an. In der Folge stehen interne Vorgänge bereits auf der Agend. Wurden insgesamt aber erstmal niedriger oriorisiert.
+- Q: Gibt es eine Feedbackback/Evaluation mit Langzeitplanung bspw. über Usability-Tests in &quot;echter&quot; Umgebung?
+- A: Befindet sich aktuell in der ersten Startphase.</div></details></article>
+<article class="oksp-card oksp-card--empty" id="oksp25-t5r2" data-lane="5" data-notes="0" data-search="track 5 runde 2 zukunft der arbeit trotz oder mit ki  " data-pad="" style="grid-row:3;grid-column:6"><div class="oksp-meta"><span class="oksp-num">Track 5 · Runde 2</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 5 · Runde 2: Zukunft der Arbeit trotz oder mit KI öffnen</button><div class="oksp-part"><h4 class="oksp-title">Zukunft der Arbeit trotz oder mit KI</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article>
+<article class="oksp-card" id="oksp25-t6r2" data-lane="6" data-notes="1" data-search="track 6 runde 2 genossenschaften: coopcloud, commons jan ulrich hasecke *cooperative cloud
+
+- session 2, track 6, raum 204
+- sessiongeber: jan ulrich hasecke https://hostsharing.coop/@juh
+- protokoll:
+- christopher reinbothe https://ruhr.social/@phneutral
+- open source hat das internet gebaut und groß gemacht
+- big tech hat ganz oben den sack zugemacht, um damit reich zu werden
+- trump
+- löscht regierungswebseiten mit immensen datenmengen
+- droht mit strafzöllen
+- sperrt e-mail-konten in anderen ländern
+- bundesdigitalministerium hat bei mastodon über den digitalen souveränitätsgipfel mit macron hingewiesen
+- wird jetzt alles gut? eher nicht …
+- wir wollen ein anderes internet
+- was allen gehört
+- was demokratisch ist
+- was menschen zusammenbringt anstatt sie zu spalten
+- das internet als commons
+- exkurs: genossenschaft vs. verein? =&gt; genossenschaft ist ein wirtschaftsunternehmen, sinn und zweck ist lt. §1 genossenschaftsgesetz, die wirtschaft der genossenschaftsmitglieder zu fördern =&gt; gegensatz zum verein
+- produktionsgenossenschaft vs. konsumgenossenschaft
+- elinor ostrom — governing the commons (1990)
+- begründerin der commonsforschung
+- artikelserie zu diesem thema:
+- https://www.hostsharing.net/blog/2023/ostrom-designprinzipien-00/
+- (^ die weiteren artikel sind unten auf der seite verlinkt)
+- silke helfrich
+- grenzen
+- das gemeinressourcensystem und die nutzungsberechtigten sind klar abgegrenzt
+- umsetzungsmöglichkeit: genossenschaftlicher geschäftsprinzip
+- kongruenz
+- die regeln für aneignung, reproduktion und nutzung sind proportional (&quot;die verteilung der kosten entspricht der verteilung des nutzens&quot;)
+- genossenschaften: kosten werden auf verursacher umgelegt, voraussetzung dafür ist kostentransparenz, sollte erreicht werden durch den jährlichen geschäftsbericht
+- gemeinschaftliches entscheiden
+- genossenschaft: demokratischer aufbau
+- mitglieder befragen: was möchtet ihr? was benötigt ihr? preisaushandlung
+- monitoring der nutzer und der ressourcen
+- abgestufte sanktionen
+- verhängte sanktionen sollen in einem vernünftigen verhältnis stehen
+- sanktionen sind kommunikationsmaßnahmen
+- konfliktlösungsmechanismen
+- genossenschaft
+- aufsichtsrat als ansprechpartner
+- generalversammlung als letzte instanz
+- setzen institutionen voraus
+- anerkennung
+- mindestmaß staatlicher anerkennung ist erforderlich
+- genossenschaft
+- genossenschaftsgesetz in deutschland
+- informelle anerkennung fehlt
+- eingebettete institutionen
+- gemeinressorcen verbunden mit ressourcensystem
+- internationales jahr der genossenschaften 2025 (iyc 2025)
+- am 19. juni 2024 erklärte die un-generalversammlung das jahr 2025 zum internationalen jahr der genossenschaften unter dem motto
+- „genossenschaften bauen eine bessere welt“ – anerkennung ihrer rolle bei der förderung nachhaltiger entwicklung und die förderung der un-sdgs.
+- https://2025.coop/de/
+- https://www.dgrv.de/genossenschaftsjahr/
+- früher war die genossenschaftsbewegung stärker
+- denic ist eine genossenschaft
+- aufbau wirtschaftlicher macht
+- mehr genossenschaften!
+- mehr mitglieder!
+- verwaltungsaufwand
+- renditenausschüttung ist ein höher aufwand
+- prüfungspflicht: bilanz anschauen
+- buchführung über den steuerberater oder intern?
+- gründungsprozedere ist ätzend
+- gründungsprotokoll
+- satzung
+- über notar beim registergericht einreichen" data-pad="" style="grid-row:3;grid-column:7"><div class="oksp-meta"><span class="oksp-num">Track 6 · Runde 2</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 6 · Runde 2: Genossenschaften: Coopcloud, Commons öffnen</button><div class="oksp-part"><h4 class="oksp-title">Genossenschaften: Coopcloud, Commons</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Jan Ulrich Hasecke</span></p></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">*Cooperative Cloud
+
+- Session 2, Track 6, Raum 204
+- Sessiongeber: Jan Ulrich Hasecke <a href="https://hostsharing.coop/@juh" target="_blank" rel="noopener">https://hostsharing.coop/@juh</a>
+- Protokoll:
+- Christopher Reinbothe <a href="https://ruhr.social/@phneutral" target="_blank" rel="noopener">https://ruhr.social/@phneutral</a>
+- Open Source hat das Internet gebaut und groß gemacht
+- Big Tech hat ganz oben den Sack zugemacht, um damit reich zu werden
+- Trump
+- Löscht Regierungswebseiten mit immensen Datenmengen
+- Droht mit Strafzöllen
+- Sperrt E-Mail-Konten in anderen Ländern
+- Bundesdigitalministerium hat bei Mastodon über den Digitalen Souveränitätsgipfel mit Macron hingewiesen
+- Wird jetzt alles gut? Eher nicht …
+- Wir wollen ein anderes Internet
+- Was allen gehört
+- Was demokratisch ist
+- Was Menschen zusammenbringt anstatt sie zu spalten
+- Das Internet als Commons
+- Exkurs: Genossenschaft vs. Verein? =&gt; Genossenschaft ist ein Wirtschaftsunternehmen, Sinn und Zweck ist lt. §1 Genossenschaftsgesetz, die Wirtschaft der Genossenschaftsmitglieder zu fördern =&gt; Gegensatz zum Verein
+- Produktionsgenossenschaft vs. Konsumgenossenschaft
+- Elinor Ostrom — Governing the commons (1990)
+- Begründerin der Commonsforschung
+- Artikelserie zu diesem Thema:
+- <a href="https://www.hostsharing.net/blog/2023/ostrom-designprinzipien-00/" target="_blank" rel="noopener">https://www.hostsharing.net/blog/2023/ostrom-designprinzipien-00/</a>
+- (^ die weiteren Artikel sind unten auf der Seite verlinkt)
+- Silke Helfrich
+- Grenzen
+- Das Gemeinressourcensystem und die Nutzungsberechtigten sind klar abgegrenzt
+- Umsetzungsmöglichkeit: Genossenschaftlicher Geschäftsprinzip
+- Kongruenz
+- Die Regeln für Aneignung, Reproduktion und Nutzung sind proportional (&quot;Die Verteilung der Kosten entspricht der Verteilung des Nutzens&quot;)
+- Genossenschaften: Kosten werden auf Verursacher umgelegt, Voraussetzung dafür ist Kostentransparenz, sollte erreicht werden durch den jährlichen Geschäftsbericht
+- Gemeinschaftliches Entscheiden
+- Genossenschaft: Demokratischer Aufbau
+- Mitglieder befragen: Was möchtet ihr? Was benötigt ihr? Preisaushandlung
+- Monitoring der Nutzer und der Ressourcen
+- Abgestufte Sanktionen
+- Verhängte Sanktionen sollen in einem vernünftigen Verhältnis stehen
+- Sanktionen sind Kommunikationsmaßnahmen
+- Konfliktlösungsmechanismen
+- Genossenschaft
+- Aufsichtsrat als Ansprechpartner
+- Generalversammlung als letzte Instanz
+- Setzen Institutionen voraus
+- Anerkennung
+- Mindestmaß staatlicher Anerkennung ist erforderlich
+- Genossenschaft
+- Genossenschaftsgesetz in Deutschland
+- Informelle Anerkennung fehlt
+- Eingebettete Institutionen
+- Gemeinressorcen verbunden mit Ressourcensystem
+- Internationales Jahr der Genossenschaften 2025 (IYC 2025)
+- Am 19. Juni 2024 erklärte die UN-Generalversammlung das Jahr 2025 zum Internationalen Jahr der Genossenschaften unter dem Motto
+- „Genossenschaften bauen eine bessere Welt“ – Anerkennung ihrer Rolle bei der Förderung nachhaltiger Entwicklung und die Förderung der UN-SDGs.
+- <a href="https://2025.coop/de/" target="_blank" rel="noopener">https://2025.coop/de/</a>
+- <a href="https://www.dgrv.de/genossenschaftsjahr/" target="_blank" rel="noopener">https://www.dgrv.de/genossenschaftsjahr/</a>
+- Früher war die Genossenschaftsbewegung stärker
+- Denic ist eine Genossenschaft
+- Aufbau wirtschaftlicher Macht
+- mehr Genossenschaften!
+- mehr Mitglieder!
+- Verwaltungsaufwand
+- Renditenausschüttung ist ein höher Aufwand
+- Prüfungspflicht: Bilanz anschauen
+- Buchführung über den Steuerberater oder intern?
+- Gründungsprozedere ist ätzend
+- Gründungsprotokoll
+- Satzung
+- Über Notar beim Registergericht einreichen</div></details></article>
+</section>
+<section class="oksp-slot" aria-labelledby="oksp25-slot-3"><h3 class="oksp-slot-h" id="oksp25-slot-3" style="grid-row:4;grid-column:1"><small>Runde</small><span>3</span></h3>
+<article class="oksp-card" id="oksp25-t1r3" data-lane="1" data-notes="1" data-search="track 1 runde 3 dstack – deutschland stack markus *deutschland stack *intro
+
+- sessiongeber:in: markus
+- deutschland stack (d-stack) wurde im koalitionsvertrag festgelegt
+- zwei abteilungen wurden im bmds gegründet
+- beteiligung wurde gestartet
+- https://deutschland-stack.gov.de/
+- es wird aktuell überlegt, welche infrastruktur wie gebaut werden soll
+- ziel: einheitliche infrastruktur/lösung, die zentral festgelegt wird
+- bisher: jedes projekt für sich selbst hat eine insellösung geschaffen, bisher wenige standards vorhanden
+- viele anbieter machen gerade werbung für sichere verwaltungsleistungen in einer privaten cloud
+- frage: wie zentral/dezentral sollte ein staat sein? open source oder proprietäre software?
+
+*diskussion
+
+- ist ein zentralistischer ansatz im föderalen deutschland sinnvoll?
+- wir haben sehr viele behörden und software, die sehr verschieden sind -&gt; jede:r schafft eigene lösungen
+- ziel: weniger wildwuchs
+- es besteht eine zentralisierung von datenfluss, das ist nicht zu umgehen
+- wie gehören gaia-x und der d-stack zusammen?
+- https://gaia-x-hub.de/
+- es wurde bisher eine landkarte veröffentlich: cloud native foundation, usw.
+- https://technologie.deutschland-stack.gov.de/
+- es ist aber noch keine architekturplanung usw. vorhanden
+- aktuell sehr große beteiligung am thema, die vermutlich auch versuchen zu beeinflussen (unternehme, lobby, …)
+- mischt der ccc mit? -&gt; nein, aktuell wurde nur die wirtschaft zu den geschlossen workshops/runden eingeladen
+- beteiligung von bürger:innen theoretisch über kommentare auf website möglich
+- erwartung von bürger:innen: verfahren sollte transparent sein
+- europa ebene: es gibt auch euro-stack als schine, andere schine sind europaweite open source lösungen
+- am problematischten empfunden: ki-plattform für anträge
+- anragsbearbeitung muss nicht mit ki gelöst werden, hier kann properitäre software fairer für die antragsstellenden sein
+- antragsdaten sind auch schützenswerte daten
+- verwaltung sollte auch in krisenzeiten resilient sein
+- resilienz: öffene stelle ist für sich selbst handlungsfähig, auch wenn externe services wegfallen, lokale datenhaltung
+- es scheint so, dass gerade eher alles billig und zentral gemacht wird (wirtschaftlicher ansatz) -&gt; probleme fallen erst später auf und werden nicht von vornherein vermieden
+- gibt es internationale vorbilder, von denen deutschland lernen kann?
+- es gibt in vielen teilen verschiedene vorbilder
+- estland wird immer gerne genannt
+- in griechenland geht jede zahlung inzwischen automatisch an das finanzamt
+- anreizsystem: kassenbon mitnehmen, um an gewinnspiel teilzunehmen
+- in einem kleinen zentral organisierten system ist es einfacher, als im föderalen deutschland
+- ein beispiel ist barcelona: hier wird nur noch open source software eingesetzt
+- rund um barcelona hat sich viel open source ökosystem angesiedelt
+- es gibt viel software, die immer wieder die gleichen lösungen für den eigenen bereich schafft
+- beispiel: auto ummelden in wupperal -&gt; war kompliziert!
+- beispiel genossenschafft: öffentliche behörden können kein mitgleid werden, da die 64€ mitgliedsbeitrag beim land beantragt werden müssen -&gt; sehr kompliziert
+- gaia-x ohne beteiligung von amerikanischen firmen -&gt; nicht sinnvolles projekt
+- wenn die werte vom d-stack stimmen, muss dann nicht auch der it-dienstleister danach handeln? schaffen wir damit dann nicht auch sichere systeme?
+- 10 milliarden ausgaben für properitäre software-lizenzen, die vom staat jährlich ausgegeben werden -&gt; mit dem geld würde sich auch sehr viel open source entwickeln lassen
+- wenn von steuergeldern software gekauft wird -&gt; ist es dann nicht sinnvoll, wenn der code dann nicht auch frei verfügbar ist?
+- warum nutzen wir nicht open source software aus dem ausland und übertragen es auf deutschland? beispiel: kfz-anmeldung aus australien nutzen
+- &quot;werte&quot; oft nur begriffe, die irgendwo hingeschrieben werden. zudem gibt es auch zielkonflikte, die nicht immer leicht aufgelöst werden können
+- beipspiel windows 10 ende -&gt; es muss hierdurch auch viel hardware ausgetauscht werden, was riesige schrottberge erzeugt
+- verwaltung muss sachen herstellen, das kostet geld: erwartung als bürger:innen, dass das geld möglichst nutzbringend ausgegeben wird
+- lizenzkosten, die nach amerika fließen vs. open-source software, die in deutschland gebaut wird (vorteil: arbeitsplätze hier, code kann weiterhin genutzt werden)" data-pad="" style="grid-row:4;grid-column:2"><div class="oksp-meta"><span class="oksp-num">Track 1 · Runde 3</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 1 · Runde 3: DStack – Deutschland Stack öffnen</button><div class="oksp-part"><h4 class="oksp-title">DStack – Deutschland Stack</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Markus</span></p></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">*Deutschland Stack *Intro
+
+- Sessiongeber:in: Markus
+- Deutschland Stack (D-Stack) wurde im Koalitionsvertrag festgelegt
+- Zwei Abteilungen wurden im BMDS gegründet
+- Beteiligung wurde gestartet
+- <a href="https://deutschland-stack.gov.de/" target="_blank" rel="noopener">https://deutschland-stack.gov.de/</a>
+- Es wird aktuell überlegt, welche Infrastruktur wie gebaut werden soll
+- Ziel: Einheitliche Infrastruktur/Lösung, die zentral festgelegt wird
+- Bisher: Jedes Projekt für sich selbst hat eine Insellösung geschaffen, bisher wenige Standards vorhanden
+- Viele Anbieter machen gerade Werbung für sichere Verwaltungsleistungen in einer privaten Cloud
+- Frage: Wie zentral/dezentral sollte ein Staat sein? Open Source oder proprietäre Software?
+
+*Diskussion
+
+- Ist ein zentralistischer Ansatz im föderalen Deutschland sinnvoll?
+- Wir haben sehr viele Behörden und Software, die sehr verschieden sind -&gt; jede:r schafft eigene Lösungen
+- Ziel: Weniger Wildwuchs
+- Es besteht eine Zentralisierung von Datenfluss, das ist nicht zu umgehen
+- Wie gehören Gaia-X und der D-Stack zusammen?
+- <a href="https://gaia-x-hub.de/" target="_blank" rel="noopener">https://gaia-x-hub.de/</a>
+- Es wurde bisher eine Landkarte veröffentlich: Cloud native Foundation, usw.
+- <a href="https://technologie.deutschland-stack.gov.de/" target="_blank" rel="noopener">https://technologie.deutschland-stack.gov.de/</a>
+- Es ist aber noch keine Architekturplanung usw. vorhanden
+- Aktuell sehr große Beteiligung am Thema, die vermutlich auch versuchen zu beeinflussen (Unternehme, Lobby, …)
+- Mischt der ccc mit? -&gt; Nein, aktuell wurde nur die Wirtschaft zu den geschlossen Workshops/Runden eingeladen
+- Beteiligung von Bürger:innen theoretisch über Kommentare auf Website möglich
+- Erwartung von Bürger:innen: Verfahren sollte transparent sein
+- Europa Ebene: Es gibt auch Euro-Stack als Schine, andere Schine sind europaweite Open Source Lösungen
+- Am problematischten empfunden: KI-Plattform für Anträge
+- Anragsbearbeitung muss nicht mit KI gelöst werden, hier kann properitäre Software fairer für die Antragsstellenden sein
+- Antragsdaten sind auch schützenswerte Daten
+- Verwaltung sollte auch in Krisenzeiten resilient sein
+- Resilienz: Öffene Stelle ist für sich selbst handlungsfähig, auch wenn externe Services wegfallen, lokale Datenhaltung
+- Es scheint so, dass gerade eher alles billig und zentral gemacht wird (Wirtschaftlicher Ansatz) -&gt; Probleme fallen erst später auf und werden nicht von vornherein vermieden
+- Gibt es internationale Vorbilder, von denen Deutschland lernen kann?
+- Es gibt in vielen Teilen verschiedene Vorbilder
+- Estland wird immer gerne genannt
+- In Griechenland geht jede Zahlung inzwischen automatisch an das Finanzamt
+- Anreizsystem: Kassenbon mitnehmen, um an Gewinnspiel teilzunehmen
+- In einem kleinen zentral organisierten System ist es einfacher, als im föderalen Deutschland
+- Ein Beispiel ist Barcelona: Hier wird nur noch Open Source Software eingesetzt
+- Rund um Barcelona hat sich viel Open Source Ökosystem angesiedelt
+- Es gibt viel Software, die immer wieder die gleichen Lösungen für den eigenen Bereich schafft
+- Beispiel: Auto ummelden in Wupperal -&gt; War kompliziert!
+- Beispiel Genossenschafft: öffentliche Behörden können kein Mitgleid werden, da die 64€ Mitgliedsbeitrag beim Land beantragt werden müssen -&gt; sehr kompliziert
+- Gaia-X ohne Beteiligung von amerikanischen Firmen -&gt; nicht sinnvolles Projekt
+- Wenn die Werte vom D-Stack stimmen, muss dann nicht auch der IT-Dienstleister danach handeln? Schaffen wir damit dann nicht auch sichere Systeme?
+- 10 Milliarden Ausgaben für properitäre Software-Lizenzen, die vom Staat jährlich ausgegeben werden -&gt; Mit dem Geld würde sich auch sehr viel Open Source entwickeln lassen
+- Wenn von Steuergeldern Software gekauft wird -&gt; ist es dann nicht sinnvoll, wenn der Code dann nicht auch frei verfügbar ist?
+- Warum nutzen wir nicht Open Source Software aus dem Ausland und übertragen es auf Deutschland? Beispiel: KFZ-Anmeldung aus Australien nutzen
+- &quot;Werte&quot; oft nur Begriffe, die irgendwo hingeschrieben werden. Zudem gibt es auch Zielkonflikte, die nicht immer leicht aufgelöst werden können
+- Beipspiel Windows 10 Ende -&gt; Es muss hierdurch auch viel Hardware ausgetauscht werden, was riesige Schrottberge erzeugt
+- Verwaltung muss Sachen herstellen, das Kostet Geld: Erwartung als Bürger:innen, dass das Geld möglichst nutzbringend ausgegeben wird
+- Lizenzkosten, die nach Amerika fließen vs. Open-Source Software, die in Deutschland gebaut wird (Vorteil: Arbeitsplätze hier, Code kann weiterhin genutzt werden)</div></details></article>
+<article class="oksp-card" id="oksp25-t2r3" data-lane="2" data-notes="1" data-search="track 2 runde 3 vereinsarbeit digital  *vereinsarbeit digital
+
+reinhard wacker - verband hessischer ortsgerichte e.v.   https://verband-hessischer-ortsgerichte.de/
+
+zum thema &quot;vereinsgründung&quot; gibt es zahlreiche hilfestellungen.  z.b.: https://ordentliche-gerichtsbarkeit.hessen.de/sites/ordentliche-gerichtsbarkeit.hessen.de/files/2022-05/bfbg_1a_05.21_merkblatt_fuer_vereine.pdf https://die-zukunft-steuern.nrw/vereinsgruendung
+
+viele kennen es: der verein ist gegründet und bekommt immer mehr mitglieder.  der vorstand bekommt immer mehr arbeit, muss sich professionell vernetzen und oft auch vertrauliche inhalte austauschen.
+
+mein eindruck: nach der vereinsgründung treten viele fragen auf - hier werden die gegründeten vereine allein gelassen.
+
+die digitalen werkzeuge sind meistens nur stückwerk. jeder bringt seine eigene software / links / tools mit, der bereits persönlich bekannt sind.  oft wird dann mit microsoft word, excel, outlook - halb legal, halb privat, halb öffentlich gearbeitet.  einige nutzen google doc, gmail. dateien werden hin- und hergeschickt. manche sind aktuell. manche sind überholt.
+
+wir wollen uns über unsere erfahrungen sowie &quot;bestpractise&quot; austauschen.
+
+*digitale grundausrüstung für vereine
+
+*vereinsarbeit (allgemein)
+
+anforderung: an dokumenten kollaborativ arbeiten; doppelarbeiten vermeiden; daten aktuell halten.
+
+- mitgliedsantrag online stellen: daten werden direkt übermittelt und für die mitgliederverwaltung verwendet.
+
+eindruck: verein ist einfach (gut so!) schnell gegründet, die eigentliche orientierung nach tools und start der arbeit beginnt danach.
+
+*interne arbeit (des vorstandes untereinander)
+
+- word
+- excel
+- e-mail
+- vereinsverwaltung (kommerzieller anbieter: https://www.meinverein.de/ )
+- datenschutzkonforme datenhaltung der mitgliederdaten
+
+alternativen dazu ... (?) ...
+
+- steuerliches
+- verantwortliches erstellen von steuererklärung
+
+dazu gehört:
+
+- kontenverwaltung (online-zugang über vr-bank - verknüpft mit meinverein.de )
+- eür (einnahmen-überschuss-rechnung) für schatzmeister
+- steuererklärung übermitteln (elster)
+
+mitgliederverwaltung wird als ein beispiel mit wiso-verein gemacht
+
+dokumente über eine nextcloud  libreofffice und nextcloud sind in der regel in der datei kompatibel nextcloud bringt ein online-office mit
+
+hidrive von ionos
+
+civicrm als kontatkverwaltungssoftware
+
+es gibt eine längere diskussion dazu, dass es eine struktur (genossenschaftlich oder so) geben müsste, die einen it-stack mit beratung für vereine aufbauen kann.
+
+beispiel: anmeldeformulare für kinderfreizeiten bisher nicht digitalisiert.
+
+*mitglieder für zusammenarbeit motivieren
+
+- beispiele:
+
+umfragen erstellen. (kommerzieller anbieter: https://www.survio.com/de/
+
+- alternative: https://nuudel.digitalcourage.de/
+
+wer bigbluebutton mal ausprobieren will. senfcall
+
+it nrw     für videoplattformen: jitsi oder opentalk
+
+tool: humhub als facebook/intranet für vereine     als plattform: wechange e.g.     deutsche stiftung engagement im ehrenamt      https://www.deutsche-stiftung-engagement-und-ehrenamt.de/foerderung/
+
+in st. augustin ist die froscon ist eine interessante veranstaltung um techniker*innen zusammenzubringen.
+
+kommunikation / diskussion der mitglieder untereinander (...)      newsletter  (kommerzieller anbieter:  https://www.brevo.com/de/
+
+https://www.deutsche-stiftung-engagement-und-ehrenamt.de/
+
+wuppertal ehrenamtskarte     https://www.engagiert-in-nrw.de/system/files/media/document/file/eak_antrag_wuppertal.pdf" data-pad="" style="grid-row:4;grid-column:3"><div class="oksp-meta"><span class="oksp-num">Track 2 · Runde 3</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 2 · Runde 3: Vereinsarbeit digital öffnen</button><div class="oksp-part"><h4 class="oksp-title">Vereinsarbeit digital</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">*Vereinsarbeit digital
+
+Reinhard Wacker - Verband Hessischer Ortsgerichte e.V.   <a href="https://verband-hessischer-ortsgerichte.de/" target="_blank" rel="noopener">https://verband-hessischer-ortsgerichte.de/</a>
+
+Zum Thema &quot;Vereinsgründung&quot; gibt es zahlreiche Hilfestellungen.  z.B.: <a href="https://ordentliche-gerichtsbarkeit.hessen.de/sites/ordentliche-gerichtsbarkeit.hessen.de/files/2022-05/bfbg_1a_05.21_merkblatt_fuer_vereine.pdf" target="_blank" rel="noopener">https://ordentliche-gerichtsbarkeit.hessen.de/sites/ordentliche-gerichtsbarkeit.hessen.de/files/2022-05/bfbg_1a_05.21_merkblatt_fuer_vereine.pdf</a> <a href="https://die-zukunft-steuern.nrw/vereinsgruendung" target="_blank" rel="noopener">https://die-zukunft-steuern.nrw/vereinsgruendung</a>
+
+Viele kennen es: Der Verein ist gegründet und bekommt immer mehr Mitglieder.  Der Vorstand bekommt immer mehr Arbeit, muss sich professionell vernetzen und oft auch vertrauliche Inhalte austauschen.
+
+Mein Eindruck: Nach der Vereinsgründung treten viele Fragen auf - hier werden die gegründeten Vereine allein gelassen.
+
+Die digitalen Werkzeuge sind meistens nur Stückwerk. Jeder bringt seine eigene Software / Links / Tools mit, der bereits persönlich bekannt sind.  Oft wird dann mit Microsoft Word, Excel, Outlook - halb legal, halb privat, halb öffentlich gearbeitet.  Einige nutzen Google DOC, GMAIL. Dateien werden hin- und hergeschickt. Manche sind aktuell. Manche sind überholt.
+
+Wir wollen uns über unsere Erfahrungen sowie &quot;BestPractise&quot; austauschen.
+
+*DIGITALE GRUNDAUSRÜSTUNG FÜR VEREINE
+
+*Vereinsarbeit (allgemein)
+
+Anforderung: An Dokumenten kollaborativ arbeiten; Doppelarbeiten vermeiden; Daten aktuell halten.
+
+- Mitgliedsantrag online stellen: Daten werden direkt übermittelt und für die Mitgliederverwaltung verwendet.
+
+Eindruck: Verein ist einfach (gut so!) schnell gegründet, die eigentliche Orientierung nach Tools und Start der Arbeit beginnt danach.
+
+*Interne Arbeit (des Vorstandes untereinander)
+
+- WORD
+- EXCEL
+- E-Mail
+- Vereinsverwaltung (kommerzieller Anbieter: <a href="https://www.meinverein.de/" target="_blank" rel="noopener">https://www.meinverein.de/</a> )
+- Datenschutzkonforme Datenhaltung der Mitgliederdaten
+
+Alternativen dazu ... (?) ...
+
+- Steuerliches
+- Verantwortliches Erstellen von Steuererklärung
+
+dazu gehört:
+
+- Kontenverwaltung (Online-Zugang über VR-Bank - verknüpft mit meinverein.de )
+- EÜR (Einnahmen-Überschuss-Rechnung) für Schatzmeister
+- Steuererklärung übermitteln (ELSTER)
+
+Mitgliederverwaltung wird als ein Beispiel mit WISO-Verein gemacht
+
+Dokumente über eine Nextcloud  Libreofffice und Nextcloud sind in der Regel in der Datei kompatibel Nextcloud bringt ein online-Office mit
+
+HiDrive von Ionos
+
+CiviCRM als Kontatkverwaltungssoftware
+
+es gibt eine längere Diskussion dazu, dass es eine Struktur (genossenschaftlich oder so) geben müsste, die einen IT-Stack mit Beratung für Vereine aufbauen kann.
+
+Beispiel: Anmeldeformulare für Kinderfreizeiten bisher nicht digitalisiert.
+
+*Mitglieder für Zusammenarbeit motivieren
+
+- Beispiele:
+
+Umfragen erstellen. (kommerzieller Anbieter: <a href="https://www.survio.com/de/" target="_blank" rel="noopener">https://www.survio.com/de/</a>
+
+- Alternative: <a href="https://nuudel.digitalcourage.de/" target="_blank" rel="noopener">https://nuudel.digitalcourage.de/</a>
+
+Wer BigBlueButton mal ausprobieren will. Senfcall
+
+IT NRW     Für Videoplattformen: Jitsi oder Opentalk
+
+Tool: HumHub als Facebook/Intranet für Vereine     Als Plattform: WeChange e.G.     Deutsche Stiftung Engagement im Ehrenamt      <a href="https://www.deutsche-stiftung-engagement-und-ehrenamt.de/foerderung/" target="_blank" rel="noopener">https://www.deutsche-stiftung-engagement-und-ehrenamt.de/foerderung/</a>
+
+In St. Augustin ist die FrosCon ist eine interessante Veranstaltung um Techniker*innen zusammenzubringen.
+
+Kommunikation / Diskussion der Mitglieder untereinander (...)      Newsletter  (kommerzieller Anbieter:  <a href="https://www.brevo.com/de/" target="_blank" rel="noopener">https://www.brevo.com/de/</a>
+
+<a href="https://www.deutsche-stiftung-engagement-und-ehrenamt.de/" target="_blank" rel="noopener">https://www.deutsche-stiftung-engagement-und-ehrenamt.de/</a>
+
+Wuppertal Ehrenamtskarte     <a href="https://www.engagiert-in-nrw.de/system/files/media/document/file/eak_antrag_wuppertal.pdf" target="_blank" rel="noopener">https://www.engagiert-in-nrw.de/system/files/media/document/file/eak_antrag_wuppertal.pdf</a></div></details></article>
+<article class="oksp-card oksp-card--empty" id="oksp25-t3r3" data-lane="3" data-notes="0" data-search="track 3 runde 3 entfremdung im techno-kapitalismus: sind wir disconnected?  " data-pad="" style="grid-row:4;grid-column:4"><div class="oksp-meta"><span class="oksp-num">Track 3 · Runde 3</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 3 · Runde 3: Entfremdung im Techno-Kapitalismus: Sind wir disconnected? öffnen</button><div class="oksp-part"><h4 class="oksp-title">Entfremdung im Techno-Kapitalismus: Sind wir disconnected?</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article>
+<article class="oksp-card" id="oksp25-t4r3" data-lane="4" data-notes="1" data-search="track 4 runde 3 für transparente ki braucht es freie texte der kommunen marc *für transparente ki braucht es freie texte der kommunen sessiongeber: marc
+
+notizen:
+
+- vorstellung marc
+- ki -&gt; &quot;digitalisierte papageien&quot;
+- ein schmerzpunkt weltweit: urheberrecht
+- mißbräuchliche verwendung
+- nur geschlossene, nicht transparente verwendung
+- daten bereitgestellt, die aber nicht frei sind
+- mangel an freien, veröffentlichten texte
+- hintergrund: textsetzer, arbeit mit sprache
+- artikel ki und (offene) daten: https://colab-digital.de/initiativen/koki/offene-daten/
+- generative ki: chatgpt von openai als das bekannte system, bei dem (nicht ganz) unklar ist, womit es trainiert wurde
+- basis: leika (leistungskatalog)
+- https://de.wikipedia.org/wiki/leika
+- https://docs.fitko.de/fim-xoev/docs/terms/leika/
+- https://www.digitale-verwaltung.de/webs/dv/de/onlinezugangsgesetz/ozg-bund/wissen-aus-dem-digitalisierungsprogramm-bund/leistungserklaerung/leistungserklaerung.html
+- damit eigentlich alle leistungen/leistungsbeschreibungen gut dokumentiert, die angeboten werden
+- verschiedene sprachliche welten: unterschiedliche bezeichnungen
+- beispiel aus fim-portal: ausnahmegenehmigung parken erteilung gewerbetreibende, freiberufler
+- es geht nicht direkt um ki, sondern darum eine asymmetische suche aufzubauen
+- statt &quot;ich suche den weg zur genehmigung...&quot; wird nur geschrieben &quot;parkausweis&quot;; gefunden werden soll z.b. &quot;bewohnerparkausweis&quot; -&gt; kein direkter match
+- beschreibung des bundes -&gt; &quot;goldstandard&quot;; verschiedene beschreibungen der einzelnen bundesländer
+- wenn man ein generatives modell nach solchen informationen fragt, kommen teils recht kurze und unterschiedliche ergebnisse heraus
+- modell von ibm auf basis freier daten; randnotiz zu deutschen daten: es wird eigentlich nur wikipedia verwendet, da keine anderen freien daten zum training verfügbar sind
+- zweites modell (neben chatgpt 4o-mini): andere aussage, anderes ergebnis. diese beiden können zusammengefügt werden.
+- software, die hinter fim-portal steckt, ist auf opencode verfügbar, lizenz gplv3
+- aber: impressum -&gt; inhalte unterliegen dem urheberrecht, keine freie verwendung möglich; genau da liegt die krux drin!
+- aber: auch mal ein positivbeispiel
+- es gibt ein benchmark für die suche von verwaltungsleistungen: die stadt münchen
+- teile des ehemaligen limux-teams in neuem team vereint: it@m (auch auf hugging face vertreten)
+- dieses team hat zu jedem der &quot;langweiligen&quot; themen die rohtexte veröffentlicht und - der eigentliche hammer - unter eine freie lizenz (mit) gestellt
+- sichtweise: jede (natürliche) sprache ist auch eine programmiersprache, sie kann syntaktisch und semantisch mathematisch verarbeitet werden
+- sprache spiegelt auch das denken der jeweiligen zeit wieder
+- daten aus münchen auch so aufbereitet, dass sie für embedding-benchmarks zur verfügung stehen
+- was münchen hier gemacht hat, ist pionierarbeit; sie sind die ersten und die einzigen: texte unter einer freien lizenz global veröffentlicht
+- wenn man eine alpaka-farm beantragen möchte, muss man auch eine lama-farm beantragen (kann aus wikipedia erschlossen werden); bei kältehotlines nicht einfach möglich
+- rückblick zum urheberrecht: als civitech kann ich die daten nicht zum training oder für andere zwecke verwenden
+- möglicherweise hebel: mit den leuten sprechen! münchen als beispiel nennen. wenn es dort geht, dann kann es auch woanders gehen.
+- generative modelle können dazu verwendet werden, derartige fragen zu beantworten oder faq für städtische/kommunale webseite zu erzeugen
+- menschen, die mit generativer ki umgehen können, können vermutlich auc schnellere und bessere spezialisierte modelle für diese aufgabe erzeugen
+- kostenvergleich: openai ca. 10 usd, ibm ca. 10 cent (auf basis einer gewissen menge)
+- zentrale frage: welche texte es im groben gibt, ist nun in etwa klar.
+- wie bekommt man das nun in die kommunen getragen, hier etwas zu tun (texte freizugeben)?
+- vorteile, das zu tun:
+- erzeugung verständlicherer texte (z.b. in einfacher sprache)
+- bessere updatefähigkeit von texten, damit auch schnellere update
+- anpassung von texten in bestimmte inhaltliche oder sprachliche richtungen
+- vor ein paar jahren in bonn erstellt: bonn wiki -&gt; lizenz cc0: https://bonn.wiki/wiki/startseite
+- open data: hauptsächlich tabellendaten; es fehlen grunddaten, damit texte und damit semantische bedeutungen und unterschiede zwischen verschiedenen benennungen von &quot;dingen&quot;
+- inhalte aus ratsinformationssystemen sind nicht einfach direkt verwendbar, z.b. wegen der möglichkeit des vorhandenseins personenbezogener daten; auch z.b. urheberrechtsprobleme bei landkarten
+- am coolsten als lizenz: eupl version 1.2; es darf nur nicht cc-by-nd sein, sonst auch egal ob mit, cc-by-sa, etc.
+- argumentationsidee: firmen aus dem ausland ist das egal, deswegen finden alle chatgpt so toll, weil die daten dort verarbeitet wurden und man darin gut damit umgehen kann
+- vorurteile lassen sich nur durch transparenz analysieren und vermeiden; das können wir nur nachhalten, wenn es von anfang an direkt nicht im quelltext haben; dafür brauchen wir rohtext
+- beispiel erwähnt: koki -&gt; https://koki.nrw/
+- verwaltung sind oft langsam, weil sie angst haben, etwas falsch zu machen (urheberrecht, datenschutz, etc. und deren folgen -&gt; schlechte presse etc.)
+- was kann man dagegen tun? gegen angst hilft das gefühl der sicherheit.
+- man muss klarmachen, was/wie mit solchen texten möglich ist bzw. damit umgegangen werden kann
+- api von open data bonn sagt cc0: ggf. damit ein beispiel aus nrw
+- beispiel aus oberhausen: semantische suche -&gt; hat cio der stadt mitgetragen; gegenstand des ki-prototyps war der offene teil des ratsinformationssystems
+- beispiel zur aufbereitung auf huggingface: germandefinitiongeneration-distillation
+- auch etwas von google: das goak (oder goag?) datenset
+- offene frage: was spräche dagegen, die faqs freizugeben?
+- auch schwierig: gesetze -&gt; gesetze im internet --&gt; am ende landet man bei verlagshäusern.
+- öffentlich zugängig, aber keine freie lizenz
+- uni köln seit vier jahren mit justiz-ki zu gange, es tut sich aber scheinbar nichts
+- die offene bibel als beispiel
+- urversion längst verfügbar
+- wenn wir selbst für ki-projekte bias möglichst minimieren wollen, sollten wir uns die zeit dafür nehmen.
+- beispiel münchen: wie ist es entstanden?
+- wird es einfach toleriert? war es ein auftrag von höherer stelle? war es eine dienstanweisung?
+- schwierig, da keine schlafenden hunde geweckt werden sollen
+- mteb (deu, v1): deutsche benchmark-suite (hugging face)
+- daneben noch: german government benchmark" data-pad="" style="grid-row:4;grid-column:5"><div class="oksp-meta"><span class="oksp-num">Track 4 · Runde 3</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 4 · Runde 3: Für transparente KI braucht es freie Texte der Kommunen öffnen</button><div class="oksp-part"><h4 class="oksp-title">Für transparente KI braucht es freie Texte der Kommunen</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Marc</span></p></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">*Für transparente KI braucht es freie Texte der Kommunen Sessiongeber: Marc
+
+Notizen:
+
+- Vorstellung Marc
+- KI -&gt; &quot;digitalisierte Papageien&quot;
+- ein Schmerzpunkt weltweit: Urheberrecht
+- mißbräuchliche Verwendung
+- nur geschlossene, nicht transparente Verwendung
+- Daten bereitgestellt, die aber nicht frei sind
+- Mangel an freien, veröffentlichten Texte
+- Hintergrund: Textsetzer, Arbeit mit Sprache
+- Artikel KI und (offene) Daten: <a href="https://colab-digital.de/initiativen/koki/offene-daten/" target="_blank" rel="noopener">https://colab-digital.de/initiativen/koki/offene-daten/</a>
+- Generative KI: ChatGPT von OpenAI als das bekannte System, bei dem (nicht ganz) unklar ist, womit es trainiert wurde
+- Basis: LEIKA (Leistungskatalog)
+- <a href="https://de.wikipedia.org/wiki/LeiKa" target="_blank" rel="noopener">https://de.wikipedia.org/wiki/LeiKa</a>
+- <a href="https://docs.fitko.de/fim-xoev/docs/terms/leika/" target="_blank" rel="noopener">https://docs.fitko.de/fim-xoev/docs/terms/leika/</a>
+- <a href="https://www.digitale-verwaltung.de/Webs/DV/DE/onlinezugangsgesetz/ozg-bund/wissen-aus-dem-digitalisierungsprogramm-bund/leistungserklaerung/leistungserklaerung.html" target="_blank" rel="noopener">https://www.digitale-verwaltung.de/Webs/DV/DE/onlinezugangsgesetz/ozg-bund/wissen-aus-dem-digitalisierungsprogramm-bund/leistungserklaerung/leistungserklaerung.html</a>
+- damit eigentlich alle Leistungen/Leistungsbeschreibungen gut dokumentiert, die angeboten werden
+- Verschiedene sprachliche Welten: unterschiedliche Bezeichnungen
+- Beispiel aus FIM-Portal: Ausnahmegenehmigung Parken Erteilung Gewerbetreibende, Freiberufler
+- Es geht nicht direkt um KI, sondern darum eine asymmetische Suche aufzubauen
+- Statt &quot;Ich suche den Weg zur Genehmigung...&quot; wird nur geschrieben &quot;Parkausweis&quot;; gefunden werden soll z.B. &quot;Bewohnerparkausweis&quot; -&gt; kein direkter Match
+- Beschreibung des Bundes -&gt; &quot;Goldstandard&quot;; verschiedene Beschreibungen der einzelnen Bundesländer
+- Wenn man ein generatives Modell nach solchen Informationen fragt, kommen teils recht kurze und unterschiedliche Ergebnisse heraus
+- Modell von IBM auf Basis freier Daten; Randnotiz zu deutschen Daten: es wird eigentlich nur Wikipedia verwendet, da keine anderen freien Daten zum Training verfügbar sind
+- Zweites Modell (neben ChatGPT 4o-mini): Andere Aussage, anderes Ergebnis. Diese beiden können zusammengefügt werden.
+- Software, die hinter FIM-Portal steckt, ist auf OpenCode verfügbar, Lizenz GPLv3
+- Aber: Impressum -&gt; Inhalte unterliegen dem Urheberrecht, keine freie Verwendung möglich; genau da liegt die Krux drin!
+- Aber: auch mal ein Positivbeispiel
+- es gibt ein Benchmark für die Suche von Verwaltungsleistungen: die Stadt München
+- Teile des ehemaligen LiMux-Teams in neuem Team vereint: it@M (auch auf Hugging Face vertreten)
+- dieses Team hat zu jedem der &quot;langweiligen&quot; Themen die Rohtexte veröffentlicht und - der eigentliche Hammer - unter eine freie Lizenz (MIT) gestellt
+- Sichtweise: jede (natürliche) Sprache ist auch eine Programmiersprache, sie kann syntaktisch und semantisch mathematisch verarbeitet werden
+- Sprache spiegelt auch das Denken der jeweiligen Zeit wieder
+- Daten aus München auch so aufbereitet, dass sie für Embedding-Benchmarks zur Verfügung stehen
+- was München hier gemacht hat, ist Pionierarbeit; sie sind die ersten und die einzigen: Texte unter einer freien Lizenz global veröffentlicht
+- Wenn man eine Alpaka-Farm beantragen möchte, muss man auch eine Lama-Farm beantragen (kann aus Wikipedia erschlossen werden); bei Kältehotlines nicht einfach möglich
+- Rückblick zum Urheberrecht: als CiviTech kann ich die Daten nicht zum Training oder für andere Zwecke verwenden
+- Möglicherweise Hebel: mit den Leuten sprechen! München als Beispiel nennen. Wenn es dort geht, dann kann es auch woanders gehen.
+- Generative Modelle können dazu verwendet werden, derartige Fragen zu beantworten oder FAQ für städtische/kommunale Webseite zu erzeugen
+- Menschen, die mit generativer KI umgehen können, können vermutlich auc schnellere und bessere spezialisierte Modelle für diese Aufgabe erzeugen
+- Kostenvergleich: OpenAI ca. 10 USD, IBM ca. 10 Cent (auf Basis einer gewissen Menge)
+- Zentrale Frage: Welche Texte es im groben gibt, ist nun in etwa klar.
+- Wie bekommt man das nun in die Kommunen getragen, hier etwas zu tun (Texte freizugeben)?
+- Vorteile, das zu tun:
+- Erzeugung verständlicherer Texte (z.B. in einfacher Sprache)
+- bessere Updatefähigkeit von Texten, damit auch schnellere Update
+- Anpassung von Texten in bestimmte inhaltliche oder sprachliche Richtungen
+- vor ein paar Jahren in Bonn erstellt: Bonn Wiki -&gt; Lizenz CC0: <a href="https://bonn.wiki/wiki/Startseite" target="_blank" rel="noopener">https://bonn.wiki/wiki/Startseite</a>
+- Open Data: hauptsächlich Tabellendaten; es fehlen Grunddaten, damit Texte und damit semantische Bedeutungen und Unterschiede zwischen verschiedenen Benennungen von &quot;Dingen&quot;
+- Inhalte aus Ratsinformationssystemen sind nicht einfach direkt verwendbar, z.B. wegen der Möglichkeit des Vorhandenseins personenbezogener Daten; auch z.B. Urheberrechtsprobleme bei Landkarten
+- Am coolsten als Lizenz: EUPL Version 1.2; es darf nur nicht CC-BY-ND sein, sonst auch egal ob MIT, CC-BY-SA, etc.
+- Argumentationsidee: Firmen aus dem Ausland ist das egal, deswegen finden alle ChatGPT so toll, weil die Daten dort verarbeitet wurden und man darin gut damit umgehen kann
+- Vorurteile lassen sich nur durch Transparenz analysieren und vermeiden; das können wir nur nachhalten, wenn es von Anfang an direkt nicht im Quelltext haben; dafür brauchen wir Rohtext
+- Beispiel erwähnt: KoKI -&gt; <a href="https://koki.nrw/" target="_blank" rel="noopener">https://koki.nrw/</a>
+- Verwaltung sind oft langsam, weil sie Angst haben, etwas falsch zu machen (Urheberrecht, Datenschutz, etc. und deren Folgen -&gt; schlechte Presse etc.)
+- Was kann man dagegen tun? Gegen Angst hilft das Gefühl der Sicherheit.
+- Man muss klarmachen, was/wie mit solchen Texten möglich ist bzw. damit umgegangen werden kann
+- API von Open Data Bonn sagt CC0: ggf. damit ein Beispiel aus NRW
+- Beispiel aus Oberhausen: Semantische Suche -&gt; hat CIO der Stadt mitgetragen; Gegenstand des KI-Prototyps war der offene Teil des Ratsinformationssystems
+- Beispiel zur Aufbereitung auf HuggingFace: GermanDefinitionGeneration-Distillation
+- auch etwas von Google: das GOAK (oder GOAG?) Datenset
+- Offene Frage: Was spräche dagegen, die FAQs freizugeben?
+- Auch schwierig: Gesetze -&gt; Gesetze im Internet --&gt; Am Ende landet man bei Verlagshäusern.
+- Öffentlich zugängig, aber keine freie Lizenz
+- Uni Köln seit vier Jahren mit Justiz-KI zu Gange, es tut sich aber scheinbar nichts
+- Die offene Bibel als Beispiel
+- Urversion längst verfügbar
+- Wenn wir selbst für KI-Projekte Bias möglichst minimieren wollen, sollten wir uns die Zeit dafür nehmen.
+- Beispiel München: Wie ist es entstanden?
+- Wird es einfach toleriert? War es ein Auftrag von höherer Stelle? War es eine Dienstanweisung?
+- Schwierig, da keine schlafenden Hunde geweckt werden sollen
+- MTEB (deu, v1): deutsche Benchmark-Suite (Hugging Face)
+- daneben noch: German Government Benchmark</div></details></article>
+<article class="oksp-card" id="oksp25-t5r3" data-lane="5" data-notes="1" data-search="track 5 runde 3 demokratie fitness  mehr unter https://www.mehr-demokratie.de/mehr-wissen/demokratische-kultur/demokratie-fitness" data-pad="" style="grid-row:4;grid-column:6"><div class="oksp-meta"><span class="oksp-num">Track 5 · Runde 3</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 5 · Runde 3: Demokratie Fitness öffnen</button><div class="oksp-part"><h4 class="oksp-title">Demokratie Fitness</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">mehr unter <a href="https://www.mehr-demokratie.de/mehr-wissen/demokratische-kultur/demokratie-fitness" target="_blank" rel="noopener">https://www.mehr-demokratie.de/mehr-wissen/demokratische-kultur/demokratie-fitness</a></div></details></article>
+<article class="oksp-card oksp-card--empty" id="oksp25-t6r3" data-lane="6" data-notes="0" data-search="track 6 runde 3 f-droid appstore wechselparty  " data-pad="" style="grid-row:4;grid-column:7"><div class="oksp-meta"><span class="oksp-num">Track 6 · Runde 3</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 6 · Runde 3: F-Droid Appstore Wechselparty öffnen</button><div class="oksp-part"><h4 class="oksp-title">F-Droid Appstore Wechselparty</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article>
+</section>
+<section class="oksp-slot" aria-labelledby="oksp25-slot-4"><h3 class="oksp-slot-h" id="oksp25-slot-4" style="grid-row:5;grid-column:1"><small>Runde</small><span>4</span></h3>
+<article class="oksp-card" id="oksp25-t1r4" data-lane="1" data-notes="1" data-search="track 1 runde 4 inklusion von introvertierten: retrospektive als methode  doku after the day:
+
+die methode ist sehr individual an die gruppe anzupassen. sei es vor ort mit karten, mit eine online whiteboard oder via umfrage. gerade letzteres bietet eine anonymität. die anzahl, das alter, etc. der teilnehmenden sowie der zeitliche rahmen sind ebenfalls entscheident. am ende gilt die verhältnismäßigkeit zur gruppendynamik und vorhandener kultur.
+
+empfehle für umfragen: https://cryptpad.fr/
+
+grober ablauf:
+
+- einarbeitsphase zur beantwortung der reflektionsfragen. teilnehmer auf die regel einer antwort pro karte verwenden. gerne pro frage bliebig viele antworten.
+- gruppieren der teilnehmerkarte pro frage. ggf. auch zusammenhänge zwischen antworten fragenübergreifend betrachten.
+- bewertung der antworten. bspw. jeder darf fragenüvergreifend nur 5 punkte vergeben.
+- nun maßnahmen ableiten. gewichtung und umsetzbarkeit (low hanging fruits) beachten. smart goals definieren...
+
+in der session wurde die methode exemplarisch syncron mit karten durchgeführt anhand des tages. dabei wurden die ersten zwei schritte vollzogen, da es sonst den zeitlichen rahmen oder die zugänglichkeit gefährden könnte. mit der routine im team kann ein zeitfenster unter 30 min eingehalten werden.
+
+reflektionsfragen sind individuell für das thema zu gestalten. für das feedback zum tag haben wir die folgenden fragen verwendet:
+
+- was war gut?
+- was war schlecht?
+- was nehme ich mit?
+
+vielen dank an dieser stelle nochmals an alle teilnehmenden.
+
+#retrospective #metaplantechnik #whiteboard
+
+bei der individualen gestaltung kann ich gerne unterstützen.  markus sobotta
+
+doku sending in the idea:
+
+meine eingereichte idee: partizipation – die retro-methode anonymes feedback für echtes engagement und eine verbesserte kommunikation die &quot;retrospektive&quot; (retro) ist eine einfache, aber effektive methode aus dem agilen projektmanagement, um in teams (oder in diesem fall bei vereinstreffen/veranstaltungen) gemeinsam anonymes und ehrliches feedback einzuholen und zu verarbeiten. sie ersetzt lange, oft von wenigen dominierten meldeketten durch eine strukturierte kartenabfrage (auch metaplan-technik genannt), die auch introvertierten teilnehmenden eine stimme gibt. der ablauf: ehrlich, strukturiert, anonym
+
+- vorbereitung: jeder erhält post-its/karten. eine pinnwand (oder ein digitales miro-board) wird in drei bereiche (für die reflexionsfragen) unterteilt.
+- ideensammlung: die teilnehmenden notieren ihre antworten anonym (eine idee pro karte) zu den drei reflexionsfragen und kleben sie in den entsprechenden bereich.
+- strukturierung: gemeinsam werden die karten gruppiert, um muster und schwerpunkte zu erkennen.
+- aktionsplanung: die gruppe diskutiert die wichtigsten punkte und leitet konkrete maßnahmen (was ändern wir als nächstes?) ab.
+
+drei fragen – fokus auf die zukunft die reflexionsfragen können flexibel angepasst werden, um zum beispiel feedback nach einem jahrestreffen zu sammeln:
+
+- was ist gut gelaufen? (vergangenheit)
+- was könnte besser laufen? (zukunft)
+- was nehme ich mit? (lessons learned)
+
+mit der retro-methode wird die verantwortung für die verbesserung von der führungsebene auf die gesamte gruppe verteilt – ein echtes stück partizipative demokratie.
+
+dinge ändern sich mit der zeit." data-pad="" style="grid-row:5;grid-column:2"><div class="oksp-meta"><span class="oksp-num">Track 1 · Runde 4</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 1 · Runde 4: Inklusion von Introvertierten: Retrospektive als Methode öffnen</button><div class="oksp-part"><h4 class="oksp-title">Inklusion von Introvertierten: Retrospektive als Methode</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">Doku after the day:
+
+Die Methode ist sehr individual an die Gruppe anzupassen. Sei es vor Ort mit Karten, mit eine online Whiteboard oder via Umfrage. Gerade letzteres bietet eine Anonymität. Die Anzahl, das Alter, etc. der Teilnehmenden sowie der zeitliche Rahmen sind ebenfalls entscheident. Am Ende gilt die Verhältnismäßigkeit zur Gruppendynamik und vorhandener Kultur.
+
+Empfehle für Umfragen: <a href="https://cryptpad.fr/" target="_blank" rel="noopener">https://cryptpad.fr/</a>
+
+Grober Ablauf:
+
+- Einarbeitsphase zur Beantwortung der Reflektionsfragen. Teilnehmer auf die Regel einer Antwort pro Karte verwenden. Gerne pro Frage bliebig viele Antworten.
+- Gruppieren der Teilnehmerkarte pro Frage. Ggf. Auch Zusammenhänge zwischen Antworten fragenübergreifend betrachten.
+- Bewertung der Antworten. Bspw. Jeder darf fragenüvergreifend nur 5 Punkte vergeben.
+- Nun Maßnahmen ableiten. Gewichtung und Umsetzbarkeit (low hanging fruits) beachten. SMART Goals definieren...
+
+In der Session wurde die Methode exemplarisch syncron mit Karten durchgeführt anhand des Tages. Dabei wurden die ersten zwei Schritte vollzogen, da es sonst den zeitlichen Rahmen oder die Zugänglichkeit gefährden könnte. Mit der Routine im Team kann ein Zeitfenster unter 30 min eingehalten werden.
+
+Reflektionsfragen sind individuell für das Thema zu gestalten. Für das Feedback zum Tag haben wir die folgenden Fragen verwendet:
+
+- Was war gut?
+- Was war schlecht?
+- Was nehme ich mit?
+
+Vielen Dank an dieser Stelle nochmals an alle Teilnehmenden.
+
+#Retrospective #Metaplantechnik #Whiteboard
+
+Bei der individualen Gestaltung kann ich gerne unterstützen.  Markus Sobotta
+
+Doku sending in the idea:
+
+Meine eingereichte Idee: Partizipation – Die Retro-Methode Anonymes Feedback für echtes Engagement und eine verbesserte Kommunikation Die &quot;Retrospektive&quot; (Retro) ist eine einfache, aber effektive Methode aus dem agilen Projektmanagement, um in Teams (oder in diesem Fall bei Vereinstreffen/Veranstaltungen) gemeinsam anonymes und ehrliches Feedback einzuholen und zu verarbeiten. Sie ersetzt lange, oft von wenigen dominierten Meldeketten durch eine strukturierte Kartenabfrage (auch Metaplan-Technik genannt), die auch introvertierten Teilnehmenden eine Stimme gibt. Der Ablauf: Ehrlich, Strukturiert, Anonym
+
+- Vorbereitung: Jeder erhält Post-its/Karten. Eine Pinnwand (oder ein digitales Miro-Board) wird in drei Bereiche (für die Reflexionsfragen) unterteilt.
+- Ideensammlung: Die Teilnehmenden notieren ihre Antworten anonym (eine Idee pro Karte) zu den drei Reflexionsfragen und kleben sie in den entsprechenden Bereich.
+- Strukturierung: Gemeinsam werden die Karten gruppiert, um Muster und Schwerpunkte zu erkennen.
+- Aktionsplanung: Die Gruppe diskutiert die wichtigsten Punkte und leitet konkrete Maßnahmen (Was ändern wir als Nächstes?) ab.
+
+Drei Fragen – Fokus auf die Zukunft Die Reflexionsfragen können flexibel angepasst werden, um zum Beispiel Feedback nach einem Jahrestreffen zu sammeln:
+
+- Was ist gut gelaufen? (Vergangenheit)
+- Was könnte besser laufen? (Zukunft)
+- Was nehme ich mit? (Lessons Learned)
+
+Mit der Retro-Methode wird die Verantwortung für die Verbesserung von der Führungsebene auf die gesamte Gruppe verteilt – ein echtes Stück partizipative Demokratie.
+
+Dinge ändern sich mit der Zeit.</div></details></article>
+<article class="oksp-card" id="oksp25-t2r4" data-lane="2" data-notes="1" data-search="track 2 runde 4 bonn-o-mat: ehrenamtlich organisierte politische bildung damian paderta, michael lobeck *der bonn-o-mat https://bonn-o-mat.de/
+
+sessiongebende: damian paderta, michael lobeck
+
+- der bonn-o-mat ist &quot;der kleine bruder&quot; vom wahl-o-mat und soll(te) bei der kommunalwahl helfen, eine wahlentscheidung zu treffen.
+- ziele: politische bildung, wahlquote erhöhen, diskurse fördern
+- es soll orientierung geben, soll informieren, aber keine direkte wahlempfehlung geben.
+- &quot;ein niedrigschwelliges zur politischen bildung.&quot;
+- erarbeitet wurde der bonn-o-mat von den beiden sessiongebenden zusammen mit einem team freiwilliger (der redaktion), die sich aus unterschiedlichen bereichen zusammenstellen. die redaktion selbst sieht sich als zu wenig heterogen, aber das team hat sich bemüht.
+- es wurden 3 workshops mit der redaktion gemacht:
+- 1. themen finden
+- 2. thesen aus den themen ableiten
+- danach haben die parteien die 53 thesen vorgelegt bekommen
+- 3. aus den antworten wurden 30 thesen dann ausgewählt mit dem kernkriterium: wo unterscheiden sich die parteien stark? (sonst kann man keine vernünftige auswahl bilden.)
+- der gesamte prozess ist auf der website dokumentiert.
+- statistik: 204.600 seitenaurfude, 87.352 besucher:innen (zum vergleich: bonn hat rund 320.000 einwohner:innen). die meisten besuchenden kamen natürlich am wahltag, weitere peaks waren nach medialer berichterstattung.
+- werbung gab es per social media, außerdem hat ströer werbeflächen zur verfügung gestellt.
+- fazit/offene fragen:
+- hohe zustimmung bei konstruktiver kritik
+- beispiel: eine partei findet die these wichtig, lehnt es aber aus gründen der finanzierung ab. die andere partei stimmt der these zu, weiß aber nicht, wie man es finanzieren soll.
+- abgrenzung zur afd
+- soll man die thesen abbilden? sollen die parteien bei den thesen vorab mitsprechen?
+- aufwand/ertrag
+- finanzierung durch crowdfunding? sachkosten lagen bei 500-1000 euro. arbeitszeit unermesslich mehr.
+
+*offene diskussion
+
+- welche parteien kommen in die auswahl? – in bonn kein thema, es standen eh nur 14 parteien zur wahl und die wurden alle ausgewertet. ist eher eine inhaltliche frage, ob man eine vorauswahl (freiwillig) treffen kann, darin sind sich die macher noch nicht einig.
+- wie ist der austausch mit anderen kommunen? – es gibt lokal-o-maten von der uni düsseldorf und es gibt kommunalwahl-wikis. beim lokal-o-maten gibt es keine gruppe vor ort, die thesen werden von erstwählenden erarbeitet → anderer fokus, junge menschen zum wählen bewegen.
+- es wird nie die perfekten thesen, weil jede person eine eigene sicht auf die stadt hat. schwerpunkte werden anders gesetzt, manche themen werden auch übergangen.
+- beispiel: in einem stadtteil wird eine straße verkehrsberuhigt. ist für die menschen dort sehr relevant, in anderen stadtteilen dagegen überhaupt nicht.
+- thesen sollten nicht nur in eine &quot;richtung&quot; formuliert werden, sondern auch einmal umgedreht werden, um die vorwürfe zu entkräften, in eine richtung zu tendieren und das interesse hochzuhalten.
+- thesen sollten möglichst nur dinge abbilden, die die kommune beeinflussen können.
+- wie wurde das redaktionsteam ausgewählt? – damian/michael haben selbst leute ausgewählt, die sich (ggf. über eine ecke) kannten, weil es pragmatisch einfacher war und weil man von den leuten wusste, dass sie sich konstruktiv einbringen können.
+- wurden fragen rausgenommen, auf die alle parteien gleich geantwortet haben? warum? – man musste sowieso thesen rauswerfen, aber gab auch eine frage zu ns-gedenkstätten, die alle parteien mit ja beantwortet hatten, nur eine nicht, und die dann auch einen unterschied darstellbar machte.
+- ein schwieriger prozess ist die formulierung der thesen. sie müssen auf den punkt und knackig sein, aber trotzdem nicht zu allgemein und für die parteien zu beantworten.
+- spd hat viele fragen neutral beantwortet. das war strategisch wahrscheinlich nicht so klug, weil in der logik der punktevergabe parteien bevorzugt werden, die klarer position beziehen.
+- es wurden – außer den zugriffszahlen – keine daten erhoben. deshalb kann man keine schlüsse über abstimm- und anklickverhalten ziehen.
+- thema gewichtung von thesen (man konnte als nutzer:in einzelne doppelt gewichten): wäre es nicht eine idee, auch parteien doppelt gewichten zu können? – darüber gab es noch keine gedanken. befürchtung, dass das tool/die handhabung zu kompliziert wird.
+- learning fürs nächste mal: vorher regeln für die antworten der parteien bekanntgeben, damit beleidigende/rassistische/anders schlimme aussagen nicht wiedergegeben werden müssen.
+- damian hatte kurz angst, dass es eine sicherheitslücke gäbe. wenn jemand zugriff auf die datei mit den antworten hätte, könnte man politisch einfluss nehmen." data-pad="" style="grid-row:5;grid-column:3"><div class="oksp-meta"><span class="oksp-num">Track 2 · Runde 4</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 2 · Runde 4: bonn-o-mat: Ehrenamtlich organisierte politische Bildung öffnen</button><div class="oksp-part"><h4 class="oksp-title">bonn-o-mat: Ehrenamtlich organisierte politische Bildung</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Damian Paderta, Michael Lobeck</span></p></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">*Der Bonn-o-mat <a href="https://bonn-o-mat.de/" target="_blank" rel="noopener">https://bonn-o-mat.de/</a>
+
+Sessiongebende: Damian Paderta, Michael Lobeck
+
+- Der Bonn-o-mat ist &quot;der kleine Bruder&quot; vom Wahl-o-mat und soll(te) bei der Kommunalwahl helfen, eine Wahlentscheidung zu treffen.
+- Ziele: Politische Bildung, Wahlquote erhöhen, Diskurse fördern
+- Es soll Orientierung geben, soll informieren, aber keine direkte Wahlempfehlung geben.
+- &quot;Ein niedrigschwelliges zur politischen Bildung.&quot;
+- Erarbeitet wurde der Bonn-o-mat von den beiden Sessiongebenden zusammen mit einem Team Freiwilliger (der Redaktion), die sich aus unterschiedlichen Bereichen zusammenstellen. Die Redaktion selbst sieht sich als zu wenig heterogen, aber das Team hat sich bemüht.
+- Es wurden 3 Workshops mit der Redaktion gemacht:
+- 1. Themen finden
+- 2. Thesen aus den Themen ableiten
+- danach haben die Parteien die 53 Thesen vorgelegt bekommen
+- 3. Aus den Antworten wurden 30 Thesen dann ausgewählt mit dem Kernkriterium: Wo unterscheiden sich die Parteien stark? (Sonst kann man keine vernünftige Auswahl bilden.)
+- Der gesamte Prozess ist auf der Website dokumentiert.
+- Statistik: 204.600 Seitenaurfude, 87.352 Besucher:innen (zum Vergleich: Bonn hat rund 320.000 Einwohner:innen). Die meisten Besuchenden kamen natürlich am Wahltag, weitere Peaks waren nach medialer Berichterstattung.
+- Werbung gab es per Social Media, außerdem hat Ströer Werbeflächen zur Verfügung gestellt.
+- Fazit/offene Fragen:
+- Hohe Zustimmung bei konstruktiver Kritik
+- Beispiel: Eine Partei findet die These wichtig, lehnt es aber aus Gründen der Finanzierung ab. Die andere Partei stimmt der These zu, weiß aber nicht, wie man es finanzieren soll.
+- Abgrenzung zur AfD
+- Soll man die Thesen abbilden? Sollen die Parteien bei den Thesen vorab mitsprechen?
+- Aufwand/Ertrag
+- Finanzierung durch Crowdfunding? Sachkosten lagen bei 500-1000 Euro. Arbeitszeit unermesslich mehr.
+
+*Offene Diskussion
+
+- Welche Parteien kommen in die Auswahl? – In Bonn kein Thema, es standen eh nur 14 Parteien zur Wahl und die wurden alle ausgewertet. Ist eher eine inhaltliche Frage, ob man eine Vorauswahl (freiwillig) treffen kann, darin sind sich die Macher noch nicht einig.
+- Wie ist der Austausch mit anderen Kommunen? – Es gibt Lokal-o-maten von der Uni Düsseldorf und es gibt Kommunalwahl-Wikis. Beim Lokal-o-maten gibt es keine Gruppe vor Ort, die Thesen werden von Erstwählenden erarbeitet → anderer Fokus, junge Menschen zum Wählen bewegen.
+- Es wird nie die perfekten Thesen, weil jede Person eine eigene Sicht auf die Stadt hat. Schwerpunkte werden anders gesetzt, manche Themen werden auch übergangen.
+- Beispiel: In einem Stadtteil wird eine Straße verkehrsberuhigt. Ist für die Menschen dort sehr relevant, in anderen Stadtteilen dagegen überhaupt nicht.
+- Thesen sollten nicht nur in eine &quot;Richtung&quot; formuliert werden, sondern auch einmal umgedreht werden, um die Vorwürfe zu entkräften, in eine Richtung zu tendieren und das Interesse hochzuhalten.
+- Thesen sollten möglichst nur Dinge abbilden, die die Kommune beeinflussen können.
+- Wie wurde das Redaktionsteam ausgewählt? – Damian/Michael haben selbst Leute ausgewählt, die sich (ggf. über eine Ecke) kannten, weil es pragmatisch einfacher war und weil man von den Leuten wusste, dass sie sich konstruktiv einbringen können.
+- Wurden Fragen rausgenommen, auf die alle Parteien gleich geantwortet haben? Warum? – Man musste sowieso Thesen rauswerfen, aber gab auch eine Frage zu NS-Gedenkstätten, die alle Parteien mit Ja beantwortet hatten, nur eine nicht, und die dann auch einen Unterschied darstellbar machte.
+- Ein schwieriger Prozess ist die Formulierung der Thesen. Sie müssen auf den Punkt und knackig sein, aber trotzdem nicht zu allgemein und für die Parteien zu beantworten.
+- SPD hat viele Fragen neutral beantwortet. Das war strategisch wahrscheinlich nicht so klug, weil in der Logik der Punktevergabe Parteien bevorzugt werden, die klarer Position beziehen.
+- Es wurden – außer den Zugriffszahlen – keine Daten erhoben. Deshalb kann man keine Schlüsse über Abstimm- und Anklickverhalten ziehen.
+- Thema Gewichtung von Thesen (man konnte als Nutzer:in einzelne doppelt gewichten): Wäre es nicht eine Idee, auch Parteien doppelt gewichten zu können? – Darüber gab es noch keine Gedanken. Befürchtung, dass das Tool/die Handhabung zu kompliziert wird.
+- Learning fürs nächste Mal: Vorher Regeln für die Antworten der Parteien bekanntgeben, damit beleidigende/rassistische/anders schlimme Aussagen nicht wiedergegeben werden müssen.
+- Damian hatte kurz Angst, dass es eine Sicherheitslücke gäbe. Wenn jemand Zugriff auf die Datei mit den Antworten hätte, könnte man politisch Einfluss nehmen.</div></details></article>
+<article class="oksp-card" id="oksp25-t3r4" data-lane="3" data-notes="1" data-search="track 3 runde 4 solarpunk christopher reinbothe *solarpunk
+
+- session 4, track 3, raum 203
+- sessiongeber: christopher reinbothe https://ruhr.social/@phneutral
+- protokoll:
+
+die session knüpft an den beitrag aus dem vorvorjahr an und vertieft den gedanken, solarpunk als gegenentwurf zu cyberpunk zu verstehen. es geht dabei nicht nur um ein science-fiction-genre, sondern um eine utopie, die real werden soll: eine positive, handlungsorientierte zukunftsvision.
+
+wissenschaftliche hintergründe und leitideen der bewegung
+
+im mittelpunkt standen fragen danach, welche wissenschaftlichen grundlagen, gesellschaftlichen ziele und positiven erzählungen solarpunk ausmachen.
+
+genannt wurden vor allem folgende themen:
+
+- gemeinwohlorientierung statt profitmaximierung: demokratie, teilhabe, gleiche zugänge zu ressourcen und infrastruktur.
+- genossenschaften als bausteine gemeinschaftlicher selbstverwaltung (beispiel: hostsharing).
+- plattform-kooperationen für zivilgesellschaftliche organisationen und vereine, z. b. wechange.de.
+- solidarökonomie: der mensch steht im zentrum, nicht der profit.
+- geschenkwirtschaft wie in der open-source-kultur oder in der nachbarschaftshilfe – freiwilliges geben ohne direkte gegenleistung.
+- „bibliotheks-sozialismus“: bibliotheken der dinge, gemeinschaftlich genutzte ressourcen.
+- ökosozialistische ansätze: rewilding, half-earth-socialism, solidarische ökonomie.
+- vergesellschaftung von infrastruktur und lebenswichtigem wohnraum, um wohnen bezahlbarer zu machen und soziale stabilität zu stärken.
+- verantwortungseigentum – organisationsformen, „die sich selbst gehören“ und nicht gewinnorientiert verkauft werden.
+- commoning: gemeinschaftliche selbstorganisation und geteilte verantwortung für ressourcen.
+
+zentrale querschnittsideen sind wartung, pflege und erhalt – sowohl von physischer wie auch digitaler infrastruktur. im gegensatz zu wegwerfmentalität und „fast fashion“ geht es um reparaturkultur, circular economy, right to repair – und übertragen auch um die pflege von beziehungen und gemeinschaften.
+
+dazu passt das konzept der „sorgenden städte“: im zentrum stehen begegnungsorte wie bibliotheken, gesundheitszentren, werkstätten oder gemeinschaftsräume statt konsumtempel und malls.
+
+aus all dem ergibt sich ein allgemeiner aufruf zum handeln: solarpunk will eine optimistische vision einer möglichen welt entwerfen und zugleich wege zeigen, wie diese im alltag umgesetzt werden kann.
+
+trotz der gesellschaftlichen und ökonomischen bezüge bleibt solarpunk natürlich auch ein künstlerisches und literarisches genre, das utopische zukunftsbilder entwirft und ästhetisch ausgestaltet.
+
+bücher
+
+- degrowth &amp; strategy
+- weniger ist mehr, joson hickel
+- solidarity economy
+- rewilding, simone böcker
+- half-earth socialism, troy vettese, drew pendergrass
+- wessen freiheit, welche gleichheit? sabine nuss
+- die welt reparieren, andrea baier u.a.
+- a psalm for the wild-built, becky chambers
+- the lost cause, cory doctorow
+- sonnenerwachen, saskia dreßler, k.-h. zimmer
+- menschen schutzgebiet, uli burchardt
+- die null-grenzkosten-gesellschaft: das internet der dinge, kollaboratives gemeingut und der rückzug des kapitalismus
+- postwachstumsökonomie, niko paech (kein buch)
+
+notizen (raw), diskussionsnotizen:
+
+- anarchismusbezüge
+- historische beziehung zum öko-anarchismus
+- null grenzkosten / post capitalism als ökonomischer ansatz
+- verantwortungseigentum mit eigenen gesellschaftsformen (ggmbh und moderne mischformen mit vereinen)
+- peak oil diskussion
+- donut-ökonomie
+- rekursive beziehung: solarpunkt &lt;&lt;-&gt;&gt; postwachstum
+- machtstrukturen aufbrechen, alternativen aufbauen, erbpacht statt eigentumsübertragung
+- menschenbejahende ideologien statt neoliberalismus wäre eine mögliche lösung (marxistische sicht)
+- kommunen in der finanzierungsfalle
+- bücherschränke, verteiler-lager, balkonkraftwerke etc. --&gt; klein anfangen, beitragen, was geht.
+- ein teil ist der spaßeffekt als motivation
+- wie kommen wir schnell zum utopischen ziel? die meinungen dazu gehen auseinander. anfangen könnte helfen." data-pad="" style="grid-row:5;grid-column:4"><div class="oksp-meta"><span class="oksp-num">Track 3 · Runde 4</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 3 · Runde 4: Solarpunk öffnen</button><div class="oksp-part"><h4 class="oksp-title">Solarpunk</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Christopher Reinbothe</span></p></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">*Solarpunk
+
+- Session 4, Track 3, Raum 203
+- Sessiongeber: Christopher Reinbothe <a href="https://ruhr.social/@phneutral" target="_blank" rel="noopener">https://ruhr.social/@phneutral</a>
+- Protokoll:
+
+Die Session knüpft an den Beitrag aus dem Vorvorjahr an und vertieft den Gedanken, Solarpunk als Gegenentwurf zu Cyberpunk zu verstehen. Es geht dabei nicht nur um ein Science-Fiction-Genre, sondern um eine Utopie, die real werden soll: eine positive, handlungsorientierte Zukunftsvision.
+
+Wissenschaftliche Hintergründe und Leitideen der Bewegung
+
+Im Mittelpunkt standen Fragen danach, welche wissenschaftlichen Grundlagen, gesellschaftlichen Ziele und positiven Erzählungen Solarpunk ausmachen.
+
+Genannt wurden vor allem folgende Themen:
+
+- Gemeinwohlorientierung statt Profitmaximierung: Demokratie, Teilhabe, gleiche Zugänge zu Ressourcen und Infrastruktur.
+- Genossenschaften als Bausteine gemeinschaftlicher Selbstverwaltung (Beispiel: Hostsharing).
+- Plattform-Kooperationen für zivilgesellschaftliche Organisationen und Vereine, z. B. wechange.de.
+- Solidarökonomie: der Mensch steht im Zentrum, nicht der Profit.
+- Geschenkwirtschaft wie in der Open-Source-Kultur oder in der Nachbarschaftshilfe – freiwilliges Geben ohne direkte Gegenleistung.
+- „Bibliotheks-Sozialismus“: Bibliotheken der Dinge, gemeinschaftlich genutzte Ressourcen.
+- Ökosozialistische Ansätze: Rewilding, Half-Earth-Socialism, Solidarische Ökonomie.
+- Vergesellschaftung von Infrastruktur und lebenswichtigem Wohnraum, um Wohnen bezahlbarer zu machen und soziale Stabilität zu stärken.
+- Verantwortungseigentum – Organisationsformen, „die sich selbst gehören“ und nicht gewinnorientiert verkauft werden.
+- Commoning: gemeinschaftliche Selbstorganisation und geteilte Verantwortung für Ressourcen.
+
+Zentrale Querschnittsideen sind Wartung, Pflege und Erhalt – sowohl von physischer wie auch digitaler Infrastruktur. Im Gegensatz zu Wegwerfmentalität und „Fast Fashion“ geht es um Reparaturkultur, Circular Economy, Right to Repair – und übertragen auch um die Pflege von Beziehungen und Gemeinschaften.
+
+Dazu passt das Konzept der „sorgenden Städte“: Im Zentrum stehen Begegnungsorte wie Bibliotheken, Gesundheitszentren, Werkstätten oder Gemeinschaftsräume statt Konsumtempel und Malls.
+
+Aus all dem ergibt sich ein allgemeiner Aufruf zum Handeln: Solarpunk will eine optimistische Vision einer möglichen Welt entwerfen und zugleich Wege zeigen, wie diese im Alltag umgesetzt werden kann.
+
+Trotz der gesellschaftlichen und ökonomischen Bezüge bleibt Solarpunk natürlich auch ein künstlerisches und literarisches Genre, das utopische Zukunftsbilder entwirft und ästhetisch ausgestaltet.
+
+Bücher
+
+- Degrowth &amp; Strategy
+- Weniger ist Mehr, Joson Hickel
+- Solidarity economy
+- Rewilding, Simone Böcker
+- Half-earth socialism, Troy Vettese, Drew Pendergrass
+- Wessen Freiheit, welche Gleichheit? Sabine Nuss
+- Die Welt reparieren, Andrea Baier u.a.
+- A psalm for the wild-built, Becky Chambers
+- the lost cause, Cory Doctorow
+- Sonnenerwachen, Saskia Dreßler, K.-H. Zimmer
+- Menschen Schutzgebiet, Uli Burchardt
+- Die Null-Grenzkosten-Gesellschaft: Das Internet der Dinge, kollaboratives Gemeingut und der Rückzug des Kapitalismus
+- Postwachstumsökonomie, Niko Paech (kein Buch)
+
+Notizen (raw), Diskussionsnotizen:
+
+- Anarchismusbezüge
+- Historische Beziehung zum Öko-Anarchismus
+- Null Grenzkosten / Post Capitalism als ökonomischer Ansatz
+- Verantwortungseigentum mit eigenen Gesellschaftsformen (GGmbH und moderne Mischformen mit Vereinen)
+- Peak Oil Diskussion
+- Donut-Ökonomie
+- Rekursive Beziehung: Solarpunkt &lt;&lt;-&gt;&gt; Postwachstum
+- Machtstrukturen aufbrechen, Alternativen aufbauen, Erbpacht statt Eigentumsübertragung
+- menschenbejahende Ideologien statt Neoliberalismus wäre eine mögliche Lösung (marxistische Sicht)
+- Kommunen in der Finanzierungsfalle
+- Bücherschränke, Verteiler-Lager, Balkonkraftwerke etc. --&gt; klein anfangen, beitragen, was geht.
+- Ein Teil ist der Spaßeffekt als Motivation
+- Wie kommen wir schnell zum utopischen Ziel? Die Meinungen dazu gehen auseinander. Anfangen könnte helfen.</div></details></article>
+<article class="oksp-card" id="oksp25-t4r4" data-lane="4" data-notes="1" data-search="track 4 runde 4 p2d2 – public data public dna peter *p2d2 - public data public dna sessiongeber: peter
+
+notizen:
+
+- daten sind in fachanwendungen &quot;gefangen&quot;
+- beispiel: kölner friedhofsdaten
+- p2d2-zyklus entwickelt
+- daten als massenimport in osm-community integriert
+- rückmeldungen von community zum friedhofsamt
+- ziel: daten der verwaltung auf dem gleichen stand wie daten der öffentlichkeit
+- daher auch dna-idee: zwei stränge
+- projekt: https://www.data-dna.eu/
+- dokumentation: https://doc.data-dna.eu/de/
+- nach beginn des projekts, hat die stadt köln interesse an weiteren daten bekundet, die geteilt werden können
+- wenn verwaltungsdaten basis bilden, erhalten wir hohe datenqualität als offene daten, die wiederum von z.b. unternehmen veröffentlicht werden können
+- ziel: mehr als geodaten; z.b. soziale daten oder umweltdaten, aus denen wir fakten ableiten können und analysen durchführen können
+- ziel der session: information dazu, welche fachämter anzusprechen sind, welche daten interessant für mögliche nutzende sind
+- friedhofsdaten als beispiel: nur christliche friedhof als daten der verwaltung verfügbar, bei anderen religionen sind das die jeweiligen glaubensgemeinschaften
+- open data existiert, datensätze weden veröffentlicht, aber nachfrageseite fehlt bislang
+- wie kann man da ansetzen, damit die gesellschaft einen mehrwert hat?
+- ggf. verlinkung bei datensätzen hinzufügen, wofür sie genutzt werden, wo man teilhaben/partizipieren kann und welche anwendungsbeispiele es mit diesen datensätzen gibt
+- verweis zum markt der möglichkeiten: qr-code auf mülleimern (meldeeimer.de)
+- direkte, einfache zugänglichkeit
+- krux an der sache: wo sind die mehrwerte für die gesellschaft? wo kann man da ansetzen?
+- wie einfach oder schwer bekommt man die daten raus?
+- kontakt mit hersteller: statt csv-datei, sql-query, die direkt ergebnisse zurückliefert
+- ziel: originaldaten aus systemen nicht nochmal durch fachanwendungen filtern lassen, sondern möglichst direkt in open data portal exportieren können
+- anwendungsidee: bauen (bauvorschriften, grundstücke, etc.)
+- beispiel eines unternehmens, dass das bereits macht: syte.de (ehemaliges startup aus münster, die nutzen deutschlandweite alkis-datensätze und weitere daten wie z.b. bebauungspläne und extrahieren per ki informationen, und können das für gebäude dann darstellen)
+- grenzen, etc. &quot;hat mein nachbar da richtig gebaut?&quot; etc.
+- anwendungsidee:
+- ich weiß, dass personen auf einem friedhof beerdigt sind, weiß aber nicht wo sie liegen.
+- auf einer schlechten karte kaum erkennbar und schlecht zu finden; digitale karte o.ä. könnte dabei helfen als eine art smart city projekt (z.b. für wuppertal)
+- frage, ob friedhöfe schon geografisch erschlossen sind (polygone für grabstellen und grabnummern etc.)
+- datenebene: geojson, feedback zurück z.b. als georss
+- idee: urban green plan auf eu-ebene
+- gewisse menge &quot;grün&quot; in der stadt; vorgabe sieht vor, dass diese menge/anzahl nicht sinkt, sondern steigt
+- tracking des urban green planning; dazu geodaten + daten aus fachverfahren als basis
+- tobias augsburger (experte) könnte hier ein guter ansprechpartner sein
+- daten kommen zurück zur osm, osm bildet damit dann das gesamtbild ab (damit auch private bestände)
+- idee: bereich sicherheit und notfall
+- notfallinformationen &quot;zufällig&quot; in abfallkalender für 2026 gefunden
+- frage: wo findet man solche informationen?
+- idee: müllreduzierung, insbesondere sperrmüll
+- gesetzliche regelung: sobald als &quot;müll&quot; deklariert, darf man es nicht mitnehmen
+- lösung: schild &quot;zum mitnehmen/zu verschenken&quot; davor stellen
+- hier: hochdynamische daten, das wäre organisatorisch schwer darzustellen
+- blick zu citizen science: ggf. kooperation mit sensebox (https://sensebox.de/)
+- auch mobile datenerhebung, z.b. auf fahrrädern
+- idee: wirtschaftszweigdaten z.b. für gewerbe
+- welche gewerbe gibt es in meiner kommune? was ist wo angemeldet?
+- idee: leerstand von gebäuden
+- auch wichtig für kommunen, auch zwischennutzungsszenarien
+- idee: stadt-apps
+- nicht immer positiv, aber teils mitwirkung durch bürgerinnen und bürger möglich
+- digitale führung durch städte, teils auch mit rätseln etc.; förderung der wirtschaft vor ort
+- wie geocaching, nur dass die bürger*innen auch direkt mitmachen
+- als zweig für stadtmarketing" data-pad="" style="grid-row:5;grid-column:5"><div class="oksp-meta"><span class="oksp-num">Track 4 · Runde 4</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 4 · Runde 4: P2D2 – Public Data Public DNA öffnen</button><div class="oksp-part"><h4 class="oksp-title">P2D2 – Public Data Public DNA</h4><p class="oksp-host"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Peter</span></p></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">*P2D2 - Public Data Public DNA Sessiongeber: Peter
+
+Notizen:
+
+- Daten sind in Fachanwendungen &quot;gefangen&quot;
+- Beispiel: Kölner Friedhofsdaten
+- p2d2-Zyklus entwickelt
+- Daten als Massenimport in OSM-Community integriert
+- Rückmeldungen von Community zum Friedhofsamt
+- Ziel: Daten der Verwaltung auf dem gleichen Stand wie Daten der Öffentlichkeit
+- Daher auch DNA-Idee: zwei Stränge
+- Projekt: <a href="https://www.data-dna.eu/" target="_blank" rel="noopener">https://www.data-dna.eu/</a>
+- Dokumentation: <a href="https://doc.data-dna.eu/de/" target="_blank" rel="noopener">https://doc.data-dna.eu/de/</a>
+- Nach Beginn des Projekts, hat die Stadt Köln Interesse an weiteren Daten bekundet, die geteilt werden können
+- Wenn Verwaltungsdaten Basis bilden, erhalten wir hohe Datenqualität als offene Daten, die wiederum von z.B. Unternehmen veröffentlicht werden können
+- Ziel: mehr als Geodaten; z.B. soziale Daten oder Umweltdaten, aus denen wir Fakten ableiten können und Analysen durchführen können
+- Ziel der Session: Information dazu, welche Fachämter anzusprechen sind, welche Daten interessant für mögliche Nutzende sind
+- Friedhofsdaten als Beispiel: nur christliche Friedhof als Daten der Verwaltung verfügbar, bei anderen Religionen sind das die jeweiligen Glaubensgemeinschaften
+- Open Data existiert, Datensätze weden veröffentlicht, aber Nachfrageseite fehlt bislang
+- Wie kann man da ansetzen, damit die Gesellschaft einen Mehrwert hat?
+- Ggf. Verlinkung bei Datensätzen hinzufügen, wofür sie genutzt werden, wo man teilhaben/partizipieren kann und welche Anwendungsbeispiele es mit diesen Datensätzen gibt
+- Verweis zum Markt der Möglichkeiten: QR-Code auf Mülleimern (meldeeimer.de)
+- direkte, einfache Zugänglichkeit
+- Krux an der Sache: Wo sind die Mehrwerte für die Gesellschaft? Wo kann man da ansetzen?
+- Wie einfach oder schwer bekommt man die Daten raus?
+- Kontakt mit Hersteller: statt CSV-Datei, SQL-Query, die direkt Ergebnisse zurückliefert
+- Ziel: Originaldaten aus Systemen nicht nochmal durch Fachanwendungen filtern lassen, sondern möglichst direkt in Open Data Portal exportieren können
+- Anwendungsidee: Bauen (Bauvorschriften, Grundstücke, etc.)
+- Beispiel eines Unternehmens, dass das bereits macht: syte.de (Ehemaliges Startup aus Münster, die nutzen deutschlandweite ALKIS-Datensätze und weitere Daten wie z.B. Bebauungspläne und extrahieren per KI Informationen, und können das für Gebäude dann darstellen)
+- Grenzen, etc. &quot;Hat mein Nachbar da richtig gebaut?&quot; etc.
+- Anwendungsidee:
+- Ich weiß, dass Personen auf einem Friedhof beerdigt sind, weiß aber nicht wo sie liegen.
+- Auf einer schlechten Karte kaum erkennbar und schlecht zu finden; digitale Karte o.ä. könnte dabei helfen als eine Art Smart City Projekt (z.B. für Wuppertal)
+- Frage, ob Friedhöfe schon geografisch erschlossen sind (Polygone für Grabstellen und Grabnummern etc.)
+- Datenebene: GeoJSON, Feedback zurück z.B. als GeoRSS
+- Idee: Urban Green Plan auf EU-Ebene
+- gewisse Menge &quot;grün&quot; in der Stadt; Vorgabe sieht vor, dass diese Menge/Anzahl nicht sinkt, sondern steigt
+- Tracking des Urban Green Planning; dazu Geodaten + Daten aus Fachverfahren als Basis
+- Tobias Augsburger (Experte) könnte hier ein guter Ansprechpartner sein
+- Daten kommen zurück zur OSM, OSM bildet damit dann das Gesamtbild ab (damit auch private Bestände)
+- Idee: Bereich Sicherheit und Notfall
+- Notfallinformationen &quot;zufällig&quot; in Abfallkalender für 2026 gefunden
+- Frage: Wo findet man solche Informationen?
+- Idee: Müllreduzierung, insbesondere Sperrmüll
+- gesetzliche Regelung: sobald als &quot;Müll&quot; deklariert, darf man es nicht mitnehmen
+- Lösung: Schild &quot;zum mitnehmen/zu verschenken&quot; davor stellen
+- hier: hochdynamische Daten, das wäre organisatorisch schwer darzustellen
+- Blick zu Citizen Science: ggf. Kooperation mit SenseBox (<a href="https://sensebox.de/" target="_blank" rel="noopener">https://sensebox.de/</a>)
+- auch mobile Datenerhebung, z.B. auf Fahrrädern
+- Idee: Wirtschaftszweigdaten z.B. für Gewerbe
+- Welche Gewerbe gibt es in meiner Kommune? Was ist wo angemeldet?
+- Idee: Leerstand von Gebäuden
+- auch wichtig für Kommunen, auch Zwischennutzungsszenarien
+- Idee: Stadt-Apps
+- nicht immer positiv, aber teils Mitwirkung durch Bürgerinnen und Bürger möglich
+- digitale Führung durch Städte, teils auch mit Rätseln etc.; Förderung der Wirtschaft vor Ort
+- wie Geocaching, nur dass die Bürger*innen auch direkt mitmachen
+- als Zweig für Stadtmarketing</div></details></article>
+<article class="oksp-card oksp-card--empty" id="oksp25-t5r4" data-lane="5" data-notes="0" data-search="track 5 runde 4 wie ziehen kommunen, gesellschaft und forschung an einem strang? #hochwasserki  " data-pad="" style="grid-row:5;grid-column:6"><div class="oksp-meta"><span class="oksp-num">Track 5 · Runde 4</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 5 · Runde 4: Wie ziehen Kommunen, Gesellschaft und Forschung an einem Strang? #HochwasserKI öffnen</button><div class="oksp-part"><h4 class="oksp-title">Wie ziehen Kommunen, Gesellschaft und Forschung an einem Strang? #HochwasserKI</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--no">keine Notizen</span></div></article>
+<article class="oksp-card" id="oksp25-t6r4" data-lane="6" data-notes="1" data-search="track 6 runde 4 social media neu denken: fediverse  *sascha foerster
+
+- sascha ist mitbegründer der social media agentur https://bonn.digital in bonn
+- früh in social media aktiv
+- aufgrund der entwicklungen im social media bereich (weniger eigentümer bestimmen die spielregeln) hat er sich entschieden alternative social media selber zur verfügung zu stellen
+- auf mastodon: https://bonn.social/@sascha
+
+*fediverse allgemein: https://digitalcourage.de/digitale-selbstverteidigung/fediverse so ähnlich wie e-mail, man kann sich beliebigen provider aussuchen und es funktioniert trotzdem. das heißt man kann mit instagram nicht leute auf twitter oder tiktok oder ... folgen fediverse is eine social web lösung - funktioniert wie das web: man kann sich von überall her
+
+*alternativen zu existierenden social media plattformen: beispiele: mastodon  so ähnlich wie twitter: https://joinmastodon.org/de oder für menschen mit affinität zu bonn: https://bonn.social pixelfed: so ähnlich wie instagram: https://pixelfed.de/
+
+*wie kriege ich meine freunde ins fediverse? dadurch, daß man seine follower:innen immer mitnehmen kann, ist es egal welches social media man wirklich nutzt und man kann immer wecheln. im fediverse kann man app-übergreifend accounts folgen oder gefolgt werden also: in letztes mal migrieren und dann ist gut.
+
+wie finde ich meine &quot;leute&quot;? --&gt; suchfunkltion nutzen, da potentiell alle server miteinander verbunden sind
+
+es gibt aber auch geschlossene fediverse server, die aus verschiedenen gründen das so halten.
+
+*geschäftsmodell im fediverse die einzelnen social media plattformen im fediverse sind von haus aus dezentral. jede/jeder kann selber eine eigenen server aufsetzten
+
+stadt bonn als kommune ist auf https://nrw.social/@bundesstadtbonn
+
+- was schön wäre
+
+mediatheken im fediverse, dann könnte man sie einfach aufrufen  wenn kommunen alternative social media plattformen für ihre bürger:innen betreiben und anbieten würden
+
+ergänzung im off: gibt es ja schon mehr oder weniger mit peertube - kanäle kann man über andere fedi-dienste wie mastodon abonnieren dann ist es gebündelt - toll wäre wenn die öffentlich-rechtlichen eigene server hätten - ist aber vermutlich ein enormer mehraufwand.
+
+damian paderta (#)
+
+								offene kommunen.nrw, digitalberater und webgeograph | nozilla
+
+	&lt;footer" data-pad="" style="grid-row:5;grid-column:7"><div class="oksp-meta"><span class="oksp-num">Track 6 · Runde 4</span></div><button type="button" class="oksp-open" aria-haspopup="dialog">Details zu Track 6 · Runde 4: Social Media neu denken: Fediverse öffnen</button><div class="oksp-part"><h4 class="oksp-title">Social Media neu denken: Fediverse</h4></div><div class="oksp-foot"><span class="oksp-flag oksp-flag--yes"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>Notizen</span></div><details class="oksp-notes"><summary>Notizen</summary><div class="oksp-notes-body">*Sascha Foerster
+
+- Sascha ist Mitbegründer der Social Media Agentur <a href="https://bonn.digital" target="_blank" rel="noopener">https://bonn.digital</a> in Bonn
+- Früh in Social Media aktiv
+- Aufgrund der Entwicklungen im Social Media Bereich (weniger Eigentümer bestimmen die Spielregeln) hat er sich entschieden alternative Social Media selber zur Verfügung zu stellen
+- Auf Mastodon: <a href="https://bonn.social/@sascha" target="_blank" rel="noopener">https://bonn.social/@sascha</a>
+
+*Fediverse Allgemein: <a href="https://digitalcourage.de/digitale-selbstverteidigung/fediverse" target="_blank" rel="noopener">https://digitalcourage.de/digitale-selbstverteidigung/fediverse</a> So ähnlich wie e-mail, man kann sich beliebigen Provider aussuchen und es funktioniert trotzdem. Das heißt man kann mit Instagram nicht Leute auf Twitter oder TikTok oder ... folgen Fediverse is eine Social Web Lösung - funktioniert wie das Web: man kann sich von überall her
+
+*Alternativen zu existierenden Social Media Plattformen: Beispiele: Mastodon  so ähnlich wie Twitter: <a href="https://joinmastodon.org/de" target="_blank" rel="noopener">https://joinmastodon.org/de</a> oder für Menschen mit Affinität zu Bonn: <a href="https://bonn.social" target="_blank" rel="noopener">https://bonn.social</a> Pixelfed: so ähnlich wie Instagram: <a href="https://pixelfed.de/" target="_blank" rel="noopener">https://pixelfed.de/</a>
+
+*Wie kriege ich meine Freunde ins Fediverse? Dadurch, daß man seine Follower:innen immer mitnehmen kann, ist es egal welches Social Media man wirklich nutzt und man kann immer wecheln. Im Fediverse kann man App-übergreifend Accounts folgen oder gefolgt werden Also: in letztes mal migrieren und dann ist gut.
+
+Wie finde ich meine &quot;Leute&quot;? --&gt; Suchfunkltion nutzen, da potentiell alle Server miteinander verbunden sind
+
+Es gibt aber auch geschlossene Fediverse Server, die aus verschiedenen Gründen das so halten.
+
+*Geschäftsmodell im Fediverse Die einzelnen Social Media Plattformen im Fediverse sind von Haus aus dezentral. Jede/jeder kann selber eine eigenen Server aufsetzten
+
+Stadt Bonn als Kommune ist auf <a href="https://nrw.social/@BundesstadtBonn" target="_blank" rel="noopener">https://nrw.social/@BundesstadtBonn</a>
+
+- Was schön wäre
+
+Mediatheken im Fediverse, dann könnte man sie einfach aufrufen  Wenn Kommunen alternative Social Media Plattformen für ihre Bürger:innen betreiben und anbieten würden
+
+Ergänzung im OFF: Gibt es ja schon mehr oder weniger mit PeerTube - Kanäle kann man über andere Fedi-Dienste wie Mastodon abonnieren dann ist es gebündelt - toll wäre wenn die Öffentlich-rechtlichen eigene server hätten - ist aber vermutlich ein enormer Mehraufwand.
+
+Damian Paderta (#)
+
+								Offene Kommunen.NRW, Digitalberater und Webgeograph | nozilla
+
+	&lt;footer</div></details></article>
+</section>
+</div>
+<dialog class="oksp-dialog" aria-labelledby="oksp25-d-title">
+  <div class="oksp-d-inner">
+    <header class="oksp-d-head">
+      <div class="oksp-d-meta"></div>
+      <button type="button" class="oksp-d-close" aria-label="Schließen"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </header>
+    <div class="oksp-d-body"></div>
+    <footer class="oksp-d-foot">
+      <button type="button" class="oksp-d-nav" data-dir="-1"><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg><span>vorherige</span></button>
+      <span class="oksp-d-pos"></span>
+      <button type="button" class="oksp-d-nav" data-dir="1"><span>nächste</span><svg class="oksp-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+    </footer>
+  </div>
+</dialog>
+<script data-no-optimize="1" data-no-defer="1">
+(function(){
+  function init(){
+    var root=document.getElementById('oksp25');
+    if(!root||root.classList.contains('is-js'))return;
+    root.classList.add('is-js');
+    var cards=[].slice.call(root.querySelectorAll('.oksp-card'));
+    var dlg=root.querySelector('.oksp-dialog');
+    var dMeta=dlg.querySelector('.oksp-d-meta'),dBody=dlg.querySelector('.oksp-d-body');
+    var dPos=dlg.querySelector('.oksp-d-pos'),navs=dlg.querySelectorAll('.oksp-d-nav');
+    var q=root.querySelector('.oksp-search'),status=root.querySelector('.oksp-status'),reset=root.querySelector('.oksp-reset');
+    var onlyNotes=root.querySelector('.oksp-onlynotes');
+    var state={notes:false,q:''},current=null;
+    var canDialog=typeof dlg.showModal==='function';
+
+    /* Ansicht */
+    var views=[].slice.call(root.querySelectorAll('.oksp-view'));
+    function setView(v){root.setAttribute('data-view',v);views.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-view')===v));});
+      try{localStorage.setItem('oksp25-view',v);}catch(e){}}
+    var saved=null;try{saved=localStorage.getItem('oksp25-view');}catch(e){}
+    if(window.matchMedia('(min-width:1000px)').matches){setView(saved==='list'?'list':'grid');}
+    views.forEach(function(b){b.addEventListener('click',function(){setView(b.getAttribute('data-view'));});});
+
+    /* Filter. Hinweis: ohne Backslashes, weil WordPress sie beim Speichern entfernen kann. */
+    function words(s){return s.split(' ').filter(function(w){return w.length>0;});}
+    function matches(c){
+      if(state.notes&&c.getAttribute('data-notes')!=='1')return false;
+      if(state.q){var s=c.getAttribute('data-search'),w=words(state.q);
+        for(var j=0;j<w.length;j++){if(s.indexOf(w[j])<0)return false;}}
+      return true;
+    }
+    function apply(){
+      var n=0,active=state.notes||state.q;
+      cards.forEach(function(c){var m=matches(c);c.classList.toggle('is-dim',!!active&&!m);if(m)n++;});
+      onlyNotes.setAttribute('aria-pressed',String(state.notes));
+      reset.hidden=!active;
+      status.textContent=active?(n===1?'1 Session passt.':n+' Sessions passen.')+(n?'':' Versuche einen anderen Begriff.'):'';
+    }
+    root.addEventListener('click',function(ev){
+      var o=ev.target.closest('.oksp-open');
+      if(o&&root.contains(o)){openCard(o.closest('.oksp-card'));}
+    });
+    onlyNotes.addEventListener('click',function(){state.notes=!state.notes;apply();});
+    reset.addEventListener('click',function(){state={notes:false,q:''};q.value='';apply();});
+    var tmr;q.addEventListener('input',function(){clearTimeout(tmr);tmr=setTimeout(function(){state.q=q.value.trim().toLowerCase();apply();},120);});
+
+    /* Dialog */
+    function visible(){var v=cards.filter(function(c){return !c.classList.contains('is-dim');});return v.length?v:cards;}
+    function openCard(c){
+      if(!c)return;
+      if(!canDialog){var d=c.querySelector('details');if(d){d.open=!d.open;}return;}
+      current=c;
+      dMeta.innerHTML=c.querySelector('.oksp-meta').innerHTML;
+      var html='',parts=c.querySelectorAll('.oksp-part');
+      parts.forEach(function(p){html+='<div class="oksp-part">'+p.innerHTML+'</div>';});
+      html=html.replace('<h4 class="oksp-title">','<h4 class="oksp-title" id="oksp25-d-title">');
+      var notes=c.querySelector('.oksp-notes-body'),pad=c.getAttribute('data-pad');
+      html+='<section class="oksp-d-sec"><h4>Notizen</h4>';
+      html+=notes?'<div class="oksp-d-notes">'+notes.innerHTML+'</div>':'<p class="oksp-d-empty">Zu dieser Session gibt es keine Notizen.</p>';
+      if(pad)html+='<a class="oksp-d-pad" href="'+pad+'" target="_blank" rel="noopener">Pad öffnen</a>';
+      html+='</section>';
+      dBody.innerHTML=html;dBody.scrollTop=0;
+      var list=visible(),i=list.indexOf(c);
+      dPos.textContent=(i>-1?(i+1)+' von '+list.length:'');
+      navs[0].disabled=i<=0;navs[1].disabled=i<0||i>=list.length-1;
+      if(!dlg.open){dlg.showModal();document.documentElement.style.overflow='hidden';}
+      try{history.replaceState(null,'','#'+c.id);}catch(e){}
+    }
+    function step(d){var list=visible(),i=list.indexOf(current);if(i>-1&&list[i+d])openCard(list[i+d]);}
+    function closeDlg(){if(dlg.open)dlg.close();}
+    dlg.addEventListener('close',function(){document.documentElement.style.overflow='';
+      try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}
+      if(current){var o=current.querySelector('.oksp-open');if(o)o.focus();}});
+    dlg.querySelector('.oksp-d-close').addEventListener('click',closeDlg);
+    navs.forEach(function(b){b.addEventListener('click',function(){step(+b.getAttribute('data-dir'));});});
+    dlg.addEventListener('click',function(ev){if(ev.target===dlg)closeDlg();});
+    dlg.addEventListener('keydown',function(ev){
+      if(ev.target.tagName==='INPUT')return;
+      if(ev.key==='ArrowRight'){step(1);ev.preventDefault();}
+      if(ev.key==='ArrowLeft'){step(-1);ev.preventDefault();}
+    });
+    root.querySelector('.oksp-random').addEventListener('click',function(){
+      var pool=visible().filter(function(c){return c.getAttribute('data-notes')==='1'&&c!==current;});
+      if(!pool.length)pool=visible();
+      openCard(pool[Math.floor(Math.random()*pool.length)]);
+    });
+    /* Direktlink, etwa #oksp25-t3r4 */
+    if(location.hash.indexOf('#oksp25-')===0){var t=document.getElementById(location.hash.slice(1));if(t&&t.classList.contains('oksp-card'))openCard(t);}
+    apply();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+
+</script>
+</div>
